@@ -5,6 +5,8 @@ import starlight from '@astrojs/starlight';
 const version = process.env.npm_package_version;
 
 export default defineConfig({
+  site: 'https://brian-montgomery.github.io',
+  base: 'jc2e-tea',
   server: {
     host: "0.0.0.0",
   },
