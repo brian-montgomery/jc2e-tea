@@ -10,7 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.28.2",
+    "@astrojs/starlight": "^0.28.6",
     "@fontsource-variable/cormorant": "^5.1.0",
     "@fontsource/baskervville": "^5.0.20",
     "@fontsource/baskervville-sc": "^5.0.1",
@@ -18,7 +18,7 @@
     "@fontsource/great-vibes": "^5.0.21",
     "@fontsource/luxurious-script": "^5.0.20",
     "@fontsource/pinyon-script": "^5.0.21",
-    "astro": "^4.15.11",
+    "astro": "^4.16.9",
     "sharp": "^0.32.5"
   }
 }
