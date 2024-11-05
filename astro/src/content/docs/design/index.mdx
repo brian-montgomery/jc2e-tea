@@ -1,0 +1,100 @@
+---
+title: Philosophy & Goals
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+[John Company: 2nd Edition](https://wehrlegig.com/collections/frontpage/products/john-company-second-edition) is a tactical negotiation and gambling game about British families profiteering from the British East India Company to climb socially among the gentry. 
+
+Early in 2024, there was a [thread on BoardGameGeek](https://boardgamegeek.com/thread/3222245/are-there-any-plans-for-expansion) that asked what an expansion for John Company might look like. After going through a thought exercise of what that might look like, the thoughts focused on the similarity to the 18xx series.
+
+Because of its implementation of company management, stock, corporate actions, and economic conquest, John Company is compared to the [18xx](https://en.wikipedia.org/wiki/18XX) series of train games. The 18xx series of games have a number of scenarios that utilize core concepts and rules, while each game provides its own historical context, rules and challenges. 
+
+Cole Wehrle, the designer of John Company, has [mentioned that there is some 18xx influence](https://youtu.be/8VrIMxmphI0?si=_KpEs38DDxAfvUmo&t=4410), albeit "peculiar". In another discussion of the game, he discussed how John Company [is more like a game system](https://www.youtube.com/live/mdLx3yn_Dsk?si=78t0KDZZaw9EP1rA&t=346) due to the complexity and volume of rules.
+
+The result of the thought process is the historical scenario detailed here. In designing this scenario, the following guidelines and principles were used:
+
+## An Advanced Scenario for Experienced Players
+
+Each scenario in John Company achieves a purpose and tells a unique story:
+
+1. The __1710__ scenario introduces the base concepts of the game, functioning as a lengthy tutorial while providing enough 
+2. The __1813__ scenario introduces the firm rules, which provide a different narrative and changes some strategies.
+3. The __1758__ scenario adds the deregulation vote, enabling the players to negotiate when to change from the base rules to the firm rules, while still keeping the game about 5 turns.
+4. The __long 1710__ scenario is John Company with "the works". It enables all the rules while allowing the possibility for a longer time of play and negotiation.
+
+John Company is a complex game and this __1733__ scenario adds even more rules into the system. Therefore, this expansion is only for those who have played multiple games of the other scenarios.
+
+## A Scenario for Larger Groups of Players
+
+Due to the additional board space and roles, this scenario is aimed at supporting larger player counts (4-6 players). In the base scenarios, the number of available roles do not scale with an increased player count, thus depending on firms or governorships to increase the available positions. In this scenario, in addition to additional government roles, there is additional importance placed on military (and thus governors) in India. The combined effect establishes a increased pool of actions for those with larger groups.
+
+## Reuse Mechanisms and Components
+
+John Company has already established a number of systems and mechanics. We want to utilize as the same mechanics in this scenario. Learning the rules becomes easier and it helps this scenario to feel integrated with the base game.
+
+Some example of the mechanics we want to keep:
+
+<Steps>
+
+1. The dice system.
+
+   The "low-luck" dice system provides increasing but never guaranteed odds. This system is a core aspect of the game, acting as a gambling mechanic. Even if the odds are altered, we want to keep the outcome of
+   - `1-2` is a success,
+   - `3-4` is a failure with minor impacts, and
+   - `5-6` is a catastrophic failure with major consequences
+
+   ... as a component of any dice roll.
+
+2. Procedural offices and flow.
+
+   This scenario will implement a few additional offices and positions. We want to integrate those into the natural procedural flow of how the company and the turn structure operates.
+
+3. Abstract trading with orders.
+
+   The backdrop of the game is about ecomonics and monopolies. The orders present on that represent both demand and geography. A filled order represents less demand and leverage over an area, obtaining less value. A closed order represents political, military and/or economic issues that prevent the Company or a firm from negotiating effectively. When the firms are involved, the initative mechanic rewards smaller, more nimble organizations (and fortunate rolling).
+
+4. Export icons.
+
+   To represent a specific trade commodity, the export icons (representing opium) are printed directly on the board on specific trade orders. Similarly, other orders that need to have a specific resources or need to be modified should use a similar mechanic.
+
+   :::caution
+   These should be kept fairly low and have a very specific purpose.
+   :::
+
+5. The prestige, law and event decks.
+
+   To ensure the flavor and theme of the scenario, historical and scenario-specific elements need to be added. However, each deck has a specific ratio of cards that are carefully balanced. Modifying those decks will disrupt the careful balance and purpose that those decks provide. In addition, we don't want to remove the focus from India and the history that is in the original game.
+
+</Steps>
+
+## Easy to Learn, Setup and Store
+
+The integration of this scenario in with the existing rules and components is very important.
+
+- The original scenarios can be switched between without much impact.
+
+    Changing between the base __1710__ scenario and the other scenarios is simple. The only setup difference is using the appropriate scenario setup cards and locating any scenario-specific law cards in the deck. There is no mixing or shuffling of additional cards or components. Only a few rules are modified or removed between the scenarios; almost all of the rule changes are additive.
+
+    Our goal for the __1733__ scenario is to be similar (although more extensive): that the rules and components are as additive as possible.
+    - Use the specified scenario setup cards.
+    - Add the scenario-specific components and decks.
+    - The scenario-specific rules are additive and should feel familiar to players. 
+
+    The hope is that there is no need to shuffle in (or remove) scenario-specific cards from the existing decks, other than locating a specific card or two.
+
+- We want to keep the additional components this scenario requires fairly small in size.
+
+    There is not much room in the John Company: 2nd edition box. One of the common complaints is that it can be difficult to get the lid flush once the cards are sleeved. For this print-and-play scenario, we want to keep the additional boards and components small. By doing so, it increases the likelihood that this scenario could fit in the box with the original.
+
+## Provide Contrast and Purpose
+
+Because each of the scenarios are unique, they not only have their own rules and setup, they also tell a unique story. Similarly, to have a reason for being, __1733__ needs to tell its own story, both thematically and mechanically. While rule and mechanic consistency is important, it is also needed to add certain twists on those rules to highlight the differences in the narrative.
+
+:::caution
+This somewhat contradicts the desire to be consistent with the mechanics and rules in the other scenarios. Getting the balance right is hard. One complaint of John Company is that the details on the systems and rules can be challenging to get right the first few times.
+
+The additional rules and flavor emphasize (again) that this scenario is designed for experienced players only.
+:::

@@ -1,0 +1,139 @@
+---
+title: Tea
+sidebar:
+    order: 3
+---
+
+import Role from '../../../components/Role.astro';
+
+import { Image } from 'astro:assets';
+import { Steps } from '@astrojs/starlight/components';
+
+From a gameplay perspective, this scenario allows an exploration of the inverse of the __1758__ scenario. Instead of the possibility of deregulation and a monopoly being lost, __1733__ reverses that narrative. Firms are established in the beginning of the game, performing colonial trade in [America](../america), not in India. During the scenario, tea regulation can be enacted, giving the Company a monopoly on tea and allowing it to directly compete with the firms in America.
+
+Thus, as one would assume, tea becomes a crucial part of this scenario.
+
+## The Tea Act of 1773
+
+One of the narrative goals for this scenario is to create a situation where the Company (and perhaps the Government) is desperate for revenue, and passes the Tea Act so that it can trade its reserve of tea in America. Success or failure for the Company could depend on the outcome of that trade.
+
+Mechanically, this law would be analogous to the major decision of deregulation in the __1758__ and __long 1710__ scenarios. That difference will help make this scenario unique, but also feel familiar as it utilizes a similar decision mechanic.
+
+:::tip[Design note]
+Similar to deregulation, the vote would only be allowed when the Company standing or debt tracks are on a lined space. The amount of supporting votes would be based on the amount of Tea that the Company has in its warehouses.
+:::
+
+## Tea as a Resource
+
+To tell that story, the Company needs to develop a surplus of tea that it stores in its warehouses.
+
+In John Company, the commodities in trade are mostly abstracted. Each trade order represents a geographical region, but it doesn't delve into commodities that were actually traded. However, because of the story we want to tell, tea needs to be specifically mentioned. To have the element of Tea being traded with the American colonists, the thought is to make Tea an actual resource for this scenario.
+
+import TeaToken from '/src/assets/images/tea-token.png';
+
+<Image
+    src={TeaToken}
+    title="Prototype tea token as a hexagon"
+    alt="Prototype tea token as a hexagon"
+    style="float: right; width: 10em; padding: 1em" 
+/>
+:::note
+There are three possible names to give the tea resource.
+
+1. Tea Chests
+2. Tea Crates
+3. Tea Tokens
+
+Mechanically, tea would be spent and stacked like coins. A similar size to coins would be appropriate. Because of the various shapes and components are already present in the game (coins as large circles, family members/writers/trade orders as smaller ovals, ships as triangles, regiments as small squares, local alliances as small hexagons), the thought is to use a hexagon as the shape for the tea. An example of what that could look like is shown.
+:::
+
+The one exception to the commodity abstraction is the export icons that represent the opium trade with China. We will need some way to determine the amount of Tea that is generated from trade with China. Using the amount of Export Icons already present is a good place to start.
+
+## Incentivizing Tea
+
+As mentioned, tea is an fundamental aspect of this scenario. The players need to be motivated to provide a surplus of tea that the Company holds in its warehouses. This means the Company should be incentivized to trade in China and generate a surplus of tea to encourage the narrative.
+
+The following incentives are being considered:
+
+1. This scenario allows trade with China at the start. The Superintendent of Trade in China will be an office (with some ships) that a player receives from a scenario setup card.
+
+    This matches historically, as trade with China was established by the early 18th century.
+
+2. Tea (as a resource) will be added as an additional output of trade with China. The £4 per export icon will still be used.
+    - This doesn't modify the rules and expectations from the base scenarios, it just adds to them.
+    - The "Envoy with China" law card can still increase the financial incentive to £5 per icon.
+    - It clearly denotes China (and the tea trade) as the most profitable aspect of the East India Company, which fits with late 18th century history.
+
+    :::caution
+    Some sort of ratio or other formula is needed to determine how much Tea is generated from China.
+    :::
+
+3. An additional method of trade with China is needed. If the Company military fails to control the areas of India which produce opium, we still want trade with China to be an option. This matches history as silver was used until opium became the dominiant commodity in the late 18th century.
+
+4. The tea resource could be usable as a bonus for trading in America before tea regulation. The firms could have some small incentive to acquire and utilize it, perhaps as a "bonus" when calculating the overall value of a trade.
+
+    :::note
+    This matches history as the English did trade tea in America. The Dutch were more successful at it.
+    :::
+
+## Managing the Tea
+
+Because tea is a new resource, there needs to be an office in the Company that manages the tea. Since tea was stored in the Company warehouses, relating the office to the warehouses makes sense. It also fits the history, as there was a "Committee of Warehouses" within the East India Company.
+
+:::note
+There are two candidate names for this office:
+1. __Director of Warehouses__: Indicator that this office is responsible for the committee of warehouses, where the Tea would be stored.
+2. __Manager of Warehouses__: Indicating that this office is a lower level position in the Company, similar to the Manager of Shipping.
+
+Leaning towards the first because of the linkage to the Director of Trade, as both positions can be changed by law.
+:::
+
+If this office deals in the Tea resource (and not in money), this is an additional position that does not have a treasury that holds money, and thus, lessens the direct influence of the Chairman.
+
+### Tea Auction
+
+The <Role name="role.company.tea"/> would perform a Tea Auction as their turn, in which players would negotiate to receive the Tea that is exported from China. The firm(s) operating in America would be the recipients. While this office has no official bonus (similar to the Director of Trade or the Manager of Shipping), it would be expected that the player would benefit from the position from their negotiation skills.
+
+Mechanically, the Tea Auction would function similarly to the Chairman distributing money, except the <Role name="role.company.tea"/> does not need to distribute all of the tea. Again, open discussions and negotiation should be encouraged.
+
+There's a bit of tension present: the Director of Warehouse profiting personally from distributing Tea versus keeping it within the Company. Narratively, the scenario wants the Director to keep some in the Company Warehouses. 
+
+### After Tea Regulation
+
+Once the Tea Act is enacted, that position would change from managing the tea in the Company warehouses to shipping tea to America.
+
+:::note
+This utilizes the same mechanic of when the Director of Trade becomes the Governor General when the Governor General law is passed. Any attrition would roll over.
+
+There are two candidate names for this office:
+1. __Consignor of Tea in America__: Named because the chosen tea agents were consignees of the East India Company.
+2. __Superintendent of Trade in America__: Named after the China position already established in the game. Note that this linkage is not perfect, because while the position would be similar in role, the mechanics would likely be different.
+:::
+
+The thought is that this office would follow the standard trade rules, with the caveat that instead of spending coins, they would instead spend the tea resource for dice. Failing the trade means all of the spent tea would be wasted, similar to what happened in the Boston Tea Party.
+
+## Tea Houses
+
+There is some thought of also including the importance of tea and coffee houses in British and American culture, especially with the influential merchants and politicians of the time. Coffeehouses were popular during this time, with tea rooms not developing as much until the 19th century. However, the [Twinings tea room](https://en.wikipedia.org/wiki/Twinings#History) was started in the early 18th century and could be used as an examplar of a social enterprise that provides votes and/or income.
+
+:::tip[Idea]
+
+Ideas for how tea rooms could be implemented:
+
+<Steps>
+
+1. __A Social Enterprise__
+
+   The Tea House would represent a social enterprise that produces some amount of money and/or votes (representing the political influence from conversations that emerged).
+
+   This would likely be implemented as a prestige card. While thematically appropriate, it doesn't feel like this adds enough interest mechanically to justify the need to add another social enterprise to the Prestige Deck.
+
+2. __Place for Government "Writers"__
+
+   The Tea House could act as a holding area for "writers" for the government (essentially young politicians). When placing a writer, instead of placing it in a Presidency, it could be placed in the Tea House instead (There may need to be a cap on a single writer placed here per turn).
+
+   The thought is that writers here are used as candidates for political government positions during the _Hiring_ phase. They could be used as a vote during the _Parliament Meets_ phase. Instead of making money, they (slightly) raise the political capital of the family.
+
+</Steps>
+
+:::

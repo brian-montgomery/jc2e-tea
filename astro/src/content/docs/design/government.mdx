@@ -1,0 +1,150 @@
+---
+title: British Government
+sidebar:
+   order: 5
+---
+
+import Role from "../../../components/Role.astro"
+
+The British government plays a very important role in this part of history:
+* The motivation to tax America was to help pay for the growing deficit that the British military was causing, starting with the War with Spain that ended in 1730.
+* Specifically, the government wanted the American colonies to subsidize the troops that were over in America, especially after the French and Indian War (which is really just the North American theatre of the Seven Years War with France).
+
+The thought is to contrast the British Government's relationship with America to the EIC's relationship with India. The colonies in America started out as commercial ventures, just as the East India Company did. Since the America colonies were not initially profitable, the investors backed out and the colonies became royal colonies, supported by the government.
+
+In the same way that Presidencies oversaw and made decisions about India, the British Government (specifically the Board of Trade and Plantations) made recommendations and decisions about how to oversee the 13 Colonies.
+
+## The New Offices
+
+The higher focus on the British Government means the majority of new positions in this scenario are based on the Government, not the Company. The following is the envisioned additional roles for the Government (with alternative names listed below them):
+- [<Role name="role.govt.tariffs"/>](https://allthingsliberty.com/2020/11/the-board-of-trade-and-plantations-1688-1761/)
+    - Lord Commissioner of Trade and Plantations
+- [<Role name="role.govt.governor"/>](https://en.wikipedia.org/wiki/Secretary_of_State_for_the_Colonies#Colonial_Secretary_1768%E2%80%931782)
+    - Secretary of State for the Colonies
+    - Secretary of State for the Southern Department
+- [<Role name="role.govt.military"/>, North America](https://en.wikipedia.org/wiki/Commander-in-Chief,_North_America)
+- [<Role name="role.govt.customs"/>](https://en.wikipedia.org/wiki/Townshend_Acts#American_Board_of_Customs_Commissioners)
+    - Surveyor of Customs
+    - Commissioner of Customs Board
+
+:::note
+Currently leaning towards _Customs Agent_ to differentiate the position from the _Lord Commissioner_ position. If _First Lord_ is used instead, then it may make sense to use _Commissioner_ to refer to the customs position.
+:::
+
+## A "Presidency in America"
+
+These additional roles compromise the <Role name="role.govt.office"/> - historically, a part of the Southern Department. From a gameplay perspective, the <Role name="role.govt.office"/> acts like a fourth presidency. The positions included are a remix of the offices and abilities that the Company has, using similar mechanics. The familiarity of the actions will hopefully streamline them and not add too much additional length or complexity to the game. The changes should highlight both the similarities and differences between the Company and the Government.
+
+### Comparison with the Presidencies
+
+<div id="region-comp">
+
+|   | **India** | **America** |
+|---|-----------|-------------|
+| **Authority** | President determines the order. | Secretary determines the order. |
+| **Hiring** | Director of Trade hires the President. Office of Military Affairs selects a Commander. The President hires the Governors. | The First Lord hires the Secretary. Secretary hires the other offices. |
+| **Hiring Pool** | The writers in the Presidency. | The current pool of Pensioners who didn't retire. |
+| **Taxes** | Governor rolls to tax. | The First Lord brings tariffs to Parliament. |
+| **Trade Roll** | President rolls to trade. | Customs Office rolls to prevent trade. |
+| **Trade Bandwidth** | Number of ships - regions. | Smuggler strength. |
+| **Trade Dice** | Amount of £ spent. | Determined by smugglers, tariff and navy. |
+| **Army Roll** | Commander determines. | Commander-in-Chief determines. |
+| **Army Attack** | Army attacks regions to take control, clear orders and unrest. | Army to clear orders, reduce native strength. |
+| **Army Defense** | Army defends against various conflict events. | Army defends against various conflict events. |
+| **Administrative Role** | Governor taxes, builds ships or commissions army. | Secretary commissions army and navy. |
+
+</div>
+
+
+## Statutes (Tariffs)
+
+In the base game, the Law Deck and Prime Minister mechanics are a cynical look at how the British Parliament functioned. Considering the importance of tariffs and trade regulation to this scenario, these elements need to be included in Parliament.
+
+However, adding them to the existing law deck doesn't work well:
+- The current Law Deck is designed to [act like tools or instruments, not events](https://youtu.be/iNMTcUIN1gk?si=VQkoBQPsqlQEM0OU&t=3255). The size of the deck allows the players to see 40-60% of the laws, raising the chance that a particular law or ability can be found. Dilemmas are purposefully kept at 20% of the total size. If the deck size is increased, it would dilute the ability to find a specific law and it would increase the randomness of how present dilemmas are.
+- Setup would be more complex, as the additional cards would need to be shuffled in and out during setup. That shuffling in goes against the design goal of being additive.
+- We also want laws to be passed that affect India, China and America, as all three are important in this scenario. We don't want the existing laws mechanisms or likelihood to be reduced.
+
+Instead, the design pushes us to create an additional deck of Colonial Statutes. The statutes are made up of tariffs and other regulations applied to the 13 Colonies. The law, policy and colonial statute will be voted on at the same time, increasing the negotiation space during the Parliament Meets phase.
+
+To manage this, the <Role name="role.govt.tariffs"/> will recommend a Colonial Statute to be voted upon. This not only follows history, but helps streamlines the game by having another player manage the additional deck and decide which statute to apply. It also keeps balance by not letting the Prime Minister become too powerful in their decision-making.
+
+## Government Leadership
+
+In the game, the head of each presidency is an economic role, who determines the amount of trade and the budgeting of money. For this government office, the head should have a governoring role, one especially that is closer to the military. Thus, the <Role name="role.govt.governor" /> is the head of the <Role name="role.govt.office"/> in game; it functions like a combination of a Governor and a President.
+
+Like a governor, the <Role name="role.govt.governor"/> uses a dice pool to add regiments and ships. Like a president, the <Role name="role.govt.governor"/> determines the order of operations in America (military, trade and administration) and is responsible for managing the treasury, allocating additional funding for military hires.
+- Taxes collected by the <Role name="role.govt.customs"/> goes to the <Role name="role.govt.governor"/>'s treasury.
+   - The <Role name="role.govt.governor"/> can request additional credit to meet the budget or pay for additional military resources.
+- All regiments, ships and debt must be paid as expenses during the Revenue phase.
+   - If the treasury cannot cover expenses, the government must take on debt to pay the difference. However, the Government does not use Emergency Loans.
+   - If the treasury has extra money, the <Role name="role.govt.governor"/> can decide to pay down the debt.
+
+:::caution[Warning]
+Unlike a President, the <Role name="role.govt.governor"/> doesn't have any direct financial incentives, other than pure negotiation. Some playtesting will need to determine if some direct incentive is needed for this position, other than what can be negotiated. 
+:::
+
+## Trade and Customs
+
+In America, to make sure there is tension, the other colonial merchants and smugglers need to be represented in trade. Normally, the Company (or Firm) President performs a roll to see if a trade is successful. However, it doesn't make sense to have a player represent the smugglers, as the players represent a British perspective.
+
+Instead, a reverse perspective on trade is needed. The <Role name="role.govt.customs"/> will roll to see if the importers are taxed. This will use the same John Company result system as the rest of the game uses.
+
+<div id="trade-dice">
+
+| **Roll** | **Type** | **Description** | **Possible Outcomes** |
+|------|------|------|------|
+| 1-2 | Success | A merchant's trade is discovered. | An order is not filled, _OR_<br/> An order is filled, with a tariff applied. |
+| 3-4 | Failure | A merchant's trade is not discovered. | An order is filled, with no tariff applied. |
+| 5-6 | Catastrophic Failure | The merchant trade is not discovered and dissension is spread. | An order is closed (instead of filled), _OR_<br/> An order is filled and unrest is added to the region. |
+
+</div>
+
+Because this is in reverse, multiple dice are rolled and applied, depending on the number of orders the smugglers are trying to fill. Thus, the odds on this roll are different than most rolls in the game. 
+
+For each success that the <Role name="role.govt.customs"/> rolls, £1 would be received as a bonus (to represent the percentage that a Customs officer would receive). All applied failures will count towards initiative, so the smugglers have improved odds at having a good initiative.
+
+Having to apply a catastrophic failure to an order __does not__ lead to dismissal. Instead, trade is adversely affected for that order. Only if all dice are catastrophic failures will the <Role name="role.govt.customs"/> be terminated from their position, just like other rolls in the game.
+
+Similar to other trade, the placement of the filled or closed orders would be determined by the <Role name="role.govt.customs"/> (with restrictions indicated by the tariffs). This could lead to in game negotation ("bribes") based on the placement of those orders. Considering that the Customs Commissioners were often accused of bribes, this fits well mechanically and thematically.
+
+## British Military
+
+The <Role name="role.govt.military"/> is a combination of the Commander of the British Army and Navy for North America. It functions similarly to the other Commanders, spending regiments to obtain dice to roll in offensive maneuvers. The <Role name="role.govt.military"/> can also hire local loyalist militia, certain Native warriors or Privateer ships, assuming the <Role name="role.govt.governor"/> allocates the funds.
+
+The <Role name="role.govt.military"/> has the following options:
+- The Army can be spent to reduce the strength of the Natives (Indians).
+- The Navy can be spent to reduce the strength of the Smugglers.
+- Units can be spent to open an order (or a region), at the risk of unrest.
+
+Any unspent units will be left to defend the colonies from any attack.
+
+The differences between the <Role name="role.govt.military"/> and the other Commanders are the following:
+- There is no loot in North America. As a result, there is no direct financial reward for military actions in the Colonies, only trophies.
+- The <Role name="role.govt.military"/> is also responsible for the Navy, in addition to the Army. This provides additional opportunities for trophies.
+- When attacking the natives or the smugglers, all of the successes are counted, instead of just one.
+   :::note
+   This is similar to the <Role name="role.govt.customs"/> and provides consistency for America: multiple dice are counted during trade and military rolls, not just the best result.
+   :::
+
+## Hiring and Attrition
+
+In the hiring of these offices, there are two considerations that need to be addressed.
+1. Where are the possible candidates?
+2. What is the barrier to prevent one player from dominating all of the positions?
+
+It doesn't really make sense for the candidates to come from the EIC's Indian presidencies. The government positions are not lucrative enough to pull from the London management of the Company either, with the exception of the officer pool in Military Affairs.
+
+For the political offices (<Role name="role.govt.governor"/> and <Role name="role.govt.customs"/>), the current thought is to utilize the current pensioners\* as the candidates. The families' _passed law_ and _trophy_ markers (and possibly _windows_) can possibly be used to represent who receives favor. Because the <Role name="role.govt.governor"/> is both a political and a military position, it can be selected from either the <Role name="role.govt.customs"/> or the <Role name="role.govt.military"/>. These political <Role name="role.govt.office"/> officeholders can retire, just like the Company officeholders. 
+
+:::danger[Using pensioners\*]
+Retirement of family members is __the source__ of tension and motivation in the game. That __must not__ be removed. If the pensioners are to be used in this way, there needs to be limitations placed around this. The current limitations are:
+- Pensioners don't stick around. If they aren't retired or immediately hired by the government, they are lost (like before).
+- There are only 2-3 hireable government positions. If one is not open, then pensioners act like they always have.
+
+This is worth playtesting and may be thrown out if it removes too much retirement tension.
+:::
+
+The <Role name="role.govt.military"/> position will function similarly to the other Commander positions. If no pensioners with trophies are available, a candidate will be chosen from the officer pool. Nepotism is not factor for hiring the position. The <Role name="role.govt.military"/> never retires and does not roll for attrition.
+
+The <Role name="role.govt.tariffs"/> would be selected by the Prime Minister.

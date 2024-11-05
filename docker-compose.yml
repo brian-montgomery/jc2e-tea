@@ -1,0 +1,12 @@
+services:
+  jc2e-tea:
+    container_name: jc2e-tea-astro
+    build:
+      context: ./astro
+      target: dev-test
+    restart: always
+    ports:
+      - 4321:4321
+      - 4322:4322
+    volumes:
+      - '.:/jc2e-tea'
