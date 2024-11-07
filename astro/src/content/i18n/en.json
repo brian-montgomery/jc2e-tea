@@ -2,9 +2,12 @@
    "role.company.tea": "Director of Warehouses",
    "role.company.tea2": "Consignor of Tea in America",
    "role.govt.office": "Colonial Office",
-   "role.govt.tariffs": "First Lord of Trade and Plantations",
-   "role.govt.governor": "Colonial Secretary",
+   "role.govt.tariffs": "First Lord",
+   "role.govt.tariffs.full": "First Lord of Trade and Plantations",
+   "role.govt.governor": "Secretary",
+   "role.govt.governor.full": "Colonial Secretary",
    "role.govt.military": "Commander-in-Chief",
    "role.govt.military.full": "Commander-in-Chief, North America",
-   "role.govt.customs": "Customs Agent"
+   "role.govt.customs": "Collector",
+   "role.govt.customs.full": "Collector of Customs"
 }

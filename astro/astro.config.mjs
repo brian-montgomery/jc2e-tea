@@ -23,7 +23,7 @@ export default defineConfig({
 				'@fontsource/baskervville-sc/400.css',
 				// '@fontsource/baskervville/400.css',
 				// Possible font: Cormorant
-				'@fontsource-variable/cormorant/index.css',
+				// '@fontsource-variable/cormorant/index.css',
 				'@fontsource/great-vibes/400.css',
 				// '@fontsource/pinyon-script/400.css',
 				// '@fontsource/luxurious-script/400.css',
