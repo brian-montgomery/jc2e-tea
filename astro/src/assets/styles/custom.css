@@ -44,6 +44,15 @@
   font-weight: 400;
 }
 
+.sl-markdown-content th:not(:where(.not-content *)) {
+  font-weight: 700;
+}
+
+.sl-markdown-content .indent {
+  margin-top: 1.5rem;
+  margin-left: 2.5rem;
+}
+
 #starlight__on-this-page,
 .group-label .large {
   font-family: 'Baskervville';
