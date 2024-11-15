@@ -1,7 +1,7 @@
 ---
 title: Tea
 sidebar:
-    order: 3
+    order: 5
 ---
 
 import Role from '../../../components/Role.astro';
@@ -19,8 +19,12 @@ One of the narrative goals for this scenario is to create a situation where the 
 
 Mechanically, this law would be analogous to the major decision of deregulation in the __1758__ and __long 1710__ scenarios. That difference will help make this scenario unique, but also feel familiar as it utilizes a similar decision mechanic.
 
-:::tip[Design note]
-Similar to deregulation, the vote would only be allowed when the Company standing or debt tracks are on a lined space. The amount of supporting votes would be based on the amount of Tea that the Company has in its warehouses.
+:::danger[Firm Incentives]
+What is the incentive for the firms to vote for this? In the base scenario, an anti-company player can vote for deregulation, and gets the benefit of being able to start or invest in a firm. In this scenario, the firms would be adding the Company as competition to themselves by voting for this, which means they would almost certainly vote against it. 
+
+The simple answer might be there is no incentive. Instead, the Company has to overcome the Firms political power by having an amount of supporting votes to override them. An example would be to base the starting votes on the [amount of tea](#managing-the-tea) that the Company has in its warehouses. When the Company has a large reserve of tea, this would allow the Company to successfully pass it without the firms' support.
+
+Similar to deregulation, the vote would only be allowed during certain conditions, such as when the Company Standing or Company Debt tracks are on a lined space.
 :::
 
 ## Tea as a Resource
@@ -55,6 +59,8 @@ As mentioned, tea is an fundamental aspect of this scenario. The players need to
 
 The following incentives are being considered:
 
+<Steps>
+
 1. This scenario allows trade with China at the start. The Superintendent of Trade in China will be an office (with some ships) that a player receives from a scenario setup card.
 
     This matches historically, as trade with China was established by the early 18th century.
@@ -71,6 +77,8 @@ The following incentives are being considered:
 3. An additional method of trade with China is needed. If the Company military fails to control the areas of India which produce opium, we still want trade with China to be an option. This matches history as silver was used until opium became the dominiant commodity in the late 18th century.
 
 4. The tea resource could be usable as a bonus for trading in America before tea regulation. The firms could have some incentive to acquire and utilize it, perhaps as a "bonus" when calculating the overall value of a trade.
+
+</Steps>
 
 ## Managing the Tea
 
@@ -101,7 +109,7 @@ Once the Tea Act is enacted, that position would change from managing the tea in
 :::note
 This utilizes the same mechanic of when the Director of Trade becomes the Governor General when the Governor General law is passed. Any attrition would roll over.
 
-There are two candidate names for this office:
+There are currently two candidate names for this office:
 1. __Consignor of Tea in America__: Named because the chosen tea agents were consignees of the East India Company.
 2. __Superintendent of Trade in America__: Named after the China position already established in the game. Note that this linkage is not perfect, because while the position would be similar in role, the mechanics would likely be different.
 :::
@@ -126,7 +134,7 @@ Ideas for how tea rooms could be implemented:
 
 2. __Place for Government "Writers"__
 
-   The Tea House could act as a holding area for "writers" for the government (essentially young politicians). When placing a writer, instead of placing it in a Presidency, it could be placed in the Tea House instead (There may need to be a cap on a single writer placed here per turn).
+   The Tea House could act as a holding area for "writers" for the government (essentially young politicians). When placing a writer, instead of placing it in a Presidency, it could be placed in the Tea House instead (there may need to be a cap on a single writer placed here per turn).
 
    The thought is that writers here are used as candidates for political government positions during the _Hiring_ phase. They could be used as a vote during the _Parliament Meets_ phase. Instead of making money, they (slightly) raise the political capital of the family.
 
