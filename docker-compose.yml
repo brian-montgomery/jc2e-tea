@@ -6,7 +6,7 @@ services:
       target: dev-test
     restart: always
     ports:
-      - 4321:4321
-      - 4322:4322
+      - 1733:1733
+      - 1734:1734
     volumes:
       - '.:/jc2e-tea'
