@@ -9,6 +9,7 @@ export default defineConfig({
 	base: 'jc2e-tea',
 	server: {
 		host: "0.0.0.0",
+		port: 1733,
 	},
 	markdown: {
 		remarkPlugins: [ i18nRemarkPlugin ],

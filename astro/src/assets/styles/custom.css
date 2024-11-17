@@ -17,6 +17,14 @@
   }
 }
 
+@media (max-width: 399px) {
+  .site-title {
+    img {
+      display: none;
+    }
+  }
+}
+
 [data-theme="dark"] .site-title {
   color: white;
 

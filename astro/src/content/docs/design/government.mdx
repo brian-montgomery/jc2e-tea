@@ -1,7 +1,7 @@
 ---
 title: British Government
 sidebar:
-   order: 5
+   order: 7
 ---
 
 The British government plays a very important role in this part of history:
@@ -28,17 +28,26 @@ The following is the envisioned additional roles for the Government (with altern
 
 **Parliament**
 - [{frontmatter._["role.govt.tariffs.full"]}](https://allthingsliberty.com/2020/11/the-board-of-trade-and-plantations-1688-1761/)
-   - Alternate: Lord Commissioner of Trade and Plantations
 
 **{frontmatter._['role.govt.office']}**
 - [{frontmatter._["role.govt.governor.full"]}](https://en.wikipedia.org/wiki/Secretary_of_State_for_the_Colonies#Colonial_Secretary_1768%E2%80%931782)
-   - Alternate: Secretary of State for the Colonies
-   - Alternate: Secretary of State for the Southern Department
 - [{frontmatter._["role.govt.military.full"]}](https://en.wikipedia.org/wiki/Commander-in-Chief,_North_America)
 - [{frontmatter._["role.govt.customs.full"]}](https://en.wikipedia.org/wiki/Townshend_Acts#American_Board_of_Customs_Commissioners)
+
+:::tip[Alternate Names]
+There are some alternate names for the various roles. The choice is to both match the name historically while also distinguishing the roles from each other.
+- {frontmatter._['role.govt.office']}
+   - Alternate: Colonial Department
+- {frontmatter._["role.govt.tariffs"]}
+   - Alternate: Lord Commissioner of Trade and Plantations
+- {frontmatter._["role.govt.governor"]}
+   - Alternate: Secretary of State for the Colonies
+   - Alternate: Secretary of State for the Southern Department
+- {frontmatter._["role.govt.customs"]}
    - Alternate: Commissioner of Customs (Board)
    - Alternate: Customs Agent
    - Alternate: Surveyor of Customs
+:::
 
 ## Acts, Statutes and Tariffs
 
@@ -102,7 +111,11 @@ This would require additional map/board space to represent and may be out of sco
 
 #### Local Alliances
 
-Both the Colonists (in the form of both local militia and privateers) and various Native American tribes should be available as local alliances to be hired. This allows us to utilize the mechanics of the Company, while also matching history. The British Army was not as effective fighting in the wilderness of North America as either the Colonists or Native Americans were.
+Both the Colonists (in the form of both local militia and privateers) and various Native American tribes could be available as local alliances to be hired. This allows us to utilize the mechanics of the Company, while also matching history. The British Army was not as effective fighting in the wilderness of North America as either the Colonists or Native Americans were.
+
+:::danger[Questions]
+How does this actually work? If local alliances are available, why would the Secretary not use them? This idea needs some work.
+:::
 
 </div>
 
@@ -137,31 +150,37 @@ Having to apply a single catastrophic failure to an order does not lead to dismi
 Similar to other trade, the placement of the filled or closed orders would be determined by the {frontmatter._["role.govt.customs"]}, with restrictions indicated by the tariffs. This could lead to in game negotation (bribes) based on the placement of those orders. Considering that the customs officers were often accused of bribes, this fits well mechanically and thematically.
 
 :::tip[Flavor: A risky position]
-The customs officers were not popular in North America and the position was risky. There are many examples of officers abandoning their post after pushback or retribution from the colonists. This office could start with an attrition cube (like the Chairman), or have some other mechanism in place to represent that risk.
+The customs officers were not popular in North America and the position was inherently dangerous. There are several historic examples of the officeholders abandoning their posts after pushback or retribution from the colonists. This office could start with an attrition cube (like the Chairman), or have some other mechanism in place to represent that risk.
 :::
 
 ## Hiring and Attrition
+
+:::caution
 
 In the hiring of these offices, there are two considerations that need to be addressed.
 1. Where are the possible candidates?
 2. What are the barriers to prevent one player from dominating all of the positions?
 
-It doesn't really make sense for the candidates to come from the EIC's Indian presidencies. The government positions are not lucrative enough to pull from the London management of the Company either, with the exception of the officer pool in Military Affairs.
+It doesn't really make sense for the candidates to come from the EIC's Indian presidencies. The government positions are not lucrative enough to pull from the London management of the Company either. The one exception is the officer pool in Military Affairs.
+:::
 
-The {frontmatter._["role.govt.tariffs"]} would be selected by the Prime Minister and would be responsible for hiring the {frontmatter._["role.govt.governor"]}. Similar to the Prime Minister, the {frontmatter._["role.govt.tariffs"]} never retires and does not roll for attrition.
+The {frontmatter._["role.govt.tariffs"]} would be selected by the Prime Minister and would be responsible for hiring the {frontmatter._["role.govt.governor"]}. Similar to the Prime Minister, the {frontmatter._["role.govt.tariffs"]} never retires and does not roll for attrition. They would be removed when the Prime Minister is removed.
 
 Because the {frontmatter._["role.govt.governor"]} is both a administrative and a military position, it could be selected from either the {frontmatter._["role.govt.customs"]} or the {frontmatter._["role.govt.military"]}, allowing a 'promotion'. If both are empty, the current thought is to utilize the current pensioners\* as the candidates. The {frontmatter._["role.govt.tariffs"]} would make the hiring decision.
+
+Hiring for the {frontmatter._["role.govt.customs"]} could also use the pensioners\*, although negotiatiation should be encouraged, with the {frontmatter._["role.govt.governor"]} benefiting. Both the {frontmatter._["role.govt.governor"]} and the {frontmatter._["role.govt.customs"]} officeholders can retire, just like the Company officeholders.
 
 :::danger[Using pensioners\*]
 Retirement of family members is __the source__ of tension and motivation in the game. That __must not__ be removed. If the pensioners are to be used in this way, there needs to be limitations placed around this. The current limitations are:
 - Pensioners don't stick around. If they aren't retired or immediately hired by the government, they are lost (like before).
-- There are only 2-3 total positions that could hire from the pensioners. If one is not open, then pensioners act like they always have.
+- There are only 2-3 total positions that could hire from the pensioner pool. If none are open, then the pensioners act like they always have.
 
 This is worth playtesting and the idea should be be thrown out if it removes too much retirement tension.
-:::
 
-Hiring for the {frontmatter._["role.govt.customs"]} could also use the pensioners, although negotiatiation should be encouraged, with the {frontmatter._["role.govt.governor"]} benefiting.
-Both the {frontmatter._["role.govt.governor"]} and the {frontmatter._["role.govt.customs"]} officeholders can retire, just like the Company officeholders.
+---
+
+If this doesn't work, an alternative is to establish a [Tea House](../tea#tea-houses) as a holding area for government administrative positions. When placing writers, one could be placed in the Tea House instead.
+:::
 
 The {frontmatter._["role.govt.military"]} position will function similarly to the other Commander positions. If no pensioners with trophies are available, a candidate will be chosen from the officer pool. Nepotism is not a factor for hiring the position. The {frontmatter._["role.govt.military"]} never retires and does not roll for attrition.
 
@@ -169,13 +188,13 @@ Both the {frontmatter._["role.govt.military"]} and the {frontmatter._["role.govt
 
 ## Contrast with the Company
 
-As stated, one of the goals of the {frontmatter._["role.govt.office"]} is to have it contrast with the Company Presidencies. The changes should highlight both the similarities and differences between the Company and the Government. The hope is that it feels familiar and still flows relatively quickly.
+As stated, one of the goals of the {frontmatter._["role.govt.office"]} is to have it contrast with the Company Presidencies. The changes should highlight both the similarities and differences between the Company and the Government. The hope is that it feels familiar and still flows relatively quickly, despite the differences.
 
 :::danger[Warning]
-One of the questions of the design is how far to lean in this direction. If these positions are "too close but not quite" to their India counterpart, this could slow the game down. This fourth presidency shouldn't take so long that it is the length of the Indian presidencies combined.
+One of the questions of the design is how far to lean in this direction. The "too close but not quite" can slow the game down, if it's too confusing. This fourth presidency shouldn't take so long that it is the length of the Indian presidencies combined.
 :::
 
-The table below is a high-level comparison between the presidencies and the {frontmatter._["role.govt.office"]}:
+The table below is a high-level comparison between the Presidencies and the {frontmatter._["role.govt.office"]}:
 
 <div id="region-comp">
 
@@ -184,6 +203,7 @@ The table below is a high-level comparison between the presidencies and the {fro
 | **Authority** | President determines the order. | {frontmatter._["role.govt.governor"]} determines the order. |
 | **Hiring** | Director of Trade hires the President. Office of Military Affairs selects a Commander. The President hires the Governors. | The {frontmatter._["role.govt.tariffs"]} hires the {frontmatter._["role.govt.governor"]}. {frontmatter._["role.govt.governor"]} hires both the {frontmatter._["role.govt.military"]} and the {frontmatter._["role.govt.customs"]}. |
 | **Hiring Pool** | The writers or officers in that Presidency. | The current pool of Pensioners who didn't retire and officers-in-training. |
+| **Administrative Role** | Governor taxes, builds ships or commissions army. | {frontmatter._["role.govt.governor"]} commissions army and navy. |
 | **Taxes** | Governor rolls to tax. | The {frontmatter._["role.govt.tariffs"]} brings tariffs to Parliament. {frontmatter._["role.govt.customs"]} rolls to tax smugglers. |
 | **Trade Roll** | President rolls to trade. | {frontmatter._["role.govt.customs"]} rolls to prevent trade. |
 | **Trade Bandwidth** | Number of ships - regions. | Smuggler strength. |
@@ -191,6 +211,5 @@ The table below is a high-level comparison between the presidencies and the {fro
 | **Army Roll** | Commander determines. | {frontmatter._["role.govt.military"]} determines. |
 | **Army Attack** | Army attacks regions to take control, clear orders and unrest. | Army to clear orders, reduce native strength and possibly take control. |
 | **Army Defense** | Army defends against various conflict events. | Army defends against various conflict events. |
-| **Administrative Role** | Governor taxes, builds ships or commissions army. | {frontmatter._["role.govt.governor"]} commissions army and navy. |
 
 </div>
