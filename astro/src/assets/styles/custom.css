@@ -3,6 +3,7 @@
 /*    --sl-font: 'Cormorant Variable';*/
 }
 
+/* Page Title  */
 .site-title {
   color: black;
   font-family: 'Great Vibes';
@@ -33,6 +34,14 @@
   }
 }
 
+/* Headings */
+#starlight__on-this-page,
+.group-label .large {
+  font-family: 'Baskervville';
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
 .sl-container :is(h1[data-page-title]),
 .sl-markdown-content :is(h1):not(:where(.not-content *)) {
   font-family: 'Great Vibes';
@@ -56,16 +65,36 @@
   font-weight: 700;
 }
 
+
+/* Asides */
+.starlight-aside {
+  border: 0.25rem double var(--sl-color-asides-border) !important;
+  border-radius: 1rem;
+}
+
+li > .starlight-aside {
+  margin: 1rem 0;
+}
+
+
+/* Buttons */
+.sl-link-button[disabled] {
+  cursor: inherit;
+}
+.sl-link-button[disabled].primary {
+  background-color: color-mix(in srgb, var(--sl-color-text-accent), transparent 60%);
+  border-color: color-mix(in srgb, var(--sl-color-text-accent), transparent 60%);
+}
+.sl-link-button[disabled].minimal,
+.sl-link-button[disabled].secondary {
+  color: color-mix(in srgb, var(--sl-color-white), transparent 60%);
+}
+
+
+/* Specialized Sections */
 .sl-markdown-content .indent {
   margin-top: 1.5rem;
   margin-left: 2.5rem;
-}
-
-#starlight__on-this-page,
-.group-label .large {
-  font-family: 'Baskervville';
-  font-weight: 600;
-  font-size: 1.1rem;
 }
 
 #trade-dice table {
@@ -101,13 +130,4 @@
     display: inline-block;
     vertical-align: middle;
   }
-}
-
-.starlight-aside {
-  border: 0.25rem double var(--sl-color-asides-border) !important;
-  border-radius: 1rem;
-}
-
-li > .starlight-aside {
-  margin: 1rem 0;
 }
