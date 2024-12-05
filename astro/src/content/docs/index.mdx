@@ -12,10 +12,14 @@ hero:
       link: /jc2e-tea/design/
       icon: right-arrow
       variant: primary
-    # - text: Read the current rules
-    #   link: /jc2e-tea/rules/
-    #   icon: open-book
-    #   variant: secondary
+    - text: Read the current rules
+      link: "javascript:void(0);"
+      # link: /jc2e-tea/rules/
+      # icon: open-book
+      variant: secondary
+      attrs:
+        disabled: true
+        onclick: "return false"
 ---
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
