@@ -12,14 +12,19 @@ hero:
       link: /jc2e-tea/design/
       icon: right-arrow
       variant: primary
+      attrs:
+        role: button
     - text: Read the current rules
       link: "javascript:void(0);"
       # link: /jc2e-tea/rules/
       # icon: open-book
       variant: secondary
       attrs:
+        role: button
         disabled: true
         onclick: "return false"
+        aria-disabled: true
+        tabindex: -1
 ---
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
