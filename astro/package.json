@@ -10,15 +10,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.29.2",
+    "@astrojs/starlight": "^0.35.2",
     "@fontsource-variable/cormorant": "^5.1.0",
-    "@fontsource/baskervville": "^5.0.20",
-    "@fontsource/baskervville-sc": "^5.0.1",
+    "@fontsource/baskervville": "^5.2.7",
+    "@fontsource/baskervville-sc": "^5.2.7",
     "@fontsource/carattere": "^5.0.13",
-    "@fontsource/great-vibes": "^5.0.21",
+    "@fontsource/great-vibes": "^5.2.6",
     "@fontsource/luxurious-script": "^5.0.20",
     "@fontsource/pinyon-script": "^5.0.21",
-    "astro": "^4.16.16",
+    "astro": "^5.13.5",
     "sharp": "^0.32.5"
   }
 }

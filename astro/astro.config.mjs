@@ -30,9 +30,9 @@ export default defineConfig({
 				// '@fontsource/luxurious-script/400.css',
 				'./src/assets/styles/custom.css',
 			],
-			social: {
-				github: 'https://github.com/brian-montgomery/jc2e-tea',
-			},
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/brian-montgomery/jc2e-tea' },
+			],
 			sidebar: [
 				{
 					label: 'Design',
