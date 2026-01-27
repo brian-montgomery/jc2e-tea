@@ -9,7 +9,7 @@ ifdef OS
 	FixPath = $(subst /,\,$1)
 # The set command will return an error, even though it succeeds.
 else
-	WriteCmd = printf 
+	WriteCmd = printf
 	RemoveCmd = rm -rf
 	RemoveDirCmd = rm -rf
 	FixPath = $1
@@ -26,6 +26,10 @@ down:
 
 shell:
 	@docker compose exec $(CONTAINER) bash
+
+upgrade-astro: up
+	@echo Updating Astro specific dependencies.
+	@docker compose exec ${CONTAINER} sh -c "npx @astrojs/upgrade"
 
 version: up
 ifndef number
