@@ -1,0 +1,9 @@
+---
+import DeckLayout from "../components/DeckLayout.astro";
+
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+---
+
+<StarlightPage frontmatter={{ title: 'Tariff Deck', template: 'splash' }}>
+  <DeckLayout deck="tariffs" />
+</StarlightPage>

@@ -21,13 +21,10 @@ export default defineConfig({
 				src: './public/favicon.svg',
 			},
 			customCss: [
-				'@fontsource/baskervville-sc/400.css',
-				// '@fontsource/baskervville/400.css',
-				// Possible font: Cormorant
-				// '@fontsource-variable/cormorant/index.css',
-				'@fontsource/great-vibes/400.css',
-				// '@fontsource/pinyon-script/400.css',
-				// '@fontsource/luxurious-script/400.css',
+				'@fontsource-variable/baskervville-sc/index.css',
+				'@fontsource-variable/baskervville/index.css',
+				'@fontsource-variable/libre-bodoni/index.css',
+				'@fontsource/great-vibes/index.css',
 				'./src/assets/styles/custom.css',
 			],
 			social: [

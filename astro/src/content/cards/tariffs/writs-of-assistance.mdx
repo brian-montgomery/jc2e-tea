@@ -1,0 +1,11 @@
+---
+title: Writs of Assistance
+---
+import Layout from "@components/TariffCardLayout.astro";
+
+<Layout title={frontmatter.title}>
+   The **{frontmatter._["role.govt.customs.full"]}**
+   rolls 2 additional die during customs checks.
+
+   All failures during custom checks adds an **unrest cube** to a region.
+</Layout>

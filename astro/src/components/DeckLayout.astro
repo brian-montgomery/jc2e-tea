@@ -1,0 +1,192 @@
+---
+import type { CollectionEntry, CollectionKey } from 'astro:content';
+import type { ImageMetadata } from 'astro';
+// import type { DefaultCardSchema } from "src/lib/content";
+
+import { getCollection, getEntry, render } from 'astro:content';
+import { getImage } from 'astro:assets';
+import { cardDimensions } from 'src/lib/card-sizing'
+
+interface Props {
+  deck: CollectionEntry<"decks">["id"];
+}
+
+const { deck: deckId } = Astro.props;
+const deck = await getEntry("decks", deckId);
+
+if (deck === undefined)
+  throw new Error(`Could not find deck '${deckId}'`);
+
+// TODO: Type it so that CardCollection refers to DefaultCardSchema.
+// @ts-ignore
+const cardCollection: CollectionKey = deck.data.cardCollection;
+const cards: CollectionEntry<typeof cardCollection>[] = await getCollection(
+  // @ts-ignore
+  cardCollection, ({ data }) => data.deck?.id == deckId
+)
+cards.sort((a, b) => {
+  // @ts-ignore
+  if (a.data?.title < b.data?.title) return -1;
+  // @ts-ignore
+  else if (b.data.title < a.data.title) return 1;
+  return 0;
+});
+
+interface DeckList {
+  card: CollectionEntry<typeof cardCollection>;
+  cardCopyIdx: number;
+  cardNumber: number;
+}
+
+const deckListGroupedByCards: DeckList[] = cards.map(
+  (card) => Array.from(
+    // @ts-ignore
+    {length: card.data.quantity ?? 1},
+    (_, cardCopyIdx) => ({ card, cardCopyIdx,})
+  )
+).flat().map(
+  (d, index) => ({cardNumber: index + 1, ...d})
+);
+
+const { Content: DeckContent } = await render(deck);
+
+function getCardIdSuffix(index: number) {
+  return index ? `-${index + 1}` : '';
+}
+
+
+async function getBackgroundUrl(image: ImageMetadata | undefined) {
+  if (image === undefined)
+    return undefined;
+
+  const optimizedImg = await getImage({ src: image, format: 'png'});
+  return optimizedImg.src;
+}
+
+const deckBackgroundImage = await getBackgroundUrl(deck.data.background?.image);
+
+// TODO: Add current card override...
+function getBackgroundStyle() {
+  if (deckBackgroundImage) {
+    const backgrounds = [
+      deck?.data.background?.gradient,
+      `no-repeat url(${deckBackgroundImage})`,
+      deck?.data.background?.color,
+    ].filter(x => x)
+    return `${backgrounds.join(', ')}`;
+  }
+  return ''
+}
+
+// Determine Card Size
+const cardSizing = cardDimensions[deck.data.size];
+
+if (cardSizing === undefined)
+  throw new Error(`Could not find the card size '${deck.data.size}'`)
+
+const cardHeight = cardSizing[deck.data.landscape ? 0 : 1];
+const cardWidth = cardSizing[deck.data.landscape ? 1 : 0];
+---
+<div id={`deck-${deck?.id}`} class="deck">
+  <DeckContent />
+  <div class="card-list not-content" data-theme="light">
+    {
+      deckListGroupedByCards.map(({card, cardCopyIdx, cardNumber}) =>
+        render(card).then(({ Content: CardContent }) => (
+          <article
+            id={`card-${card.id}${getCardIdSuffix(cardCopyIdx)}`}
+            class="card"
+            style={`--card-bg: ${getBackgroundStyle()}`}
+          >
+            <div class="print-area" data-dy-card-number={cardNumber}>
+              <CardContent />
+            </div>
+          </article>
+        ))
+      )
+    }
+  </div>
+</div>
+
+<!-- <style define:vars={{}}> -->
+<style define:vars={{ "card-height": cardHeight, "card-width": cardWidth }}>
+:root {
+  --card-bleed: 3mm;
+  --card-bg: transparent;
+
+  /* calculated variables, for convenience */
+  --card-full-width: calc(var(--card-width) + var(--card-bleed) * 2);
+  --card-full-height: calc(var(--card-height) + var(--card-bleed) * 2);
+
+  /* Letter Size: 215.9 mm x 279.4 mm */
+  --page-width: 215.9mm;
+  --page-height: 279.4mm;
+
+  /* Currently unused
+  --card-rows-per-page: 3;
+  --card-cols-per-page: 3;
+  */
+
+  --center-horizontally: 1;
+  --center-vertically: 1;
+
+
+  /* margins that depend on page size set above for */
+  --page-margin-x: calc(var(--center-horizontally) * ((var(--page-width) - (var(--card-cols-per-page) * var(--card-full-width)))/2));
+  --page-margin-y: calc(var(--center-vertically) * ((var(--page-height) - (var(--card-rows-per-page) * var(--card-full-height)))/2));
+}
+
+.card-list {
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  @media print {
+    gap: 0;
+    break-before: page;
+    break-after: page;
+
+    vertical-align: middle;
+    /* width: 100vw;
+    height: 100vh; */
+  }
+
+  @media screen {
+    gap: 0.5em;
+  }
+}
+
+/* TODO: Figure out jamming everything together versus card bleed. */
+.card {
+  overflow: hidden;
+  padding: var(--card-bleed);
+
+  height: var(--card-full-height);
+  max-height: var(--card-full-height);
+  width: var(--card-full-width);
+  max-width: var(--card-full-width);
+
+  @media print {
+    background: var(--card-bg);
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 0.5pt solid black;
+  }
+}
+
+.print-area {
+  height: var(--card-height);
+  width: var(--card-width);
+
+  @media screen {
+    background: var(--card-bg);
+    border: 1px dotted black;
+    border-radius: var(--card-bleed);
+  }
+}
+
+</style>

@@ -1,0 +1,13 @@
+---
+title: Quartering Required
+---
+import Layout from "@components/TariffCardLayout.astro";
+
+<Layout title={frontmatter.title} condensed>
+   When calculating expenses,
+   the **{frontmatter._["role.govt.governor.full"]}**
+   should roll one die for each regiment.
+
+   For each success, ignore the cost of one regiment.
+   For each catastrophic failure, add an **unrest cube**.
+</Layout>

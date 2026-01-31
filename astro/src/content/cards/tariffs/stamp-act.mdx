@@ -1,0 +1,11 @@
+---
+title: Stamp Act
+---
+import Layout from "@components/TariffCardLayout.astro";
+
+<Layout title={frontmatter.title} shortTitle>
+   When the **{frontmatter._["role.govt.customs.full"]}**
+   acts, add **£1** per colonized region to the
+   **{frontmatter._["role.govt.governor.full"]}'s** treasury
+   and add one **unrest cube** to each colonized region.
+</Layout>
