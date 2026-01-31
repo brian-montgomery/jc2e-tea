@@ -9,5 +9,7 @@
    "role.govt.military": "Commander-in-Chief",
    "role.govt.military.full": "Commander-in-Chief, North America",
    "role.govt.customs": "Collector",
-   "role.govt.customs.full": "Collector of Customs"
+   "role.govt.customs.full": "Collector of Customs",
+   "deck.laws.singular": "Colonial Act",
+   "deck.laws.plural": "Colonial Acts"
 }

@@ -6,12 +6,10 @@
   window.document.querySelectorAll('[data-dy-card-number]').forEach(node => {
     const cardNum = node.getAttribute("data-dy-card-number");
     const textNode = node.querySelector('.dy-card-number');
-    console.log("cardNum", cardNum)
-    console.log("textNode", textNode)
 
     if (cardNum && textNode)
       textNode.insertAdjacentText("afterbegin", cardNum);
 
-    // node.attributes.removeNamedItem("data-dy-card-number");
+    node.attributes.removeNamedItem("data-dy-card-number");
   });
 </script>

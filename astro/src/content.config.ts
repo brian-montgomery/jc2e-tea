@@ -22,10 +22,23 @@ const decks = defineCollection({
   }),
 });
 
-const tariffCards = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.mdx', base: "./src/content/cards/tariffs" }),
+const lawCards = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.mdx', base: "./src/content/cards/acts" }),
   schema: cardSchema({
-    deckName: 'tariffs'
+    deckName: 'acts',
+    extend: z.object({
+      regions: z.array(z.string()).optional(),
+    }),
+  }),
+});
+
+const eventCards = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.mdx', base: "./src/content/cards/events" }),
+  schema: cardSchema({
+    deckName: 'events',
+    extend: z.object({
+      regions: z.array(z.string()).optional(),
+    }),
   }),
 });
 
@@ -35,6 +48,8 @@ export const collections = {
     loader: i18nLoader(),
     schema: i18nSchema({
       extend: z.object({
+        'deck.laws.singular': z.string(),
+        'deck.laws.plural': z.string(),
         'role.company.tea': z.string(),
         'role.company.tea2': z.string(),
         'role.govt.office': z.string(),
@@ -50,5 +65,6 @@ export const collections = {
     }),
   }),
   decks,
-  tariffCards,
+  eventCards,
+  lawCards,
 };

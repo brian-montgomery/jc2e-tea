@@ -1,9 +1,12 @@
 ---
 title: Quartering Required
+regions:
+   - NE
+   - M
 ---
-import Layout from "@components/TariffCardLayout.astro";
+import Layout from "@components/ActCardLayout.astro";
 
-<Layout title={frontmatter.title} condensed>
+<Layout title={frontmatter.title} regions={frontmatter.regions} condensed>
    When calculating expenses,
    the **{frontmatter._["role.govt.governor.full"]}**
    should roll one die for each regiment.

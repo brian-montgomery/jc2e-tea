@@ -65,6 +65,13 @@
   font-weight: 700;
 }
 
+/* Fix bug with StarlightPage */
+@media (min-width: 72rem) {
+  html:not([data-has-toc]) .sl-container {
+    /* 720 + 268 + 24 + 16 + 40 / 16 */
+    max-width: 66.75rem;
+  }
+}
 
 /* Asides */
 .starlight-aside {

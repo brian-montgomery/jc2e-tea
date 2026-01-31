@@ -1,0 +1,11 @@
+---
+title: Liberty
+quantity: 3
+---
+import Layout from "@components/EventCardLayout.astro";
+
+<Layout title={frontmatter.title} expanded>
+   Make a reaction roll, using the\
+   number of die specified on the latest
+   **{frontmatter._["deck.laws.singular"]}**.
+</Layout>

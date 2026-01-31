@@ -3,10 +3,11 @@ import starlight from '@astrojs/starlight';
 import { i18nRemarkPlugin } from './remark/i18n.mjs';
 
 const version = process.env.npm_package_version;
+const basePath = 'jc2e-tea';
 
 export default defineConfig({
 	site: 'https://brian-montgomery.github.io',
-	base: 'jc2e-tea',
+	base: basePath,
 	server: {
 		host: "0.0.0.0",
 		port: 1733,
@@ -35,10 +36,23 @@ export default defineConfig({
 					label: 'Design',
 					autogenerate: { directory: 'design' },
 				},
-				// {
-				// 	label: `Rules v${version}`,
-				// 	autogenerate: { directory: 'rules' },
-				// },
+        // {
+        // 	label: `Rules v${version}`,
+        // 	autogenerate: { directory: 'rules' },
+        // },
+        {
+					label: 'Components',
+          items: [
+            {
+              label: "Colonial Acts Deck",
+              link: '/decks/acts',
+            },
+            {
+              label: "Events in America Deck",
+              link: '/decks/events',
+            },
+          ]
+				},
 			],
 		}),
 	],

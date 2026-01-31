@@ -3,20 +3,24 @@ interface Props {
   title: string;
   shortTitle?: boolean,
   condensed?: boolean,
+  expanded?: boolean,
+  regions?: string[],
 }
 
-const { title, shortTitle = false, condensed = false } = Astro.props;
+const { title, shortTitle = false, condensed = false, expanded = false, regions = "" } = Astro.props;
 
 import CardNumber from './CardNumber.astro';
 ---
 
 <div class="column">
-  <h2 class:list={[{shortTitle,}]} id={title}>{ title }</h2>
-  <div class:list={[{"main-text": true, condensed}]}>
+  <h2 class:list={[{shortTitle,}]}>{ title }</h2>
+  <div class:list={[{"main-text": true, condensed, expanded}]}>
     <slot></slot>
   </div>
   <div class="footer">
-    <CardNumber />
+    <div class="number">
+      <CardNumber />
+    </div>
   </div>
 </div>
 
@@ -61,8 +65,6 @@ import CardNumber from './CardNumber.astro';
     justify-content: center;
 
     & :global(p) {
-      /* font-family: 'DM Serif Text', serif; */
-
       font-family: 'Baskervville Variable';
       line-height: 1.25em;
       text-align: center;
@@ -73,11 +75,23 @@ import CardNumber from './CardNumber.astro';
     }
   }
   .condensed :global(p) {
-    font-size: 85%;
+    font-size: 80%;
+  }
+  .expanded :global(p) {
+    font-size: 120%;
   }
   .footer {
-    align-self: end;
-    font-size: 0.75em;
-    padding: 0.25em;
+    align-self: stretch;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    margin-right: -0.2em;
+
+    .number {
+      font-size: 0.7em;
+      align-self: flex-end;
+      justify-self: flex-end;
+    }
   }
 </style>

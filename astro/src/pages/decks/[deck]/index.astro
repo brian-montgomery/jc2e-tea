@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const decks = await getCollection("decks");
+
+  return decks.map((deck) => ({
+    params: { deck: deck.id },
+    props: {
+      deck,
+      page: {
+        hasSidebar: true,
+        frontmatter: {
+          title: `${deck.data.name} Deck`,
+          tableOfContents: false,
+          pagefind: true,
+          prev: false,
+          next: false,
+        },
+      },
+    },
+  }));
+}
+
+const { deck, page, } = Astro.props;
+
+import DeckLayout from "@components/DeckLayout.astro";
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+---
+
+<StarlightPage {...page}>
+  <DeckLayout deck={deck.id} />
+</StarlightPage>
