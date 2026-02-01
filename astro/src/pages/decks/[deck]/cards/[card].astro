@@ -1,4 +1,6 @@
 ---
+import type { CollectionEntry } from "astro:content";
+
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -34,10 +36,10 @@ export async function getStaticPaths() {
 
 const { deck, card, page, } = Astro.props;
 
-import CardLayout from "@components/CardLayout.astro";
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import CardDetails from "@components/CardDetails.astro";
 ---
 
 <StarlightPage {...page}>
-  <CardLayout {card} {deck} />
+  <CardDetails {card} {deck} />
 </StarlightPage>

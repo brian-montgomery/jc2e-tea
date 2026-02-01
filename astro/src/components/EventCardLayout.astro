@@ -2,19 +2,18 @@
 interface Props {
   title: string;
   shortTitle?: boolean,
-  condensed?: boolean,
-  expanded?: boolean,
+  text: "larger" | "smaller" | undefined,
   regions?: string[],
 }
 
-const { title, shortTitle = false, condensed = false, expanded = false, regions = "" } = Astro.props;
+const { title, shortTitle = false, text = undefined, regions = "" } = Astro.props;
 
 import CardNumber from './CardNumber.astro';
 ---
 
 <div class="column">
   <h2 class:list={[{shortTitle,}]}>{ title }</h2>
-  <div class:list={[{"main-text": true, condensed, expanded}]}>
+  <div class:list={["main-text", text]}>
     <slot></slot>
   </div>
   <div class="footer">
@@ -74,10 +73,10 @@ import CardNumber from './CardNumber.astro';
       font-weight: 600;
     }
   }
-  .condensed :global(p) {
+  .smaller :global(p) {
     font-size: 80%;
   }
-  .expanded :global(p) {
+  .larger :global(p) {
     font-size: 120%;
   }
   .footer {

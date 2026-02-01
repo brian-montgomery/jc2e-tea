@@ -42,6 +42,14 @@ const eventCards = defineCollection({
   }),
 });
 
+const notes = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/notes" }),
+  schema: z.object({
+    collection: z.string(),
+    id: z.string(),
+  }),
+})
+
 export const collections = {
   docs: defineCollection({ schema: docsSchema(), loader: docsLoader(), }),
   i18n: defineCollection({
@@ -67,4 +75,5 @@ export const collections = {
   decks,
   eventCards,
   lawCards,
+  notes,
 };

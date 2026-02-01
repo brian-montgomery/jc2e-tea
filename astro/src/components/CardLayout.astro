@@ -91,8 +91,11 @@ const { height, width } = getCardDimensions(deckEntry?.data.size ?? "poker", dec
   overflow: hidden;
   padding: var(--card-bleed);
 
+  min-height: var(--card-full-height);
   height: var(--card-full-height);
   max-height: var(--card-full-height);
+
+  min-width: var(--card-full-width);
   width: var(--card-full-width);
   max-width: var(--card-full-width);
 
@@ -110,8 +113,16 @@ const { height, width } = getCardDimensions(deckEntry?.data.size ?? "poker", dec
 
   @media screen {
     background: var(--card-bg);
-    border: 1px dotted black;
+    border: 1px solid black;
     border-radius: var(--card-bleed);
+  }
+}
+
+:global(:root[data-theme='dark']) {
+  .print-area {
+    @media screen {
+      border-color: white;
+    }
   }
 }
 </style>

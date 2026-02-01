@@ -2,18 +2,18 @@
 interface Props {
   title: string;
   shortTitle?: boolean,
-  condensed?: boolean,
+  text: "larger" | "smaller" | undefined,
   regions?: string[],
 }
 
-const { title, shortTitle = false, condensed = false, regions = "" } = Astro.props;
+const { title, shortTitle = false, text = undefined, regions = "" } = Astro.props;
 
 import CardNumber from './CardNumber.astro';
 ---
 
 <div class="column">
   <h2 class:list={[{shortTitle,}]} id={title}>{ title }</h2>
-  <div class:list={[{"main-text": true, condensed}]}>
+  <div class:list={["main-text", text]}>
     <slot></slot>
   </div>
   <div class="footer">
@@ -21,7 +21,9 @@ import CardNumber from './CardNumber.astro';
       <CardNumber />
     </div>
     { regions && (
-      <div class="regions" set:text={regions.join(" | ")} />
+      <ul class="regions">
+        {regions.map((r) => (<li set:text={r} />))}
+      </ul>
     )}
   </div>
 </div>
@@ -76,8 +78,11 @@ import CardNumber from './CardNumber.astro';
       font-weight: 600;
     }
   }
-  .condensed :global(p) {
+  .smaller :global(p) {
     font-size: 80%;
+  }
+  .larger :global(p) {
+    font-size: 120%;
   }
   .footer {
     align-self: stretch;
@@ -87,15 +92,32 @@ import CardNumber from './CardNumber.astro';
 
     margin-right: -0.2em;
 
-
     .number {
       font-size: 0.7em;
       align-self: flex-end;
       justify-self: flex-end;
     }
     .regions {
-      font-family: 'Libre Bodoni Variable', serif;
-      font-weight: 600;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline-block;
+        width: 1.75em;
+        height: 1.75em;
+
+        text-align: center;
+        vertical-align: middle;
+
+        font-family: 'Libre Bodoni Variable', serif;
+        font-weight: 600;
+        font-size: 80%;
+
+        border: 1px solid black;
+        border-radius: 3px;
+        margin-right: 0.25em;
+      }
     }
   }
 </style>

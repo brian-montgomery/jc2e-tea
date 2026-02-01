@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import { getCollection, render } from "astro:content";
+import CardLayout from "@components/CardLayout.astro";
+
+// TODO: Define Props.
+const { deck, card, } = Astro.props;
+const notes: CollectionEntry<"notes">[] = await getCollection("notes", ({data}) =>
+  data.collection === card.collection && data.id === card.id
+);
+---
+
+<div class="card-details">
+  <CardLayout {card} {deck} />
+  {/* TODO: Add card back */}
+  <div class="notes">
+    { notes.map((n) =>
+        render(n).then(({ Content }) =>
+          <Content />
+        )
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .card-details {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+  }
+
+  .notes {
+    flex-grow: 1;
+  }
+</style>
