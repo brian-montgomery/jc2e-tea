@@ -1,11 +1,8 @@
 ---
 import type { CollectionEntry, CollectionKey } from 'astro:content';
-import type { ImageMetadata } from 'astro';
 // import type { DefaultCardSchema } from "src/lib/content";
 
 import { getCollection, getEntry, render } from 'astro:content';
-import { getImage } from 'astro:assets';
-import { getCardDimensions } from 'src/lib/card-sizing'
 
 interface Props {
   deck: CollectionEntry<"decks">["id"];
@@ -54,82 +51,23 @@ function getCardIdSuffix(index: number) {
   return index ? `-${index + 1}` : '';
 }
 
-
-async function getBackgroundUrl(image: ImageMetadata | undefined) {
-  if (image === undefined)
-    return undefined;
-
-  const optimizedImg = await getImage({ src: image, format: 'png'});
-  return optimizedImg.src;
-}
-
-const deckBackgroundImage = await getBackgroundUrl(deck.data.background?.image);
-
-// TODO: Add current card override...
-function getBackgroundStyle() {
-  if (deckBackgroundImage) {
-    const backgrounds = [
-      deck?.data.background?.gradient,
-      `no-repeat url(${deckBackgroundImage})`,
-      deck?.data.background?.color,
-    ].filter(x => x)
-    return `${backgrounds.join(', ')}`;
-  }
-  return ''
-}
-
-const { height, width } = getCardDimensions(deck.data.size, deck.data.landscape);
+import CardLayout from './CardLayout.astro';
 ---
 <div id={`deck-${deck?.id}`} class="deck">
   <DeckContent />
-  <div class="card-list not-content" data-theme="light">
+  <div class="card-list" data-theme="light">
     {
-      deckListGroupedByCards.map(({card, cardCopyIdx, cardNumber}) =>
-        render(card).then(({ Content: CardContent }) => (
-          <a class="card-link" href={`/jc2e-tea/decks/${deck.id}/cards/${card.id}/`}>
-            <article
-              id={`card-${card.id}${getCardIdSuffix(cardCopyIdx)}`}
-              class="card"
-              style={`--card-bg: ${getBackgroundStyle()}`}
-            >
-              <div class="print-area" data-dy-card-number={cardNumber}>
-                <CardContent />
-              </div>
-            </article>
-          </a>
-        ))
-      )
+      deckListGroupedByCards.map(({card, cardCopyIdx, cardNumber: number}) => (
+        <a class="card-link" href={`/jc2e-tea/decks/${deck.id}/cards/${card.id}/`}>
+          <CardLayout id={`card-${card.id}${getCardIdSuffix(cardCopyIdx)}`} {card} {deck} {number} />
+        </a>
+      ))
     }
   </div>
 </div>
 
 
-<style define:vars={{ "card-height": height, "card-width": width }}>
-:root {
-  --card-bleed: 3mm;
-  --card-bg: transparent;
-
-  /* calculated variables, for convenience */
-  --card-full-width: calc(var(--card-width) + var(--card-bleed) * 2);
-  --card-full-height: calc(var(--card-height) + var(--card-bleed) * 2);
-
-  /* Letter Size: 215.9 mm x 279.4 mm */
-  --page-width: 215.9mm;
-  --page-height: 279.4mm;
-
-  /* Currently unused
-  --card-rows-per-page: 3;
-  --card-cols-per-page: 3;
-  */
-
-  --center-horizontally: 1;
-  --center-vertically: 1;
-
-  /* margins that depend on page size set above for */
-  --page-margin-x: calc(var(--center-horizontally) * ((var(--page-width) - (var(--card-cols-per-page) * var(--card-full-width)))/2));
-  --page-margin-y: calc(var(--center-vertically) * ((var(--page-height) - (var(--card-rows-per-page) * var(--card-full-height)))/2));
-}
-
+<style>
 .card-list {
   width: 100%;
 
@@ -158,35 +96,6 @@ const { height, width } = getCardDimensions(deck.data.size, deck.data.landscape)
   text-decoration: none;
   color: inherit;
   display: block;
-}
-
-/* TODO: Figure out jamming everything together versus card bleed. */
-.card {
-  overflow: hidden;
-  padding: var(--card-bleed);
-
-  height: var(--card-full-height);
-  max-height: var(--card-full-height);
-  width: var(--card-full-width);
-  max-width: var(--card-full-width);
-
-  @media print {
-    background: var(--card-bg);
-    break-inside: avoid;
-    page-break-inside: avoid;
-    border: 0.5pt solid black;
-  }
-}
-
-.print-area {
-  height: var(--card-height);
-  width: var(--card-width);
-
-  @media screen {
-    background: var(--card-bg);
-    border: 1px dotted black;
-    border-radius: var(--card-bleed);
-  }
 }
 
 </style>

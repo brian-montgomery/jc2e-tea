@@ -1,0 +1,43 @@
+---
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const decks = await getCollection("decks");
+  const nestedArrays = await Promise.all(decks.map(
+    async (deck) => {
+      const { cardCollection } = deck.data;
+      // @ts-ignore
+      const cards = await getCollection(cardCollection);
+
+      return cards.map((card) => ({
+        params: { deck: deck.id, card: card.id, },
+        props: {
+          deck,
+          card,
+          page: {
+            hasSidebar: true,
+            frontmatter: {
+              // @ts-ignore
+              title: `${card.data.title}`,
+              tableOfContents: false,
+              pagefind: true,
+              prev: false,
+              next: false,
+            },
+          },
+        },
+      }));
+    }
+  ));
+  return nestedArrays.flat();
+}
+
+const { deck, card, page, } = Astro.props;
+
+import CardLayout from "@components/CardLayout.astro";
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+---
+
+<StarlightPage {...page}>
+  <CardLayout {card} {deck} />
+</StarlightPage>

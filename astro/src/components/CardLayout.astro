@@ -1,0 +1,117 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import type { ImageMetadata } from 'astro';
+
+import { getEntry, render } from 'astro:content';
+import { getImage } from 'astro:assets';
+import { getCardDimensions } from 'src/lib/card-sizing';
+
+interface Props {
+  // TODO: Figure out how to limit the types on this.
+  card: object;
+  deck?: string | CollectionEntry<"decks">;
+  id?: string;
+  number?: number;
+}
+
+const {
+  card,
+  deck = undefined,
+  id = undefined,
+  number = undefined,
+} = Astro.props;
+
+// @ts-ignore
+const { Content } = await render(card);
+// TODO: Load deck automatically
+const deckEntry = (typeof deck === "string") ? await getEntry("decks", deck) : deck;
+
+// Calculate background
+async function getBackgroundUrl(image: ImageMetadata | undefined) {
+  if (image === undefined)
+    return undefined;
+
+  const optimizedImg = await getImage({ src: image, format: 'png'});
+  return optimizedImg.src;
+}
+
+// TODO: Add current card override...
+const deckBackgroundImage = await getBackgroundUrl(deckEntry?.data.background?.image);
+
+function getBackgroundStyle() {
+  if (deckBackgroundImage) {
+    const backgrounds = [
+      deckEntry?.data.background?.gradient,
+      `no-repeat url(${deckBackgroundImage})`,
+      deckEntry?.data.background?.color,
+    ].filter(x => x)
+    return `${backgrounds.join(', ')}`;
+  }
+  return ''
+}
+
+// TODO: Decide default card size
+const { height, width } = getCardDimensions(deckEntry?.data.size ?? "poker", deckEntry?.data.landscape);
+---
+
+<article {id} class="card not-content" style={`--card-bg: ${getBackgroundStyle()}`}>
+  <div class="print-area" data-dy-card-number={number}>
+    <Content />
+  </div>
+</article>
+
+<style define:vars={{ "card-height": height, "card-width": width }}>
+:root {
+  --card-bleed: 3mm;
+  --card-bg: transparent;
+
+  /* calculated variables, for convenience */
+  --card-full-width: calc(var(--card-width) + var(--card-bleed) * 2);
+  --card-full-height: calc(var(--card-height) + var(--card-bleed) * 2);
+
+  /* Letter Size: 215.9 mm x 279.4 mm */
+  --page-width: 215.9mm;
+  --page-height: 279.4mm;
+
+  /* Currently unused
+  --card-rows-per-page: 3;
+  --card-cols-per-page: 3;
+  */
+
+  --center-horizontally: 1;
+  --center-vertically: 1;
+
+  /* margins that depend on page size set above for */
+  --page-margin-x: calc(var(--center-horizontally) * ((var(--page-width) - (var(--card-cols-per-page) * var(--card-full-width)))/2));
+  --page-margin-y: calc(var(--center-vertically) * ((var(--page-height) - (var(--card-rows-per-page) * var(--card-full-height)))/2));
+}
+
+/* TODO: Figure out jamming everything together versus card bleed. */
+.card {
+  overflow: hidden;
+  padding: var(--card-bleed);
+
+  height: var(--card-full-height);
+  max-height: var(--card-full-height);
+  width: var(--card-full-width);
+  max-width: var(--card-full-width);
+
+  @media print {
+    background: var(--card-bg);
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 0.5pt solid black;
+  }
+}
+
+.print-area {
+  height: var(--card-height);
+  width: var(--card-width);
+
+  @media screen {
+    background: var(--card-bg);
+    border: 1px dotted black;
+    border-radius: var(--card-bleed);
+  }
+}
+</style>
