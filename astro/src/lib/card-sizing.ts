@@ -1,7 +1,7 @@
 
 export const CARD_SIZES = ["poker", "bridge", "mini-euro"] as const;
 
-type CardSizes = typeof CARD_SIZES[number];
+export type CardSizes = typeof CARD_SIZES[number];
 type CardSizeDimensions = readonly [string, string];
 
 const cardDimensions: Record<CardSizes, CardSizeDimensions> = {

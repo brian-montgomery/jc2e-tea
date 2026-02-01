@@ -1,0 +1,63 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import type { ImageMetadata } from 'astro';
+
+import { getEntry, render } from 'astro:content';
+import { getImage } from 'astro:assets';
+import CardFrame from '@components/deckyard/CardFrame.astro';
+
+interface Props {
+  // TODO: Figure out how to limit the types on this.
+  card: object;
+  deck?: string | CollectionEntry<"decks">;
+  id?: string;
+  number?: number;
+}
+
+const {
+  card,
+  deck = undefined,
+  id = undefined,
+  number = undefined,
+} = Astro.props;
+
+// @ts-ignore
+const { Content } = await render(card);
+// TODO: Load deck automatically
+const deckEntry = (typeof deck === "string") ? await getEntry("decks", deck) : deck;
+
+// TODO: Move background support to library function
+// Calculate background
+async function getBackgroundUrl(image: ImageMetadata | undefined) {
+  if (image === undefined)
+    return undefined;
+
+  const optimizedImg = await getImage({ src: image, format: 'png'});
+  return optimizedImg.src;
+}
+
+// TODO: Add current card override...
+const deckBackgroundImage = await getBackgroundUrl(deckEntry?.data.background?.image);
+
+function getBackgroundStyle() {
+  if (deckBackgroundImage) {
+    const backgrounds = [
+      deckEntry?.data.background?.gradient,
+      `no-repeat url(${deckBackgroundImage})`,
+      deckEntry?.data.background?.color,
+    ].filter(x => x)
+    return `${backgrounds.join(', ')}`;
+  }
+  return ''
+}
+---
+
+<CardFrame
+  {id}
+  background={getBackgroundStyle()}
+  size={deckEntry?.data.size}
+  landscape={deckEntry?.data.landscape}
+  card-number={number}
+>
+  <Content />
+</CardFrame>

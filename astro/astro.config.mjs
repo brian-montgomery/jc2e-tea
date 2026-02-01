@@ -26,6 +26,7 @@ export default defineConfig({
 				'@fontsource-variable/baskervville/index.css',
 				'@fontsource-variable/libre-bodoni/index.css',
 				'@fontsource/great-vibes/index.css',
+				'./src/assets/styles/deckyard.css',
 				'./src/assets/styles/custom.css',
 			],
 			social: [

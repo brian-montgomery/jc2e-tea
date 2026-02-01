@@ -1,0 +1,82 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { getCardDimensions, type CardSizes } from 'src/lib/card-sizing';
+
+interface Props extends HTMLAttributes<"article"> {
+  background?: string;
+  "card-number"?: number;
+  landscape?: boolean;
+  size?: CardSizes;
+}
+
+const {
+  background = "transparent",
+  "card-number": cardNumber = undefined,
+  "class": otherClasses = undefined,
+  landscape = false,
+  size = undefined,
+  ...attrs
+} = Astro.props;
+
+const cssVariables = {
+  "dy-card-bg": background,
+};
+
+if (size) {
+  const { height, width } = getCardDimensions(size, landscape);
+  Object.assign(cssVariables, {
+    "dy-card-height": height, "dy-card-width": width
+  })
+}
+---
+
+<article {...attrs} class:list={["card not-content", otherClasses]}>
+  <div class="print-area" data-dy-card-number={cardNumber}>
+    <slot></slot>
+  </div>
+</article>
+
+<style define:vars={cssVariables}>
+/* TODO: Figure out jamming everything together versus card bleed. */
+.card {
+  --dy-card-full-width: calc(var(--dy-card-width) + var(--dy-card-bleed) * 2);
+  --dy-card-full-height: calc(var(--dy-card-height) + var(--dy-card-bleed) * 2);
+
+  overflow: hidden;
+  padding: var(--dy-card-bleed);
+
+  min-height: var(--dy-card-full-height);
+  height: var(--dy-card-full-height);
+  max-height: var(--dy-card-full-height);
+
+  min-width: var(--dy-card-full-width);
+  width: var(--dy-card-full-width);
+  max-width: var(--dy-card-full-width);
+
+  @media print {
+    background: var(--dy-card-bg);
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 0.5pt solid black;
+  }
+}
+
+.print-area {
+  height: var(--dy-card-height);
+  width: var(--dy-card-width);
+
+  @media screen {
+    background: var(--dy-card-bg);
+    border: 1px solid black;
+    border-radius: var(--dy-card-bleed);
+  }
+}
+
+:global(:root[data-theme='dark']) {
+  .print-area {
+    @media screen {
+      border-color: white;
+    }
+  }
+}
+</style>

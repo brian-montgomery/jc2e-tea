@@ -1,0 +1,19 @@
+:root {
+    /* CardFrame Variables */
+    --dy-card-width: 10mm;
+    --dy-card-height: 10mm;
+    --dy-card-bleed: 3mm;
+    --dy-card-bg: transparent;
+
+    /* Letter Size: 215.9 mm x 279.4 mm */
+
+    /* DeckList Printing Variables */
+    --dy-page-width: 210mm;
+    --dy-page-height: 297mm;
+    --dy-card-rows-per-page: 3;
+    --dy-card-cols-per-page: 3;
+    --dy-center-horizontally: 1;
+    --dy-center-vertically: 1;
+    --dy-page-margin-x: calc(var(--center-horizontally) * ((var(--page-width) - (var(--card-cols-per-page) * var(--dy-card-full-width)))/2));
+    --dy-page-margin-y: calc(var(--center-vertically) * ((var(--page-height) - (var(--card-rows-per-page) * var(--dy-card-full-height)))/2));
+}

@@ -1,14 +1,16 @@
 ---
 import type { CollectionEntry } from "astro:content";
-
 import { getCollection, render } from "astro:content";
-import CardLayout from "@components/CardLayout.astro";
+
+import CardLayout from "@components/deckyard/CardLayout.astro";
 
 // TODO: Define Props.
 const { deck, card, } = Astro.props;
 const notes: CollectionEntry<"notes">[] = await getCollection("notes", ({data}) =>
   data.collection === card.collection && data.id === card.id
 );
+
+// TODO: Decide if this should be in Deckyard.
 ---
 
 <div class="card-details">
