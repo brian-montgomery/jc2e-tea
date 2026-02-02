@@ -1,41 +1,7 @@
-import { reference } from 'astro:content';
+import { reference, type SchemaContext } from 'astro:content';
 import { z } from 'astro/zod';
+import { CARD_SIZES } from "src/lib/card-sizing";
 
-
-interface CardSchemaOpts<T extends z.AnyZodObject = z.SomeZodObject> {
-	/**
-	 * Extend Deckyard's card schema with additional fields.
-	 *
-	 * @example
-	 * // Add two optional fields to the default schema.
-	 * cardSchema({
-	 * 	extend: z
-	 * 		.object({
-	 * 			'attack': z.number(),
-	 * 			'defense': z.number(),
-	 * 		})
-	 * 		.partial(),
-	 * })
-	 */
-  deckName?: string;
-	extend?: T;
-}
-
-function defaultCardSchema(deckName?: string) {
-  const deck = deckName
-    ? reference('decks').default(deckName)
-    : reference('decks').optional();
-
-  const objData = {
-    title: z.string(),
-    quantity: z.number().default(1),
-    deck,
-  }
-
-  return z.object({...objData});
-}
-
-export type DefaultCardSchema = ReturnType<typeof defaultCardSchema>;
 
 /**
  * Based on the the return type of Zod’s `merge()` method. Merges the type of two `z.object()` schemas.
@@ -44,20 +10,151 @@ export type DefaultCardSchema = ReturnType<typeof defaultCardSchema>;
  *
  * @see https://github.com/colinhacks/zod/blob/3032e240a0c227692bb96eedf240ed493c53f54c/src/types.ts#L2656-L2660
  */
+// Note: Research this for Zod 4.
 type MergeSchemas<A extends z.AnyZodObject, B extends z.AnyZodObject> = z.ZodObject<
   z.objectUtil.extendShape<A['shape'], B['shape']>,
   'passthrough',
   B['_def']['catchall']
 >;
-/** Type that extends Deckyard's default i18n schema with an optional, user-defined schema. */
-type ExtendedSchema<T extends z.AnyZodObject> = T extends z.AnyZodObject
-  ? MergeSchemas<DefaultCardSchema, T>
-  : DefaultCardSchema;
+type ExtendedSchema<A extends z.AnyZodObject, C extends z.AnyZodObject> =
+  C extends z.AnyZodObject ? MergeSchemas<A, C>: A;
 
-/** Content collection schema for Starlight’s optional `i18n` collection. */
+////////////
+// TODO: Generate card and deck default types and support functions
+////////////
+
+
+////////
+// Cards
+////////
+function defaultCardSchema(deckName?: string) {
+  const BaseZodCard = z.object({
+    title: z.string().describe(
+      "The title of the card. Note: this does need to be displayed when rendered."
+    ),
+    deck: reference('decks').describe(
+      "The name of the collection representing the deck this card is in."
+    ).optional(),
+    quantity: z.number().default(1).describe(
+      "The amount of copies of this card in its deck."
+    ),
+  });
+
+  if (deckName) {
+    const schema = BaseZodCard.merge(z.object({
+      deck: reference('decks').describe(
+        BaseZodCard.shape.deck.description ?? ""
+      ).default(deckName),
+    }))
+    return schema;
+  }
+  return BaseZodCard;
+}
+
+type BaseCardSchema = ReturnType<typeof defaultCardSchema>;
+export type BaseCard = z.infer<BaseCardSchema>
+
+type ExtendedCardSchema<T extends z.AnyZodObject> = ExtendedSchema<BaseCardSchema, T>
+type CardSchemaFunction<T extends z.AnyZodObject = z.SomeZodObject> =
+    (context: SchemaContext) => ExtendedCardSchema<T>;
+
+interface CardSchemaOpts<T extends z.AnyZodObject = z.SomeZodObject> {
+  /**
+   * Extend Deckyard's card schema with additional fields.
+   *
+   * @example
+   * // Add two optional fields to the default schema.
+   * cardSchema({
+   * 	extend: z
+   * 		.object({
+   * 			'attack': z.number(),
+   * 			'health': z.number(),
+   * 		})
+   * 		.partial(),
+   * })
+   */
+  deckName?: string;
+  extend?: CardSchemaFunction<T> | T;
+}
+
 export function cardSchema<T extends z.AnyZodObject = z.SomeZodObject>({
   deckName = undefined,
   extend = z.object({}) as T,
-}: CardSchemaOpts<T> = {}): ExtendedSchema<T> {
-  return defaultCardSchema(deckName).merge(extend).passthrough() as ExtendedSchema<T>;
+}: CardSchemaOpts<T> = {}): CardSchemaFunction<T> {
+  return (context: SchemaContext) =>
+    defaultCardSchema(deckName).merge(
+      typeof extend === "function"? extend(context) : extend
+    ).passthrough() as ExtendedCardSchema<T>;
 }
+
+
+////////
+// Decks
+////////
+function defaultDeckSchema({ image }: SchemaContext) {
+  // TODO: Refactor this block to be used with the cards as well.
+  const BaseZodDeck = z.object({
+    name: z.string().describe(
+      "The name of the deck. This is used for titles and other descriptions."
+    ),
+    cardCollection: z.string().describe(
+      "The name of the card collection that represents the cards of the deck."
+    ), // Make enum later.
+    size: z.enum(CARD_SIZES).describe(
+      "The name of the card collection that represents the cards of the deck."
+    ),
+    landscape: z.boolean().default(false).describe(
+      "The default orientation of the cards in this deck."
+    ),
+  });
+
+  return BaseZodDeck.merge(z.object({
+    background: z.object({
+      image: image().describe(
+        "The image that the card uses as a background."
+      ),
+      color: z.string().describe(
+        "The CSS `background-color` that the card uses."
+      ),
+      gradient: z.string().describe(
+        "The CSS `background-gradient` that the card uses."
+      ),
+    }).describe(
+      "The background of the card that all of the content will be rendered on top of."
+    ).partial().optional(),
+  }));
+}
+
+type BaseDeckSchema = ReturnType<typeof defaultDeckSchema>;
+type ExtendedDeckSchema<T extends z.AnyZodObject> = ExtendedSchema<BaseDeckSchema, T>
+type DeckSchemaFunction<T extends z.AnyZodObject = z.SomeZodObject> =
+    (context: SchemaContext) => ExtendedDeckSchema<T>;
+export type BaseDeck = z.infer<BaseDeckSchema>
+
+
+interface DeckSchemaOpts<T extends z.AnyZodObject = z.SomeZodObject> {
+  /**
+   * Extend Deckyard's deck schema with additional fields.
+   *
+   * @example
+   * // Add two optional fields to the default schema.
+   * deckSchema({
+   * 	extend: z
+   * 		.object({
+   * 			'shuffled': z.boolean(),
+   * 		})
+   * 		.partial(),
+   * })
+   */
+  extend?: DeckSchemaFunction<T> | T
+}
+
+export function deckSchema<T extends z.AnyZodObject = z.SomeZodObject>({
+  extend = z.object({}) as T,
+}: DeckSchemaOpts<T> = {}): DeckSchemaFunction<T> {
+    return ((context: SchemaContext) =>
+      defaultDeckSchema(context).merge(
+        typeof extend === "function"? extend(context) : extend
+      ).passthrough() as ExtendedDeckSchema<T>);
+}
+

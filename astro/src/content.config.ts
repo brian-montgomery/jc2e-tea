@@ -2,24 +2,12 @@ import { defineCollection, reference, z } from "astro:content";
 import { glob } from 'astro/loaders';
 import { docsLoader, i18nLoader } from '@astrojs/starlight/loaders';
 import { docsSchema, i18nSchema } from '@astrojs/starlight/schema';
-import { cardSchema } from "./lib/content";
+import { cardSchema, deckSchema } from "./lib/content";
 
-import { CARD_SIZES } from "./lib/card-sizing";
 
 const decks = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/decks" }),
-  schema: ({ image }) => z.object({
-    name: z.string(),
-    cardCollection: z.string(), // Make enum later.
-    size: z.enum(CARD_SIZES),
-    landscape: z.boolean().default(false),
-    background: z.object({
-      image: image(),
-      color: z.string(),
-      gradient: z.string(),
-    }).partial().optional(),
-    // cardBack ? (Override on card)
-  }),
+  schema: deckSchema(),
 });
 
 const lawCards = defineCollection({
