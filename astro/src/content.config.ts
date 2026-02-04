@@ -3,6 +3,7 @@ import { glob } from 'astro/loaders';
 import { docsLoader, i18nLoader } from '@astrojs/starlight/loaders';
 import { docsSchema, i18nSchema } from '@astrojs/starlight/schema';
 import { cardSchema, deckSchema } from "./lib/content";
+import { csvLoader } from "@ascorbic/csv-loader";
 
 
 const decks = defineCollection({
@@ -29,6 +30,35 @@ const eventCards = defineCollection({
     }),
   }),
 });
+
+const setupCards = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.mdx', base: "./src/content/cards/setup" }),
+  schema: cardSchema({
+    deckName: 'setup',
+    extend: z.object({
+      extra: z.boolean().default(false),
+      areas: z.array(z.string()).optional(),
+    }),
+  }),
+});
+
+// const setupCards = defineCollection({
+//   loader: csvLoader({
+//     fileName: './src/content/setup.csv',
+//     idField: 'title',
+//     parserOptions: {
+//       header: true,
+//       preview: 1,
+//     }
+//   }),
+//   schema: cardSchema({
+//     deckName: 'setup',
+//     extend: z.object({
+//       extra: z.boolean().default(false),
+//       areas: z.array(z.string()).optional(),
+//     }),
+//   }),
+// });
 
 const notes = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/notes" }),
@@ -63,5 +93,6 @@ export const collections = {
   decks,
   eventCards,
   lawCards,
+  setupCards,
   notes,
 };

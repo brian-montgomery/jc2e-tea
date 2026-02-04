@@ -1,9 +1,11 @@
 ---
 title: EIC Indemnity
+regions:
+  - ??
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout title={frontmatter.title} text="larger">
+<Layout title={frontmatter.title} regions={frontmatter.regions} textSize={133}>
    Increase the\
    **Value of Tea** by 1.
 </Layout>

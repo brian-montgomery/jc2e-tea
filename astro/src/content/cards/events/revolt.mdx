@@ -4,12 +4,12 @@ quantity: 2
 ---
 import Layout from "@components/EventCardLayout.astro";
 
-<Layout title={frontmatter.title} text="smaller">
+<Layout title={frontmatter.title} textSize={90}>
    The colonists cause a rebellion in every
-   colonized region with unrest. Their strength is their\
-   **unrest** plus one.
+   colonized region with unrest. Their strength\
+   is their **unrest** plus one.
 
-   The {frontmatter._["role.govt.governor"]} may
+   The **{frontmatter._["role.govt.governor.full"]}** may
    purchase native local alliances beforehand.
    Local militias may not be bought or used.
 </Layout>

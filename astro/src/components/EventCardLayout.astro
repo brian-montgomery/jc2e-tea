@@ -1,19 +1,19 @@
 ---
 interface Props {
   title: string;
-  shortTitle?: boolean,
-  text: "larger" | "smaller" | undefined,
-  regions?: string[],
+  shortTitle?: boolean;
+  textSize?: number;
+  regions?: string[];
 }
 
-const { title, shortTitle = false, text = undefined, regions = "" } = Astro.props;
+const { title, shortTitle = false, textSize = 100, regions = "" } = Astro.props;
 
 import CardNumber from '@components/deckyard/CardNumber.astro';
 ---
 
 <div class="column">
   <h2 class:list={[{shortTitle,}]}>{ title }</h2>
-  <div class:list={["main-text", text]}>
+  <div class="main-text" style={`--text-size: ${textSize}%`}>
     <slot></slot>
   </div>
   <div class="footer">
@@ -65,6 +65,7 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
 
     & :global(p) {
       font-family: 'Baskervville Variable';
+      font-size: var(--text-size);
       line-height: 1.25em;
       text-align: center;
       margin-bottom: 0.5em;

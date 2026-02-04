@@ -11,7 +11,7 @@ export async function getStaticPaths() {
       page: {
         hasSidebar: true,
         frontmatter: {
-          title: `${deck.data.name} Deck`,
+          title: deck.data.name,
           tableOfContents: false,
           pagefind: true,
           prev: false,

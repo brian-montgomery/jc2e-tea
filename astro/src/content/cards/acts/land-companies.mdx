@@ -6,7 +6,7 @@ regions:
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout title={frontmatter.title} regions={frontmatter.regions} text="smaller">
+<Layout title={frontmatter.title} regions={frontmatter.regions} textSize={80}>
    When a player **seeks a share** during the
    Family Actions, they may pay £1 to place a
    family marker on this card, acting as a
@@ -14,6 +14,6 @@ import Layout from "@components/ActCardLayout.astro";
 
    Flip the loot tokens over in the **Northwest and
    Mississippi** regions. When one of those regions
-   is colonized, divide the loot using the markers
-   on this card instead of Officers.
+   is colonized, follow the rules for dividing loot,
+   using the markers on this card as Officers.
 </Layout>

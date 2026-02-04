@@ -39,11 +39,11 @@ if (size) {
 <style define:vars={cssVariables}>
 /* TODO: Figure out jamming everything together versus card bleed. */
 .card {
-  --dy-card-full-width: calc(var(--dy-card-width) + var(--dy-card-bleed) * 2);
-  --dy-card-full-height: calc(var(--dy-card-height) + var(--dy-card-bleed) * 2);
+  --dy-card-full-width: var(--dy-card-width);
+  --dy-card-full-height: var(--dy-card-height);
 
   overflow: hidden;
-  padding: var(--dy-card-bleed);
+  padding: 0;
 
   min-height: var(--dy-card-full-height);
   height: var(--dy-card-full-height);
@@ -54,7 +54,11 @@ if (size) {
   max-width: var(--dy-card-full-width);
 
   @media print {
+    --dy-card-full-width: calc(var(--dy-card-width) + var(--dy-card-bleed) * 2);
+    --dy-card-full-height: calc(var(--dy-card-height) + var(--dy-card-bleed) * 2);
+
     background: var(--dy-card-bg);
+    padding: var(--dy-card-bleed);
     break-inside: avoid;
     page-break-inside: avoid;
     border: 0.5pt solid black;
@@ -66,16 +70,18 @@ if (size) {
   width: var(--dy-card-width);
 
   @media screen {
+    height: 100%;
+    width: 100%;
     background: var(--dy-card-bg);
     border: 1px solid black;
-    border-radius: var(--dy-card-bleed);
+    border-radius: 0.75em;
   }
 }
 
 :global(:root[data-theme='dark']) {
-  .print-area {
-    @media screen {
-      border-color: white;
+  @media screen {
+    .print-area {
+      border: 1px solid white;
     }
   }
 }

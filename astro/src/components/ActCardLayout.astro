@@ -2,18 +2,18 @@
 interface Props {
   title: string;
   shortTitle?: boolean,
-  text: "larger" | "smaller" | undefined,
+  textSize?: number,
   regions?: string[],
 }
 
-const { title, shortTitle = false, text = undefined, regions = "" } = Astro.props;
+const { title, shortTitle = false, textSize = 100, regions = "" } = Astro.props;
 
 import CardNumber from '@components/deckyard/CardNumber.astro';
 ---
 
 <div class="column">
   <h2 class:list={[{shortTitle,}]} id={title}>{ title }</h2>
-  <div class:list={["main-text", text]}>
+  <div class:list={["main-text"]} style={`--text-size: ${textSize}%`}>
     <slot></slot>
   </div>
   <div class="footer">
@@ -22,7 +22,7 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
     </div>
     { regions && (
       <ul class="regions">
-        {regions.map((r) => (<li set:text={r} />))}
+        {regions.map((r) => (<li><span set:text={r} /></li>))}
       </ul>
     )}
   </div>
@@ -70,27 +70,23 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
 
     & :global(p) {
       font-family: 'Baskervville Variable';
+      font-size: var(--text-size);
       line-height: 1.25em;
       text-align: center;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.75em;
     }
     & :global(strong) {
       font-weight: 600;
     }
   }
-  .smaller :global(p) {
-    font-size: 80%;
-  }
-  .larger :global(p) {
-    font-size: 120%;
-  }
   .footer {
     align-self: stretch;
+
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
 
-    margin-right: -0.2em;
+    margin-right: -0.25em;
 
     .number {
       font-size: 0.7em;
@@ -104,20 +100,27 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
 
       li {
         display: inline-block;
-        width: 1.75em;
-        height: 1.75em;
-
-        text-align: center;
-        vertical-align: middle;
+        width: 2em;
+        height: 2em;
 
         font-family: 'Libre Bodoni Variable', serif;
         font-weight: 600;
-        font-size: 80%;
+        font-size: 85%;
+        text-align: center;
 
-        border: 1px solid black;
-        border-radius: 3px;
+        border: 1pt solid black;
+        background: #A4582B;
+        color: white;
         margin-right: 0.25em;
+
+        span {
+          vertical-align: middle;
+        }
       }
     }
+  }
+  .footer:has(.regions) {
+    padding-top: 0.25em;
+    border-top: 1px solid lightgray;
   }
 </style>

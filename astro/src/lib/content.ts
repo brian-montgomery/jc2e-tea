@@ -18,6 +18,11 @@ type MergeSchemas<A extends z.AnyZodObject, B extends z.AnyZodObject> = z.ZodObj
 >;
 type ExtendedSchema<A extends z.AnyZodObject, C extends z.AnyZodObject> =
   C extends z.AnyZodObject ? MergeSchemas<A, C>: A;
+type SchemaConfigOrFunction<T extends z.AnyZodObject = z.SomeZodObject> =
+  T | ((context: SchemaContext) => T);
+
+const getSchema = (s: SchemaConfigOrFunction, context: SchemaContext) => typeof s === "function" ? s(context) : s
+
 
 ////////////
 // TODO: Generate card and deck default types and support functions
@@ -31,7 +36,7 @@ function defaultCardSchema(deckName?: string) {
   const BaseZodCard = z.object({
     title: z.string().describe(
       "The title of the card. Note: this does need to be displayed when rendered."
-    ),
+    ).default(""),
     deck: reference('decks').describe(
       "The name of the collection representing the deck this card is in."
     ).optional(),
@@ -74,7 +79,7 @@ interface CardSchemaOpts<T extends z.AnyZodObject = z.SomeZodObject> {
    * })
    */
   deckName?: string;
-  extend?: CardSchemaFunction<T> | T;
+  extend?: SchemaConfigOrFunction<T>;
 }
 
 export function cardSchema<T extends z.AnyZodObject = z.SomeZodObject>({
@@ -82,9 +87,9 @@ export function cardSchema<T extends z.AnyZodObject = z.SomeZodObject>({
   extend = z.object({}) as T,
 }: CardSchemaOpts<T> = {}): CardSchemaFunction<T> {
   return (context: SchemaContext) =>
-    defaultCardSchema(deckName).merge(
-      typeof extend === "function"? extend(context) : extend
-    ).passthrough() as ExtendedCardSchema<T>;
+    getSchema(defaultCardSchema(deckName), context)
+    .merge(getSchema(extend, context))
+    .passthrough() as ExtendedCardSchema<T>;
 }
 
 
@@ -126,11 +131,11 @@ function defaultDeckSchema({ image }: SchemaContext) {
 }
 
 type BaseDeckSchema = ReturnType<typeof defaultDeckSchema>;
+export type BaseDeck = z.infer<BaseDeckSchema>
+
 type ExtendedDeckSchema<T extends z.AnyZodObject> = ExtendedSchema<BaseDeckSchema, T>
 type DeckSchemaFunction<T extends z.AnyZodObject = z.SomeZodObject> =
     (context: SchemaContext) => ExtendedDeckSchema<T>;
-export type BaseDeck = z.infer<BaseDeckSchema>
-
 
 interface DeckSchemaOpts<T extends z.AnyZodObject = z.SomeZodObject> {
   /**
@@ -146,15 +151,14 @@ interface DeckSchemaOpts<T extends z.AnyZodObject = z.SomeZodObject> {
    * 		.partial(),
    * })
    */
-  extend?: DeckSchemaFunction<T> | T
+  extend?: SchemaConfigOrFunction<T>;
 }
 
 export function deckSchema<T extends z.AnyZodObject = z.SomeZodObject>({
   extend = z.object({}) as T,
 }: DeckSchemaOpts<T> = {}): DeckSchemaFunction<T> {
-    return ((context: SchemaContext) =>
-      defaultDeckSchema(context).merge(
-        typeof extend === "function"? extend(context) : extend
-      ).passthrough() as ExtendedDeckSchema<T>);
+    return (context: SchemaContext) =>
+      getSchema(defaultDeckSchema, context)
+      .merge(getSchema(extend, context))
+      .passthrough() as ExtendedDeckSchema<T>;
 }
-

@@ -21,8 +21,6 @@ const {
   number = undefined,
 } = Astro.props;
 
-// @ts-ignore
-const { Content } = await render(card);
 // TODO: Load deck automatically
 const deckEntry = (typeof deck === "string") ? await getEntry("decks", deck) : deck;
 
@@ -50,6 +48,10 @@ function getBackgroundStyle() {
   }
   return ''
 }
+// @ts-ignore
+const { Content } = await render(card);
+
+// TODO: Change this to be slot-based
 ---
 
 <CardFrame

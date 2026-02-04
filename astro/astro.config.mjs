@@ -17,7 +17,7 @@ export default defineConfig({
 	},
 	integrations: [
 		starlight({
-			title: `1733: Tea & Business`,
+			title: '1733: Tea & Business',
 			logo: {
 				src: './public/favicon.svg',
 			},
@@ -44,6 +44,10 @@ export default defineConfig({
         {
 					label: 'Components',
           items: [
+            {
+              label: "Setup Cards",
+              link: '/decks/setup',
+            },
             {
               label: "Colonial Acts Deck",
               link: '/decks/acts',

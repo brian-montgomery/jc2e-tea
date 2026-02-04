@@ -1,0 +1,198 @@
+---
+interface Props {
+  areas?: string[];
+  extra?: boolean;
+}
+
+const { areas = [], extra = false } = Astro.props;
+---
+
+<div class="column">
+  <div class="header">
+    { extra && <span class="extra">Extra</span>}
+    <p class="title">1733</h2>
+    <p class="subtitle">Tea and Business</p>
+  </div>
+  <div class:list={["main", `cells-${areas.length}`]}>
+    {areas?.map((a) =>
+      <div class="cell">
+        <div set:text={a} />
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 100%;
+    padding: 0.75em 0 0.5em;
+
+    color: black;
+
+    /* Debug flex layout.
+    & > :global(*) {
+      border: 1px solid lightblue;
+    } */
+  }
+  .header {
+    background-color: #CAA616;
+    text-align: center;
+    height: 3em;
+    min-height: 3em;
+    padding: 0.5em 0;
+    position: relative;
+
+    .title {
+      font-family: 'Great Vibes', serif;
+      font-size: 3em;
+      line-height: 0.6em;
+      margin: 0;
+      padding: 0;
+    }
+    .subtitle {
+      font-family: 'Baskervville SC Variable', serif;
+      font-size: 0.9em;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 0.5em;
+      text-transform: lowercase;
+    }
+    .extra {
+      position: absolute;
+      right: 2mm;
+      top: 0;
+
+      font-family: 'Baskervville Variable', serif;
+      font-style: italic;
+      font-size: 0.65em;
+      font-weight: 500;
+    }
+  }
+  .main {
+    height: 45mm;
+
+    --border-color: white;
+    border: 2px solid var(--border-color);
+    border-collapse: collapse;
+    corner-shape: scoop;
+    border-radius: 1em;
+    margin: 0.5em 1em 0.25em;
+
+    display: grid;
+    align-items: center;
+    align-content: stretch;
+    overflow: hidden;
+
+
+    &.cells-2 {
+      grid-template-rows: repeat(2, 1fr);
+
+      .cell:nth-child(1) {
+        border-bottom: 1px solid var(--border-color);
+      }
+      .cell:nth-child(2) {
+        border-top: 1px solid var(--border-color);
+      }
+    }
+    &.cells-3 {
+      grid-template-rows: repeat(3, 1fr);
+
+      .cell:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border-color);
+      }
+      .cell:nth-last-child(-n+2) {
+        border-top: 1px solid var(--border-color);
+      }
+    }
+    &.cells-4 {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+
+      .cell:nth-child(odd) {
+        border-right: 1px solid var(--border-color);
+      }
+      .cell:nth-child(even) {
+        border-left: 1px solid var(--border-color);
+      }
+      .cell:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border-color);
+      }
+      .cell:nth-last-child(-n+2) {
+        border-top: 1px solid var(--border-color);
+      }
+    }
+
+    .cell {
+      place-self: stretch;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      div {
+        text-align: center;
+        vertical-align: middle;
+        font-family: 'Baskervville SC Variable', serif;
+        font-size: 85%;
+      }
+    }
+  }
+  h2 {
+    font-family: 'Libre Bodoni Variable', serif;
+    /* font-family: 'Baskervville Variable', serif; */
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 1.55em;
+    text-transform: uppercase;
+    line-height: 1.2em;
+    padding: 0.25em;
+    justify-self: end;
+    text-align: center;
+    vertical-align: bottom;
+  }
+  h2.shortTitle {
+    padding: 0.75em 0.25em;
+  }
+  .main-text {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & :global(p) {
+      font-family: 'Baskervville Variable';
+      font-size: var(--text-size);
+      line-height: 1.25em;
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
+    & :global(strong) {
+      font-weight: 600;
+    }
+  }
+  .smaller :global(p) {
+    font-size: 80%;
+  }
+  .larger :global(p) {
+    font-size: 120%;
+  }
+  .footer {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    margin-right: -0.2em;
+
+    .number {
+      font-size: 0.7em;
+      align-self: flex-end;
+      justify-self: flex-end;
+    }
+  }
+</style>
