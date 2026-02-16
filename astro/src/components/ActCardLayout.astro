@@ -2,19 +2,27 @@
 interface Props {
   title: string;
   shortTitle?: boolean,
+  heading?: "dilemma" | "special" | "reference" | undefined;
   textSize?: number,
   regions?: string[],
   tags?: string[],
 }
 
-const { title, shortTitle = false, textSize = 100, regions = "", tags = [] } = Astro.props;
+const {
+  heading = undefined,
+  title,
+  shortTitle = false,
+  textSize = 100,
+  regions = "",
+  tags = [],
+} = Astro.props;
 
 import CardNumber from '@components/deckyard/CardNumber.astro';
 ---
 
 <div class="column">
   {
-    Astro.slots.has("heading") && (
+    heading && (
       <div class="heading">
         <slot name="heading" />
       </div>
