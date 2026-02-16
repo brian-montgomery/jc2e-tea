@@ -58,7 +58,7 @@ function getBackgroundStyle() {
 }
 // @ts-ignore
 const { Content } = await render(card);
-const components = { em: Trans }
+// const components = { em: Trans }
 
 // TODO: Change this to be slot-based
 ---
@@ -71,5 +71,5 @@ const components = { em: Trans }
   card-number={number}
   {bleed}
 >
-  <Content {components} />
+  <Content />
 </CardFrame>

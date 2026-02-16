@@ -49,16 +49,16 @@ export default defineConfig({
               link: '/decks/setup',
             },
             {
-              label: "Colonial Acts Deck",
+              label: "Office Cards",
+              link: '/decks/office',
+            },
+            {
+              label: "Board of Trade Deck",
               link: '/decks/acts',
             },
             {
               label: "Events in America Deck",
               link: '/decks/events',
-            },
-            {
-              label: "Office Cards",
-              link: '/decks/office',
             },
           ]
 				},

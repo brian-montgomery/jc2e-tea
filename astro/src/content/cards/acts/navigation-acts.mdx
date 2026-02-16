@@ -1,0 +1,47 @@
+---
+title: Navigation Acts
+---
+import Layout from "@components/ActCardLayout.astro";
+
+<Layout {...frontmatter} textSize={70}>
+<h1 slot="heading">Gameplay Changes in 1733</h1>
+
+Pensioners are not removed until\
+**the end of the Hiring phase**.
+
+During the **Enlist Writer** family action, a player may place a\
+tax collector in the **{frontmatter._["role.govt.customs.full"]}'** box
+instead of placing a writer in a Presidency.
+
+Firms operate in **America** instead\
+of **India**. They may take on debt\
+and emergency loans, similar\
+to the Company.
+
+Whenever the Company, a firm or the Government
+takes on debt, reduce the Credit track by the
+same amount.
+</Layout>
+
+<style>{`
+h1 {
+   display: block;
+   font-family: "Baskervville Variable", serif;
+   font-style: italic;
+   font-size: 80%;
+   font-weight: 400;
+   text-align: center;
+}
+em {
+   display: inline-block;
+   font-size: 65%;
+   font-style: italic;
+   line-height: 1.33em;
+}
+.post-text p {
+   line-height: 1.1em;
+}
+.post-text p:last-child {
+   margin-bottom: 0;
+}
+`}</style>

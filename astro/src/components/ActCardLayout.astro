@@ -7,12 +7,19 @@ interface Props {
   tags?: string[],
 }
 
-const { title, shortTitle = false, textSize = 100, regions = [], tags = [] } = Astro.props;
+const { title, shortTitle = false, textSize = 100, regions = "", tags = [] } = Astro.props;
 
 import CardNumber from '@components/deckyard/CardNumber.astro';
 ---
 
 <div class="column">
+  {
+    Astro.slots.has("heading") && (
+      <div class="heading">
+        <slot name="heading" />
+      </div>
+    )
+  }
   <h2 class:list={[{shortTitle,}]} id={title}>{ title }</h2>
   <div class:list={["main-text"]} style={`--text-size: ${textSize}%`}>
     <slot></slot>
@@ -22,7 +29,7 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
       { tags.includes('duty') && "CD" }
       <CardNumber />
     </div>
-    { regions && (
+    { !!regions && (
       <ul class="regions">
         {regions.map((r) => (<li><span set:text={r} /></li>))}
       </ul>
@@ -31,6 +38,12 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
 </div>
 
 <style>
+  .heading {
+    border-top: 3px double black;
+    border-bottom: 3px double black;
+    margin-bottom: 0.2em;
+    width: 100%;
+  }
   .column {
     display: flex;
     flex-direction: column;
@@ -55,13 +68,18 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
     font-size: 1.25em;
     text-transform: uppercase;
     line-height: 1.2em;
-    padding: 0.25em;
+    padding: 0.25em 0;
     justify-self: end;
     text-align: center;
     vertical-align: bottom;
   }
+  .heading + h2 {
+    font-size: 1.15em;
+    letter-spacing: 0.5px;
+    padding: 0.25em 0;
+  }
   h2.shortTitle {
-    padding: 0.75em 0.25em;
+    padding: 0.75em 0;
   }
   .main-text {
     flex-grow: 1;
