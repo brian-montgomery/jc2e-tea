@@ -3,11 +3,13 @@ title: Embargo of Boston
 regions:
    - M
    - CP
+tags:
+   - military
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout title={frontmatter.title} regions={frontmatter.regions}>
-   Add two naval ships to the **{frontmatter._["role.govt.military"]}**.
+<Layout {...frontmatter}>
+   Add two military units to the **{frontmatter._["role.govt.military"]}**'s army.
 
    Add one unrest cube and close all trade orders
    in the **New England** region, performing a cascade

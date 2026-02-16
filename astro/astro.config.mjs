@@ -56,6 +56,10 @@ export default defineConfig({
               label: "Events in America Deck",
               link: '/decks/events',
             },
+            {
+              label: "Office Cards",
+              link: '/decks/office',
+            },
           ]
 				},
 			],

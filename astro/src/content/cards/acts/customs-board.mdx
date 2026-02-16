@@ -1,0 +1,23 @@
+---
+title: Customs Board
+regions:
+   - NE
+   - M
+   - S
+---
+import Layout from "@components/ActCardLayout.astro";
+import T from "@components/T.astro"
+
+<Layout {...frontmatter} textSize={85}>
+   Increase the\
+   **Value of Tea** by 1.
+
+   Increase the\
+   **<T key="role.govt.customs.full"/>'s** dice pool by 2.
+   When closing orders during customs checks, also
+   add an unrest cube to that colonized region.
+
+   During expenses, the\
+   **<T key="role.govt.governor.full"/>**\
+   adds £1.
+</Layout>

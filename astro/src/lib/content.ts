@@ -32,7 +32,8 @@ const getSchema = (s: SchemaConfigOrFunction, context: SchemaContext) => typeof 
 ////////
 // Cards
 ////////
-function defaultCardSchema(deckName?: string) {
+function defaultCardSchema(context: SchemaContext, deckName?: string) {
+
   const BaseZodCard = z.object({
     title: z.string().describe(
       "The title of the card. Note: this does need to be displayed when rendered."
@@ -43,6 +44,22 @@ function defaultCardSchema(deckName?: string) {
     quantity: z.number().default(1).describe(
       "The amount of copies of this card in its deck."
     ),
+    background: z.object({
+      bleed: z.string().describe(
+        "The CSS width representing the bleed for the background"
+      ).default("0"),
+      image: context.image().describe(
+        "The image that the card uses as a background."
+      ),
+      color: z.string().describe(
+        "The CSS `background-color` that the card uses."
+      ),
+      gradient: z.string().describe(
+        "The CSS `background-gradient` that the card uses."
+      ),
+    }).describe(
+      "The background of the card that all of the content will be rendered on top of."
+    ).partial().optional(),
   });
 
   if (deckName) {
@@ -87,7 +104,7 @@ export function cardSchema<T extends z.AnyZodObject = z.SomeZodObject>({
   extend = z.object({}) as T,
 }: CardSchemaOpts<T> = {}): CardSchemaFunction<T> {
   return (context: SchemaContext) =>
-    getSchema(defaultCardSchema(deckName), context)
+    defaultCardSchema(context, deckName)
     .merge(getSchema(extend, context))
     .passthrough() as ExtendedCardSchema<T>;
 }
@@ -115,8 +132,14 @@ function defaultDeckSchema({ image }: SchemaContext) {
 
   return BaseZodDeck.merge(z.object({
     background: z.object({
+      bleed: z.string().describe(
+        "The CSS width representing the bleed for the background."
+      ).default("0"),
       image: image().describe(
         "The image that the card uses as a background."
+      ),
+      imageSize: z.string().describe(
+        "The CSS `background-size` that the background image uses."
       ),
       color: z.string().describe(
         "The CSS `background-color` that the card uses."

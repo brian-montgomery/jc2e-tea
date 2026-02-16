@@ -3,7 +3,7 @@ import { glob } from 'astro/loaders';
 import { docsLoader, i18nLoader } from '@astrojs/starlight/loaders';
 import { docsSchema, i18nSchema } from '@astrojs/starlight/schema';
 import { cardSchema, deckSchema } from "./lib/content";
-import { csvLoader } from "@ascorbic/csv-loader";
+// import { csvLoader } from "@ascorbic/csv-loader";
 
 
 const decks = defineCollection({
@@ -28,6 +28,16 @@ const eventCards = defineCollection({
     extend: z.object({
       regions: z.array(z.string()).optional(),
     }),
+  }),
+});
+
+const officeCards = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.mdx', base: "./src/content/cards/office" }),
+  schema: cardSchema({
+    deckName: 'office',
+    // extend: z.object({
+    //   regions: z.array(z.string()).optional(),
+    // }),
   }),
 });
 
@@ -87,12 +97,16 @@ export const collections = {
         'role.govt.military.full': z.string(),
         'role.govt.customs': z.string(),
         'role.govt.customs.full': z.string(),
+        'tea.token.singular': z.string(),
+        'tea.token.plural': z.string(),
+        'tea.track': z.string(),
       }),
     }),
   }),
   decks,
   eventCards,
   lawCards,
+  officeCards,
   setupCards,
   notes,
 };

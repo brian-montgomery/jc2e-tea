@@ -5,6 +5,7 @@ import type { ImageMetadata } from 'astro';
 import { getEntry, render } from 'astro:content';
 import { getImage } from 'astro:assets';
 import CardFrame from '@components/deckyard/CardFrame.astro';
+import Trans from '@components/T.astro';
 
 interface Props {
   // TODO: Figure out how to limit the types on this.
@@ -35,7 +36,14 @@ async function getBackgroundUrl(image: ImageMetadata | undefined) {
 }
 
 // TODO: Add current card override...
-const deckBackgroundImage = await getBackgroundUrl(deckEntry?.data.background?.image);
+const deckBackgroundImage = await getBackgroundUrl(
+  // @ts-ignore
+  card!.data.background?.image || deckEntry?.data.background?.image);
+
+// // @ts-ignore
+// const deckBackgroundSize = card!.data.background?.imageSize || deckEntry?.data.background?.imageSize;
+// @ts-ignore
+const bleed = card!.data.background?.bleed || deckEntry?.data.background?.bleed;
 
 function getBackgroundStyle() {
   if (deckBackgroundImage) {
@@ -50,6 +58,7 @@ function getBackgroundStyle() {
 }
 // @ts-ignore
 const { Content } = await render(card);
+const components = { em: Trans }
 
 // TODO: Change this to be slot-based
 ---
@@ -60,6 +69,7 @@ const { Content } = await render(card);
   size={deckEntry?.data.size}
   landscape={deckEntry?.data.landscape}
   card-number={number}
+  {bleed}
 >
-  <Content />
+  <Content {components} />
 </CardFrame>

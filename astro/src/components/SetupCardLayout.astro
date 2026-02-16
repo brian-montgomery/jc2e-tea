@@ -10,8 +10,8 @@ const { areas = [], extra = false } = Astro.props;
 <div class="column">
   <div class="header">
     { extra && <span class="extra">Extra</span>}
-    <p class="title">1733</h2>
-    <p class="subtitle">Tea and Business</p>
+    <!-- <p class="title">1733</h2>
+    <p class="subtitle">Tea and Business</p> -->
   </div>
   <div class:list={["main", `cells-${areas.length}`]}>
     {areas?.map((a) =>
@@ -39,7 +39,7 @@ const { areas = [], extra = false } = Astro.props;
     } */
   }
   .header {
-    background-color: #CAA616;
+    /* background-color: #CAA616; */
     text-align: center;
     height: 3em;
     min-height: 3em;

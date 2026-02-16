@@ -4,9 +4,10 @@ interface Props {
   shortTitle?: boolean,
   textSize?: number,
   regions?: string[],
+  tags?: string[],
 }
 
-const { title, shortTitle = false, textSize = 100, regions = "" } = Astro.props;
+const { title, shortTitle = false, textSize = 100, regions = [], tags = [] } = Astro.props;
 
 import CardNumber from '@components/deckyard/CardNumber.astro';
 ---
@@ -18,6 +19,7 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
   </div>
   <div class="footer">
     <div class="number">
+      { tags.includes('duty') && "CD" }
       <CardNumber />
     </div>
     { regions && (
@@ -50,7 +52,7 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
     /* font-family: 'Baskervville Variable', serif; */
     letter-spacing: 1px;
     font-weight: 700;
-    font-size: 1.55em;
+    font-size: 1.25em;
     text-transform: uppercase;
     line-height: 1.2em;
     padding: 0.25em;

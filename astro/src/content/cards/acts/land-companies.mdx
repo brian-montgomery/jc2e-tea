@@ -3,10 +3,12 @@ title: Land Speculation
 regions:
    - M
    - CP
+tags:
+   - military
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout title={frontmatter.title} regions={frontmatter.regions} textSize={80}>
+<Layout {...frontmatter} textSize={80}>
    When a player **seeks a share** during the
    Family Actions, they may pay £1 to place a
    family marker on this card, acting as a

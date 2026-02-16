@@ -1,12 +1,26 @@
 ---
 title: Export Duties
+regions:
+   - NE
+   - CP
+   - S
+tags:
+   - duty
+   - tea
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout title={frontmatter.title}>
-   During trade in America, each firm will
-   pay £1 to the
-   **{frontmatter._["role.govt.governor.full"]}'s**
-   treasury for each colonized region they
-   successfully traded.
+<Layout {...frontmatter} textSize={90}>
+When rolling customs checks,
+use **3** dice.\
+Add **£1** to the treasury\
+for each success.
+
+Each firm pays **£1** to the\
+Colonial Treasury
+for each colonized region\
+they trade in.
+
+Increase the\
+**Value of Tea** by 1.
 </Layout>

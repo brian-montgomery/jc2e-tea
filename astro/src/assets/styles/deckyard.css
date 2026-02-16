@@ -2,7 +2,7 @@
     /* CardFrame Variables */
     --dy-card-width: 10mm;
     --dy-card-height: 10mm;
-    --dy-card-bleed: 3mm;
+    --dy-card-bleed: 0; /* 0.125in; */
     --dy-card-bg: transparent;
 
     /* Letter Size: 215.9 mm x 279.4 mm */

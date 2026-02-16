@@ -1,0 +1,44 @@
+---
+title: Commissioner of Customs
+background:
+   image: "@assets/images/cards/office-cc.jpeg"
+---
+import Layout from "@components/OfficeCardLayout.astro";
+
+<Layout {...frontmatter} textSize={75}>
+   May take Customs Check action:
+
+   <Fragment slot="dice-pool">
+      _Determined by colonial duty. May use military units to add dice._
+   </Fragment>
+   <Fragment slot="dice-success">
+      Fill orders and increase\
+      the Colonial Treasury.
+
+      <div class="bonus">You gain £1 per duty.</div>
+      <div class="bonus">Players gain £1 for each collector.</div>
+   </Fragment>
+
+   _Place a closed order for each failure rolled._
+
+   {/* <Fragment slot="dice-failure">
+      Close instead of filling order.
+   </Fragment> */}
+
+   {/* <div style="display: grid; grid-template-columns: 1fr 2fr;">
+      <div style="padding: 0 0.25em; border-right: 1px solid #8a8679; display: flex; flex-direction: column; justify-content: center;">
+         <p style="font-family: 'Great Vibes'; font-weight: bold; font-size: 75%; margin-bottom: 0.25em; line-height: 1.25em;">Dice Pool</p>
+         <p style="font-size: 55%; font-style: italic;">Determined by colonial duty.</p>
+         <p style="font-size: 55%; font-style: italic;">May use military units to add dice.</p>
+      </div>
+      <div style="padding: 0 0.25em;">
+         <p style="font-size: 80%; margin-bottom: 0.35em; font-weight: 500;">Success</p>
+         <p style="font-size: 60%; margin-bottom: 0.25em">Fill orders and increase<br/> the Colonial Treasury.</p>
+         <p style="font-size: 60%; background-color: #c0d7b2; padding: 0.2em;">You gain £1 per order.</p>
+         <p style="font-size: 60%; background-color: #c0d7b2; padding: 0.2em;">Players gain £1 for each collector.</p>
+         <p style="font-size: 80%; margin-bottom: 0.35em; font-weight: 500;">Failure</p>
+         <p style="font-size: 60%; margin-bottom: 0.25em">.</p>
+      </div>
+   </div> */}
+
+</Layout>

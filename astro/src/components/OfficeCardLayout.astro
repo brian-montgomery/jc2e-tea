@@ -1,0 +1,149 @@
+---
+interface Props {
+  textSize?: number;
+}
+
+const { textSize = 80 } = Astro.props;
+
+import CardNumber from '@components/deckyard/CardNumber.astro';
+---
+
+<div class="column">
+  <div class="main-text" style={`--text-size: ${textSize}%`}>
+    <slot></slot>
+    { /* Convert to Dice Roll Component */
+      Astro.slots.has("dice-pool") && (Astro.slots.has("dice-success") || Astro.slots.has("dice-failure")) && (
+        <div class="dice-grid">
+          <div class="dice-pool">
+            <div class="title">Dice Pool</div>
+            <slot name="dice-pool"></slot>
+          </div>
+          <div class="dice-results">
+            {
+              Astro.slots.has("dice-success") && (
+                <div class="title">Success</div>
+                <slot name="dice-success"></slot>
+              )
+            }
+            {
+              Astro.slots.has("dice-failure") && (
+                <div class="title">Failure</div>
+                <slot name="dice-failure"></slot>
+              )
+            }
+          </div>
+        </div>
+      )
+    }
+  </div>
+  <div class="footer">
+    <div class="number">
+      <CardNumber />
+    </div>
+  </div>
+</div>
+
+<style>
+  .column {
+    position: relative;
+    color: black;
+  }
+  .main-text {
+    position: absolute;
+    top: 1.8in;
+    left: 0.125in;
+    width: 2in;
+    max-width: 2in;
+    height: 1.5in;
+    max-height: 1.5in;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+
+    & :global(p) {
+      font-family: 'Baskervville Variable';
+      font-size: var(--text-size);
+      line-height: 1em;
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
+    & :global(strong) {
+      font-weight: 600;
+      font-family: 'Baskervville SC Variable';
+    }
+    & :global(hr) {
+      border: 1px solid #8a8879;
+      border-bottom: 0;
+      margin: 1em;
+    }
+
+    .dice-grid {
+      display: grid;
+      font-size: 75%;
+      grid-template-columns: 1fr 2fr;
+
+      .dice-pool {
+        padding: 0 0.25em;
+        border-right: 1px solid #8a8679;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .title {
+          font-family: 'Great Vibes';
+          font-weight: bold;
+          font-size: 0.75rem;
+          line-height: 1.25em;
+          margin-bottom: 0.25em;
+          text-align: center;
+        }
+        & :global(p) {
+          font-size: 55%;
+          font-style: italic;
+        }
+      }
+      .dice-results {
+        padding: 0 0.25em;
+
+        .title {
+          font-family: 'Baskervville Variable';
+          font-size: 0.8rem;
+          font-weight: 500;
+          text-align: center;
+        }
+        & :global(p) {
+          font-size: 60%;
+          text-align: center;
+        }
+        & .bonus {
+          background-color: #c0d7b2;
+          font-family: 'Baskervville Variable';
+          line-height: 1em;
+          text-align: center;
+          font-size: 80%;
+          padding: 0.2em;
+          margin-bottom: 0.35em;
+        }
+      }
+    }
+  }
+  .footer {
+    position: absolute;
+    top: 3.2in;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    .number {
+      font-family: 'Baskervville SC Variable';
+      font-size: 0.8em;
+      padding: 0.5em;
+      align-self: flex-end;
+      justify-self: flex-end;
+    }
+  }
+</style>

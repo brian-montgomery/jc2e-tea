@@ -1,11 +1,15 @@
 ---
 title: Writs of Assistance
+regions:
+   - NE
+   - M
+   - CP
 ---
 import Layout from "@components/ActCardLayout.astro";
+import T from "@components/T.astro";
 
-<Layout title={frontmatter.title}>
-   The **{frontmatter._["role.govt.customs.full"]}**
-   rolls 2 additional die during customs checks.
-
-   All failures during custom checks adds an **unrest cube** to a region.
+<Layout {...frontmatter}>
+   During customs checks,\
+   the **<T key="role.govt.customs.full" />**
+   may reroll any (normal) failures.
 </Layout>

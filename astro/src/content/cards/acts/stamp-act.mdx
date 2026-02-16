@@ -1,11 +1,18 @@
 ---
-title: Stamp Act
+title: Stamp Tax
+regions:
+   - NE
+   - CP
+   - M
+   - S
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout title={frontmatter.title} shortTitle>
+<Layout {...frontmatter} shortTitle>
    When the **{frontmatter._["role.govt.customs.full"]}**
-   acts, add **£1** per colonized region to the
-   **{frontmatter._["role.govt.governor.full"]}'s** treasury
-   and add one **unrest cube** to each colonized region.
+   acts, add **£1** per colonized region to
+   their treasury.
+
+   During custom checks, any failure adds one unrest cube
+   and a catastrophic failure adds two unrest cubes.
 </Layout>

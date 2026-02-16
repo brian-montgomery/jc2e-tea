@@ -7,6 +7,7 @@ interface Props extends HTMLAttributes<"article"> {
   "card-number"?: number;
   landscape?: boolean;
   size?: CardSizes;
+  "bleed"?: string;
 }
 
 const {
@@ -15,35 +16,39 @@ const {
   "class": otherClasses = undefined,
   landscape = false,
   size = undefined,
+  bleed = "0in",
   ...attrs
 } = Astro.props;
 
 const cssVariables = {
   "dy-card-bg": background,
+  "dy-card-bleed": bleed,
 };
+
+console.log("bleed", bleed);
 
 if (size) {
   const { height, width } = getCardDimensions(size, landscape);
   Object.assign(cssVariables, {
     "dy-card-height": height, "dy-card-width": width
   })
+
+  // TODO: Use image size to determine whether we should size to 'contain' or 'cover' the image.
 }
 ---
-
-<article {...attrs} class:list={["card not-content", otherClasses]}>
-  <div class="print-area" data-dy-card-number={cardNumber}>
+<article {...attrs} class:list={["card not-content", otherClasses]} data-dy-card-number={cardNumber}>
+  <div class="card-inner-border">
     <slot></slot>
   </div>
 </article>
 
 <style define:vars={cssVariables}>
-/* TODO: Figure out jamming everything together versus card bleed. */
+
 .card {
   --dy-card-full-width: var(--dy-card-width);
   --dy-card-full-height: var(--dy-card-height);
 
-  overflow: hidden;
-  padding: 0;
+  --dy-card-corner-radius: 0.75em;
 
   min-height: var(--dy-card-full-height);
   height: var(--dy-card-full-height);
@@ -53,36 +58,46 @@ if (size) {
   width: var(--dy-card-full-width);
   max-width: var(--dy-card-full-width);
 
-  @media print {
-    --dy-card-full-width: calc(var(--dy-card-width) + var(--dy-card-bleed) * 2);
-    --dy-card-full-height: calc(var(--dy-card-height) + var(--dy-card-bleed) * 2);
+  background: var(--dy-card-bg);
+  background-clip: content-box;
+  /* background-clip: padding-box; */
+  background-size: cover;
+  overflow: hidden;
 
-    background: var(--dy-card-bg);
-    padding: var(--dy-card-bleed);
+  padding: var(--dy-card-bleed);
+  margin: calc((var(--dy-card-corner-radius) / 2) - var(--dy-card-bleed));
+}
+@media print {
+  .card {
+    --dy-card-corner-radius: 0;
+    /* For some reason, having the bleed be zero breaks the calculation */
+    --dy-card-full-width: if(
+      style(--dy-card-bleed: 0): var(--dy-card-width);
+      else: calc(var(--dy-card-width) + (var(--dy-card-bleed) * 2));
+    );
+    --dy-card-full-height: if(
+      style(--dy-card-bleed: 0): var(--dy-card-height);
+      else: calc(var(--dy-card-height) + (var(--dy-card-bleed) * 2));
+    );
+
+    margin: unset;
     break-inside: avoid;
     page-break-inside: avoid;
-    border: 0.5pt solid black;
   }
 }
 
-.print-area {
-  height: var(--dy-card-height);
-  width: var(--dy-card-width);
+.card-inner-border {
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--sl-color-text);
+  border-radius: var(--dy-card-corner-radius);
+  outline: if(
+    style(--dy-card-corner-radius: 0): 0;
+    else: calc(var(--dy-card-corner-radius) / 2) solid var(--sl-color-bg);
+  );
 
-  @media screen {
-    height: 100%;
-    width: 100%;
-    background: var(--dy-card-bg);
-    border: 1px solid black;
-    border-radius: 0.75em;
-  }
-}
-
-:global(:root[data-theme='dark']) {
-  @media screen {
-    .print-area {
-      border: 1px solid white;
-    }
+  @media print {
+    outline: unset;
   }
 }
 </style>

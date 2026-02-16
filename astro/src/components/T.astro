@@ -1,0 +1,15 @@
+---
+import type { I18nKeys } from 'node_modules/@astrojs/starlight/utils/createTranslationSystem';
+
+interface Props {
+  key?: I18nKeys;
+}
+
+const text: I18nKeys | undefined = Astro.slots.has('default') ?
+  (await Astro.slots.render('default')) as I18nKeys : undefined;
+const { key = text } = Astro.props;
+console.log("key", key, text, Astro.slots.has('default'));
+console.log(Astro.slots);
+---
+
+<Fragment set:text={key && Astro.locals.t(key)} />

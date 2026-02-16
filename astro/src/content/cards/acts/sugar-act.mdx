@@ -2,9 +2,20 @@
 title: Sugar Act
 regions:
    - NE
+   - M
+tags:
+   - duty
 ---
 import Layout from "@components/ActCardLayout.astro";
+import T from "@components/T.astro"
 
-<Layout title={frontmatter.title} regions={frontmatter.regions}>
+<Layout {...frontmatter} shortTitle textSize={105}>
+When rolling customs checks,
+use **3** dice and add one to a
+die with\
+the lowest value.
 
+Add **£1** to the\
+Colonial Treasury\
+for each success.
 </Layout>
