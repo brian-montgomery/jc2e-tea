@@ -1,46 +1,13 @@
 ---
-title: Tea Regulation
+title: Credit Crisis
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={70}>
-<h1 slot="heading">Special Session of Parliament</h1>
+<Layout {...frontmatter} textSize={70} heading="dilemma">
 
-_At the start of a turn, the Prime Minister may call
-a session of Parliament to vote on this law if the
-Remaining Credit is less than the Company Debt.
-If either piece is on a space with a star, the session
-must be called.\
-In either case, no other policy is proposed._
-
-_The initial support of the law equals\
-the number of {frontmatter._["tea.token.plural"]} in the\
-**{frontmatter._["role.company.tea"]}'** treasury._
-
-<div class="post-text">
-
-The Company gains a trade monopoly on tea in America.\
-Increase the **{frontmatter._["tea.track"]}** by 1.\
-Place the Standing marker on the “S” space on the track and\
-**3 Company ships** in the Atlantic.
-
-The **{frontmatter._["role.company.tea"]}**\
-becomes the **{frontmatter._["role.company.tea2"]}**.\
-Return the {frontmatter._["role.company.tea"]} card to the box.
-Flip this card.
-
-</div>
 </Layout>
 
 <style>{`
-h1 {
-   display: block;
-   font-family: "Baskervville Variable", serif;
-   font-style: italic;
-   font-size: 80%;
-   font-weight: 400;
-   text-align: center;
-}
 em {
    display: inline-block;
    font-size: 65%;

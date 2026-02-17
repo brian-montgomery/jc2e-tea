@@ -2,9 +2,10 @@
 interface Props {
   areas?: string[];
   extra?: boolean;
+  textSize ?: number;
 }
 
-const { areas = [], extra = false } = Astro.props;
+const { areas = [], extra = false, textSize = 100 } = Astro.props;
 ---
 
 <div class="column">
@@ -14,9 +15,32 @@ const { areas = [], extra = false } = Astro.props;
     <p class="subtitle">Tea and Business</p> -->
   </div>
   <div class:list={["main", `cells-${areas.length}`]}>
-    {areas?.map((a) =>
-      <div class="cell">
-        <div set:text={a} />
+    {(areas.length > 0) && (
+      <div class="cell" style={`font-size: ${textSize * .85}%`}>
+        <slot name="cell-1">
+          <div set:text={areas[0]} />
+        </slot>
+      </div>
+    )}
+    {(areas.length > 1) && (
+      <div class="cell" style={`font-size: ${textSize * .85}%`}>
+        <slot name="cell-2">
+          <div set:text={areas[1]} />
+        </slot>
+      </div>
+    )}
+    {(areas.length > 2) && (
+      <div class="cell" style={`font-size: ${textSize * .85}%`}>
+        <slot name="cell-3">
+          <div set:text={areas[2]} />
+        </slot>
+      </div>
+    )}
+    {(areas.length > 3) && (
+      <div class="cell" style={`font-size: ${textSize * .85}%`}>
+        <slot name="cell-4">
+          <div set:text={areas[3]} />
+        </slot>
       </div>
     )}
   </div>
@@ -46,21 +70,6 @@ const { areas = [], extra = false } = Astro.props;
     padding: 0.5em 0;
     position: relative;
 
-    .title {
-      font-family: 'Great Vibes', serif;
-      font-size: 3em;
-      line-height: 0.6em;
-      margin: 0;
-      padding: 0;
-    }
-    .subtitle {
-      font-family: 'Baskervville SC Variable', serif;
-      font-size: 0.9em;
-      font-style: italic;
-      font-weight: 500;
-      line-height: 0.5em;
-      text-transform: lowercase;
-    }
     .extra {
       position: absolute;
       right: 2mm;
@@ -86,7 +95,6 @@ const { areas = [], extra = false } = Astro.props;
     align-items: center;
     align-content: stretch;
     overflow: hidden;
-
 
     &.cells-2 {
       grid-template-rows: repeat(2, 1fr);
@@ -133,11 +141,11 @@ const { areas = [], extra = false } = Astro.props;
       justify-content: center;
       align-items: center;
 
-      div {
+      div, p {
         text-align: center;
         vertical-align: middle;
         font-family: 'Baskervville SC Variable', serif;
-        font-size: 85%;
+        line-height: 1.05em;
       }
     }
   }

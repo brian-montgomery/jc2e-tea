@@ -3,9 +3,7 @@ title: Navigation Acts
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={70}>
-<h1 slot="heading">Gameplay Changes in 1733</h1>
-
+<Layout {...frontmatter} textSize={70} heading="reference">
 Pensioners are not removed until\
 **the end of the Hiring phase**.
 
@@ -24,14 +22,6 @@ same amount.
 </Layout>
 
 <style>{`
-h1 {
-   display: block;
-   font-family: "Baskervville Variable", serif;
-   font-style: italic;
-   font-size: 80%;
-   font-weight: 400;
-   text-align: center;
-}
 em {
    display: inline-block;
    font-size: 65%;

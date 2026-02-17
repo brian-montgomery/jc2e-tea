@@ -23,8 +23,12 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
 <div class="column">
   {
     heading && (
-      <div class="heading">
-        <slot name="heading" />
+      <div class:list={["heading", heading]}>
+        {
+          heading === "dilemma" ? (<h1>Dillema before Parliament</h1>) :
+          heading === "special" ? (<h1>Special Session of Parliament</h1>) :
+          heading === "reference" ? (<h1>Gameplay Changes in 1733</h1>) : ""
+        }
       </div>
     )
   }
@@ -47,10 +51,26 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
 
 <style>
   .heading {
-    border-top: 3px double black;
-    border-bottom: 3px double black;
-    margin-bottom: 0.2em;
     width: 100%;
+    margin-bottom: 0.2em;
+
+    & h1 {
+      display: block;
+      font-family: "Baskervville Variable", serif;
+      font-style: italic;
+      font-size: 80%;
+      font-weight: 400;
+      text-align: center;
+    }
+  }
+  .special,
+  .reference {
+      border-top: 3px double black;
+      border-bottom: 3px double black;
+  }
+  .dilemma {
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
   }
   .column {
     display: flex;
