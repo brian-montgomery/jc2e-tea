@@ -17,8 +17,6 @@ const notes: CollectionEntry<"notes">[] = await getCollection("notes", ({data}) 
 ---
 
 <div class="card-details">
-  <CardLayout {card} />
-  {/* TODO: Add card back */}
   <div class="notes">
     { notes.map((n) =>
         render(n).then(({ Content }) =>

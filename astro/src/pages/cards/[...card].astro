@@ -1,0 +1,68 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const cards = await getCollection("cards");
+
+  return Promise.all(cards.map(async (card) => {
+    const { Content } = await render(card);
+
+    return ({
+      params: { card: card.id, },
+      props: {
+        card,
+        page: {
+          hasSidebar: true,
+          frontmatter: {
+            title: `${card.data.title}`,
+            tableOfContents: false,
+            template: 'splash',
+            pagefind: true,
+            prev: false,
+            next: false,
+            hero: {
+              tagline: "This is a test",
+              image: {
+                html: '<div id="hero-card"></div>',
+              }
+            }
+          },
+        },
+      },
+    });
+  }));
+}
+
+import StarlightPage, { type StarlightPageProps } from '@astrojs/starlight/components/StarlightPage.astro';
+
+interface Props {
+  card: CollectionEntry<"cards">;
+  page: StarlightPageProps;
+}
+
+const { card, page, } = Astro.props;
+
+import CardDetails from "@components/CardDetails.astro";
+import CardLayout from "@components/deckyard/CardLayout.astro";
+---
+
+{/* @ts-ignore */}
+<StarlightPage {...page}>
+  <CardDetails {card} />
+  <div id="hero-card-holder" style="display: none"><CardLayout {card} /></div>
+</StarlightPage>
+
+<!-- TODO: Move Script to Card Details to better interact with Splash Template -->
+<script>
+addEventListener("load", () => {
+  const heroCard = document.querySelector("#hero-card");
+  const heroCardHolder = document.querySelector("#hero-card-holder");
+
+  if (heroCard && heroCardHolder) {
+    if (heroCardHolder.firstChild)
+      heroCard.appendChild(heroCardHolder.firstChild);
+
+    heroCardHolder?.parentNode?.removeChild(heroCardHolder);
+  }
+});
+</script>

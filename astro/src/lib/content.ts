@@ -1,4 +1,4 @@
-import { reference, type SchemaContext } from 'astro:content';
+import { reference, type SchemaContext as BaseSchemaContext } from 'astro:content';
 import { z } from 'astro/zod';
 import { CARD_SIZES } from "src/lib/card-sizing";
 
@@ -28,49 +28,83 @@ const getSchema = (s: SchemaConfigOrFunction, context: SchemaContext) => typeof 
 // TODO: Generate card and deck default types and support functions
 ////////////
 
+interface SchemaContext extends BaseSchemaContext {
+  name?: string;
+  type?: string;
+}
+
+function background(context: SchemaContext) {
+  const adjective = context.type === "deck" ? "default " : "";
+
+  return z.object({
+    bleed: z.string().describe(
+      "The CSS width representing the bleed for this background"
+    ).default("0"),
+    image: context.image().describe(
+      `The ${adjective}image that the ${context.type} uses as a background.`
+    ),
+    imageSize: z.string().describe(
+      "The CSS `background-size` that the background image should use."
+    ),
+    color: z.string().describe(
+      `The ${adjective}CSS \`background-color\` that the ${context.type} uses.`
+    ),
+    gradient: z.string().describe(
+      `The ${adjective}CSS \`background-gradient\` that the ${context.type} uses.`
+    ),
+  }).describe(
+    `The ${adjective}background of the ${context.type} that all of the content will be rendered on top of.`
+  );
+}
+
+const cardBack = (context: SchemaContext) => z.object({
+  reference: reference("cards").optional(),
+  background: background(
+    {...context, type: "card back"}
+  ).partial().optional(),
+});
+
+function dimensions(context: SchemaContext) {
+  return z.object({
+    size: z.enum(CARD_SIZES).describe(
+      context.type === "deck"
+      ? `The default size of the cards in this deck.`
+      : `The size of this card.`
+    ),
+    landscape: z.boolean().default(false).describe(
+      context.type === "deck"
+      ? `The default orientation of the cards in this deck.`
+      : `The orientation of this card.`
+    ),
+  });
+}
 
 ////////
 // Cards
 ////////
 function defaultCardSchema(context: SchemaContext, deckName?: string) {
+  const currentContext: SchemaContext = {...context, type: 'card'};
 
-  const BaseZodCard = z.object({
+  return z.object({
     title: z.string().describe(
       "The title of the card. Note: this does need to be displayed when rendered."
     ).default(""),
-    deck: reference('decks').describe(
-      "The name of the collection representing the deck this card is in."
-    ).optional(),
-    quantity: z.number().default(1).describe(
-      "The amount of copies of this card in its deck."
-    ),
-    background: z.object({
-      bleed: z.string().describe(
-        "The CSS width representing the bleed for the background"
-      ).default("0"),
-      image: context.image().describe(
-        "The image that the card uses as a background."
-      ),
-      color: z.string().describe(
-        "The CSS `background-color` that the card uses."
-      ),
-      gradient: z.string().describe(
-        "The CSS `background-gradient` that the card uses."
-      ),
-    }).describe(
-      "The background of the card that all of the content will be rendered on top of."
-    ).partial().optional(),
-  });
+    description: z.string().describe(
+      "Some high-level information about the card. Can be HTML and will be rendered on the card overview page."
+    ).default(""),
 
-  if (deckName) {
-    const schema = BaseZodCard.merge(z.object({
-      deck: reference('decks').describe(
-        BaseZodCard.shape.deck.description ?? ""
-      ).default(deckName),
-    }))
-    return schema;
-  }
-  return BaseZodCard;
+    deck: z.object({
+      reference: reference('decks').describe(
+        "The id of the deck which this card is in."
+      ).optional(),
+      quantity: z.number().default(1).describe(
+        "The amount of copies of this card in its deck."
+      ),
+    }).optional(),
+
+    background: background(currentContext).partial().optional(),
+    "card-back": cardBack(currentContext).optional(),
+  });
 }
 
 type BaseCardSchema = ReturnType<typeof defaultCardSchema>;
@@ -114,40 +148,20 @@ export function cardSchema<T extends z.AnyZodObject = z.SomeZodObject>({
 // Decks
 ////////
 function defaultDeckSchema({ image }: SchemaContext) {
-  // TODO: Refactor this block to be used with the cards as well.
-  const BaseZodDeck = z.object({
+  const currentContext: SchemaContext = {image, type: 'deck'};
+
+  return z.object({
     name: z.string().describe(
       "The name of the deck. This is used for titles and other descriptions."
     ),
-    size: z.enum(CARD_SIZES).describe(
-      "The name of the card collection that represents the cards of the deck."
-    ),
-    landscape: z.boolean().default(false).describe(
-      "The default orientation of the cards in this deck."
-    ),
-  });
+    description: z.string().describe(
+      "Some high-level information about this deck. Can be HTML and will be rendered on the deck overview page."
+    ).default(""),
 
-  return BaseZodDeck.merge(z.object({
-    background: z.object({
-      bleed: z.string().describe(
-        "The CSS width representing the bleed for the background."
-      ).default("0"),
-      image: image().describe(
-        "The image that the card uses as a background."
-      ),
-      imageSize: z.string().describe(
-        "The CSS `background-size` that the background image uses."
-      ),
-      color: z.string().describe(
-        "The CSS `background-color` that the card uses."
-      ),
-      gradient: z.string().describe(
-        "The CSS `background-gradient` that the card uses."
-      ),
-    }).describe(
-      "The background of the card that all of the content will be rendered on top of."
-    ).partial().optional(),
-  }));
+    dimensions: dimensions(currentContext),
+    background: background(currentContext).partial().optional(),
+    "card-back": cardBack(currentContext).optional(),
+  });
 }
 
 type BaseDeckSchema = ReturnType<typeof defaultDeckSchema>;

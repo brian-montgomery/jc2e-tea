@@ -5,10 +5,8 @@ import type { ImageMetadata } from 'astro';
 import { getEntry, render } from 'astro:content';
 import { getImage } from 'astro:assets';
 import CardFrame from '@components/deckyard/CardFrame.astro';
-import Trans from '@components/T.astro';
 
 interface Props {
-  // TODO: Figure out how to limit the types on this.
   card: CollectionEntry<"cards">;
   id?: string;
   number?: number;
@@ -20,8 +18,7 @@ const {
   number = undefined,
 } = Astro.props;
 
-// TODO: Load deck automatically
-const deck = card.data.deck && await getEntry(card.data.deck);
+const deck = card.data.deck?.reference && await getEntry(card.data.deck?.reference);
 
 // TODO: Move background support to library function
 // Calculate background
@@ -33,13 +30,11 @@ async function getBackgroundUrl(image: ImageMetadata | undefined) {
   return optimizedImg.src;
 }
 
-// TODO: Add current card override...
 const deckBackgroundImage = await getBackgroundUrl(
-  // @ts-ignore
-  card!.data.background?.image || deck?.data.background?.image);
+  card.data.background?.image || deck?.data.background?.image);
 
-// const deckBackgroundSize = card!.data.background?.imageSize || deck?.data.background?.imageSize;
-const bleed = card!.data.background?.bleed || deck?.data.background?.bleed;
+// const deckBackgroundSize = card.data.background?.imageSize || deck?.data.background?.imageSize;
+const bleed = card.data.background?.bleed || deck?.data.background?.bleed;
 
 function getBackgroundStyle() {
   if (deckBackgroundImage) {
@@ -52,9 +47,7 @@ function getBackgroundStyle() {
   }
   return ''
 }
-// @ts-ignore
 const { Content } = await render(card);
-// const components = { em: Trans }
 
 // TODO: Change this to be slot-based
 ---
@@ -62,8 +55,8 @@ const { Content } = await render(card);
 <CardFrame
   {id}
   background={getBackgroundStyle()}
-  size={deck?.data.size}
-  landscape={deck?.data.landscape}
+  size={deck?.data.dimensions.size}
+  landscape={deck?.data.dimensions.landscape}
   card-number={number}
   {bleed}
 >

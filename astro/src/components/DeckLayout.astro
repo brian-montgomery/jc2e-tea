@@ -1,7 +1,5 @@
 ---
-import type { CollectionEntry, CollectionKey } from 'astro:content';
-// TODO: import type { DefaultCardSchema } from "src/lib/content";
-
+import type { CollectionEntry } from 'astro:content';
 import { getCollection, getEntry, render } from 'astro:content';
 
 interface Props {
@@ -15,7 +13,7 @@ if (deck === undefined)
   throw new Error(`Could not find deck '${deckId}'`);
 
 const cards: CollectionEntry<"cards">[] = await getCollection(
-  "cards", ({ data }) => data.deck?.id == deckId
+  "cards", ({ data }) => data.deck?.reference?.id == deckId
 );
 
 cards.sort((a, b) => {
@@ -32,8 +30,7 @@ interface DeckList {
 
 const deckListGroupedByCards: DeckList[] = cards.map(
   (card) => Array.from(
-    // @ts-ignore
-    {length: card.data.quantity ?? 1},
+    {length: card.data.deck?.quantity ?? 1},
     (_, cardIndex) => ({ card, cardIndex,})
   )
 ).flat().map(
@@ -54,7 +51,8 @@ import CardLayout from '@components/deckyard/CardLayout.astro';
   <div class="card-list" data-theme="light">
     {
       deckListGroupedByCards.map(({card, cardIndex, deckIndex: number}) => (
-        <a class="card-link" href={`/jc2e-tea/decks/${deck.id}/cards/${card.id}/`}>
+        // TODO: Change to config.base when this becomes an integration.
+        <a class="card-link" href={`${import.meta.env.BASE_URL}/cards/${card.id}/`}>
           <CardLayout id={`card-${card.id}${getCardIdSuffix(cardIndex)}`} {card} {number} />
         </a>
       ))

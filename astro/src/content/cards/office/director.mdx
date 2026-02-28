@@ -1,22 +1,26 @@
 ---
 title: Director of Warehouses
-deck: office
+deck:
+   reference: office
 background:
    image: "@assets/images/cards/office-dw.jpeg"
 ---
 import Layout from "@components/OfficeCardLayout.astro";
 
 <Layout {...frontmatter}>
-   **First**, if trade in China was\
-   successful, place tea crates\
-   in your treasury:
+**First**, if trade in China was\
+successful, place {frontmatter._["tea.token.plural"].toLowerCase()}\
+in the top of your treasury:
 
-   <p style="font-size: 65%">_Opium Icons_ **x** _Value of Tea_</p>
+<p style="font-size: 65%">_Export Icons_ &nbsp;**x** _Value of Tea_</p>
 
-   \
-   **Next**, take Auction action:
+\
+**Next**, may take Auction action:
 
-   <p style="font-size: 65%">May trade active tea crates to a firm, <br /> for at least £1 per crate.</p>
+<p style="font-size: 65%">Exchange
+{frontmatter._["tea.token.plural"].toLowerCase()} for £1 per crate minimum.
+Increase the Company Balance
+by the amount exchanged.</p>
 
-   {/* <p class="bonus">Gain £1 per firm involved.</p> */}
+{/* <p class="bonus">Gain £1 per firm involved.</p> */}
 </Layout>
