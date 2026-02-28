@@ -9,21 +9,19 @@ import Trans from '@components/T.astro';
 
 interface Props {
   // TODO: Figure out how to limit the types on this.
-  card: object;
-  deck?: string | CollectionEntry<"decks">;
+  card: CollectionEntry<"cards">;
   id?: string;
   number?: number;
 }
 
 const {
   card,
-  deck = undefined,
   id = undefined,
   number = undefined,
 } = Astro.props;
 
 // TODO: Load deck automatically
-const deckEntry = (typeof deck === "string") ? await getEntry("decks", deck) : deck;
+const deck = card.data.deck && await getEntry(card.data.deck);
 
 // TODO: Move background support to library function
 // Calculate background
@@ -38,19 +36,17 @@ async function getBackgroundUrl(image: ImageMetadata | undefined) {
 // TODO: Add current card override...
 const deckBackgroundImage = await getBackgroundUrl(
   // @ts-ignore
-  card!.data.background?.image || deckEntry?.data.background?.image);
+  card!.data.background?.image || deck?.data.background?.image);
 
-// // @ts-ignore
-// const deckBackgroundSize = card!.data.background?.imageSize || deckEntry?.data.background?.imageSize;
-// @ts-ignore
-const bleed = card!.data.background?.bleed || deckEntry?.data.background?.bleed;
+// const deckBackgroundSize = card!.data.background?.imageSize || deck?.data.background?.imageSize;
+const bleed = card!.data.background?.bleed || deck?.data.background?.bleed;
 
 function getBackgroundStyle() {
   if (deckBackgroundImage) {
     const backgrounds = [
-      deckEntry?.data.background?.gradient,
+      deck?.data.background?.gradient,
       `no-repeat url(${deckBackgroundImage})`,
-      deckEntry?.data.background?.color,
+      deck?.data.background?.color,
     ].filter(x => x)
     return `${backgrounds.join(', ')}`;
   }
@@ -66,8 +62,8 @@ const { Content } = await render(card);
 <CardFrame
   {id}
   background={getBackgroundStyle()}
-  size={deckEntry?.data.size}
-  landscape={deckEntry?.data.landscape}
+  size={deck?.data.size}
+  landscape={deck?.data.landscape}
   card-number={number}
   {bleed}
 >

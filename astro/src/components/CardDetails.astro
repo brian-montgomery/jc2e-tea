@@ -4,8 +4,11 @@ import { getCollection, render } from "astro:content";
 
 import CardLayout from "@components/deckyard/CardLayout.astro";
 
-// TODO: Define Props.
-const { deck, card, } = Astro.props;
+interface Props {
+  card: CollectionEntry<"cards">;
+}
+
+const { card, } = Astro.props;
 const notes: CollectionEntry<"notes">[] = await getCollection("notes", ({data}) =>
   data.collection === card.collection && data.id === card.id
 );
@@ -14,7 +17,7 @@ const notes: CollectionEntry<"notes">[] = await getCollection("notes", ({data}) 
 ---
 
 <div class="card-details">
-  <CardLayout {card} {deck} />
+  <CardLayout {card} />
   {/* TODO: Add card back */}
   <div class="notes">
     { notes.map((n) =>

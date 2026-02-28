@@ -119,9 +119,6 @@ function defaultDeckSchema({ image }: SchemaContext) {
     name: z.string().describe(
       "The name of the deck. This is used for titles and other descriptions."
     ),
-    cardCollection: z.string().describe(
-      "The name of the card collection that represents the cards of the deck."
-    ), // Make enum later.
     size: z.enum(CARD_SIZES).describe(
       "The name of the card collection that represents the cards of the deck."
     ),

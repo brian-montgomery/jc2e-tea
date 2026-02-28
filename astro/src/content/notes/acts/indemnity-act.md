@@ -1,5 +1,5 @@
 ---
-collection: lawCards
+collection: cards
 id: indemnity-act
 ---
 

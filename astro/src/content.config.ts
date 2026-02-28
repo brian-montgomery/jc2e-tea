@@ -11,50 +11,23 @@ const decks = defineCollection({
   schema: deckSchema(),
 });
 
-const lawCards = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.mdx', base: "./src/content/cards/acts" }),
+const cards = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/cards" }),
   schema: cardSchema({
-    deckName: 'acts',
     extend: z.object({
+      tags: z.string().array().optional(),
+      // Act Cards
       regions: z.array(z.object({
         'CP': z.boolean(),
         'M': z.boolean(),
         'NE': z.boolean(),
         'S': z.boolean(),
       }).partial()).length(4).optional(),
-    }),
-  }),
-});
-
-const eventCards = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.mdx', base: "./src/content/cards/events" }),
-  schema: cardSchema({
-    deckName: 'events',
-    extend: z.object({
-      regions: z.array(z.string()).optional(),
-    }),
-  }),
-});
-
-const officeCards = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.mdx', base: "./src/content/cards/office" }),
-  schema: cardSchema({
-    deckName: 'office',
-    // extend: z.object({
-    //   regions: z.array(z.string()).optional(),
-    // }),
-  }),
-});
-
-const setupCards = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.mdx', base: "./src/content/cards/setup" }),
-  schema: cardSchema({
-    deckName: 'setup',
-    extend: z.object({
+      // Setup Cards
       extra: z.boolean().default(false),
       areas: z.array(z.string()).optional(),
     }),
-  }),
+  })
 });
 
 // const setupCards = defineCollection({
@@ -110,9 +83,6 @@ export const collections = {
     }),
   }),
   decks,
-  eventCards,
-  lawCards,
-  officeCards,
-  setupCards,
+  cards,
   notes,
 };
