@@ -104,6 +104,7 @@ function defaultCardSchema(context: SchemaContext, deckName?: string) {
 
     background: background(currentContext).partial().optional(),
     "card-back": cardBack(currentContext).optional(),
+    dimensions: dimensions(currentContext).partial().optional(),
   });
 }
 

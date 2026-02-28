@@ -1,41 +1,55 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import { getCardDimensions, type CardSizes } from 'src/lib/card-sizing';
+import { getCardStyles } from 'src/lib/card-styling';
+import type { BaseCard } from 'src/lib/content';
 
 interface Props extends HTMLAttributes<"article"> {
-  background?: string;
+  background?: BaseCard["background"];
   "card-number"?: number;
-  landscape?: boolean;
-  size?: CardSizes;
-  "bleed"?: string;
+  deck?: BaseCard["deck"];
+  dimensions?: BaseCard["dimensions"];
 }
 
 const {
-  background = "transparent",
+  background = { bleed: "0px", color: "transparent", },
   "card-number": cardNumber = undefined,
   "class": otherClasses = undefined,
-  landscape = false,
-  size = undefined,
-  bleed = "0in",
+  dimensions,
+  deck,
   ...attrs
 } = Astro.props;
 
+const {
+  backgrounds,
+  bleed,
+  landscape,
+  rotate,
+  size,
+} = await getCardStyles(background, dimensions, deck);
+
 const cssVariables = {
-  "dy-card-bg": background,
+  "dy-card-bg": backgrounds,
   "dy-card-bleed": bleed,
+  "dy-card-rotate": rotate,
 };
 
 if (size) {
   const { height, width } = getCardDimensions(size, landscape);
-  Object.assign(cssVariables, {
-    "dy-card-height": height, "dy-card-width": width
-  })
+  if (rotate)
+    Object.assign(cssVariables, {
+      "dy-card-height": width, "dy-card-width": height
+    })
+  else
+    Object.assign(cssVariables, {
+      "dy-card-height": height, "dy-card-width": width
+    })
 
   // TODO: Use image size to determine whether we should size to 'contain' or 'cover' the image.
 }
 ---
-<article {...attrs} class:list={["card not-content", otherClasses]} data-dy-card-number={cardNumber}>
-  <div class="card-inner-border">
+<article {...attrs} class:list={["card not-content", otherClasses, { rotate }]} data-dy-card-number={cardNumber}>
+  <div class:list={["card-inner-border"]}>
     <slot></slot>
   </div>
 </article>
@@ -45,7 +59,6 @@ if (size) {
 .card {
   --dy-card-full-width: var(--dy-card-width);
   --dy-card-full-height: var(--dy-card-height);
-
   --dy-card-corner-radius: 0.75em;
 
   min-height: var(--dy-card-full-height);
@@ -64,25 +77,34 @@ if (size) {
   overflow: hidden;
 
   padding: var(--dy-card-bleed);
-  margin: calc((var(--dy-card-corner-radius) / 2) - var(--dy-card-bleed));
+  margin: calc((0.5 * var(--dy-card-corner-radius)) - var(--dy-card-bleed));
 }
 @media print {
   .card {
     --dy-card-corner-radius: 0;
-    /* For some reason, having the bleed be zero breaks the calculation */
-    --dy-card-full-width: if(
-      style(--dy-card-bleed: 0): var(--dy-card-width);
-      else: calc(var(--dy-card-width) + (var(--dy-card-bleed) * 2));
-    );
-    --dy-card-full-height: if(
-      style(--dy-card-bleed: 0): var(--dy-card-height);
-      else: calc(var(--dy-card-height) + (var(--dy-card-bleed) * 2));
-    );
+    --dy-card-full-width: calc(var(--dy-card-width) + (2 * var(--dy-card-bleed)));
+    --dy-card-full-height: calc(var(--dy-card-height) + (2 * var(--dy-card-bleed)));
 
     margin: unset;
     break-inside: avoid;
     page-break-inside: avoid;
   }
+}
+.card.rotate {
+  min-width: var(--dy-card-full-height);
+  width: var(--dy-card-full-height);
+  max-width: var(--dy-card-full-height);
+
+  min-height: var(--dy-card-full-width);
+  height: var(--dy-card-full-width);
+  max-height: var(--dy-card-full-width);
+
+  --dy-card-translate-x: calc((var(--dy-card-height) - var(--dy-card-width)) / 2);
+  --dy-card-translate-y: calc((var(--dy-card-height) - var(--dy-card-width)) / 2);
+
+  transform:
+    rotate(var(--dy-card-rotate))
+    translate(var(--dy-card-translate-x), var(--dy-card-translate-y));
 }
 
 .card-inner-border {
@@ -90,11 +112,9 @@ if (size) {
   width: 100%;
   border: 1px solid var(--sl-color-text);
   border-radius: var(--dy-card-corner-radius);
-  outline: if(
-    style(--dy-card-corner-radius: 0): 0;
-    else: calc(var(--dy-card-corner-radius) / 2) solid var(--sl-color-bg);
-  );
-  position: relative;
+
+  /* Have to separate these out to work in Firefox */
+  outline: calc(0.5 * var(--dy-card-corner-radius, 0)) solid var(--sl-color-bg);
 
   @media print {
     outline: unset;
