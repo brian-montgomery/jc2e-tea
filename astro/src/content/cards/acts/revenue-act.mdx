@@ -1,26 +1,27 @@
 ---
 title: Export Duties
 regions:
-   - NE
-   - CP
-   - S
+   - NE: true
+   - CP: true
+   - S: true
+   - M: false
 tags:
    - duty
    - tea
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={90}>
-When rolling customs checks,
-use **3** dice.\
+<Layout {...frontmatter} shortTitle textSize={85}>
+Increase the\
+**Value of Tea** by 1.
+
+When rolling customs\
+checks, use **3** dice.\
 Add **£1** to the Colonial Treasury
 for each success.
 
-Each firm pays **£1** to the\
-Colonial Treasury for\
- each colonized region\
-they trade in.
-
-Increase the\
-**Value of Tea** by 1.
+Each player pays **£1** to\
+the Colonial Treasury\
+for each colonized region\
+they traded in.
 </Layout>

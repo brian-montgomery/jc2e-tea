@@ -1,19 +1,24 @@
 ---
 title: Currency Regulation
 regions:
-   - NE
-   - M
-   - CP
-   - S
+   - NE: true
+   - S: true
+   - CP: true
+   - M: true
 ---
+{/* TODO: Pick one region to remove */}
+
 import Layout from "@components/ActCardLayout.astro";
 
 <Layout {...frontmatter}>
-   Each firm gains
-   **£2** for each colonized
-   region they traded.
+   Each player gains
+   **£1** for each colonized
+   region they successfully
+   traded in America.
 
-   Once per turn, a firm can
-   gain the full order price
-   of a filled order.
+   During customs checks,
+   when adding to the
+   Colonial Treasury,\
+   add an additional **£1**.
 </Layout>
+

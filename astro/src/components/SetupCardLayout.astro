@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { areas = [], extra = false, textSize = 100 } = Astro.props;
+const sizeAdjustment = 0.85;
 ---
 
 <div class="column">
@@ -16,28 +17,28 @@ const { areas = [], extra = false, textSize = 100 } = Astro.props;
   </div>
   <div class:list={["main", `cells-${areas.length}`]}>
     {(areas.length > 0) && (
-      <div class="cell" style={`font-size: ${textSize * .85}%`}>
+      <div class="cell" style={`font-size: ${textSize * sizeAdjustment}%`}>
         <slot name="cell-1">
           <div set:text={areas[0]} />
         </slot>
       </div>
     )}
     {(areas.length > 1) && (
-      <div class="cell" style={`font-size: ${textSize * .85}%`}>
+      <div class="cell" style={`font-size: ${textSize * sizeAdjustment}%`}>
         <slot name="cell-2">
           <div set:text={areas[1]} />
         </slot>
       </div>
     )}
     {(areas.length > 2) && (
-      <div class="cell" style={`font-size: ${textSize * .85}%`}>
+      <div class="cell" style={`font-size: ${textSize * sizeAdjustment}%`}>
         <slot name="cell-3">
           <div set:text={areas[2]} />
         </slot>
       </div>
     )}
     {(areas.length > 3) && (
-      <div class="cell" style={`font-size: ${textSize * .85}%`}>
+      <div class="cell" style={`font-size: ${textSize * sizeAdjustment}%`}>
         <slot name="cell-4">
           <div set:text={areas[3]} />
         </slot>
@@ -83,6 +84,7 @@ const { areas = [], extra = false, textSize = 100 } = Astro.props;
   }
   .main {
     height: 45mm;
+    /* height: 2.4in; Bridge Adjustment */
 
     --border-color: white;
     border: 2px solid var(--border-color);
@@ -147,6 +149,9 @@ const { areas = [], extra = false, textSize = 100 } = Astro.props;
         font-family: 'Baskervville SC Variable', serif;
         line-height: 1.05em;
       }
+
+      /* Bridge Mode */
+      /* padding: 0.2em; */
     }
   }
   h2 {

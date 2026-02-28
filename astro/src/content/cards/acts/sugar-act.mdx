@@ -1,8 +1,10 @@
 ---
 title: Sugar Act
 regions:
-   - NE
-   - M
+   - NE: true
+   - M: true
+   - CP: false
+   - S: false
 tags:
    - duty
 ---
@@ -11,8 +13,8 @@ import T from "@components/T.astro"
 
 <Layout {...frontmatter} shortTitle textSize={105}>
 When rolling customs checks,
-use **3** dice and add one to a
-die with\
+use **3** dice.\
+Add **1** to a die with\
 the lowest value.
 
 Add **£1** to the\

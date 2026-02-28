@@ -6,7 +6,7 @@ background:
 import DiceCheck from "@components/DiceCheck.astro";
 import Layout from "@components/OfficeCardLayout.astro";
 
-<Layout {...frontmatter}>
+<Layout {...frontmatter} textSize={70}>
    **First**, if trade in China was successful, place tea creates in your treasury:
 
    <p style="font-size: 65%; margin-bottom: 0.75em;">_Opium Icons_ **x** _Value of Tea_</p>
@@ -24,4 +24,6 @@ import Layout from "@components/OfficeCardLayout.astro";
          <div class="bonus">You gain £1 per order.</div>
       </Fragment>
    </DiceCheck>
+
+   <p style="font-size: 0.5rem">After a success, you may not trade again this turn.</p>
 </Layout>

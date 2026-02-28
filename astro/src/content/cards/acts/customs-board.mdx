@@ -1,21 +1,26 @@
 ---
 title: Customs Board
+tags:
+   - tea
 regions:
-   - NE
-   - M
-   - S
+   - NE: true
+   - M: true
+   - S: true
+   - CP: false
 ---
 import Layout from "@components/ActCardLayout.astro";
 import T from "@components/T.astro"
 
-<Layout {...frontmatter} textSize={85}>
-   Increase the\
-   **Value of Tea** by 1.
+<Layout {...frontmatter} textSize={80}>
+   Increase the **Value of Tea** by 1.
 
    Increase the\
-   **<T key="role.govt.customs.full"/>'s** dice pool by 2.
+   **<T key="role.govt.customs.full"/>'** dice pool by 2.
    When closing orders during customs checks, also
    add an unrest cube to that colonized region.
+
+   Players gain an additional **£1** for each of
+   their collectors placed on a trade order in America.
 
    During expenses, the\
    **<T key="role.govt.governor.full"/>**\

@@ -37,10 +37,10 @@ export default defineConfig({
 					label: 'Design',
 					autogenerate: { directory: 'design' },
 				},
-        // {
-        // 	label: `Rules v${version}`,
-        // 	autogenerate: { directory: 'rules' },
-        // },
+        {
+        	label: `Rules v${version}`,
+        	autogenerate: { directory: 'rules' },
+        },
         {
 					label: 'Components',
           items: [

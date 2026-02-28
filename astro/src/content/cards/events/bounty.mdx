@@ -1,0 +1,16 @@
+---
+title: Bounty
+quantity: 2
+notes: >-
+   This is this deck's version of Windfall.
+---
+import Layout from "@components/EventCardLayout.astro";
+
+<Layout title={frontmatter.title} textSize={110}>
+   Identify the 4th region listed on the
+   most recently passed
+   **{frontmatter._["deck.laws.singular"]}**.
+
+   Open its northernmost closed order.
+   All players with a firm **gain £1**.
+</Layout>

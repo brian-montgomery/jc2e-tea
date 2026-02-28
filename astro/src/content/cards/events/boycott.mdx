@@ -1,0 +1,22 @@
+---
+title: Boycott
+quantity: 2
+thoughts: >-
+   This is similar to the Crisis card in the base event deck.
+---
+import Layout from "@components/EventCardLayout.astro";
+
+<Layout title={frontmatter.title} textSize={80}>
+Find the 2nd region listed on the
+most recent\
+passed
+**{frontmatter._["deck.laws.singular"]}**.
+That region is attacked by\
+local natives, with a strength of **3**.
+
+**Colonists win**: Commander gains a Trophy.\
+Remove one unrest from the region.
+
+**Natives win:** Close all orders in this region.\
+Return any collectors to their player's supply.
+</Layout>

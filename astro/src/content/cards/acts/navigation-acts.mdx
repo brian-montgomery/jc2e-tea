@@ -1,9 +1,11 @@
 ---
 title: Navigation Acts
+tags:
+   - reference
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={70} heading="reference">
+<Layout {...frontmatter} textSize={67} heading="reference">
 Pensioners are not removed until\
 **the end of the Hiring phase**.
 
@@ -11,14 +13,17 @@ During the **Enlist Writer** family action, a player may place a\
 tax collector in the **{frontmatter._["role.govt.customs.full"]}'** box
 instead of placing a writer in a Presidency.
 
+Only one **Colonial Duty** can be active.
+
 Firms operate in **America** instead\
 of **India**. They may take on debt\
 and emergency loans, similar\
 to the Company.
 
 Whenever the Company, a firm or the Government
-takes on debt, reduce the Credit track by the
-same amount.
+takes on debt or a loan, reduce the
+**{frontmatter._["credit.track"]}**\
+by one for each.
 </Layout>
 
 <style>{`

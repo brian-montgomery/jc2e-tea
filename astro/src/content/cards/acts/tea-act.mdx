@@ -6,10 +6,10 @@ import Layout from "@components/ActCardLayout.astro";
 <Layout {...frontmatter} textSize={70} heading="special">
 _At the start of a turn, the Prime Minister may call
 a session of Parliament to vote on this law if the
-Remaining Credit is less than the Company Debt.
-If either piece is on a space with a star, the session
-must be called.\
-In either case, no other policy is proposed._
+{frontmatter._["credit.track"]} is less than the either
+the Company Debt or the number of {frontmatter._["tea.token.plural"]}.
+If it's less than both, the session must be called.
+In either case, no other policy or act is proposed._
 
 _The initial support of the law equals\
 the number of {frontmatter._["tea.token.plural"]} in the\
@@ -33,12 +33,12 @@ Flip this card.
 <style>{`
 em {
    display: inline-block;
-   font-size: 65%;
+   font-size: 67%;
    font-style: italic;
    line-height: 1.33em;
 }
 .post-text p {
-   line-height: 1.1em;
+   line-height: 1.15em;
 }
 .post-text p:last-child {
    margin-bottom: 0;

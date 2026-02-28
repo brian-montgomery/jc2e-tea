@@ -1,7 +1,10 @@
 ---
 title: Molasses Act
 regions:
-   - NE
+   - NE: true
+   - M: true
+   - S: false
+   - CP: false
 tags:
    - duty
 ---
@@ -9,8 +12,8 @@ import Layout from "@components/ActCardLayout.astro";
 
 <Layout {...frontmatter} shortTitle textSize={105}>
 When rolling customs checks,
-use **2** dice and add one to a
-die with\
+use **2** dice.\
+Add **1** to a die with\
 the lowest value.
 
 If successful,\

@@ -1,0 +1,18 @@
+---
+title: Correspondence
+quantity: 2
+---
+import Layout from "@components/EventCardLayout.astro";
+
+<Layout title={frontmatter.title} textSize={80}>
+Locate the colonized region(s) with the most\
+amount of unrest.
+
+Add one **unrest cube** to each of their\
+neighboring region(s) that have a lower amount\
+of unrest.
+Only add one cube per region.
+
+If all colonized regions have the\
+same amount of unrest, do nothing.
+</Layout>

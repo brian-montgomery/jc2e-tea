@@ -1,14 +1,25 @@
 ---
-title: Tariff Repealed
+title: Duty Repealed
+regions:
+   - CP: true
+   - NE: false
+   - S: false
+   - M: false
 tags:
    - duty
 ---
 
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter}>
+<Layout {...frontmatter} shortTitle textSize={85}>
    Discard the current\
    **Colonial Duty**.
+
+   Use the rules
+   from the previously active Duty.\
+   If there is not one,
+   the {frontmatter._["role.govt.customs"]}
+   may not check for customs.
 
    Remove one\
    **unrest cube** from\

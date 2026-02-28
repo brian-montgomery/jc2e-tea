@@ -16,7 +16,12 @@ const lawCards = defineCollection({
   schema: cardSchema({
     deckName: 'acts',
     extend: z.object({
-      regions: z.array(z.string()).optional(),
+      regions: z.array(z.object({
+        'CP': z.boolean(),
+        'M': z.boolean(),
+        'NE': z.boolean(),
+        'S': z.boolean(),
+      }).partial()).length(4).optional(),
     }),
   }),
 });
@@ -84,6 +89,7 @@ export const collections = {
     loader: i18nLoader(),
     schema: i18nSchema({
       extend: z.object({
+        'credit.track': z.string(),
         'deck.laws.singular': z.string(),
         'deck.laws.plural': z.string(),
         'role.company.tea': z.string(),

@@ -4,12 +4,18 @@ quantity: 2
 ---
 import Layout from "@components/EventCardLayout.astro";
 
-<Layout title={frontmatter.title} textSize={90}>
-   The colonists cause a rebellion in every
-   colonized region with unrest. Their strength\
-   is their **unrest** plus one.
+<Layout title={frontmatter.title} textSize={70}>
+The colonists cause a rebellion in each
+colonized region with unrest. Their
+strength is their **unrest plus one**.
 
-   The **{frontmatter._["role.govt.governor.full"]}** may
-   purchase native local alliances beforehand.
-   Local militias may not be bought or used.
+The **{frontmatter._["role.govt.governor.full"]}** may
+purchase native local alliances beforehand.
+Local militias may not be bought or used.
+
+**Loyalists win**: Commander gains a Trophy.\
+Remove one unrest from the region.
+
+**Rebellion wins:** These regions are no longer colonized.\
+Cover the flags and close all orders.
 </Layout>

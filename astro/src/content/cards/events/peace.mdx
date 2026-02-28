@@ -1,0 +1,14 @@
+---
+title: Peace
+quantity: 3
+---
+import Layout from "@components/EventCardLayout.astro";
+
+<Layout title={frontmatter.title} textSize={90}>
+   Find the 3rd region listed on the
+   most recent passed
+   **{frontmatter._["deck.laws.singular"]}**.
+
+   Remove an unrest token. Open an order\
+   on the other side of border from it.
+</Layout>

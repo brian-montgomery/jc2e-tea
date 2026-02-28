@@ -1,0 +1,28 @@
+---
+title: Admiralty Courts
+regions:
+   - NE: true
+   - M: true
+   - S: true
+   - CP: false
+tags:
+   - military
+---
+import Layout from "@components/ActCardLayout.astro";
+
+<Layout {...frontmatter} textSize={90}>
+   {/* Add one to the **{frontmatter._["role.govt.customs.full"]}** */}
+   {/* dice pool. The **{frontmatter._["role.govt.customs"]}** */}
+   {/* does not gain dice by spending regiments. */}
+
+   Add one military unit to\
+   the
+   **{frontmatter._["role.govt.military.full"]}**'s army.
+
+   The **{frontmatter._["role.govt.customs"]}**
+   no longer places collector(s) on successful
+   custom checks. Instead, choose an active
+   officer in the Army of North America to
+   receive the bonus instead of a collector.
+   That officer is exhausted.
+</Layout>

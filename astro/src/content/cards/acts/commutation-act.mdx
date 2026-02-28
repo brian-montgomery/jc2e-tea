@@ -1,17 +1,25 @@
 ---
 title: Tea Duties Repealed
+regions:
+   - S: true
+   - NE: false
+   - CP: false
+   - M: false
 tags:
    - tea
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter}>
+<Layout {...frontmatter} textSize={95}>
    Increase the\
    **Value of Tea** by 2.
+
+   {/* During the tea auction,
+   Firms may pay £1 for 2 crates. */}
 
    During upkeep, players\
    must pay a **window tax**.
 
    If window taxes are **repealed**,
-   remove two credit from the game.
+   lower the {frontmatter._['credit.track']} by 2.
 </Layout>

@@ -4,6 +4,13 @@ quantity: 2
 ---
 import Layout from "@components/EventCardLayout.astro";
 
-<Layout title={frontmatter.title}>
+<Layout title={frontmatter.title} textSize={80}>
+Roll a die.\
+If 1-2, resolve an invasion in the Southern.\
+If 3-4, resolve an invasion in New England.\
+If 5-6, resolve an invasion in both.
 
+For each invasion, roll a die to determine strength.\
+If a region falls, close every order there and set its
+strength to half of the die roll (round down).
 </Layout>

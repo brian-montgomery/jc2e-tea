@@ -1,18 +1,21 @@
 ---
-title: Stamp Tax
+title: Stamp Act
 regions:
-   - NE
-   - CP
-   - M
-   - S
+   - NE: true
+   - S: true
+   - M: true
+   - CP: true
+# tags:
+#    - duty
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} shortTitle>
-   When the **{frontmatter._["role.govt.customs.full"]}**
-   acts, add **£1** per colonized region to
-   their treasury.
+<Layout {...frontmatter} shortTitle textSize={90}>
+   The **{frontmatter._["role.govt.governor.full"]}**
+   may now roll for taxes during their turn,
+   gaining **£2** for the **Colonial Treasury** and a
+   **£1** bonus for themselves.
 
-   During custom checks, any failure adds one unrest cube
-   and a catastrophic failure adds two unrest cubes.
+   Declare a colonized region before rolling.
+   Any 6s rolled add an **unrest cube** to that region.
 </Layout>
