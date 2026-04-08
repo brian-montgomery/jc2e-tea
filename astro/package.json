@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@ascorbic/csv-loader": "2.0.3",
     "@astrojs/starlight": "^0.38.3",
     "@fontsource-variable/baskervville": "^5.2.3",
     "@fontsource-variable/baskervville-sc": "^5.2.3",
