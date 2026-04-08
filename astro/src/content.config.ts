@@ -12,16 +12,16 @@ const decks = defineCollection({
 });
 
 const cards = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/cards" }),
+  loader: glob({ pattern: '**/[^_]*/[^_]*.{md,mdx}', base: "./src/content/cards" }),
   schema: cardSchema({
     extend: z.object({
       tags: z.string().array().optional(),
       // Act Cards
       regions: z.array(z.object({
         'CP': z.boolean(),
-        'M': z.boolean(),
+        'DP': z.boolean(),
         'NE': z.boolean(),
-        'S': z.boolean(),
+        'SP': z.boolean(),
       }).partial()).length(4).optional(),
       // Setup Cards
       extra: z.boolean().default(false),
@@ -65,6 +65,9 @@ export const collections = {
         'credit.track': z.string(),
         'deck.laws.singular': z.string(),
         'deck.laws.plural': z.string(),
+        'deck.trades.singular': z.string(),
+        'deck.trades.plural': z.string(),
+        'game.title': z.string(),
         'role.company.tea': z.string(),
         'role.company.tea2': z.string(),
         'role.govt.office': z.string(),

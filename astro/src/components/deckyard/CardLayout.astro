@@ -33,19 +33,17 @@ const cssVariables = {
 // TODO: Change this to be slot-based
 ---
 
-<div {id} class="card-layout not-content">
-  <CardFrame {...card.data}>
+<div {id} class="card-front not-content">
+  <CardFrame {...card.data} card-number={number}>
     <Content />
   </CardFrame>
 </div>
 
 <style define:vars={ cssVariables }>
 
-.card-layout {
-  display: block;
-
-  --dy-deck-full-height: calc(var(--dy-deck-height) + (2 * var(--dy-deck-bleed)));
-  --dy-deck-full-width: calc(var(--dy-deck-width) + (2 * var(--dy-deck-bleed)));
+.card-front {
+  --dy-deck-full-height: calc(var(--dy-deck-height) + (2 * var(--dy-deck-bleed, 0)));
+  --dy-deck-full-width: calc(var(--dy-deck-width) + (2 * var(--dy-deck-bleed, 0)));
   --dy-card-corner-radius: 0.75em;
   --sl-content-gap-y: 0;
 

@@ -83,7 +83,8 @@ const sizeAdjustment = 0.85;
     }
   }
   .main {
-    height: 45mm;
+    /* height: 45mm; */
+    height: 2.4in;
     /* height: 2.4in; Bridge Adjustment */
 
     --border-color: white;
@@ -97,6 +98,25 @@ const sizeAdjustment = 0.85;
     align-items: center;
     align-content: stretch;
     overflow: hidden;
+
+    .cell {
+      place-self: stretch;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      div, p {
+        text-align: center;
+        vertical-align: middle;
+        font-family: 'Baskervville SC Variable', serif;
+        font-variant-numeric: tabular-nums;
+        line-height: 1.05em;
+      }
+
+      /* Bridge Mode */
+      /* padding: 0.2em; */
+    }
 
     &.cells-2 {
       grid-template-rows: repeat(2, 1fr);
@@ -122,6 +142,10 @@ const sizeAdjustment = 0.85;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
 
+      .cell {
+        font-size: 90%;
+      }
+
       .cell:nth-child(odd) {
         border-right: 1px solid var(--border-color);
       }
@@ -134,24 +158,6 @@ const sizeAdjustment = 0.85;
       .cell:nth-last-child(-n+2) {
         border-top: 1px solid var(--border-color);
       }
-    }
-
-    .cell {
-      place-self: stretch;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      div, p {
-        text-align: center;
-        vertical-align: middle;
-        font-family: 'Baskervville SC Variable', serif;
-        line-height: 1.05em;
-      }
-
-      /* Bridge Mode */
-      /* padding: 0.2em; */
     }
   }
   h2 {

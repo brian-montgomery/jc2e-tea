@@ -4,6 +4,8 @@ deck:
    reference: office
 background:
    image: "@assets/images/cards/office-dw.jpeg"
+card-back:
+   reference: office/director-back
 ---
 import Layout from "@components/OfficeCardLayout.astro";
 
@@ -18,7 +20,8 @@ in the top of your treasury:
 **Next**, may take Auction action:
 
 <p style="font-size: 65%">Exchange
-{frontmatter._["tea.token.plural"].toLowerCase()} for £1 per crate minimum.
+{frontmatter._["tea.token.plural"].toLowerCase()} at
+£1 per crate minimum.
 Increase the Company Balance
 by the amount exchanged.</p>
 

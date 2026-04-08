@@ -12,18 +12,18 @@ export async function getStaticPaths() {
       props: {
         card,
         page: {
-          hasSidebar: true,
+          // hasSidebar: true,
           frontmatter: {
-            title: `${card.data.title}`,
+            title: card.data.title,
             tableOfContents: false,
             template: 'splash',
             pagefind: true,
             prev: false,
             next: false,
             hero: {
-              tagline: "This is a test",
+              tagline: card.data.description,
               image: {
-                html: '<div id="hero-card"></div>',
+                html: "<div></div>",
               }
             }
           },
@@ -41,28 +41,54 @@ interface Props {
 }
 
 const { card, page, } = Astro.props;
+const { background, dimensions, deck } = card.data;
+const { landscape } = await getCardStyles(background, dimensions, deck);
 
 import CardDetails from "@components/CardDetails.astro";
-import CardLayout from "@components/deckyard/CardLayout.astro";
+import CardFrontAndBack from "@components/deckyard/CardFrontAndBack.astro";
+import { getCardStyles } from "src/lib/card-styling";
 ---
 
-{/* @ts-ignore */}
 <StarlightPage {...page}>
   <CardDetails {card} />
-  <div id="hero-card-holder" style="display: none"><CardLayout {card} /></div>
+  <CardFrontAndBack id="hero-card" class="load" {card} gap vertical={landscape} />
 </StarlightPage>
 
 <!-- TODO: Move Script to Card Details to better interact with Splash Template -->
+<style>
+  #hero-card {
+    transform: scale((1, 1));
+    transform-origin: left;
+
+    &.load {
+      display: none;
+    }
+  }
+</style>
+
 <script>
 addEventListener("load", () => {
-  const heroCard = document.querySelector("#hero-card");
-  const heroCardHolder = document.querySelector("#hero-card-holder");
+  const heroWrapper = document.querySelector(".hero-html");
+  const heroCard = document.getElementById("hero-card");
 
-  if (heroCard && heroCardHolder) {
-    if (heroCardHolder.firstChild)
-      heroCard.appendChild(heroCardHolder.firstChild);
+  function resize() {
+    heroCard!.style.transform = 'scale(1, 1)';
+    heroCard!.classList.remove("load");
 
-    heroCardHolder?.parentNode?.removeChild(heroCardHolder);
+    const { width: cw, height: ch } = heroCard!.getBoundingClientRect();
+    const { width: ww, height: wh } = heroWrapper!.getBoundingClientRect();
+    console.log(cw, ch, ww, wh);
+
+    const scaleAmount = Math.min(ww / cw, wh / ch);
+    heroCard!.style.transform = `scale(${scaleAmount}, ${scaleAmount})`;
   }
+
+  if (heroCard && heroWrapper) {
+      // const parent = heroCard.parentNode;
+      heroWrapper.appendChild(heroCard);
+      resize();
+  }
+
+  addEventListener("resize", resize)
 });
 </script>

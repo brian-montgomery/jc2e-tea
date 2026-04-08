@@ -1,23 +1,28 @@
 ---
 title: Stamp Act
+description: >-
+   The infamous Stamp Act was the first actual tax the
+   British government tried to enforce on the colonies.
 deck:
    reference: acts
 regions:
    - NE: true
-   - S: true
-   - M: true
+   - SP: true
+   - DP: true
    - CP: true
 # tags:
 #    - duty
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} shortTitle textSize={90}>
-   The **{frontmatter._["role.govt.governor.full"]}**
-   may now roll for taxes during their turn,
-   gaining **£2** for the **Colonial Treasury** and a
-   **£1** bonus for themselves.
+<Layout {...frontmatter} shortTitle textSize={85}>
+The **{frontmatter._["role.govt.governor.full"]}**
+may now roll for taxes during their turn,
+gaining **£2** for the **Colonial Treasury**.
+{/* and a **£1** bonus. */}
 
-   Declare a colonized region before rolling.
-   Add an **unrest cube** to that region for each 6 rolled.
+Declare a colonized region before rolling.
+Add an **unrest cube** to that region for each\
+**5 or 6** rolled.
+{/* If unsuccessful, do not lower the dice pool. */}
 </Layout>

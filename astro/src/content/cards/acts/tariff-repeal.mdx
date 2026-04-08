@@ -1,12 +1,15 @@
 ---
 title: Duty Repealed
+description: >-
+   Although the Declaratory Act is the most infamous,
+   Parliamaent repealed a number of Colonial Acts.
 deck:
    reference: acts
 regions:
    - CP: true
    - NE: false
-   - S: false
-   - M: false
+   - SP: false
+   - DP: false
 tags:
    - duty
 ---
@@ -14,16 +17,17 @@ tags:
 import Layout from "@components/ActCardLayout.astro";
 
 <Layout {...frontmatter} shortTitle textSize={85}>
-   Discard the current\
-   **Colonial Duty**.
+Discard the current\
+**Colonial Duty**.
 
-   Use the rules
-   from the previously active Duty.\
-   If there is not one,
-   the {frontmatter._["role.govt.customs"]}
-   may not check for customs.
+Use the rules
+from the previously active Duty.\
+If there is not one,
+the {frontmatter._["role.govt.customs"]}
+may not\
+check for Customs.
 
-   Remove one\
-   **unrest cube** from\
-   each colonized region.
+Remove one\
+**unrest cube** from\
+each colonized region.
 </Layout>

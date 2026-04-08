@@ -1,0 +1,24 @@
+---
+import type { StarlightPageProps } from "node_modules/@astrojs/starlight/utils/starlight-page";
+import { getCollection } from "astro:content";
+
+
+const pageData: StarlightPageProps = {
+  hasSidebar: true,
+  frontmatter: {
+    title: 'All Cards',
+    tableOfContents: false,
+    pagefind: false,
+    prev: false,
+    next: false,
+  },
+};
+
+import DeckLayout from "@components/DeckLayout.astro";
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+---
+
+<StarlightPage {...pageData}>
+  <DeckLayout />
+</StarlightPage>

@@ -1,6 +1,6 @@
 ---
 collection: cards
-id: indemnity-act
+id: acts/indemnity-act
 ---
 
 ## Questions

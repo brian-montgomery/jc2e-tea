@@ -1,22 +1,32 @@
 ---
 title: Tea Regulation
+description: >-
+   The card akin to "Deregulation" in the other scenarios.
+   This references the Tea Act of 1773, which gave the East
+   India Company significantly lowered taxes on tea sold
+   to the Colonies.
 deck:
    reference: acts
+card-back:
+   reference: acts/tea-act-back
 ---
 import Layout from "@components/ActCardLayout.astro";
 
 <Layout {...frontmatter} textSize={70} heading="special">
+<div class="tea">
+
 _At the start of a turn, the Prime Minister may call
 a session of Parliament to vote on this law if the
 {frontmatter._["credit.track"]} is less than the either
-the Company Debt or the number of {frontmatter._["tea.token.plural"]}.
-If it's less than both, the session must be called.
+the Company Debt or the number of {frontmatter._["tea.token.plural"]}.\
+If it's less than both, the session must be called.\
 In either case, no other policy or act is proposed._
 
 _The initial support of the law equals\
 the number of {frontmatter._["tea.token.plural"]} in the\
 **{frontmatter._["role.company.tea"]}'** treasury._
 
+</div>
 <div class="post-text">
 
 The Company gains a trade monopoly on tea in America.\
@@ -33,16 +43,16 @@ Flip this card.
 </Layout>
 
 <style>{`
-em {
+.tea em {
    display: inline-block;
-   font-size: 67%;
+   font-size: 6.25pt;
    font-style: italic;
-   line-height: 1.33em;
+   line-height: 1.2em;
 }
 .post-text p {
    line-height: 1.15em;
 }
 .post-text p:last-child {
-   margin-bottom: 0;
+   {/* margin-bottom: 0; */}
 }
 `}</style>

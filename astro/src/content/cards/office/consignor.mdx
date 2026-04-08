@@ -4,11 +4,13 @@ deck:
    reference: office
 background:
    image: "@assets/images/cards/office-tea.jpeg"
+card-back:
+   reference: office/consignor-back
 ---
 import DiceCheck from "@components/DiceCheck.astro";
 import Layout from "@components/OfficeCardLayout.astro";
 
-<Layout {...frontmatter} textSize={70}>
+<Layout {...frontmatter} textSize={65}>
    **First**, if trade in China was successful, place {frontmatter._["tea.token.plural"].toLowerCase()} in your treasury:
 
    <p style="font-size: 65%; margin-bottom: 0.75em;">_Export Icons_ &nbsp;**x** _Value of Tea_</p>

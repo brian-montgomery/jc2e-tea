@@ -9,6 +9,7 @@ interface Props extends HTMLAttributes<"article"> {
   "card-number"?: number;
   deck?: BaseCard["deck"];
   dimensions?: BaseCard["dimensions"];
+  "is-back"?: boolean;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   "class": otherClasses = undefined,
   dimensions,
   deck,
+  "is-back": isCardBack = false,
   ...attrs
 } = Astro.props;
 
@@ -26,11 +28,11 @@ const {
   landscape,
   rotate,
   size,
-} = await getCardStyles(background, dimensions, deck);
+} = await getCardStyles(background, dimensions, deck, isCardBack);
 
 const cssVariables = {
   "dy-card-bg": backgrounds,
-  "dy-card-bleed": bleed,
+  "dy-card-bleed": bleed ?? "0px",
   "dy-card-rotate": rotate,
 };
 
@@ -48,7 +50,7 @@ if (size) {
   // TODO: Use image size to determine whether we should size to 'contain' or 'cover' the image.
 }
 ---
-<article {...attrs} class:list={["card not-content", otherClasses, { rotate }]} data-dy-card-number={cardNumber}>
+<article {...attrs} class:list={["card", otherClasses, { rotate }]} data-dy-card-number={cardNumber}>
   <div class:list={["card-inner-border"]}>
     <slot></slot>
   </div>

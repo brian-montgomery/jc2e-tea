@@ -6,8 +6,18 @@ areas:
   - President of Bengal
   - Company Share
   - £1
+# card-back:
+#   background:
+#     image: "@assets/images/cards/smuggler-5b.jpeg"
 ---
 
 import Layout from "@components/SetupCardLayout.astro";
 
-<Layout {...frontmatter} />
+<Layout {...frontmatter}>
+  <Fragment slot="cell-1">
+
+    President of\
+    Bengal
+
+  </Fragment>
+</Layout>

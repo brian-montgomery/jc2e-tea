@@ -1,0 +1,44 @@
+---
+title: War Declared
+background:
+   gradient: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.7))
+   image: "@assets/images/textures/91513.jpg"
+tags:
+   - duty
+---
+import Layout from "@components/ActCardLayout.astro";
+
+<Layout {...frontmatter} shortTitle heading="decree" textSize={80}>
+<div class="war">
+
+The **{frontmatter._["role.govt.governor"]}** may take up\
+to **two** debt during their turn and during Expenses
+(without taking an Emergency Loan).
+
+The **{frontmatter._["role.govt.military"]}** may
+deploy into a sovereign region and\
+will earn **two** trophies for\
+each victory.
+
+---
+
+_Before the **Events in India**
+phase begins, flip this card back over._
+
+</div>
+</Layout>
+<style>{`
+.war {
+   p {
+      line-height: 1.15em;
+   }
+   hr {
+      border-top: 1px solid #555555;
+      border-bottom: 0;
+      margin: 1.25em 0.25em;
+   }
+   em {
+      font-size: 9pt;
+   }
+}
+`}</style>

@@ -36,10 +36,8 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
       )
     }
   </div>
-  <div class="footer">
-    <div class="number">
-      <CardNumber />
-    </div>
+  <div class="number">
+    <CardNumber />
   </div>
 </div>
 
@@ -50,12 +48,12 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
   }
   .main-text {
     position: absolute;
-    top: 1.85in;
+    top: 1.825in;
     left: 0.125in;
     width: 2in;
     max-width: 2in;
-    height: 1.5in;
-    max-height: 1.5in;
+    height: 1.55in;
+    max-height: 1.55in;
 
     display: flex;
     flex-direction: column;
@@ -64,6 +62,7 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
 
     & :global(p) {
       font-family: 'Baskervville Variable';
+      font-variant-numeric: tabular-nums;
       font-size: var(--text-size);
       line-height: 1em;
       text-align: center;
@@ -72,6 +71,7 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
     & :global(strong) {
       font-weight: 600;
       font-family: 'Baskervville SC Variable';
+      font-variant-numeric: tabular-nums;
     }
     & :global(hr) {
       border: 1px solid #8a8879;
@@ -79,21 +79,12 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
       margin: 1em;
     }
   }
-  .footer {
+  .number {
     position: absolute;
-    top: 3.15in;
-    width: 100%;
-
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-
-    .number {
-      font-family: 'Baskervville SC Variable';
-      font-size: 0.8em;
-      padding: 0.5em;
-      align-self: flex-end;
-      justify-self: flex-end;
-    }
+    font-size: 6pt;
+    font-family: 'Baskervville SC Variable';
+    font-variant-numeric: tabular-nums;
+    right: 10px;
+    top: 3.25in;
   }
 </style>

@@ -1,12 +1,16 @@
 ---
 title: Import Tariffs
+description: >-
+   Britain enacted several tariffs to protect their own
+   manufacturing industries. This card is interesting in
+   that it also affects India.
 deck:
    reference: acts
 regions:
    - CP: true
-   - S: true
+   - SP: true
    - NE: false
-   - S: false
+   - SP: false
 tags:
    - manufacturing
    - tea
@@ -14,15 +18,15 @@ tags:
 import Layout from "@components/ActCardLayout.astro";
 
 <Layout {...frontmatter} textSize={90}>
-   Decrease the\
-   **{frontmatter._["tea.track"]}** by 1.
+Decrease the\
+**{frontmatter._["tea.track"]}** by 1.
 
-   Each player adds an additional
-   **£1 bonus** for\
-   every two manufacturing
-   enterprises they own\
-   (rounding down).
+During bonuses, players\
+add an additional
+**£1** for every two manufacturing
+enterprises they own\
+(rounding down).
 
-   Reduce the value of every\
-   trade by **£1** per region.
+Reduce the value of all\
+trades by **£1** per region.
 </Layout>

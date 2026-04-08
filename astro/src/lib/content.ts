@@ -57,13 +57,6 @@ function background(context: SchemaContext) {
   );
 }
 
-const cardBack = (context: SchemaContext) => z.object({
-  reference: reference("cards").optional(),
-  background: background(
-    {...context, type: "card back"}
-  ).partial().optional(),
-});
-
 function dimensions(context: SchemaContext) {
   return z.object({
     size: z.enum(CARD_SIZES).describe(
@@ -78,6 +71,16 @@ function dimensions(context: SchemaContext) {
     ),
   });
 }
+
+function cardBack(context: SchemaContext) {
+  const currentContext = {...context, type: "card back"};
+  return z.object({
+    reference: reference("cards").optional(),
+    background: background(currentContext).partial().optional(),
+    dimensions: dimensions(currentContext).partial().optional(),
+  });
+}
+
 
 ////////
 // Cards
@@ -159,9 +162,9 @@ function defaultDeckSchema({ image }: SchemaContext) {
       "Some high-level information about this deck. Can be HTML and will be rendered on the deck overview page."
     ).default(""),
 
-    dimensions: dimensions(currentContext),
     background: background(currentContext).partial().optional(),
     "card-back": cardBack(currentContext).optional(),
+    dimensions: dimensions(currentContext),
   });
 }
 

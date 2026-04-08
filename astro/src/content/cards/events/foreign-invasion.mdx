@@ -2,17 +2,19 @@
 title: Foreign Invasion
 deck:
    reference: events
-   quantity: 2
+   quantity: 1
+card-back:
+   reference: events/backs/delawarean
 ---
 import Layout from "@components/EventCardLayout.astro";
 
-<Layout title={frontmatter.title} textSize={80}>
-Roll a die.\
-If 1-2, resolve an invasion in the Southern.\
-If 3-4, resolve an invasion in New England.\
-If 5-6, resolve an invasion in both.
+<Layout title={frontmatter.title} textSize={75}>
+Roll the storm die. The indicated regions are attacked.
 
-For each invasion, roll a die to determine strength.\
-If a region falls, close every order there and set its
-strength to half of the die roll (round down).
+For each invasion, roll a die to determine strength.
+The invading strength is the greater of the die and
+an adjancent sovereign region's strength.
+
+If a colonized region falls, close every order there
+and set its strength to half of the die roll (round down).
 </Layout>

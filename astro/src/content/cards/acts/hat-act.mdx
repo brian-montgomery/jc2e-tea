@@ -1,12 +1,16 @@
 ---
 title: Hat & Iron Regulations
+description: >-
+   The Hat Act was fairly successful in leveraging the fur
+   trade and preventing colonial manufacturing. The Iron Act
+   was less so.
 deck:
    reference: acts
 regions:
    - CP: true
    - NE: true
-   - M: false
-   - S: false
+   - DP: false
+   - SP: false
 tags:
    - duty
    - manufacturing
@@ -14,12 +18,18 @@ tags:
 import Layout from "@components/ActCardLayout.astro";
 
 <Layout {...frontmatter} textSize={95}>
-When rolling customs checks,
-use **2** dice.
-
+Use **2** dice when\
+rolling for Customs.\
 Add **£1** to the Colonial Treasury
-for each success.\
-If in the **Chesapeake** and **Haudenosauneega**
-regions, pick a manufacturing enterprise
+for each success.
+
+When a firm fills an order,
+it may choose a
+unique **Invested Workshop**\
 to gain **£1**.
 </Layout>
+
+{/* If in the **Chesapeake** and **Haudenosauneega**
+regions, pick a manufacturing enterprise
+to gain **£1**.
+*/}
