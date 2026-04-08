@@ -2,7 +2,7 @@
 import { getCollection, render, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-  const cards = await getCollection("cards");
+  const cards = await getCollection("cards", ({data}) => !!data.deck?.reference);
 
   return Promise.all(cards.map(async (card) => {
     const { Content } = await render(card);

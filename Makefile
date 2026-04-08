@@ -46,7 +46,7 @@ build:
 
 dist: clean-js-dist $(SOURCE_DIR)/dist
 
-$(SOURCE_DIR)/dist:
+$(SOURCE_DIR)/dist: up
 	@docker compose exec $(CONTAINER) sh -c "npm run build"
 
 $(SOURCE_DIR)/node_modules:
