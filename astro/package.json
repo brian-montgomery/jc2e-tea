@@ -10,14 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@ascorbic/csv-loader": "2.0.3",
-    "@astrojs/starlight": "^0.37.6",
+    "@astrojs/starlight": "^0.38.3",
     "@fontsource-variable/baskervville": "^5.2.3",
     "@fontsource-variable/baskervville-sc": "^5.2.3",
     "@fontsource-variable/cormorant": "^5.1.0",
     "@fontsource-variable/libre-bodoni": "^5.2.7",
     "@fontsource/great-vibes": "^5.2.6",
-    "astro": "^5.18.0",
+    "astro": "^6.1.4",
     "sharp": "^0.32.5"
   }
 }
