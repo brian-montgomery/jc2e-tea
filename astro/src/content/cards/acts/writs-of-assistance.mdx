@@ -1,0 +1,26 @@
+---
+title: Writs of Assistance
+description: >-
+   Allowed a customs officer to do a search for suspected
+   smuggled goods without a warrant.
+deck:
+   reference: acts
+regions:
+   - NE: true
+   - CP: true
+   - DP: true
+   - SP: false
+---
+import Layout from "@components/ActCardLayout.astro";
+import T from "@components/T.astro";
+
+<Layout {...frontmatter}>
+   During Customs checks,\
+   the **<T key="role.govt.customs" />**
+   may reroll any number of\
+   3s and 4s once.
+
+   When closing orders,\
+   add an **unrest cube**
+   to that colonized region.
+</Layout>

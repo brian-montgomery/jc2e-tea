@@ -1,0 +1,74 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+import { getCardDimensions } from 'src/lib/card-sizing';
+import { getDeckStyles } from 'src/lib/card-styling';
+import { render } from 'astro:content';
+
+import CardFrame from '@components/deckyard/CardFrame.astro';
+import { getEntry } from 'astro:content';
+
+interface Props {
+  card: CollectionEntry<"cards">;
+  id?: string;
+  number?: number;
+}
+
+const {
+  card,
+  id = undefined,
+  number = undefined,
+} = Astro.props;
+
+
+const cardBack = card.data['card-back'];
+const deck = card.data.deck;
+
+if ((cardBack ?? deck) === undefined) {
+  return "";
+}
+
+const cardBackBg = cardBack?.background;
+const cardBackDim = cardBack?.dimensions;
+const cardBackRef = cardBack?.reference;
+const cardBackEntry = cardBackRef && await getEntry(cardBackRef);
+
+const background = cardBackEntry?.data.background ?? cardBackBg;
+const dimensions = cardBackEntry?.data.dimensions ?? cardBackDim;
+
+const { Content } = (cardBackEntry && await render(cardBackEntry)) ?? {};
+const { bleed, landscape, size } =
+  await getDeckStyles(deck, background, dimensions, true,);
+const { height, width } = getCardDimensions(size, landscape);
+
+const cssVariables = {
+  "dy-deck-bleed": bleed ?? "0px",
+  "dy-deck-height": height,
+  "dy-deck-width": width,
+};
+---
+
+<div {id} class="card-back not-content">
+  <CardFrame {background} {dimensions} {deck} card-number={number} is-back>
+    { Content && <Content /> }
+  </CardFrame>
+</div>
+
+<style define:vars={ cssVariables }>
+
+.card-back {
+  --dy-deck-full-height: calc(var(--dy-deck-height) + (2 * var(--dy-deck-bleed)));
+  --dy-deck-full-width: calc(var(--dy-deck-width) + (2 * var(--dy-deck-bleed)));
+  --dy-card-corner-radius: 0.75em;
+  --sl-content-gap-y: 0;
+
+  min-height: var(--dy-deck-full-height);
+  height: var(--dy-deck-full-height);
+  max-height: var(--dy-deck-full-height);
+
+  min-width: var(--dy-deck-full-width);
+  width: var(--dy-deck-full-width);
+  max-width: var(--dy-deck-full-width);
+}
+
+</style>

@@ -1,0 +1,34 @@
+---
+title: Tea Regulation
+description: >-
+   The card akin to "Deregulation" in the other scenarios.
+   This references the Tea Act of 1773, which gave the East
+   India Company significantly lowered taxes on tea sold
+   to the Colonies.
+background:
+   gradient: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.7))
+   image: "@assets/images/textures/91513.jpg"
+tags:
+   - duty
+---
+import Layout from "@components/ActCardLayout.astro";
+
+<Layout {...frontmatter} textSize={75}>
+
+The Company has a trade monopoly on tea and
+may trade in America.
+
+The **{frontmatter._["role.govt.customs"]}**
+does not collect Customs against the Company.
+Instead, when the Company successfully trades,
+add **£1** to the Colonial Treasury per
+amount of dice rolled divided by the
+the **{frontmatter._["tea.track"]}**
+(rounded).
+
+The **{frontmatter._["role.govt.customs"]}**
+should continue to use the rules
+from the previously active Duty for the firms.
+
+</Layout>
+

@@ -1,0 +1,21 @@
+---
+title: Embargo of Boston
+deck:
+   reference: acts
+regions:
+   - NE: true
+   - DP: true
+   - CP: true
+   - SP: false
+tags:
+   - military
+---
+import Layout from "@components/ActCardLayout.astro";
+
+<Layout {...frontmatter}>
+   Add two military units to the **{frontmatter._["role.govt.military.full"]}**'s army.
+
+   Add one unrest cube and close all trade orders
+   in the **New England** region, performing a cascade
+   if necessary.
+</Layout>

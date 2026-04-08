@@ -4,7 +4,7 @@ sidebar:
     order: 5
 ---
 
-import Role from '../../../components/Role.astro';
+import Role from '@components/T.astro';
 
 import { Image } from 'astro:assets';
 import { Steps } from '@astrojs/starlight/components';
@@ -20,7 +20,7 @@ One of the narrative goals for this scenario is to create a situation where the 
 Mechanically, this law would be analogous to the major decision of deregulation in the __1758__ and __long 1710__ scenarios. That difference will help make this scenario unique, but also feel familiar as it utilizes a similar decision mechanic.
 
 :::danger[Firm Incentives]
-What is the incentive for the firms to vote for this? In the base scenario, an anti-company player can vote for deregulation, and gets the benefit of being able to start or invest in a firm. In this scenario, the firms would be adding the Company as competition to themselves by voting for this, which means they would almost certainly vote against it. 
+What is the incentive for the firms to vote for this? In the base scenario, an anti-company player can vote for deregulation, and gets the benefit of being able to start or invest in a firm. In this scenario, the firms would be adding the Company as competition to themselves by voting for this, which means they would almost certainly vote against it.
 
 The simple answer might be there is no incentive. Instead, the Company has to overcome the Firms political power by having an amount of supporting votes to override them. An example would be to base the starting votes on the [amount of tea](#managing-the-tea) that the Company has in its warehouses. When the Company has a large reserve of tea, this would allow the Company to successfully pass it without the firms' support.
 
@@ -39,7 +39,7 @@ import TeaToken from '/src/assets/images/tea-token.png';
     src={TeaToken}
     title="Prototype tea token as a hexagon"
     alt="Prototype tea token as a hexagon"
-    style="float: right; width: 10em; padding: 1em" 
+    style="float: right; width: 10em; padding: 1em"
 />
 :::note
 There are three possible names to give the tea resource.
@@ -96,11 +96,11 @@ If this office deals in the Tea resource (and not in money), this is an addition
 
 ### Tea Auction
 
-The <Role name="role.company.tea"/> would perform a Tea Auction as their action, in which players would negotiate to receive the Tea that is exported from China. The firm(s) operating in America would be the recipients. While this office has no official bonus (similar to the Director of Trade or the Manager of Shipping), it would be expected that the player would benefit from the position from their negotiation skills.
+The <Role key="role.company.tea"/> would perform a Tea Auction as their action, in which players would negotiate to receive the Tea that is exported from China. The firm(s) operating in America would be the recipients. While this office has no official bonus (similar to the Director of Trade or the Manager of Shipping), it would be expected that the player would benefit from the position from their negotiation skills.
 
-Mechanically, the Tea Auction would function similarly to the Chairman distributing money, except the <Role name="role.company.tea"/> does not need to distribute all of the tea. Again, open discussions and negotiation should be encouraged.
+Mechanically, the Tea Auction would function similarly to the Chairman distributing money, except the <Role key="role.company.tea"/> does not need to distribute all of the tea. Again, open discussions and negotiation should be encouraged.
 
-There's a bit of tension present: the Director of Warehouse profiting personally from distributing Tea versus keeping it within the Company. Narratively, the scenario wants the Director to keep some in the Company Warehouses. 
+There's a bit of tension present: the Director of Warehouse profiting personally from distributing Tea versus keeping it within the Company. Narratively, the scenario wants the Director to keep some in the Company Warehouses.
 
 ### After Tea Regulation
 

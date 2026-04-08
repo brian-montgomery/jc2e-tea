@@ -1,0 +1,29 @@
+---
+title: VIII. Parliament Meets
+sidebar:
+    order: 18
+draft: true
+---
+
+import Role from "@components/T.astro";
+
+__TODO:__ Discuss the Statute deck.
+
+## Resolving the Vote
+
+* If the law has -1 support or less, it fails. Discard the law, resolving any “If Failed” effects if it is a dilemma. Then, the player with the Opposition Leader token returns it to the supply and takes the Prime Minister wheel. Next, the new Prime Minister moves the selected policy to either adjacent space on the Policy track and then resolves its effect. Finally, the Prime Minister appoints a new {frontmatter._["role.govt.tariffs"]}.
+
+    The new {frontmatter._["role.govt.tariffs"]} should apply any immediate effects of the statute that was not chosen by the former.
+
+* Otherwise, the law and statute pass. Place the law near the board next to the other passed laws. The Prime Minister should take a passed law token into their play area. Then, resolve the policy consequence in the space selected and then any immediate effects of the law. Finally, apply any immediate effects of the statute.
+
+## The Vote to Regulate Tea
+
+In this 1733 scenario, the Prime Minister may initiate a special session of Parliament at the start of the turn before the London Season phase. To do this, the {frontmatter._["credit.track"]} must be less than the Company Debt. If at least one of these markers is on one of the spaces marked with a star, the Prime Minister must initiate a special session to vote on Tea Regulation.
+
+If the vote passes, increase the **{frontmatter._["tea.track"]}** by one space.
+Place the Standing marker on the space marked with “S” and put **3 Company ships**
+in the Atlantic sea zone. The Prime Minister gains a passed law token.
+{/* Refer to the Deregulation rules for additional changes. */}
+
+If the law fails, increase the value of Company shares by placing (or flipping) the VP overlay in the Court. Shares cannot be worth more than +/- 3 victory points. __Unlike other proposed laws, this law is not associated with a policy and the Prime Minister does not change hands if it fails nor will this law be discarded. The Prime Minister may also vote against the law.__

@@ -1,0 +1,58 @@
+---
+title: Commander-in-Chief
+deck:
+   reference: office
+background:
+   image: "@assets/images/cards/office-cna.jpeg"
+card-back:
+   reference: office/commander-back
+---
+import DiceCheck from "@components/DiceCheck.astro";
+import Layout from "@components/OfficeCardLayout.astro";
+
+<Layout {...frontmatter} textSize={65}>
+   May take Deploy actions:
+   <DiceCheck>
+      <Fragment slot="dice-pool">
+         _Add dice per declared
+         military units and
+         local alliances._\
+         \
+         _Remove die\
+         per unrest &
+         enemy strength._
+      </Fragment>
+      <Fragment slot="dice-success">
+         Open all orders. Uncover flag.
+
+         <div class="bonus">You gain a trophy and £1.</div>
+         <div class="bonus">Surviving officers gain £1.</div>
+
+         <p class="comm-note"> If
+         <span style="font-weight: 600">colonized</span>,
+         remove an unrest for each success,
+         add one for each\
+         catastrophic failure rolled. </p>
+      </Fragment>
+   </DiceCheck>
+
+   <p class="cmdr-callout">Does not roll for retirement.</p>
+</Layout>
+
+<style>{`
+.comm-note {
+   margin-top: 0.25em;
+   font-style: italic;
+   font-size: 6pt !important;
+}
+.cmdr-callout {
+   background-color: #E5C2AE;
+   margin: 0.333em auto;
+   padding: 0.333em 1em;
+   font-size: 7pt !important;
+   border: 1px solid black;
+   border-collapse: collapse;
+   corner-shape: scoop;
+   border-radius: 0.4em;
+}
+`}</style>

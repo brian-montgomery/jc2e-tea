@@ -1,0 +1,42 @@
+<div class="layout">
+  <p class="deck-title">
+
+  Events <br />
+  in <br />
+  America
+
+  </p>
+  <p class="region">
+    <slot></slot>
+  </p>
+</div>
+
+<style>
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+
+  .deck-title {
+    font-family: 'Libre Bodoni Variable', serif;
+    font-weight: 500;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    text-transform: uppercase;
+  }
+
+  .region {
+    font-family: 'Baskervville SC Variable';
+    font-size: 2rem;
+    /* letter-spacing: 2px; */
+    line-height: 1.8rem;
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-top: 1px solid black;
+  }
+}
+</style>

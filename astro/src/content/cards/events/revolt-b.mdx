@@ -1,0 +1,26 @@
+---
+title: Revolt
+deck:
+   reference: events
+   quantity: 1
+card-back:
+   reference: events/backs/mississippi
+---
+import Layout from "@components/EventCardLayout.astro";
+
+<Layout title={frontmatter.title} textSize={65}>
+A rebellion occurs in each colonized region with unrest.
+Their strength is their **unrest plus one**.
+The **{frontmatter._["role.govt.governor.full"]}** checks
+for rebels and may purchase local alliances beforehand.
+
+**Loyalists win**: Commander gains a trophy per region.\
+Open all orders and remove one unrest from each region.\
+Shuffle this card back into the bottom half of the event deck.
+
+**Rebellion wins:** All participating regions are no longer
+colonized. Close all orders {/* open ? */} and set their
+strength to half of their previous unrest (round down),
+with a minimum of one. **{frontmatter._["role.govt.governor.full"]}**
+is disgraced (fired and -1 VP).
+</Layout>

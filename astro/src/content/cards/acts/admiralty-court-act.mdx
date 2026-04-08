@@ -1,0 +1,41 @@
+---
+title: Admiralty Courts
+description: >-
+   This is combining the additional Admiralty Courts added
+   in the Townshend Acts, along with the military presence
+   that tried to stop smuggling.
+deck:
+   reference: acts
+regions:
+   - NE: true
+   - DP: true
+   - SP: true
+   - CP: false
+tags:
+   - military
+---
+import Layout from "@components/ActCardLayout.astro";
+
+<Layout {...frontmatter} textSize={90}>
+{/* Add one to the **{frontmatter._["role.govt.customs.full"]}** */}
+{/* dice pool. The **{frontmatter._["role.govt.customs"]}** */}
+{/* does not gain dice by spending regiments. */}
+
+When passed, add one military unit to\
+the
+**{frontmatter._["role.govt.military.full"]}**'s army.
+
+The {frontmatter._["role.govt.military"]}
+may now Deploy against the smugglers. Each success
+rolled keeps a smuggled order open and earns\
+**£3** of loot.
+
+{/*
+The **{frontmatter._["role.govt.customs"]}**
+no longer places collector(s) on successful
+custom checks. Instead, choose an active
+officer in the Army of North America to
+receive the bonus instead of a collector.
+That officer is exhausted.
+*/}
+</Layout>

@@ -1,0 +1,216 @@
+---
+type RegionKeys = "CP" | "M" | "NE" | "S"
+type Region = Record<RegionKeys, boolean>;
+
+interface Props {
+  title: string;
+  shortTitle?: boolean,
+  heading?: "dilemma" | "decree" | "special" | "reference" | undefined;
+  textSize?: number,
+  regions?: Region[],
+  tags?: string[],
+}
+
+const {
+  heading = undefined,
+  title,
+  shortTitle = false,
+  textSize = 100,
+  regions = undefined,
+  tags = [],
+} = Astro.props;
+
+import CardNumber from '@components/deckyard/CardNumber.astro';
+---
+
+<div class="column">
+  {
+    (heading || tags.includes('duty')) && (
+      <div class:list={["heading", heading]}>
+        {
+          heading === "decree" ? (<h1 style="color: #8E1B20; font-weight: 600;">Colonial Decree</h1>) :
+          heading === "dilemma" ? (<h1>Dillema before Parliament</h1>) :
+          heading === "special" ? (<h1>Special Session of Parliament</h1>) :
+          heading === "reference" ? (<h1>Gameplay Changes in 1733</h1>) :
+          tags.includes('duty') ? (<h1 style="color: navy; font-weight: 500;">Colonial Duty</h1>) : ""
+        }
+      </div>
+    )
+  }
+  <h2 class:list={[{shortTitle,}]} id={title}>{ title }</h2>
+  <!-- { tags.includes('duty') && <div class="duty">Colonial Duty</div>} -->
+  <div class:list={["main-text"]} style={`--text-size: ${textSize}%`}>
+    <slot></slot>
+  </div>
+  <div class="footer">
+    { !!regions && (
+      <ul class="regions">
+        { regions.map((r) => Object.entries(r).map(([name, show]) =>
+          show
+          ? ( <li><span class="square" set:text={name} /></li>)
+          : ""
+        ))}
+      </ul>
+    )}
+    <div class="number">
+      <!-- { tags.includes('duty') && "CD" } -->
+      <CardNumber />
+    </div>
+  </div>
+</div>
+
+<style>
+  .heading {
+    width: 100%;
+    margin-bottom: 0.2em;
+
+    border-top: 2px solid navy;
+    border-bottom: 2px solid navy;
+
+    & h1 {
+      display: block;
+      font-family: "Baskervville Variable", serif;
+      font-style: italic;
+      font-size: 80%;
+      font-weight: 400;
+      text-align: center;
+    }
+  }
+  .special,
+  .reference {
+      border-top: 3px double black;
+      border-bottom: 3px double black;
+  }
+  .decree {
+      border-top: 3px double #8E1B20;
+      border-bottom: 3px double #8E1B20;
+  }
+  .dilemma {
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+    padding: 0.5em 1em;
+
+    color: black;
+
+    /* Debug flex layout.
+    & > :global(*) {
+      border: 1px solid lightblue;
+    } */
+  }
+  h2 {
+    font-family: 'Libre Bodoni Variable', serif;
+    /* font-family: 'Baskervville Variable', serif; */
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    line-height: 1.2em;
+    padding: 0.25em 0;
+    justify-self: end;
+    text-align: center;
+    vertical-align: bottom;
+  }
+  .heading + h2,
+  h2:has(+ .duty) {
+    font-size: 1.15em;
+    letter-spacing: 0.5px;
+    padding: 0.25em 0;
+  }
+  h2.shortTitle {
+    padding: 0.75em 0;
+  }
+  h2.shortTitle:has(+ .duty) {
+    padding: 0.35em 0;
+  }
+  .duty {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-family: 'Baskervville Variable';
+    font-style: italic;
+    font-size: 75%;
+  }
+  .main-text {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & :global(p) {
+      font-family: 'Baskervville Variable';
+      font-variant-numeric: tabular-nums;
+      font-size: var(--text-size);
+      line-height: 1.25em;
+      text-align: center;
+      margin-bottom: 0.75em;
+    }
+    & :global(strong) {
+      font-weight: 600;
+    }
+  }
+  .footer {
+    align-self: stretch;
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-right: -0.25em;
+
+    .regions {
+      align-self: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline-block;
+        width: 2em;
+        height: 2em;
+
+        font-family: 'Libre Bodoni Variable', serif;
+        font-weight: 600;
+        font-size: 85%;
+        text-align: center;
+        margin-right: 0.25em;
+
+        span {
+          display: inline-block;
+          min-width: 2em;
+          padding-top: 0.15em;
+        }
+      }
+      .circle {
+        border: 1pt dotted black;
+        border-radius: 1em;
+      }
+      .square {
+        border: 1pt solid black;
+        background: #A4582B;
+        color: white;
+      }
+    }
+  }
+  .footer:has(.regions) {
+    padding-top: 0.25em;
+    border-top: 1px solid lightgray;
+  }
+  .number {
+    font-size: 6pt;
+    font-family: 'Baskervville SC Variable';
+    font-variant-numeric: tabular-nums;
+    position: absolute;
+    bottom: 1px;
+    right: 0px;
+  }
+
+</style>

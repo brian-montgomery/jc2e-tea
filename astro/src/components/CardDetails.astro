@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
+
+import CardLayout from "@components/deckyard/CardLayout.astro";
+
+interface Props {
+  card: CollectionEntry<"cards">;
+}
+
+const { card, } = Astro.props;
+const notes: CollectionEntry<"notes">[] = await getCollection("notes", ({data}) =>
+  data.collection === card.collection && data.id === card.id
+);
+
+// TODO: Decide if this should be in Deckyard.
+---
+
+<div class="card-details">
+  <div class="notes">
+    { notes.map((n) =>
+        render(n).then(({ Content }) =>
+          <Content />
+        )
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .card-details {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+  }
+
+  .notes {
+    flex-grow: 1;
+  }
+</style>

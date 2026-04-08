@@ -1,0 +1,30 @@
+---
+title: Firm
+deck:
+   reference: setup
+areas:
+  - Private Firm
+  - 2 VP Prize
+  - 2 Shipyards (Firm)
+# card-back:
+#   background:
+#     image: "@assets/images/cards/smuggler-6b.jpeg"
+---
+
+import Layout from "@components/SetupCardLayout.astro";
+
+<Layout {...frontmatter} textSize={90}>
+  <Fragment slot="cell-1">
+
+    Private Firm\
+    (1 share, value 2,\
+    £4 in treasury)
+
+  </Fragment>
+  <Fragment slot="cell-3">
+
+    2 Shipyards\
+    (in Firm)
+
+  </Fragment>
+</Layout>

@@ -1,0 +1,25 @@
+---
+title: Conflict
+deck:
+   reference: events
+   quantity: 1
+card-back:
+   reference: events/backs/florida
+---
+import Layout from "@components/EventCardLayout.astro";
+
+<Layout title={frontmatter.title} textSize={67}>
+If the connected circle (●) region is friendly,
+rotate clockwise until you find a region that isn't.
+If none, move to that region and repeat.
+
+If attacking region is **sovereign**, perform an invasion.
+
+If attacking region is **colonized**, the attacking
+strength is the amount of unrest.
+If **victorious**, open the connected order on other
+side of border or the easternmost order.
+If **defeated**, close connected order in region
+or the westernmost order.
+**Afterwards**: the attacked region gains 1 strength.
+</Layout>

@@ -1,0 +1,46 @@
+---
+title: III. Hiring
+sidebar:
+   order: 13
+draft: true
+---
+
+import Role from "@components/T.astro"
+
+In this phase, all vacant offices in the Company and the {frontmatter._['role.govt.office']} are filled through hiring.
+
+## Company Offices
+
+These are the additional company officeholders available.
+
+### {frontmatter._['role.company.tea']}
+
+The Chairman hires from any current officeholder except the Chairman, Director of Trade or a Governor. If all offices are vacant, any writer can be chosen. _Note: Commanders are not officeholders._
+
+### {frontmatter._['role.company.tea2']}
+
+The <Role key="role.company.tea2"/> is hired (like the <Role key="role.company.tea"/>) by the Chairman and is subject to attrition like any other office. _Note: Available when Tea Regulation is passed._
+
+## {frontmatter._['role.govt.office']}
+
+Instead of following the nepotism rule, some Government offices use the following.
+
+* __Preference for Trophies__: When hiring from the Pensioner box, certain positions have a preference for trophies or passed laws. When they do, you must either select a candidate from a family with one or more trophies (or passed law tokens) or get their consent to choose another player.
+
+Each office is hired in a different manner described below.
+
+### {frontmatter._['role.govt.governor.full']}
+
+The Prime Minister chooses from the {frontmatter._['role.govt.military.full']} or the {frontmatter._['role.govt.customs.full']}. If both are vacant, then choose from any remaining pensioners, with a preference for trophies or passed laws. If still empty...
+
+### {frontmatter._['role.govt.customs.full']}
+
+The <Role key="role.govt.governor.full"/> hires from the remaining pensioners or the tax collectors.
+
+### {frontmatter._['role.govt.military.full']}
+
+The <Role key="role.govt.governor.full"/> hires from the remaining pensioners with trophies. If none are available, choose from any piece in the Officers-in-Training box or any remaining pensioner. If still none are available, the {frontmatter._['role.govt.governor.full']} assumes the role.
+
+## Ending the Phase
+
+**Lastly, return any family members in the Pensioners box to their supplies.**

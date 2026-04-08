@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  card: CollectionEntry<"cards">;
+  id?: string;
+  class?: string;
+  gap?: boolean;
+  number?: number;
+  vertical?: boolean;
+}
+
+const {
+  card,
+  id = undefined,
+  class: otherClasses = undefined,
+  gap = false,
+  number = undefined,
+  vertical = false,
+} = Astro.props;
+
+
+import CardFront from "@components/deckyard/CardLayout.astro";
+import CardBack from "@components/deckyard/CardBack.astro";
+---
+
+<div {id} class:list={["card-wrapper", otherClasses, {vertical, gap}]}>
+  <CardFront id={id && `${id}-front`} {card} {number} />
+  <CardBack id={id && `${id}-back`} {card} />
+</div>
+
+<style >
+.card-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &.vertical {
+    flex-direction: column;
+  }
+  &.gap {
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+  }
+}
+</style>

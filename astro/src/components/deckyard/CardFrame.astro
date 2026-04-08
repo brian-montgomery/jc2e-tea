@@ -1,0 +1,125 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { getCardDimensions, type CardSizes } from 'src/lib/card-sizing';
+import { getCardStyles } from 'src/lib/card-styling';
+import type { BaseCard } from 'src/lib/content';
+
+interface Props extends HTMLAttributes<"article"> {
+  background?: BaseCard["background"];
+  "card-number"?: number;
+  deck?: BaseCard["deck"];
+  dimensions?: BaseCard["dimensions"];
+  "is-back"?: boolean;
+}
+
+const {
+  background = { bleed: "0px", color: "transparent", },
+  "card-number": cardNumber = undefined,
+  "class": otherClasses = undefined,
+  dimensions,
+  deck,
+  "is-back": isCardBack = false,
+  ...attrs
+} = Astro.props;
+
+const {
+  backgrounds,
+  bleed,
+  landscape,
+  rotate,
+  size,
+} = await getCardStyles(background, dimensions, deck, isCardBack);
+
+const cssVariables = {
+  "dy-card-bg": backgrounds,
+  "dy-card-bleed": bleed ?? "0px",
+  "dy-card-rotate": rotate,
+};
+
+if (size) {
+  const { height, width } = getCardDimensions(size, landscape);
+  if (rotate)
+    Object.assign(cssVariables, {
+      "dy-card-height": width, "dy-card-width": height
+    })
+  else
+    Object.assign(cssVariables, {
+      "dy-card-height": height, "dy-card-width": width
+    })
+
+  // TODO: Use image size to determine whether we should size to 'contain' or 'cover' the image.
+}
+---
+<article {...attrs} class:list={["card", otherClasses, { rotate }]} data-dy-card-number={cardNumber}>
+  <div class:list={["card-inner-border"]}>
+    <slot></slot>
+  </div>
+</article>
+
+<style define:vars={cssVariables}>
+
+.card {
+  --dy-card-full-width: var(--dy-card-width);
+  --dy-card-full-height: var(--dy-card-height);
+  --dy-card-corner-radius: 0.75em;
+
+  min-height: var(--dy-card-full-height);
+  height: var(--dy-card-full-height);
+  max-height: var(--dy-card-full-height);
+
+  min-width: var(--dy-card-full-width);
+  width: var(--dy-card-full-width);
+  max-width: var(--dy-card-full-width);
+
+  background: var(--dy-card-bg);
+  background-clip: content-box;
+  /* background-clip: padding-box; */
+  background-size: cover;
+  /* background-size: contain; */
+  overflow: hidden;
+
+  padding: var(--dy-card-bleed);
+  margin: calc((0.5 * var(--dy-card-corner-radius)) - var(--dy-card-bleed));
+}
+@media print {
+  .card {
+    --dy-card-corner-radius: 0;
+    --dy-card-full-width: calc(var(--dy-card-width) + (2 * var(--dy-card-bleed)));
+    --dy-card-full-height: calc(var(--dy-card-height) + (2 * var(--dy-card-bleed)));
+
+    margin: unset;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+.card.rotate {
+  min-width: var(--dy-card-full-height);
+  width: var(--dy-card-full-height);
+  max-width: var(--dy-card-full-height);
+
+  min-height: var(--dy-card-full-width);
+  height: var(--dy-card-full-width);
+  max-height: var(--dy-card-full-width);
+
+  --dy-card-translate-x: calc((var(--dy-card-height) - var(--dy-card-width)) / 2);
+  --dy-card-translate-y: calc((var(--dy-card-height) - var(--dy-card-width)) / 2);
+
+  transform:
+    rotate(var(--dy-card-rotate))
+    translate(var(--dy-card-translate-x), var(--dy-card-translate-y));
+}
+
+.card-inner-border {
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--sl-color-text);
+  border-radius: var(--dy-card-corner-radius);
+
+  /* Have to separate these out to work in Firefox */
+  outline: calc(0.5 * var(--dy-card-corner-radius, 0)) solid var(--sl-color-bg);
+
+  @media print {
+    outline: unset;
+  }
+}
+</style>

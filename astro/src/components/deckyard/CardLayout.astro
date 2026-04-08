@@ -1,0 +1,59 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+import { getCardDimensions } from 'src/lib/card-sizing';
+import { getDeckStyles } from 'src/lib/card-styling';
+import { render } from 'astro:content';
+
+import CardFrame from '@components/deckyard/CardFrame.astro';
+
+interface Props {
+  card: CollectionEntry<"cards">;
+  id?: string;
+  number?: number;
+}
+
+const {
+  card,
+  id = undefined,
+  number = undefined,
+} = Astro.props;
+
+const { Content } = await render(card);
+const { bleed, landscape, size } = await getDeckStyles(
+  card.data.deck, card.data.background, card.data.dimensions);
+const { height, width } = getCardDimensions(size, landscape);
+
+const cssVariables = {
+  "dy-deck-bleed": bleed ?? "0px",
+  "dy-deck-height": height,
+  "dy-deck-width": width,
+};
+
+// TODO: Change this to be slot-based
+---
+
+<div {id} class="card-front not-content">
+  <CardFrame {...card.data} card-number={number}>
+    <Content />
+  </CardFrame>
+</div>
+
+<style define:vars={ cssVariables }>
+
+.card-front {
+  --dy-deck-full-height: calc(var(--dy-deck-height) + (2 * var(--dy-deck-bleed, 0)));
+  --dy-deck-full-width: calc(var(--dy-deck-width) + (2 * var(--dy-deck-bleed, 0)));
+  --dy-card-corner-radius: 0.75em;
+  --sl-content-gap-y: 0;
+
+  min-height: var(--dy-deck-full-height);
+  height: var(--dy-deck-full-height);
+  max-height: var(--dy-deck-full-height);
+
+  min-width: var(--dy-deck-full-width);
+  width: var(--dy-deck-full-width);
+  max-width: var(--dy-deck-full-width);
+}
+
+</style>

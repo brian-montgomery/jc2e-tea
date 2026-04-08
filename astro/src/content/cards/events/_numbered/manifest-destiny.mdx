@@ -1,0 +1,22 @@
+---
+title: Manifest Destiny
+deck:
+   reference: events
+   quantity: 2
+thoughts: >-
+   This is similar to the Turmoil card in the base event deck.
+---
+import Layout from "@components/EventCardLayout.astro";
+
+<Layout title={frontmatter.title} textSize={80}>
+   Find the 3rd region listed on the
+   most recent passed
+   **{frontmatter._["deck.laws.singular"]}**.
+   Have that region attack its Native Neighbor,
+   with a strength based on its unrest.
+
+   **Colonists win:** Add one strength to the Natives and
+   open the closest order in their region.
+
+   **Natives win:** Close its westernmost open order.
+</Layout>

@@ -1,0 +1,32 @@
+---
+title: Debt Recovery
+deck:
+   reference: acts
+# regions:
+#    - CP: true
+#    - SP: true
+#    - DP: true
+#    - NE: false
+notes: >-
+   Sadly, this basically just duplicates what Tea can do. It's not very interesting.
+   How about something to do with a Firm when they owe money to the Bank?
+---
+import Layout from "@components/ActCardLayout.astro";
+import T from "@components/T.astro";
+
+<Layout {...frontmatter} textSize={75}>
+Once per turn, when successfully
+filling an order, a firm may place
+a family marker facing down underneath
+the filled order token or collector.
+Lower the amount received by the order's
+previously-filled value.
+
+**Do not** remove this facedown marker
+during upkeep.
+
+In a later turn, when that firm successfully
+trades on that order, take the marker back
+to receive the full value of that order
+(in addition the current trade value).
+</Layout>

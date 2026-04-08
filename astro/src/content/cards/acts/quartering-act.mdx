@@ -1,0 +1,31 @@
+---
+title: Quartering Required
+description: >-
+   There were a couple different quartering acts that Britain
+   was hoping would reduce the cost of the military in the
+   colonies.
+deck:
+   reference: acts
+regions:
+   - DP: true
+   - NE: true
+   - CP: false
+   - SP: false
+tags:
+   - military
+---
+import Layout from "@components/ActCardLayout.astro";
+
+<Layout {...frontmatter} textSize={75}>
+When passed, add two military units to
+the
+**{frontmatter._["role.govt.military.full"]}**'s army.
+
+When calculating expenses,\
+the **{frontmatter._["role.govt.governor.full"]}**
+must roll a die for each officer and military unit.
+
+For each success, ignore the cost of that unit.
+For each catastrophic failure, add an **unrest cube**
+to a colonized region, distributing them evenly.
+</Layout>

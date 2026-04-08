@@ -1,0 +1,88 @@
+---
+---
+
+<div class="dice-check">
+  <div class="dice-pool">
+    <div class="title">Dice Pool</div>
+    <slot name="dice-pool"></slot>
+  </div>
+  <div class="dice-results">
+    {
+      Astro.slots.has("dice-success") && (
+        <div class="title">Success</div>
+        <slot name="dice-success"></slot>
+      )
+    }
+    {
+      Astro.slots.has("dice-failure") && (
+        <div class="title">Failure</div>
+        <slot name="dice-failure"></slot>
+      )
+    }
+  </div>
+</div>
+
+<style>
+.dice-check {
+  display: grid;
+  font-size: 75%;
+  grid-template-columns: 1fr 2fr;
+  margin: 0.25em 0;
+
+  .dice-pool {
+    padding: 0 0.25em;
+    border-right: 1px solid #8a8679;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .title {
+      font-family: 'Great Vibes';
+      font-weight: bold;
+      font-size: 0.75rem;
+      line-height: 1.25em;
+      margin-bottom: 0.25em;
+      text-align: center;
+    }
+    & p {
+      font-size: 6pt;
+      font-style: italic;
+      font-variant-ligatures: historical-ligatures;
+      font-variant-numeric: tabular-nums;
+      line-height: 1em;
+    }
+  }
+  .dice-results {
+    padding: 0 0.25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    .title {
+      font-family: 'Baskervville Variable';
+      font-variant-ligatures: historical-ligatures;
+      font-variant-numeric: tabular-nums;
+      font-size: 0.8rem;
+      font-weight: 500;
+      line-height: 1em;
+      margin-bottom: 0.25em;
+      text-align: center;
+    }
+    & p {
+      font-size: 7pt;
+      text-align: center;
+    }
+    & .bonus {
+      background-color: #c0d7b2;
+      font-family: 'Baskervville Variable';
+      font-variant-ligatures: historical-ligatures;
+      font-variant-numeric: tabular-nums;
+      font-size: 80%;
+      line-height: 1em;
+      text-align: center;
+      padding: 0.2em;
+      margin: 0 0 0.35em;
+    }
+  }
+}
+</style>

@@ -3,10 +3,11 @@ import starlight from '@astrojs/starlight';
 import { i18nRemarkPlugin } from './remark/i18n.mjs';
 
 const version = process.env.npm_package_version;
+const basePath = 'jc2e-tea';
 
 export default defineConfig({
 	site: 'https://brian-montgomery.github.io',
-	base: 'jc2e-tea',
+	base: basePath,
 	server: {
 		host: "0.0.0.0",
 		port: 1733,
@@ -16,18 +17,16 @@ export default defineConfig({
 	},
 	integrations: [
 		starlight({
-			title: `1733: Tea & Business`,
+			title: '1733: Tea & Business',
 			logo: {
 				src: './public/favicon.svg',
 			},
 			customCss: [
-				'@fontsource/baskervville-sc/400.css',
-				// '@fontsource/baskervville/400.css',
-				// Possible font: Cormorant
-				// '@fontsource-variable/cormorant/index.css',
-				'@fontsource/great-vibes/400.css',
-				// '@fontsource/pinyon-script/400.css',
-				// '@fontsource/luxurious-script/400.css',
+				'@fontsource-variable/baskervville-sc/index.css',
+				'@fontsource-variable/baskervville/index.css',
+				'@fontsource-variable/libre-bodoni/index.css',
+				'@fontsource/great-vibes/index.css',
+				'./src/assets/styles/deckyard.css',
 				'./src/assets/styles/custom.css',
 			],
 			social: [
@@ -38,10 +37,31 @@ export default defineConfig({
 					label: 'Design',
 					autogenerate: { directory: 'design' },
 				},
-				// {
-				// 	label: `Rules v${version}`,
-				// 	autogenerate: { directory: 'rules' },
-				// },
+        {
+        	label: `Rules v${version}`,
+        	autogenerate: { directory: 'rules' },
+        },
+        {
+					label: 'Components',
+          items: [
+            {
+              label: "Setup Cards",
+              link: '/decks/setup',
+            },
+            {
+              label: "Office Cards",
+              link: '/decks/office',
+            },
+            {
+              label: "Board of Trade Deck",
+              link: '/decks/acts',
+            },
+            {
+              label: "Events in America Deck",
+              link: '/decks/events',
+            },
+          ]
+				},
 			],
 		}),
 	],

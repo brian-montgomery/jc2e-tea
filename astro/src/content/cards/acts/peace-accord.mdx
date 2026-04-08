@@ -1,0 +1,52 @@
+---
+title: Peace Accord
+description: >-
+   We need a way to increase spending and to not
+   allow the Commander to just attack any regions
+   they want to.
+card-back:
+   reference: acts/peace-accord-back
+deck:
+   reference: acts
+---
+import Layout from "@components/ActCardLayout.astro";
+
+<Layout {...frontmatter} shortTitle heading="decree" textSize={70}>
+<div class="peace">
+
+The **{frontmatter._["role.govt.governor"]}** may
+take one debt during their turn and during Expenses
+(without taking an Emergency Loan).
+
+The **{frontmatter._["role.govt.military"]}** may not
+deploy into a sovereign region.
+
+---
+
+_Flip this card over when\
+(a) **War Against France** is passed,\
+(b) a **Foreign Invasion** event occurs,\
+(c) a **Conflict** event occurs against a colonized region, **or**\
+(d) a **Revolt** event occurs in more\
+than one region._
+
+</div>
+</Layout>
+<style>{`
+.peace {
+   p {
+      line-height: 1.15em;
+   }
+   hr {
+      border-top: 1px solid #555555;
+      border-bottom: 0;
+      margin: 0.75em 0.25em;
+   }
+   em {
+      display: inline-block;
+      font-size: 8pt;
+      font-style: italic;
+      line-height: 1.33em;
+   }
+}
+`}</style>

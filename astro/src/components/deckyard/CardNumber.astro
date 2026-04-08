@@ -1,0 +1,15 @@
+---
+---
+<span class="dy-card-number"></span>
+
+<script>
+  window.document.querySelectorAll('[data-dy-card-number]').forEach(node => {
+    const cardNum = node.getAttribute("data-dy-card-number");
+    const textNode = node.querySelector('.dy-card-number');
+
+    if (cardNum && textNode)
+      textNode.insertAdjacentText("afterbegin", cardNum);
+
+    node.attributes.removeNamedItem("data-dy-card-number");
+  });
+</script>
