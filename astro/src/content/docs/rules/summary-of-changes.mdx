@@ -1,7 +1,7 @@
 ---
 title: Summary of Changes
 sidebar:
-  order: 30
+   order: 5
 draft: true
 ---
 
@@ -13,42 +13,46 @@ This is an overview of how things differ in this scenario from the other scenari
 
 ## Family Action
 
-*  When performing the **Enlist Writer** action, you may place a family member in the {frontmatter._["role.govt.customs"]}'s box. Any family members here are considered collectors.
-*  When performing the **Enlist Officer** action, you may place a family member in the {frontmatter._["role.govt.military"]}'s box.
+*  When performing the **Enlist Writer** action, you may place a family member in the {frontmatter._["role.govt.customs.full"]}'s box. Any family members here are considered collectors.
+*  When performing the **Enlist Officer** action, you may place a family member in the {frontmatter._["role.govt.military.full"]}'s box.
 *  At the end of this phase, when adding Company Shares, raise the {frontmatter._["credit.track"]} for each Company Debt lowered.
 
 ## Firms
 
-*  Firms may take debt during the Firms action.
+*  Firms may take debt during the **Firms** action.
    *  Place a red cube in the firm's Shares box for each debt taken.
    *  Decrease the {frontmatter._["credit.track"]} for each debt taken.
 *  During investment, the firm manager may decide whether to add to their London treasury or to remove a debt. If a debt is removed, increase the {frontmatter._["credit.track"]} for each.
-*  The firm strategy applies to which port in America they are going.
+*  The firm strategy applies to which port in America they want to trade at.
 
 ## Hiring
 
-*  All offices in the {frontmatter._["role.govt.office"]} ignore nepotism.
-*  At the end of this phase, return the pensioners to their family supply.
+*  At the end of this phase, return any remaining pensioners to their respective family supply.
 
 ## China
 
+<div class="indent">
 ### Superintendent of China
 *  If desired, the Superintendent of China may trade silver instead of opium.
-   Gain £2 to the Company Balance, if successful.
+   Gain £2 to the Company Balance, if successful. Treat the action as having 1 export icon.
 *  After the Superintendent's turn, move to the America board before proceeding on
    the ribbon.
 
 ### Tea
 *  Add {frontmatter._["tea.token.plural"]} to the {frontmatter._["role.company.tea"]}'s (or {frontmatter._["role.company.tea2"]}'s) treasury, using the {frontmatter._["tea.track"]}.
-   *  If the Superintendent of China traded silver, use 2 export icons as the base.
+   *  If the Superintendent of China traded silver, use 1 export icon as the base.
 *  If the {frontmatter._["role.company.tea"]} is occupied, perform the Tea Auction.
 
 ### America
-*  Perform trade in America for the Smugglers and Firms.
-*  Perform any military action in America.
+*  Draw a smuggler card first.
+*  Then, the {frontmatter._["role.govt.governor.full"]} decides the order.
+   *  Firms and {frontmatter._["role.govt.customs.full"]} roll for trade (and customs).
+   *  Perform any military action in America.
+</div>
 
 ## Revenue
 
+<div class="indent">
 ### Company
 *  Add active {frontmatter._["tea.token.plural"]} to the Company expenses.
 *  Decrease the {frontmatter._["credit.track"]} for each emergency loan taken.
@@ -63,17 +67,20 @@ This is an overview of how things differ in this scenario from the other scenari
 
 ### {frontmatter._["role.govt.office"]}
 *  Calculate expenses for {frontmatter._["role.govt.office"]} (Military and Debt), paying them from its treasury.
-   *  Take debt normally, if needed (do not follow emergency loan rules).
+   *  The {frontmatter._["role.govt.governor"]} may take the first debt as normal, not as an emergency loan.
+   *  Any additional debt are taken as emergency loans.
+</div>
 
 ## Events in India
 
-*  If no storms are rolled on the storm die, perform the Storms phase for ships in the Atlantic.
-*  Subtract the number of events on the storm die from 5. Flip that many event cards in America.
+*  After resolving all events and storms in India, perform the same in America.
 
 ## Parliament Meets
 
 *  The {frontmatter._["role.govt.tariffs.full"]} draws two {frontmatter._["deck.laws.singular"]}
    cards, selecting one if the law passes and using the other if the law fails.
+   *  If the {frontmatter._["role.govt.tariffs.full"]} is vacant, have the Prime Minister nominate
+      a First Lord of Trade to select an.
 
 ## Upkeep & Refresh
 
@@ -82,4 +89,4 @@ This is an overview of how things differ in this scenario from the other scenari
 
 ## Final Scoring
 
-*  Lower the firm value by 1 per red cube.
+*  Lower the **Firm value** by 1 per red cube in its Shares box.

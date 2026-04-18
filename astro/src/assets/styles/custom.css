@@ -49,14 +49,14 @@
   font-weight: 400;
 }
 
-.sl-container > :is(h1, h4, h5),
-.sl-markdown-content :is(h1, h4, h5):not(:where(.not-content *)) {
+.sl-container > :is(h1, h3, h5),
+.sl-markdown-content :is(h1, h3, h5):not(:where(.not-content *)) {
   font-family: 'Baskervville Variable';
   font-weight: 600;
 }
 
-.sl-container > :is(h2, h3, h6),
-.sl-markdown-content :is(h2, h3, h6):not(:where(.not-content *)) {
+.sl-container > :is(h2, h4, h6),
+.sl-markdown-content :is(h2, h4, h6):not(:where(.not-content *)) {
   font-family: 'Baskervville SC Variable';
   font-weight: 400;
 }
