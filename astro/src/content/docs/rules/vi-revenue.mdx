@@ -4,3 +4,21 @@ sidebar:
    order: 16
 draft: true
 ---
+
+
+## Company
+*  Add active {frontmatter._["tea.token.plural"]} to the Company expenses.
+*  Decrease the {frontmatter._["credit.track"]} for each emergency loan taken.
+
+## Firms
+*  When calculating expenses, count each debt (red cube) as a share.
+*  Firms may take emergency investment or emergency loans. When taking an emergency loan:
+   *  Place a red cube in the firm's Shares box for each loan taken. Do not count these as
+      additional expenses for this round.
+   *  Decrease the {frontmatter._["credit.track"]} for each loan taken.
+*  When paying dividends, count each red cube as a share. Each must be paid per dividend. _The bank will not elect to not be paid._
+
+## {frontmatter._["role.govt.office"]}
+*  Calculate expenses for {frontmatter._["role.govt.office"]} (Military and Debt), paying them from its treasury.
+   *  The {frontmatter._["role.govt.governor"]} may take the first debt as normal, not as an emergency loan.
+   *  Any additional debt is taken as emergency loans.

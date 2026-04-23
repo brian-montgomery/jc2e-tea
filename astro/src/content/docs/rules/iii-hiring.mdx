@@ -2,7 +2,6 @@
 title: III. Hiring
 sidebar:
    order: 13
-draft: true
 ---
 
 import Role from "@components/T.astro"
@@ -23,23 +22,25 @@ The <Role key="role.company.tea2"/> is hired (like the <Role key="role.company.t
 
 ## {frontmatter._['role.govt.office']}
 
-Instead of following the nepotism rule, some Government offices use the following.
+Instead of following the nepotism rule, some {frontmatter._['role.govt.office']} offices use the following:
 
-* __Preference for Trophies__: When hiring from the Pensioner box, certain positions have a preference for trophies or passed laws. When they do, you must either select a candidate from a family with one or more trophies (or passed law tokens) or get their consent to choose another player.
+*  __Pensioners__:  When hiring for the {frontmatter._['role.govt.office']}, a pensioner who did not retire this turn may be hired. _Retirees and pensioners from previous turns are never considered._
+* __Preference for Trophies__: When hiring for the {frontmatter._['role.govt.office']}, certain positions have a preference for trophies. When they do, you must either select a candidate from a family with one or more trophies or get their consent to choose another player.
+* __Preference for Passed Laws__: When hiring for the {frontmatter._['role.govt.office']}, certain positions have a preference for passed laws. When they do, you must either select a candidate from a family with one or more passed law tokens or get their consent to choose another player.
 
 Each office is hired in a different manner described below.
 
 ### {frontmatter._['role.govt.governor.full']}
 
-The Prime Minister chooses from the {frontmatter._['role.govt.military.full']} or the {frontmatter._['role.govt.customs.full']}. If both are vacant, then choose from any remaining pensioners, with a preference for trophies or passed laws. If still empty...
+The Prime Minister chooses from the {frontmatter._['role.govt.military.full']} or the {frontmatter._['role.govt.customs.full']}. If both are vacant, then choose from any remaining pensioners, with a preference for trophies or passed laws.
 
 ### {frontmatter._['role.govt.customs.full']}
 
-The <Role key="role.govt.governor.full"/> hires from the remaining pensioners or the tax collectors.
+The <Role key="role.govt.governor.full"/> hires from the remaining pensioners or the tax collectors. If still none are available, the {frontmatter._['role.govt.governor.full']} assumes the role.
 
 ### {frontmatter._['role.govt.military.full']}
 
-The <Role key="role.govt.governor.full"/> hires from the remaining pensioners with trophies. If none are available, choose from any piece in the Officers-in-Training box or any remaining pensioner. If still none are available, the {frontmatter._['role.govt.governor.full']} assumes the role.
+The <Role key="role.govt.governor.full"/> hires from any officers or pensioners with trophies. If none are available, choose from any piece in the Officers-in-Training box or any remaining pensioner. If still none are available, the {frontmatter._['role.govt.governor.full']} assumes the role.
 
 ## Ending the Phase
 

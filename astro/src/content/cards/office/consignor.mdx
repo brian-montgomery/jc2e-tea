@@ -13,9 +13,9 @@ import Layout from "@components/OfficeCardLayout.astro";
 <Layout {...frontmatter} textSize={65}>
    **First**, if trade in China was successful, place {frontmatter._["tea.token.plural"].toLowerCase()} in your treasury:
 
-   <p style="font-size: 65%; margin-bottom: 0.75em;">_Export Icons_ &nbsp;**x** _Value of Tea_</p>
+   <p style="font-size: 65%; margin-bottom: 0.75em;">_Export Icons_ &nbsp;**x** _{frontmatter._["tea.track"]}_</p>
 
-   **Next**, may take Trade actions:
+   **Next**, may take one Trade Tea action:
 
    <DiceCheck>
       <Fragment slot="dice-pool">
@@ -28,6 +28,4 @@ import Layout from "@components/OfficeCardLayout.astro";
          <div class="bonus">You gain £1 per order.</div>
       </Fragment>
    </DiceCheck>
-
-   <p style="font-size: 0.5rem">After a success, you may not trade again this turn.</p>
 </Layout>

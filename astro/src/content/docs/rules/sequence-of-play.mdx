@@ -2,5 +2,44 @@
 title: Sequence of Play
 sidebar:
    order: 6
-draft: true
+tableOfContents: false
 ---
+
+This {frontmatter._["game.title"]} scenario is very similar to other scenarios in John Company.
+Each game turn consists of phases performed in the following order:
+
+<div id="phases" class="roman">
+1.  **The London Season.**
+   Officeholders retire and compete for prestige
+cards.
+2. **Family.**
+   Players invest in the Company, Firms and increase their holdings.
+   Then new Company shares may be created.
+-  **Firms.**
+   Firm receive investments and determine their strategy for trade in America.
+3. **Hiring.**
+   The Company and {frontmatter._["role.govt.office"]} fill all vacant positions.
+4. **Company and Department Operation.**
+   Each Company office operates following the red ribbon from left to right on the game board.
+   When China is reached, follow the red ribbon on the scenario board from right to left.
+5. **Bonuses.**
+   Players take bonus income.
+6. **Revenue.**
+   The Company, {frontmatter._["role.govt.office"]} and Firms pays their expenses, the Chairman and Firms may pay
+   dividends, and the Company adjusts its Standing.
+7. **Events in India and America.**
+   Storms and events in India are resolved, followed by storms and events in America.
+8. **Parliament Meets.**
+   Parliament meets to vote on a law, policy and act from the {frontmatter._["deck.laws.singular"]}.
+9. **Upkeep and Refresh.**
+   Players pay upkeep on their prizes and prepare for the next game turn.
+</div>
+
+<style>{`
+#phases {
+   ol + ul,
+   ul + ol {
+      margin-top: 0;
+   }
+}
+`}</style>

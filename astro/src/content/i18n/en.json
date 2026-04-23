@@ -1,5 +1,6 @@
 {
-   "game.title": "Tea & Business",
+   "game.title": "Colonial Tea",
+   "game.title.full": "1733: Colonial Tea",
    "credit.track": "Available Credit",
    "role.company.tea": "Director of Warehouses",
    "role.company.tea2": "Consignor of Tea",
@@ -12,8 +13,8 @@
    "role.govt.military.full": "Commander of North America",
    "role.govt.customs": "Commissioner",
    "role.govt.customs.full": "Commissioner of Customs",
-   "deck.laws.singular": "Trade Act",
-   "deck.laws.plural": "Trade Acts",
+   "deck.laws.singular": "Board of Trade",
+   "deck.laws.plural": "Board of Trade Acts",
    "deck.trades.singular": "Smuggler?",
    "deck.trades.plural": "Smugglers?",
    "tea.token.singular": "Tea Crate",

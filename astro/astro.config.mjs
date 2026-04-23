@@ -7,7 +7,7 @@ const basePath = 'jc2e-tea';
 
 export default defineConfig({
 	site: 'https://brian-montgomery.github.io',
-	base: basePath,
+	base: `/${basePath}`,
 	server: {
 		host: "0.0.0.0",
 		port: 1733,
@@ -17,7 +17,7 @@ export default defineConfig({
 	},
 	integrations: [
 		starlight({
-			title: '1733: Tea & Business',
+			title: '1733: Colonial Tea',
 			logo: {
 				src: './public/favicon.svg',
 			},
@@ -28,22 +28,23 @@ export default defineConfig({
 				'@fontsource/great-vibes/index.css',
 				'./src/assets/styles/deckyard.css',
 				'./src/assets/styles/custom.css',
+				'./src/assets/styles/cards.css',
 			],
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/brian-montgomery/jc2e-tea' },
 			],
 			sidebar: [
-				{
-					label: 'Design',
-					autogenerate: { directory: 'design' },
-				},
         {
-        	label: `Rules v${version}`,
+          label: `Rules v${version}`,
         	autogenerate: { directory: 'rules' },
         },
         {
-					label: 'Components',
+          label: 'Print and Play Components',
           items: [
+            {
+              label: "Scenario Board",
+              link: '/components/board',
+            },
             {
               label: "Setup Cards",
               link: '/decks/setup',
@@ -62,6 +63,10 @@ export default defineConfig({
             },
           ]
 				},
+        {
+          label: 'Design',
+          autogenerate: { directory: 'design' },
+        },
 			],
 		}),
 	],

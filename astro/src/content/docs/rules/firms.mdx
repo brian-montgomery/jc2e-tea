@@ -1,51 +1,119 @@
 ---
-title: Firms & Deregulation
+title: Firms
 sidebar:
    order: 12.5
-draft: true
 ---
 
-:::danger[Warning]
-Please be familiar with the firm rules in the __Deregulation__ scenarios first. We strongly recommend that all players experience on the scenarios with firms before attempting to play this scenario.
+For the duration of the scenario, the firms operate in the American mainland, not India. The **India Treasury** space holds revenue gained from trade in America (instead of India). This treasury is used to pay dividends. Any remainder is then transferred to the London treasury.
+
+:::note
+The law to deregulate **is not present** in this scenario. However, the rules regarding deregulation are present from the beginning, with the following modifications.
 :::
-
-The law to deregulate is not present in this scenario. However, the rules regarding deregulation are present from the beginning, with the following modifications:
-
-## Firms
-
-For the duration of the scenario, the firms operate in the American mainland, not India.
-
-The **India Treasury** space holds revenue gained from trade in America (instead of India). This treasury is used to pay dividends. Any remainder is then transferred to the London treasury.
 
 ## The Firms Phase
 
 After the Family phase is complete and before the Hiring phase, players will now perform the Firms phase. The Firms phase has two steps: Firm Investments and Firm Strategy.
 
-### Firm Investments
+## Firm Investments
 
-The first step of the Firms phase has no set order and players can take the following actions at any time during it. The Firms phase ends when no player wishes to take further actions. Any timing conflicts related to a firm are resolved by the firm’s manager. Any timing conflicts between firms are resolved by the Prime Minister.
+The firm investment phase has the following changes:
 
 <div class="indent">
-#### Court and Workshop Investment
+### Open Bank Loan
 
-As in the original scenarios, players may invest in a firm with the consent of the firm's manager.
-
-#### Bank Investment
-
-If a firm wishes investment and no players have interest in investment, the firm's manager can instead choose to take investment from the Bank. For each bank investment taken:
+If a firm needs additional capital, the firm's manager can choose to take a loan from the Bank. For each bank loan taken:
 *  Place a red cube in firm's Shares box.
 *  Decrease the {frontmatter._["credit.track"]} by 1.
 *  Add £5 to the firm's London Treasury.
+
+A bank loan counts as a share in regards to expenses and the ten shares limit. **A red cube in the Shares box may not be traded.**
+
+### Close Bank Loan
+
+A firm's manager may choose to close a loan from the Bank. For each bank loan to be closed:
+*  Pay £5 from the firm's London Treasury.
+*  Remove a red cube from the firm's Shares box.
+*  Increase the {frontmatter._["credit.track"]} by 1.
 </div>
 
-### Firm Strategy
+## Firm Strategy
 
-All firms in this scenario will trade in America, not India. Thus when choosing a strategy, a firm is not deciding what sea zone they will be placed in, merely which port they are going to initiate their trade at.
+All firms in this scenario will trade in America, not India. When choosing a strategy, a firm is not deciding what sea zone they will be placed in, but which port they are going to initiate their trade at.
+
+<div class="indent">
+### Tea Auction
+
+During the tea auction, a firm may acquire {frontmatter._["tea.token.plural"]}, using the
+funds in their Trade Bid space. Therefore, a firm manager should place any funds needed for
+both the tea auction and trade when deciding on their strategy.
 
 ### Firms and Storms
 
-When rolling for storms during the Events in India phase, treat all firm ships as
-if they were in the Atlantic sea zone. However, if the firm's chosen strategy was
-“Hobnob,” that firm's ships will not be affected by storms.
+When rolling for storms during the Events in America phase, treat all firm ships as
+if they were in the area indicated by the firm's strategy. However, if the firm's chosen
+strategy was “Hobnob,” that firm's ships will not be affected by storms.
+</div>
 
+## Filling Orders as a Firm
 
+At the start of a {frontmatter._["role.govt.governor"]}'s Operations (before any actions are taken),
+all firms reveal their strategy and **declare any regions they wish to trade Tea in**. Make a check with dice equal to:
+*  The amount of cash allocated to the strategy.
+*  The amount of {frontmatter._["tea.token.plural"]}, minus the amount of unrest cubes in the declared regions.
+
+The cash is then paid to the bank and the {frontmatter._["tea.token.plural"]} should be kept. If at least one success
+is rolled, the firm may trade. Each firm that successfully trades has an initiative value equal to the total of their
+ships minus the number of successful dice (1s and 2s) they rolled. This number can be negative.
+
+Orders are filled after the {frontmatter._["role.govt.customs"]} has made a roll while taking the
+Customs action (and the {frontmatter._["role.company.tea2"]} if Tea Regulation is passed). The active
+smuggler card determines their initiative.
+
+   *  **Vacant {frontmatter._["role.govt.governor"]} or Failure to Trade.**
+   If the {frontmatter._["role.govt.governor"]} is vacant, ties in initiative
+   are decided by the Prime Minister. Firms will fill orders
+   after the Commissioner and Commander have had a chance to act.
+
+Players then fill orders starting with the smugglers, firm or Company with the lowest initiative
+and proceeding to the highest. When it is their turn, the Commissioner or firm manager
+trading fills as many orders as possible. Any ties in initiative are decided by the
+{frontmatter._["role.govt.governor"]}.
+
+Firms fill a number of open orders up to the number of ships they own **plus one**.
+Orders must be filled starting with the associated port listed on their strategy. When
+filling an order, you must be able to trace a path back to this port through any
+number of orders that you have filled.
+
+   *  **Previously-Filled Orders.**
+      Firms may fill orders previously filled this turn by other firms, smugglers or the Company.
+      The Company may fill orders previously filled by firms or smugglers this turn. The filling
+      of a previously-filled order will generate half of its listed value, rounding down.
+
+   *  **Trading with Tea.**
+      As a firm with {frontmatter._["tea.token.plural"]} remaining is filling orders, it may
+      spend one at an order within its declared regions. Spending a {frontmatter._["tea.token.singular"]}
+      will generate an additional half of the order's listed value, rounding down.
+
+      _Tea may be traded at an order that is already filled_. After all orders have been filled, any
+      remaining {frontmatter._["tea.token.plural"]} should be discarded.
+
+## Firm Expenses and Dividends
+
+A firm pays expenses and dividends, with the following additions.
+
+<div class="indent">
+### Firm Expenses
+
+Each firm must pay for the following expenses:
+* Pay £1 for each ship on the firm's charter.
+* Pay £1 for each share **and bank loan** in the firm's Share box or pay £ equal to the firm value,
+whichever is higher.
+
+### Emergency Bank Loans
+
+A firm facing dissolution may acquire an emergency Bank Loan. Treat this the same as an Emergency Investment, using a red debt cube instead of a family marker. Decrease the {frontmatter._["credit.track"]} by 1. _If a firm is at the ten shares limit, a debt cube is still added to the Shares box._
+
+### Firm Dividends
+
+When paying dividends, the Bank must be paid £1 per red cube in the Shares box. The amount paid to the bank **does not count** towards the firm's special retirement amount.
+</div>

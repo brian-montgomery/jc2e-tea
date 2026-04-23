@@ -1,6 +1,23 @@
+@layer starlight, cards;
+
 :root {
-/*    --sl-font: 'Baskervville';*/
-/*    --sl-font: 'Cormorant Variable';*/
+  /* --sl-font: 'Hoefler Text', 'Baskervville Variable', serif; */
+  --sl-text-h3: 1.5rem;
+  --bg-bonus: #C2D7B1;
+}
+
+@layer starlight.utils {
+	@media (min-width: 34rem) {
+		.sm\:sl-hidden {
+			display: none;
+		}
+		.sm\:sl-flex {
+			display: flex;
+		}
+		.sm\:sl-block {
+			display: block;
+		}
+	}
 }
 
 /* Page Title  */
@@ -99,9 +116,50 @@ li > .starlight-aside {
 
 
 /* Specialized Sections */
-.sl-markdown-content .indent {
-  margin-top: 1.5rem;
-  margin-left: 2.5rem;
+.sl-markdown-content {
+
+  .bonus {
+    ::before {
+      content: '£';
+      color: white;
+      font-family: 'Baskervville Variable';
+      font-weight: bold;
+      font-size: 2rem;
+      line-height: 1.1em;
+      margin-left: 0.5rem;
+      margin-right: 0.75rem;
+      vertical-align: sub;
+    }
+    background-color: var(--bg-bonus);
+  }
+
+  .indent {
+    margin-top: 1.25rem;
+    margin-left: 2.5rem;
+
+    .bonus {
+      margin-left: -2.5rem;
+    }
+
+    ol li::marker {
+      font-family: 'Baskervville Variable';
+      font-weight: 700;
+    }
+  }
+  .endent {
+    margin-right: 2.5rem;
+  }
+
+  .roman {
+    ol {
+      list-style-type: upper-roman;
+
+      li::marker {
+        font-family: 'Baskervville Variable';
+        font-weight: 700;
+      }
+    }
+  }
 }
 
 #trade-dice table {

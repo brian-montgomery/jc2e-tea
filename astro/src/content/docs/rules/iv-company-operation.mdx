@@ -2,38 +2,73 @@
 title: IV. Company Operation
 sidebar:
    order: 14
-draft: true
 ---
 
-## Superintendent of Trade in China: Changes
+## Superintendent of Trade in China
 
-In this scenario, the Superintendent of China is open at the start. Instead of using the China overlay, use the board on the 1733 board. There is one change to the way that this position works in this scenario:
+In this scenario, the Superintendent of China is open at the start.
 
-China has an additional trade option, using Silver.
-- The opium trade still gets £4 per export icon, earning the Superintendent a bonus of £1 per export icon. However, it also uses the same number of icons for determining the amount of tea chests.
-- The silver trade earns £2 for the company and two tea chests.
-- The Superintendent chooses between these two options for trade, earning £1 per export icon either way.
+<div class="indent">
+### Trade in China: Silver
+
+When trading in China, if the company has no export icons in Company-controlled regions, the Superintendent may trade with silver. When trading with silver, a successful trade earns (a) £2 for the Company Balance, and (b) for the rest of the turn, act as if the company has one company-controlled export icon. _This export icon is used for the Superintendent's bonus and acquiring Tea_.
+</div>
 
 ## {frontmatter._["role.company.tea"]}
 
-A new position, the {frontmatter._["role.company.tea"]}, is included.
-This position is responsible for managing Tea. It has two steps:
+The {frontmatter._["role.company.tea"]} is responsible for managing Tea and their turn takes place during the Tea phase, after China.
 
-1. Use the {frontmatter._["tea.track"]} to place the amount of {frontmatter._["tea.token.plural"]} to the top of your treasury.
-2. Allocate as many {frontmatter._["tea.token.plural"]} in your box to the firms as you would like. Leave any remaining in your treasury.
+Unlike other treasuries, the {frontmatter._["role.company.tea"]}'s treasury only contains
+{frontmatter._["tea.token.plural"]}. Like a Commander's box, the {frontmatter._["role.company.tea"]}'s
+treasury has a top and bottom half. The top half contains active {frontmatter._["tea.token.plural"]},
+that were acquired this turn (and are added to the Company's Expenses). The bottom half holds inactive
+{frontmatter._["tea.token.plural"]}, stored in the Company's warehouses.
 
-:::danger
+During your turn, take the following actions:
 
-What are the incentives... If the Director of Warehouses just gives the Tea away, the company
-doesn't store any up. If there's a requirement that a firm must pay at least £1 per crate,
-Tea isn't profitable enough for the firms.
+<div class="indent">
+### Acquire Tea
 
-:::
+If Trade in China was successful, the {frontmatter._["role.company.tea"]} acquires Tea to trade.
+Determine the number of export icons in company-controlled regions (1 if [silver](#trade-in-china-silver) was used to trade) and multiply that by the current value on the {frontmatter._["tea.track"]}, rounding to the closest number. Place that resulting amount of {frontmatter._["tea.token.plural"]} in the top half of your treasury.
+
+### Auction
+
+You may exchange {frontmatter._["tea.token.plural"]} from your treasury (from the top, the bottom or both) to the firms, up to their number of ships. A firm must pay **a minimum** of £1 for each {frontmatter._["tea.token.singular"]} bought. All funds from the firm must be paid to the Company Balance, from the Trade Bid space. _Any additional terms may be negotiated._
+</div>
 
 ## {frontmatter._["role.company.tea2"]}
 
-A new position, the {frontmatter._["role.company.tea2"]}, is included.
-This position is responsible for managing Tea. It has two steps:
+The {frontmatter._["role.company.tea2"]} is created by passing the **Tea Regulation** act.
+When passed, the player holding the {frontmatter._["role.company.tea"]} card should replace
+it with the {frontmatter._["role.company.tea2"]} card and place the {frontmatter._["role.company.tea2"]}
+overlay on the ribbon. Any fatigue on the {frontmatter._["role.company.tea"]} office card
+should be moved to the new office card. Return the {frontmatter._["role.company.tea"]} card to the box.
 
-1. Use the {frontmatter._["tea.track"]} to place the amount of {frontmatter._["tea.token.plural"]} to the top of your treasury.
-2. Allocate as many {frontmatter._["tea.token.plural"]} in your box to the firms as you would like. Leave any remaining in your treasury.
+The {frontmatter._["role.company.tea2"]} is hired like the {frontmatter._["role.company.tea"]} by the Chairman and
+is subject to attrition like any other office. The {frontmatter._["role.company.tea"]}’s treasury is now used by the {frontmatter._["role.company.tea2"]}.
+
+<div class="indent">
+### Acquire Tea
+
+If Trade in China was successful, the {frontmatter._["role.company.tea"]} acquires Tea to trade.
+Determine the number of export icons in company-controlled regions (1 if [silver](#trade-in-china-silver) was used to trade) and multiply that by the current value on the {frontmatter._["tea.track"]}, rounding to the closest number. Place that resulting amount of {frontmatter._["tea.token.plural"]} in the top half of your treasury.
+
+### Trade Tea
+
+When trading, the {frontmatter._["role.company.tea2"]} determines their dice pool differently:
+
+1. Declare the **colonized regions in America** in which you wish to trade. You cannot include regions that are sovereign, regions that you could not trade in because you do not have enough ships or because you could not fill an order because a connecting order is closed. **Consider the three ports in America to be connected.**
+
+2. Make a check. Add one die per {frontmatter._["tea.token.singular"]} in your treasury that you wish to trade. You may use {frontmatter._["tea.token.plural"]} in either half of your treasury. Subtract one die for each unrest cube in each region that you declared in step 1 from your total dice.
+
+**If successful**, follow the firms rule for initiative. When it's your turn to place writers, place one filled order token **for each ship** in the declared regions, starting with a port on one of those regions (just as you would in India). For each order filled, increase the Company Balance by the amount listed on the order.
+
+<div class="bonus">
+Take £1 from the bank for each order you filled.
+</div>
+
+Afterwards, discard all {frontmatter._["tea.token.plural"]} used to roll die.
+
+{/* When the Tea Act is repealed, the player holding the Consignor of Tea should switch back to the Director of Warehouses, replacing the office card and removing the overlay. Any fatigue should also be transfered to the new office card. */}
+</div>

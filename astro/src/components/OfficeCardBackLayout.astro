@@ -6,7 +6,7 @@ interface Props {
 const { chosen } = Astro.props;
 ---
 
-<div class="layout">
+<div class="office-cardback">
   <div class="chosen">
     <p class="title">Chosen by:</p>
     <p>{chosen}.</p>
@@ -16,38 +16,3 @@ const { chosen } = Astro.props;
     <slot></slot>
   </div>
 </div>
-
-<style>
-.layout {
-  position: relative;
-  height: 100%;
-  width: 100%;
-
-  .chosen, .candidates {
-    position: absolute;
-    top: 1.025in;
-    width: 1.1in;
-    text-align: center;
-  }
-  .chosen {
-    left: 0.2in;
-  }
-  .candidates {
-    right: 0.2in;
-  }
-
-  p {
-    font-family: 'Baskervville Variable';
-    font-size: 9pt;
-    font-weight: 500;
-    line-height: 1.1em;
-    margin: 0;
-  }
-
-  .title {
-    font-family: 'Baskervville SC Variable';
-    font-weight: 500;
-    font-size: 12pt;
-  }
-}
-</style>

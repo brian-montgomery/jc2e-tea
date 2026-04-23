@@ -1,30 +1,30 @@
 ---
-title: "1733: Tea & Business"
+title: "1733: Colonial Tea"
 description: The concept, design and rules for a custom scenario for John Company, 2nd edition.
 template: splash
 hero:
-  tagline: "A custom scenario for experienced players of <strong>John Company: 2nd Edition</strong>."
+  tagline: "A custom scenario of <strong>John Company: 2nd Edition</strong> that incorporates the tea trade with the American Colonies."
   image:
     file: "../../assets/images/jc2e-box.png"
     alt:  Box of John Company, 2nd edition
   actions:
-    - text: Read the design
-      link: /jc2e-tea/design/
+    - text: Read the current rules
+      # link: "javascript:void(0);"
+      link: /jc2e-tea/rules/
       icon: right-arrow
       variant: primary
       attrs:
         role: button
-    - text: Read the current rules
-      link: "javascript:void(0);"
-      # link: /jc2e-tea/rules/
-      # icon: open-book
+        # disabled: true
+        # onclick: "return false"
+        # aria-disabled: true
+        # tabindex: -1
+    - text: Read the design
+      link: /jc2e-tea/design/
+      icon: open-book
       variant: secondary
       attrs:
         role: button
-        disabled: true
-        onclick: "return false"
-        aria-disabled: true
-        tabindex: -1
 ---
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';

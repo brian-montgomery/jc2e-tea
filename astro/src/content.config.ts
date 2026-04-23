@@ -1,4 +1,5 @@
-import { defineCollection, reference, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 import { docsLoader, i18nLoader } from '@astrojs/starlight/loaders';
 import { docsSchema, i18nSchema } from '@astrojs/starlight/schema';
@@ -68,6 +69,7 @@ export const collections = {
         'deck.trades.singular': z.string(),
         'deck.trades.plural': z.string(),
         'game.title': z.string(),
+        'game.title.full': z.string(),
         'role.company.tea': z.string(),
         'role.company.tea2': z.string(),
         'role.govt.office': z.string(),

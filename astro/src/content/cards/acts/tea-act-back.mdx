@@ -13,22 +13,19 @@ tags:
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={75}>
+<Layout {...frontmatter} shortTitle textSize={80}>
 
-The Company has a trade monopoly on tea and
-may trade in America.
+The Company may trade tea in colonized regions
+in America. The Manager of Shipping may buy player-owned
+ships from a Firm the shipowner's consent.
 
-The **{frontmatter._["role.govt.customs"]}**
-does not collect Customs against the Company.
-Instead, when the Company successfully trades,
+When the Company trades successfully,
 add **£1** to the Colonial Treasury per
-amount of dice rolled divided by the
-the **{frontmatter._["tea.track"]}**
-(rounded).
+filled order.
 
-The **{frontmatter._["role.govt.customs"]}**
-should continue to use the rules
-from the previously active Duty for the firms.
+The **{frontmatter._["role.govt.customs.full"]}**
+should use the rules from the previous Colonial Duty
+for the firms and smugglers.
 
 </Layout>
 
