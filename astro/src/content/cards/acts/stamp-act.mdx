@@ -22,17 +22,18 @@ acts:
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter.acts} shortTitle textSize={90}>
+<Layout {...frontmatter.acts} shortTitle textSize={80}>
 The **{frontmatter._["role.govt.governor.full"]}**
 may now roll for taxes during their turn,
-gaining **£2** for the **Colonial Treasury**.
-{/* and a **£1** bonus. */}
+gaining **£2** for the **Colonial Treasury**
+for each success.
 
 Declare a colonized region before rolling.
 Add an **unrest cube** to that region for each
-**5 or 6** rolled.
+**5 or 6** rolled. Declare a different region
+on the next attempt.
 {/* If unsuccessful, do not lower the dice pool. */}
 
-During Events in America,
-draw one extra event.
+During Events in America,\
+draw an additional event.
 </Layout>

@@ -14,18 +14,18 @@ This is an overview of how things differ in this scenario from the other scenari
 
 *  When performing the **Enlist Writer** action, you may place a family member in the {frontmatter._["role.govt.customs.full"]}' treasury. Any family members here are considered collectors.
 *  When performing the **Enlist Officer** action, you may place a family member in the {frontmatter._["role.govt.military.full"]}'s box.
-*  At the end of this phase, when adding Company Shares, increase the {frontmatter._["credit.track"]} for each Company Debt lowered.
+*  At the end of this phase, when adding Company Shares, raise the {frontmatter._["credit.track"]} for each Company Debt lowered.
 
 ## Firms
 
 *  During investment, a firm manager may take a bank loan.
    *  Place a red cube in the firm's Shares box for each debt taken.
    *  Add £5 to the firm's treasury.
-   *  Decrease the {frontmatter._["credit.track"]} by 1 for each debt taken.
+   *  Lower the {frontmatter._["credit.track"]} by 1 space.
 *  During investment, a firm manager may close a bank loan.
    *  Pay £5 from the firm's treasury.
    *  Remove a red cube in the firm's Shares box.
-   *  Increase the {frontmatter._["credit.track"]} by 1 for each loan removed.
+   *  Raise the {frontmatter._["credit.track"]} by 1 space.
 *  The firm strategy applies to which port in America a firm wants to initiate trade.
 
 ## Hiring
@@ -50,13 +50,14 @@ This is an overview of how things differ in this scenario from the other scenari
    *  If the {frontmatter._["role.company.tea"]} is occupied, perform the Tea Auction.
 
    ### America
-   *  Draw a smuggler card first.
-   *  Then, the {frontmatter._["role.govt.governor.full"]} decides the order of operations.
-      *  The {frontmatter._["role.govt.governor"]} may roll for additional military units
+   *  The {frontmatter._["role.govt.governor.full"]} decides the order of operations.
+      *  Firms will roll for trade.
+      *  The {frontmatter._["role.govt.customs.full"]} draws a smuggler card and
+         may roll for customs.
+         *  The {frontmatter._["role.company.tea2"]} may roll for trade, if present.
+      *  The {frontmatter._["role.govt.governor.full"]} may roll for additional military units
          or to open trade orders.
-      *  Firms and {frontmatter._["role.govt.customs.full"]} roll for trade and customs.
-         *  The {frontmatter._["role.company.tea2"]} will roll for trade, if present.
-      *  Perform any military action in America.
+      *  The {frontmatter._["role.govt.military.full"]} may roll to deploy.
 </div>
 
 ## Revenue
@@ -73,13 +74,14 @@ Revenue must be calculated for all firms, the {frontmatter._["role.govt.office"]
    *  When paying dividends, count each red cube as a share. Each must be paid per dividend.
 
    ### {frontmatter._["role.govt.office"]}
-   *  Calculate expenses for {frontmatter._["role.govt.office"]} (Military and Debt), paying them from its treasury.
-      *  The {frontmatter._["role.govt.governor"]} may take the first debt as normal, not as an emergency loan.
-      *  Any additional debt is taken as emergency loans.
+   *  Calculate expenses for {frontmatter._["role.govt.office"]} (Military and Debt),
+      paying them from its treasury.
+      *  Any debt is taken as emergency funding. If more than one is needed, the
+         {frontmatter._["role.govt.governor.full"]} is fired immediately.
 
    ### Company
    *  Add active {frontmatter._["tea.token.plural"]} to the Company expenses.
-   *  Decrease the {frontmatter._["credit.track"]} for each emergency loan taken.
+   *  Lower the {frontmatter._["credit.track"]} for each emergency loan taken.
 </div>
 
 ## Events in India
@@ -89,11 +91,11 @@ Revenue must be calculated for all firms, the {frontmatter._["role.govt.office"]
 
 ## Parliament Meets
 
-*  At the start of the Phase, if the {frontmatter._["role.govt.tariffs.full"]} is vacant, have the
-   Prime Minister nominate a First Lord of Trade (for the turn).
+*  At the start of the Phase, if the {frontmatter._["role.govt.tariffs.full"]} is vacant,
+   have the Prime Minister nominate a _First Lord of Trade_ for the turn.
 *  The {frontmatter._["role.govt.tariffs.full"]} (or the First Lord of Trade) draws two
-   {frontmatter._["deck.laws.singular"]} cards, selecting one if the vote passes and using the other
-   if the vote fails.
+   {frontmatter._["deck.laws.singular"]} cards, selecting one if the vote passes and using
+   the other if the vote fails.
 
 ## Upkeep & Refresh
 
@@ -106,4 +108,4 @@ Revenue must be calculated for all firms, the {frontmatter._["role.govt.office"]
 
 ## Final Scoring
 
-*  Lower the **firm value** by 1 per red cube in its Shares box.
+*  Lower the firm value by 1 per red cube in its Shares box.
