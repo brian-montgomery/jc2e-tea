@@ -18,8 +18,10 @@ tags:
 import Layout from "@components/ActCardLayout.astro";
 import T from "@components/T.astro"
 
-<Layout {...frontmatter} shortTitle textSize={95}>
-When passed, add a military unit.
+<Layout {...frontmatter} shortTitle textSize={85}>
+When passed, add a military unit
+to the **{frontmatter._["role.govt.military.full"]}**'s
+army.
 
 When rolling Customs checks,
 use **3** dice.\

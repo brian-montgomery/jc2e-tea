@@ -2,32 +2,180 @@
 title: IVb. Department Operation
 sidebar:
    order: 14.5
-draft: true
 ---
 
-## Secretary Operations
+## Success Checks
 
-_TODO_: Reword to utilize America.
+Doing business in America is similarly risky to India. Most actions that concern
+America require the acting player to make a check to see if their actions are
+successful. Each check requires a roll of the dice. The number of dice you roll
+is dependent on the resources you have and want to spend as determined by the
+action. Any resources spent comes from the office's (or another office's) treasury;
+any money is paid to the bank.
 
-Each President generates revenue for the Company with the Trade action and
-decides the order in which they, their Commander, and their Governor(s) act.
-Commanders and Governors are not required to take any actions but they must
-be given the opportunity to act. Each position must finish all of its actions
-before the next one may begin (players may flip their family members facedown
-after to track which have acted). The Trade action can be taken anytime during a
-Presidency's operations so long as it does not interrupt another position.
+The die rolls in this scenario utilize the same system that the rest of the game uses:
+>  When making a check, first, decide on the amount of resources you want to spend or exhaust,
+>  and gather the appropriate number of dice equal to the amount shown on the office card.
+>  Then, remove dice equal to the penalty. Finally, roll the dice. Use the lowest
+>  rolled value to determine one of three results.
+>  *  1 or 2 is a success.
+>  *  3 or 4 is a failure. **The check may be attempted again if there are sufficient resources**.
+>  *  5 or 6 is a catastrophic failure. The office will take no further actions. The acting
+>     officeholder is immediately returned to its player’s supply, and that office card is
+>     flipped and placed in the Vacant Offices box. Any fatigue that was on the office card
+>     should be returned to the supply.
 
-## Trade in America
+:::danger[Pay attention to the entire roll]
+Most rolls in the {frontmatter._["role.govt.office"]} have other consequences
+associated with rolling either 5s or 6s. Therefore, while the lowest rolled value
+determines whether the check is successful or not, __pay attention to the values
+on the other rolled dice and any consequences that may occur as a result__.
+:::
 
-The procedure for trading in America is similar to trading in India with firms. Firms work exactly the same, including selecting a strategy that maps to the associated port they wish to consider their home port this turn during the Firms phase.
 
-When making your check, add one die per pound and {frontmatter._["tea.token.singluar"]} added to the strategy...
-   but subtract one unrest from the region chosen by their strategy. The trading order is determined by the same initiative rules.
+## Secretarial Operations
 
-Firm ships count as if they were in the ?????? sea zone for storms, expenses, events, and laws.
+The {frontmatter._["role.govt.governor.full"]} manages the budget for the
+{frontmatter._["role.govt.office"]} and decides the order in which Trade in
+America, military operations and their own actions take place. The firms must
+roll first, as is described in
+[Filling Orders as a Firm](/jc2e-tea/rules/firms/#filling-orders-as-a-firm).
+
+The {frontmatter._["role.govt.governor"]}, {frontmatter._["role.govt.customs"]}
+and {frontmatter._["role.govt.military"]} are not required to take any actions,
+but they must be given the opportunity to act. Each position must finish all of
+its actions before the next one may begin (players may flip their family members
+facedown after to track which have acted).
+
+All of Take Debt, Oversight and Trade in America can be taken anytime during the
+{frontmatter._["role.govt.governor"]}'s operations. The {frontmatter._["role.govt.governor"]}
+takes a series of Oversight actions using a diminishing dice pool. First,
+take dice equal to the number listed on the office card. Then you may take
+an Oversight action.
+
+*  __Vacant {frontmatter._["role.govt.governor"]}.__
+   If the {frontmatter._["role.govt.governor"]} is vacant, the Prime Minister will
+   determine the order of Trade in America  and the {frontmatter._["role.govt.military"]}.
+   The Prime Minister acting in this way cannot approve local alliance purchases,
+   take debt or take the Oversight action.
+
+
+<div class="indent">
+### Take Debt
+
+A debt can be taken at any time during your turn to add £5 and a red debt cube
+to your treasury. This can only be used once per turn (twice if War is Declared).
+_Remember to lower the {frontmatter._["credit.track"]} by 1._ This action cannot
+be taken if the {frontmatter._["credit.track"]} is at 0.
+
+### Oversight
+
+Make a check using the number of dice remaining in the pool. There is
+no penalty. You may add to this roll by spending £1 from your treasury.
+
+If successful, choose one of the two following options.
+*  __Add one military unit__.
+   Place a military unit from the supply to the Army of North America.
+   Military units are treated like regiments.
+*  __Open an Order__.
+   Open one closed order in any region in America. If that region is
+   _colonized_, add an unrest cube to that region for each 6 that was
+   rolled.
+
+Lower the number of dice in the pool by 1 regardless of its result.
+You may continue taking actions until one the following happens: you
+roll a catastrophic failure, you run out of dice, or you decide to stop.
+
+### Trade in America
+
+The smugglers, firms -- and possibly the {frontmatter._["role.company.tea2"]} --
+may fill orders in America during the Trade in America action. The
+{frontmatter._["role.govt.governor"]} decides when this action occurs during
+their turn, but does not take an active part in it.
+
+Players then fill orders starting with the participant with the lowest initiative
+and proceeding to the highest. When it is the smugglers turn, the [Commissioner](#customs)
+fills (or closes) the orders on the smuggler cards (if they are not closed already)
+and the firm manager (and the {frontmatter._["role.company.tea2"]}, if Tea Regulation
+is passed) fills as many orders as possible. Any ties in initiative are decided by
+the {frontmatter._["role.govt.governor"]}.
+</div>
 
 ## {frontmatter._["role.govt.customs.full"]}
 
-1. Draw a card from the Smuggler Deck.
-2.
+The {frontmatter._["role.govt.customs.full"]} may take the Customs action during
+the smugglers turn during Trade in America to extract tariffs from the smuggled orders
+and raise funds for the Colonial Treasury.
 
+The smugglers will be ordered based on the initiative listed on the current Smuggler
+card. The current Colonial Duty will provide the both the base amount of dice to roll
+and the amount in tariffs the {frontmatter._["role.govt.office"]} may receive.
+
+<div class="indent">
+   ### Customs
+
+   Make a check. Using the current Colonial Duty, determine the default size
+   of your dice pool. You may request that the {frontmatter._["role.govt.military"]}
+   exhaust military units to add to 1 to your dice pool for each unit exhausted.
+   Roll up to that number of dice. _Remember: as with any check, if it is unsuccessful,
+   you may attempt it again so long as it did not end in catastrophic failure and you
+   have sufficient resources._
+
+   **For each success rolled,** place one collector on one of the marked orders on
+   the smuggler card that is not closed on the board. You must place as many collectors
+   as possible, but can only place them on orders marked on the smuggler card. For each
+   success, increase the Colonial Treasury by the amount listed on the current Colonial
+   Duty.
+
+   *  **One Customs Collection.**
+      The {frontmatter._["role.govt.customs"]} may only successfully collect customs
+      at most once per game turn.
+
+   <div class="bonus">
+   Then, you take £1 from the bank for each tariff collected.
+   </div>
+
+   <div class="bonus">
+   Finally, each player takes £1 from the bank for each of their collectors you
+   placed on an order.
+   </div>
+</div>
+
+## {frontmatter._["role.govt.military.full"]}
+
+The {frontmatter._["role.govt.military.full"]} works similarly to the Commanders
+for the Presidents in India. Local alliances may be purchased with permission from the
+{frontmatter._["role.govt.governor"]}. Dice are gained by exhausting military units,
+officers and local alliances. Dice are lowered by the amount of region strength.
+The {frontmatter._["role.govt.military.full"]} does not retire during the London
+Season.
+
+The differences with the Deploy action is as follows:
+<div class="indent">
+   ### Deploy: Peace Accord
+
+   During peace, the {frontmatter._["role.govt.military.full"]} may only deploy in a
+   __colonized region__ to open all orders and attempt to clear unrest. Only
+   when _War is Declared_ may the {frontmatter._["role.govt.military.full"]} deploy
+   in an uncolonized region.
+
+   ### Deploy: Success
+
+   1.  __Take Bonuses.__
+      Unlike India, there is no loot to take in America. Instead, the army
+      gets a standard military bonus.
+      <div class="bonus">
+         The {frontmatter._["role.govt.military"]} takes £1 from the bank.
+      </div>
+      <div class="bonus">
+         Each player takes £1 from the bank for each of their surviving officers.
+      </div>
+   2. __Take Trophies.__
+      Take one trophy token for each strength in the uncolonized region
+      (since you are the Commander). Then, uncover the flag by the removing the
+      region strength die.
+   3. __Impose Order.__
+      Open all orders in the region. If this was a __colonized__ region,
+      remove one unrest cube for each success rolled and add one unrest cube
+      for each 5-6 rolled.
+</div>

@@ -10,14 +10,14 @@ card-back:
 import Layout from "@components/OfficeCardLayout.astro";
 import DiceCheck from "@components/DiceCheck.astro";
 
-<Layout {...frontmatter} textSize={75}>
+<Layout {...frontmatter} textSize={72}>
 
-May take a Customs action:
+**First**, draw a smuggler card.\
+**Next**, may take a Customs action:
 
 <DiceCheck>
    <Fragment slot="dice-pool">
-      _Determined by Colonial Duty._\
-      \
+      _Determined by C. Duty._\
       _May use military units\
       to add dice, with approval._
    </Fragment>

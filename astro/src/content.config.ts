@@ -64,10 +64,12 @@ export const collections = {
     schema: i18nSchema({
       extend: z.object({
         'credit.track': z.string(),
+        'deck.laws.name': z.string(),
         'deck.laws.singular': z.string(),
         'deck.laws.plural': z.string(),
         'deck.trades.singular': z.string(),
         'deck.trades.plural': z.string(),
+        'event.movement': z.string(),
         'game.title': z.string(),
         'game.title.full': z.string(),
         'role.company.tea': z.string(),

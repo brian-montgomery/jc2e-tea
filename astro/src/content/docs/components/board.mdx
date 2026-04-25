@@ -3,12 +3,51 @@ title: Scenario Board
 tableOfContents: false
 ---
 
-The scenario board should either be placed to the left or the right of the main board.
-Placing it to the left works better from a geography standpoint, where placing it right
-works better from a game flow perspective.
+import { Image } from "astro:assets";
+import { LinkButton } from '@astrojs/starlight/components';
+import boardImg from '@assets/images/game-board.jpeg';
 
-:::caution
-The board is still in an unfinished state and hence, has currently has some graphical issues.
-:::
+<div class="sm:sl-flex" style="column-gap: 1.5em">
+   <div>
+      :::caution
+      As this is still a work in progress, the board has some graphical issues and other artifacts still present.
+      :::
 
-![The Scenario Board](@assets/images/game-board.jpeg)
+      The scenario board should either be placed to the left or the right of the main board.
+      Placing it to the left works better from a geography standpoint, where placing it right
+      works better from a game flow perspective.
+
+      The scenario board is currently designed to be printed on two standard letter pages,
+      while the main board appears to be 6 A4 panels.
+
+      Choose your option of how to download the board.
+
+      <div class="sl-flex" style="justify-content: center">
+         <LinkButton
+            href="/jc2e-tea/images/game-board-full.pdf"
+            target="_blank"
+            icon="seti:pdf"
+            iconPlacement="start"
+         >
+            Download as PDF
+         </LinkButton>
+         <LinkButton
+            href="/jc2e-tea/images/game-board-full.png"
+            target="_blank"
+            variant="secondary"
+            icon="download"
+            iconPlacement="start"
+         >
+            Download as PNG
+         </LinkButton>
+      </div>
+   </div>
+   <Image
+      src={boardImg}
+      alt="An image of the scenario board."
+      widths={[200, 300]}
+      sizes={`(max-width: 980px) 200px, 300px`}
+      format="avif"
+      style="margin: 0 1em 0 0; align-self: start; max-width: 300px"
+   />
+</div>

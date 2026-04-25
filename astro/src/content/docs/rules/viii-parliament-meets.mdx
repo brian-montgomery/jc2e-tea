@@ -2,27 +2,52 @@
 title: VIII. Parliament Meets
 sidebar:
    order: 18
-draft: true
 ---
 
-import Role from "@components/T.astro";
+In _{frontmatter._["game.title"]}_, Parliament has a bit more responsibility
+and reach. The following are additions to this phase:
 
-__TODO:__ Discuss the Statute deck.
+## Acts from the {frontmatter._["deck.laws.singular"]}
 
-## Resolving the Vote
+While the Prime Minister is selecting a law to put before Parliament, the
+{frontmatter._["role.govt.tariffs.full"]} is responsible for choosing a
+recommendation from the Board of Trade. They do this by drawing and revealing
+two Act cards from the {frontmatter._["deck.laws.singular"]} deck. The
+{frontmatter._["role.govt.tariffs"]} will choose one Act to be enacted
+if the selected law passes. The other act will be enacted if the selected
+law fails.
 
-* If the law has -1 support or less, it fails. Discard the law, resolving any “If Failed” effects if it is a dilemma. Then, the player with the Opposition Leader token returns it to the supply and takes the Prime Minister wheel. Next, the new Prime Minister moves the selected policy to either adjacent space on the Policy track and then resolves its effect. Finally, the Prime Minister appoints a new {frontmatter._["role.govt.tariffs"]}.
+After the Prime Minister reads the law and marks its starting support
+(printed on bottom right of law), the {frontmatter._["role.govt.tariffs"]}
+reads aloud the chosen Trade Act to be enacted. The Prime Minister and
+{frontmatter._["role.govt.tariffs"]} should allow some time for debate
+before proceeding to voting.
 
-   The new {frontmatter._["role.govt.tariffs"]} should apply any immediate effects of the statute that was not chosen by the former.
+During the vote, the {frontmatter._["role.govt.tariffs"]} is not restricted
+in voting either way.
 
-* Otherwise, the law and statute pass. Place the law near the board next to the other passed laws. The Prime Minister should take a passed law token into their play area. Then, resolve the policy consequence in the space selected and then any immediate effects of the law. Finally, apply any immediate effects of the statute.
+*  __Vacant {frontmatter._["role.govt.tariffs"]}.__
+   If the {frontmatter._["role.govt.tariffs"]} is vacant, before drawing
+   any law cards, the Prime Minister must appoint a _First Lord of Trade_
+   for the turn. The Prime Minister is free to appoint any player, other
+   than themselves and the player who was the
+   {frontmatter._["role.govt.tariffs.full"]} most recently. The _First Lord of Trade_
+   performs all of the same actions the {frontmatter._["role.govt.tariffs"]}
+   would during Parliament Meets.
+
+## Resolving the Vote: Additions
+
+Based on how the vote resolves, one of the Trade Acts will be enacted.
+*  Apply any immediate effects of the enacted Trade Act and place it next to the Scenario Board.
+   If the newly enacted Trade Act is a _Colonial Duty_, place it on top of the previous _Colonial Duty_.
+
+Discard the other Trade Act that was not enacted.
 
 ## The Vote to Regulate Tea
 
 In this scenario, the Prime Minister may initiate a special session of Parliament at the start of the turn before the London Season phase. To do this, the {frontmatter._["credit.track"]} must be less than either the Company Debt or the amount of stored {frontmatter._["tea.token.plural"]}. If the {frontmatter._["credit.track"]} is less than both the Company Debt and the amount of stored {frontmatter._["tea.token.plural"]}, the Prime Minister **must** initiate a special session to vote on Tea Regulation.
 
-When voting, the starting support should start with the amount of stored
-{frontmatter._["tea.token.plural"]} minus the amount of {frontmatter._["credit.track"]}.
+When voting, the starting support should start with the amount of stored {frontmatter._["tea.token.plural"]} minus the amount of {frontmatter._["credit.track"]}.
 
 :::note[Example of the starting support]
 If the {frontmatter._["credit.track"]} is 5 and the Company has 8 stored {frontmatter._["tea.token.plural"]},

@@ -2,6 +2,7 @@
 
 :root {
   /* --sl-font: 'Hoefler Text', 'Baskervville Variable', serif; */
+  --sl-text-h2: 2rem;
   --sl-text-h3: 1.5rem;
   --bg-bonus: #C2D7B1;
 }
@@ -69,13 +70,13 @@
 .sl-container > :is(h1, h3, h5),
 .sl-markdown-content :is(h1, h3, h5):not(:where(.not-content *)) {
   font-family: 'Baskervville Variable';
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .sl-container > :is(h2, h4, h6),
 .sl-markdown-content :is(h2, h4, h6):not(:where(.not-content *)) {
   font-family: 'Baskervville SC Variable';
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .sl-markdown-content th:not(:where(.not-content *)) {
@@ -119,7 +120,9 @@ li > .starlight-aside {
 .sl-markdown-content {
 
   .bonus {
-    ::before {
+    background-color: var(--bg-bonus);
+
+    p::before:not(:where(.not-content *)) {
       content: '£';
       color: white;
       font-family: 'Baskervville Variable';
@@ -130,7 +133,6 @@ li > .starlight-aside {
       margin-right: 0.75rem;
       vertical-align: sub;
     }
-    background-color: var(--bg-bonus);
   }
 
   .indent {

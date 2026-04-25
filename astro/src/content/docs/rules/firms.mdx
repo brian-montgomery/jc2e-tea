@@ -61,23 +61,19 @@ all firms reveal their strategy and **declare any regions they wish to trade Tea
 *  The amount of cash allocated to the strategy.
 *  The amount of {frontmatter._["tea.token.plural"]}, minus the amount of unrest cubes in the declared regions.
 
-The cash is then paid to the bank and the {frontmatter._["tea.token.plural"]} should be kept. If at least one success
-is rolled, the firm may trade. Each firm that successfully trades has an initiative value equal to the total of their
-ships minus the number of successful dice (1s and 2s) they rolled. This number can be negative.
+The cash is then paid to the bank and the {frontmatter._["tea.token.plural"]} should be kept.
+If at least one success is rolled, the firm may trade. Each firm that successfully trades has
+an initiative value equal to the total of their ships minus the number of successful dice
+(1s and 2s) they rolled. This number can be negative.
 
-Orders are filled after the {frontmatter._["role.govt.customs"]} has made a roll while taking the
-Customs action (and the {frontmatter._["role.company.tea2"]} if Tea Regulation is passed). The active
-smuggler card determines their initiative.
+Orders are filled after the {frontmatter._["role.govt.customs"]} has made a roll while taking
+the Customs action (and the {frontmatter._["role.company.tea2"]} if Tea Regulation is passed).
+The current smuggler card determines their initiative.
 
-   *  **Vacant {frontmatter._["role.govt.governor"]} or Failure to Trade.**
-   If the {frontmatter._["role.govt.governor"]} is vacant, ties in initiative
-   are decided by the Prime Minister. Firms will fill orders
-   after the Commissioner and Commander have had a chance to act.
-
-Players then fill orders starting with the smugglers, firm or Company with the lowest initiative
-and proceeding to the highest. When it is their turn, the Commissioner or firm manager
-trading fills as many orders as possible. Any ties in initiative are decided by the
-{frontmatter._["role.govt.governor"]}.
+Players then fill orders starting with the smugglers, firm or Company with the lowest
+initiative and proceeding to the highest. When it is their turn, the Commissioner or
+firm manager trading fills as many orders as possible. Any ties in initiative are
+decided by the {frontmatter._["role.govt.governor"]}.
 
 Firms fill a number of open orders up to the number of ships they own **plus one**.
 Orders must be filled starting with the associated port listed on their strategy. When
