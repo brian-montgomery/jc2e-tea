@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+
 import { i18nRemarkPlugin } from './remark/i18n.mjs';
+import starlightMarkdownBlocks from 'starlight-markdown-blocks';
 
 const version = process.env.npm_package_version;
 const basePath = 'jc2e-tea';
@@ -72,6 +74,20 @@ export default defineConfig({
           autogenerate: { directory: 'design' },
         },
 			],
+      plugins: [
+        starlightMarkdownBlocks({
+          blocks: {
+            bonus: {
+              label: '£',
+              render: ({ h, label, children }) =>
+                h('div', { class: 'bonus sl-flex' }, [
+                  h('p', { class: 'pound'}, label),
+                  h('div', { class: 'text' }, children),
+                ]),
+            },
+          },
+        }),
+      ],
 		}),
 	],
 });

@@ -121,17 +121,25 @@ li > .starlight-aside {
 
   .bonus {
     background-color: var(--bg-bonus);
+    align-items: center;
+    padding: 0.5em;
 
-    & > p::before:not(:where(.not-content *)) {
-      content: '£';
+    .pound {
       color: white;
       font-family: 'Baskervville Variable';
       font-weight: bold;
       font-size: 2rem;
-      line-height: 1.1em;
-      margin-left: 0.5rem;
+      line-height: 1rem;
       margin-right: 0.75rem;
-      vertical-align: sub;
+    }
+
+    .text {
+      margin-top: 0;
+      /* align-self: start; */
+
+      p {
+        line-height: 1.2em;
+      }
     }
   }
 
