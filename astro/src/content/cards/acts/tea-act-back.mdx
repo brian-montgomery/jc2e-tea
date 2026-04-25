@@ -1,5 +1,5 @@
 ---
-title: Tea Regulation
+title: Tea Act
 description: >-
    The card akin to "Deregulation" in the other scenarios.
    This references the Tea Act of 1773, which gave the East
@@ -8,12 +8,14 @@ description: >-
 background:
    gradient: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.7))
    image: "@assets/images/textures/91513.jpg"
-tags:
-   - duty
+acts:
+   title: Tea Regulation
+   tags:
+      - duty
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={80}>
+<Layout {...frontmatter.acts} textSize={80}>
 
 The Company may trade tea in colonized regions
 in America. The Manager of Shipping may buy player-owned

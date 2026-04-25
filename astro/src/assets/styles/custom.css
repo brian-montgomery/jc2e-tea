@@ -122,7 +122,7 @@ li > .starlight-aside {
   .bonus {
     background-color: var(--bg-bonus);
 
-    p::before:not(:where(.not-content *)) {
+    & > p::before:not(:where(.not-content *)) {
       content: '£';
       color: white;
       font-family: 'Baskervville Variable';

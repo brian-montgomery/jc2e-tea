@@ -2,11 +2,12 @@
 title: Commissioner
 deck:
    reference: setup
-areas:
-  - Comm. of Customs
-  - Commander of the Army of Bengal
-  - Writer (Bengal)
-  - £3
+setup:
+   areas:
+      - Comm. of Customs
+      - Commander of the Army of Bengal
+      - Writer (Bengal)
+      - £3
 # card-back:
 #   background:
 #     image: "@assets/images/cards/smuggler-4b.jpeg"
@@ -14,4 +15,4 @@ areas:
 
 import Layout from "@components/SetupCardLayout.astro";
 
-<Layout {...frontmatter} textSize={85} />
+<Layout {...frontmatter.setup} textSize={85} />

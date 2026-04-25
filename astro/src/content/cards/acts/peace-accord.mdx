@@ -1,5 +1,4 @@
 ---
-title: Peace Accord
 description: >-
    We need a way to increase spending and to not
    allow the Commander to just attack any regions
@@ -8,10 +7,12 @@ card-back:
    reference: acts/peace-accord-back
 deck:
    reference: acts
+acts:
+   title: Peace Accord
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} shortTitle heading="decree" textSize={85}>
+<Layout {...frontmatter.acts} shortTitle heading="decree" textSize={85}>
 <div class="peace">
 
 The **{frontmatter._["role.govt.governor.full"]}**\

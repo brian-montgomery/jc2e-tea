@@ -8,7 +8,23 @@ background:
 card-back:
    background:
       image: "@assets/images/cards/act-back.jpeg"
+pages:
+   deck:
+      back: vertical-print
 ---
 
-This is the deck the Colonial Acts. The **{frontmatter._["role.govt.governor.full"]}**
-will draw two during the **Parliament Meets** phase.
+import { Aside } from '@astrojs/starlight/components';
+import Notice from "./_print-notice.md";
+
+This is the deck representing the recommendations from the Board of Trade.
+The **{frontmatter._["role.govt.governor.full"]}** (or the First Lord of Trade)
+will draw two during the **Parliament Meets** phase and decide which should be
+applied when the vote passes and which should be applied if the vote fails.
+
+Two of the cards, _Tea Regulation_ and _Peace Accord_, have custom backs.
+These two and the _Molasses Act_ should not be shuffled in with the rest of
+the deck, as play starts with them face-up.
+
+<Aside title="Printing">
+   <Notice />
+</Aside>

@@ -1,12 +1,14 @@
 ---
-title: Debt Recovery
+title: Debt Recovery Act
 deck:
    reference: acts
-# regions:
-#    - CP: true
-#    - SP: true
-#    - DP: true
-#    - NE: false
+acts:
+   title: Debt Recovery
+   # regions:
+   #    - CP: true
+   #    - SP: true
+   #    - DP: true
+   #    - NE: false
 notes: >-
    Sadly, this basically just duplicates what Tea can do. It's not very interesting.
    How about something to do with a Firm when they owe money to the Bank?
@@ -14,7 +16,7 @@ notes: >-
 import Layout from "@components/ActCardLayout.astro";
 import T from "@components/T.astro";
 
-<Layout {...frontmatter} textSize={75}>
+<Layout {...frontmatter.acts} textSize={75}>
 Once per turn, when successfully
 filling an order, a firm may place
 a family marker facing down underneath

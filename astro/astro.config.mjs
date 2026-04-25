@@ -58,6 +58,10 @@ export default defineConfig({
               link: '/decks/acts',
             },
             {
+              label: "Smuggler Deck",
+              link: '/decks/smuggler',
+            },
+            {
               label: "Events in America Deck",
               link: '/decks/events',
             },

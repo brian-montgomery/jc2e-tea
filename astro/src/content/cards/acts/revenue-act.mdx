@@ -1,22 +1,29 @@
 ---
-title: Export Duties
+title: Revenue Act
 description: >-
    The Revenue Act of 1767 was one of the stronger
    duties placed on the colonies.
 deck:
    reference: acts
-regions:
-   - NE: true
-   - CP: true
-   - SP: true
-   - DP: true
-tags:
-   - duty
-   - tea
+acts:
+   title: Export Duties
+   regions:
+      - NE
+      - DP
+      - CP
+      - SP
+   # regions:
+   #    - NE: true
+   #    - CP: true
+   #    - SP: true
+   #    - DP: true
+   tags:
+      - duty
+      - tea
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} shortTitle textSize={85}>
+<Layout {...frontmatter.acts} shortTitle textSize={85}>
 Increase the\
 **Value of Tea** by 1.
 

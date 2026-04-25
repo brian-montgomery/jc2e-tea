@@ -5,16 +5,21 @@ description: >-
    smuggled goods without a warrant.
 deck:
    reference: acts
-regions:
-   - NE: true
-   - CP: true
-   - DP: true
-   - SP: false
+acts:
+   title: Writs of Assistance
+   regions:
+      - NE
+      - DP
+      - CP
+      # - NE: true
+      # - CP: true
+      # - DP: true
+      # - SP: false
 ---
 import Layout from "@components/ActCardLayout.astro";
 import T from "@components/T.astro";
 
-<Layout {...frontmatter}>
+<Layout {...frontmatter.acts}>
    During Customs checks,\
    the **<T key="role.govt.customs" />**
    may reroll any number of\

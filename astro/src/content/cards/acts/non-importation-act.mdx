@@ -1,23 +1,28 @@
 ---
-title: Import Tariffs
+title: Non-Importation Act
 description: >-
    Britain enacted several tariffs to protect their own
    manufacturing industries. This card is interesting in
    that it also affects India.
 deck:
    reference: acts
-regions:
-   - CP: true
-   - SP: true
-   - NE: false
-   - SP: false
-tags:
-   - manufacturing
-   - tea
+acts:
+   title: Import Tariffs
+   regions:
+      - CP
+      - SP
+   # regions:
+   #    - CP: true
+   #    - SP: true
+   #    - NE: false
+   #    - SP: false
+   tags:
+      - manufacturing
+      - tea
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={90}>
+<Layout {...frontmatter.acts} textSize={95}>
 Decrease the\
 **{frontmatter._["tea.track"]}** by 1.
 
@@ -27,6 +32,6 @@ add an additional
 enterprises they own\
 (rounding down).
 
-Reduce the value of all\
+Reduce the value of **all**\
 trades by **£1** per region.
 </Layout>

@@ -6,18 +6,23 @@ description: >-
    was less so.
 deck:
    reference: acts
-regions:
-   - CP: true
-   - NE: true
-   - DP: false
-   - SP: false
-tags:
-   - duty
-   - manufacturing
+acts:
+   title: Hat & Iron Regulations
+   regions:
+      - NE
+      - CP
+   # regions:
+   #    - CP: true
+   #    - NE: true
+   #    - DP: false
+   #    - SP: false
+   tags:
+      - duty
+      - manufacturing
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={95}>
+<Layout {...frontmatter.acts} textSize={95}>
 Use **2** dice when\
 rolling for Customs.\
 Add **£1** to the Colonial Treasury

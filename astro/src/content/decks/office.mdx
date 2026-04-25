@@ -7,6 +7,18 @@ background:
    image: "@assets/images/cards/setup-bg.jpeg"
 card-back:
    landscape: true
+pages:
+   deck:
+      back: vertical
 ---
 
+import { Aside } from '@astrojs/starlight/components';
+import Notice from "./_print-notice.md";
+
 These are the additional offices that have been created for this scenario.
+Just like in John Company, these act like reference cards and are flipped
+over during Hiring.
+
+<Aside title="Printing">
+   <Notice />
+</Aside>

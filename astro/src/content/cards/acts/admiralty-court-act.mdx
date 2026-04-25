@@ -1,22 +1,28 @@
 ---
-title: Admiralty Courts
+title: Admiralty Court Act
 description: >-
    This is combining the additional Admiralty Courts added
    in the Townshend Acts, along with the military presence
    that tried to stop smuggling.
 deck:
    reference: acts
-regions:
-   - NE: true
-   - DP: true
-   - SP: true
-   - CP: false
-tags:
-   - military
+acts:
+   title: Admiralty Courts
+   regions:
+      - NE
+      - DP
+      - SP
+   # regions:
+   #    - NE: true
+   #    - DP: true
+   #    - SP: true
+   #    - CP: false
+   tags:
+      - military
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={90}>
+<Layout {...frontmatter.acts} textSize={90}>
 {/* Add one to the **{frontmatter._["role.govt.customs.full"]}** */}
 {/* dice pool. The **{frontmatter._["role.govt.customs"]}** */}
 {/* does not gain dice by spending regiments. */}

@@ -2,17 +2,24 @@
 title: Currency Regulation
 deck:
    reference: acts
-regions:
-   - NE: true
-   - SP: true
-   - CP: true
-   - DP: true
+acts:
+   title: Currency Regulation
+   regions:
+      - NE
+      - DP
+      - CP
+      - SP
+   # regions:
+   #    - NE: true
+   #    - SP: true
+   #    - CP: true
+   #    - DP: true
 ---
 {/* TODO: Pick one region to remove */}
 
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter}>
+<Layout {...frontmatter.acts}>
 Each firm gains an additional
 **£1** for each colonized
 region they successfully

@@ -9,24 +9,33 @@ import { cardSchema, deckSchema } from "./lib/content";
 
 const decks = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/decks" }),
-  schema: deckSchema(),
+  schema: deckSchema({
+    extend: z.object({
+      pages: z.object({
+        card: z.boolean().default(false),
+        deck: z.object({
+          back: z.enum(["horizontal", "horizontal-print", "vertical", "vertical-print"])
+        }).default({ back: "vertical-print" })
+      }).partial().optional()
+    })
+  }),
 });
 
 const cards = defineCollection({
   loader: glob({ pattern: '**/[^_]*/[^_]*.{md,mdx}', base: "./src/content/cards" }),
   schema: cardSchema({
     extend: z.object({
-      tags: z.string().array().optional(),
-      // Act Cards
-      regions: z.array(z.object({
-        'CP': z.boolean(),
-        'DP': z.boolean(),
-        'NE': z.boolean(),
-        'SP': z.boolean(),
-      }).partial()).length(4).optional(),
-      // Setup Cards
-      extra: z.boolean().default(false),
-      areas: z.array(z.string()).optional(),
+      acts: z.object({
+        title: z.string(),
+        regions: z.array(
+          z.enum(['CP', 'DP', 'NE', 'SP'])
+        ).max(4).default([]),
+        tags: z.string().array().optional(),
+      }).optional(),
+      setup: z.object({
+        areas: z.array(z.string()),
+        extra: z.boolean().default(false),
+      }).optional()
     }),
   })
 });

@@ -7,7 +7,7 @@ interface Props {
   shortTitle?: boolean,
   heading?: "dilemma" | "decree" | "special" | "reference" | undefined;
   textSize?: number,
-  regions?: Region[],
+  regions?: RegionKeys[],
   tags?: string[],
 }
 
@@ -45,11 +45,9 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
   <div class="footer">
     { !!regions && (
       <ul class="regions">
-        { regions.map((r) => Object.entries(r).map(([name, show]) =>
-          show
-          ? ( <li><span class="square" set:text={name} /></li>)
-          : ""
-        ))}
+        { regions.map((name) =>
+          <li><span class="square" set:text={name} /></li>
+        )}
       </ul>
     )}
     <div class="number">

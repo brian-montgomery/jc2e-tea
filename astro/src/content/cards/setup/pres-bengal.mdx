@@ -2,10 +2,11 @@
 title: Presidency of Bengal
 deck:
    reference: setup
-areas:
-  - President of Bengal
-  - Company Share
-  - £1
+setup:
+   areas:
+      - President of Bengal
+      - Company Share
+      - £1
 # card-back:
 #   background:
 #     image: "@assets/images/cards/smuggler-5b.jpeg"
@@ -13,7 +14,7 @@ areas:
 
 import Layout from "@components/SetupCardLayout.astro";
 
-<Layout {...frontmatter}>
+<Layout {...frontmatter.setup}>
   <Fragment slot="cell-1">
 
     President of\

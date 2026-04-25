@@ -1,12 +1,13 @@
 ---
-title: War Declared
 background:
    gradient: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.7))
    image: "@assets/images/textures/91513.jpg"
+acts:
+   title: War Declared
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} shortTitle heading="decree" textSize={80}>
+<Layout {...frontmatter.acts} shortTitle heading="decree" textSize={80}>
 <div class="war">
 
 When enlisting officers,\

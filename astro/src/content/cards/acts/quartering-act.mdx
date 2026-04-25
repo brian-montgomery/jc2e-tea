@@ -1,22 +1,27 @@
 ---
-title: Quartering Required
+title: Quartering Act
 description: >-
    There were a couple different quartering acts that Britain
    was hoping would reduce the cost of the military in the
    colonies.
 deck:
    reference: acts
-regions:
-   - DP: true
-   - NE: true
-   - CP: false
-   - SP: false
-tags:
-   - military
+acts:
+   title: Quartering Required
+   regions:
+      - NE
+      - DP
+   # regions:
+   #    - DP: true
+   #    - NE: true
+   #    - CP: false
+   #    - SP: false
+   tags:
+      - military
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={75}>
+<Layout {...frontmatter.acts} textSize={75}>
 When passed, add two\
 military units to the
 **{frontmatter._["role.govt.military.full"]}**'s army.

@@ -22,7 +22,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { deck, page, } = Astro.props;
+const { deck, page } = Astro.props;
 
 import DeckLayout from "@components/DeckLayout.astro";
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';

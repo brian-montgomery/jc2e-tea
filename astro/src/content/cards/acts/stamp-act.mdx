@@ -5,17 +5,24 @@ description: >-
    British government tried to enforce on the colonies.
 deck:
    reference: acts
-regions:
-   - NE: true
-   - SP: true
-   - DP: true
-   - CP: true
-# tags:
-#    - duty
+acts:
+   title: Stamp Act
+   regions:
+      - NE
+      - DP
+      - CP
+      - SP
+   # regions:
+   #    - NE: true
+   #    - SP: true
+   #    - DP: true
+   #    - CP: true
+   # tags:
+   #    - duty
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} shortTitle textSize={90}>
+<Layout {...frontmatter.acts} shortTitle textSize={90}>
 The **{frontmatter._["role.govt.governor.full"]}**
 may now roll for taxes during their turn,
 gaining **£2** for the **Colonial Treasury**.
