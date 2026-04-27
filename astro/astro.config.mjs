@@ -49,23 +49,23 @@ export default defineConfig({
             },
             {
               label: "Setup Cards",
-              link: '/decks/setup',
+              link: '/components/decks/setup',
             },
             {
               label: "Office Cards",
-              link: '/decks/office',
+              link: '/components/decks/office',
             },
             {
               label: "Board of Trade Deck",
-              link: '/decks/acts',
+              link: '/components/decks/acts',
             },
             {
               label: "Smuggler Deck",
-              link: '/decks/smuggler',
+              link: '/components/decks/smuggler',
             },
             {
               label: "Events in America Deck",
-              link: '/decks/events',
+              link: '/components/decks/events',
             },
           ]
 				},

@@ -2,7 +2,7 @@
 title: Components
 sidebar:
   order: 2
-metadata:
+counts:
    pokerChips: 20
    sixSidedDie: 10-12
    militaryUnits: 10
@@ -34,38 +34,38 @@ import smugglerCard from '@assets/images/cards/smuggler-6a.jpeg';
       src={boardImg}
       alt="An image of the scenario board."
       width="150"
-      style="margin-right: 1em;"
+      style="margin-right: 1em; align-self: center;"
    />
 </div>
 
 
 ## Print-and-Play Cards
 
-This scenario contains _about 60\*_ bridge-sized and 18 mini cards.
+This scenario contains about 60 bridge-sized and 18 mini cards[^TBD].
 
 <div class="sl-flex" style="column-gap: 1.5em">
    <div>
       ### Setup Cards and Scenario Cards
 
-      Just like the other scenario in John Company, _{frontmatter._["game.title"]}_ has
-      a scenario card and [18 matching setup cards](/jc2e-tea/decks/setup/) to create
-      the various starting positions. You may disperse these randomly or draft them,
-      if you would prefer.
+      Two scenario cards[^TBD] are provided to help describe the setup for both India
+      and America. Like the other scenarios, _{frontmatter._["game.title"]}_ has
+      [18 setup cards](/jc2e-tea/components/decks/setup/) to create the players'
+      starting positions. You may disperse these randomly or draft them, if you would prefer.
    </div>
    <Image
       src={setupCard}
       alt="An image of a setup card."
       width="70"
-      style="transform: rotate(8deg); margin-right: 1em; align-self: start;"
+      style="transform: rotate(8deg); margin-right: 1em; align-self: start; border-radius: 4px; border: 1px solid lightgrey"
    />
 </div>
 
-<div class="sm:sl-flex" style="column-gap: 1em">
+<div class="sm:sl-flex" style="column-gap: 1.5em">
    <div>
       ### Office Cards
 
-      There are 5 additional [office cards](/jc2e-tea/decks/office/) used to track which player
-      controls which office. A number of these are for the _{frontmatter._["role.govt.office"]}_,
+      There are 5 additional [office cards](/jc2e-tea/components/decks/office/) used to track
+      which player controls which office. A number of these are for the _{frontmatter._["role.govt.office"]}_,
       which is unique to this scenario. One office (the _{frontmatter._["role.company.tea2"]}_)
       is not in play at the start of the game and should be placed nearby.
    </div>
@@ -74,44 +74,42 @@ This scenario contains _about 60\*_ bridge-sized and 18 mini cards.
    </div>
 </div>
 
-<div class="sm:sl-flex" style="column-gap: 1em">
+<div class="sm:sl-flex" style="column-gap: 1.5em">
    <div>
-      ### {frontmatter._["deck.laws.singular"]} Cards
+      ### {frontmatter._["deck.laws.plural"]}
 
-      The [{frontmatter._["deck.laws.singular"]} cards](/jc2e-tea/decks/acts/)
-      (17) are chosen by the {frontmatter._["role.govt.governor.full"]} player
+      The 18 [{frontmatter._["deck.laws.singular"]} cards](/jc2e-tea/components/decks/acts/)
+      are chosen by the {frontmatter._["role.govt.governor.full"]} player
       during the Parliament Meets phase in conjuction with the Law cards from
       the base game. These cards are used to alter how trading works in America
-      (and India). When a {frontmatter._["deck.laws.singular"]} act is passed,
-      it is placed faceup near the scenario board and the remainder are kept in
-      a stack near the {frontmatter._["role.govt.governor.full"]}.
+      (and sometimes India). When a {frontmatter._["deck.laws.singular"]} act is
+      passed, it is placed faceup near the scenario board and the remainder are
+      kept in a stack near the {frontmatter._["role.govt.governor.full"]}.
    </div>
    <div style="max-width: 150px; max-height: 200px; margin-right: 1em; transform: scale(50%) rotate(8deg) translateY(-4em); ">
       <Card slug="acts/molasses-act" />
    </div>
 </div>
 
-<div class="sm:sl-flex" style="column-gap: 1em">
+<div class="sm:sl-flex" style="column-gap: 1.5em">
    <div>
       ### Smuggler Deck
 
-      The 12 cards in the [Smuggler Deck](/jc2e-tea/decks/smuggler/) are used by the
-      {frontmatter._["role.govt.customs.full"]} player during the America phase
-      to represent the illegal trade by the Dutch, French, Portugese and Spanish.
+      The 12 cards in the [Smuggler Deck](/jc2e-tea/components/decks/smuggler/) are used
+      by the {frontmatter._["role.govt.customs.full"]} player during Trade in America
+      to represent the illegal trade by the Colonists with the Dutch, French, Spanish
+      and others.
    </div>
-   <Image
-      src={smugglerCard}
-      alt="An image of a setup card."
-      width="100"
-      style="transform: rotate(8deg); margin-right: 1em; align-self: start;"
-   />
+   <div style="max-width: 150px; max-height: 200px; margin-right: 1em; transform: scale(50%) rotate(8deg) translateY(-4em); ">
+      <Card slug="smuggler/5b" />
+   </div>
 </div>
 
-<div class="sm:sl-flex" style="column-gap: 1em">
+<div class="sm:sl-flex" style="column-gap: 1.5em">
    <div>
       ### Events in America Deck
 
-      There are 20 cards in the [Events in America deck](/jc2e-tea/decks/events/).
+      There are 20 cards in the [Events in America deck](/jc2e-tea/components/decks/events/).
       These function very similarly to the event tiles in India and represent the
       actions and reactions of the Colonists and the Natives in America.
    </div>
@@ -122,37 +120,28 @@ This scenario contains _about 60\*_ bridge-sized and 18 mini cards.
 
 ## Print-and-Play Tokens
 
-:::danger[Missing Tokens]
-
-The following tokens and markers have not been made yet. Please use any substitute you think is appropriate.
--  Office overlay for {frontmatter._["role.company.tea2"]}.
--  Additional filled/closed order tokens.
--  {frontmatter.metadata.militaryUnits} military unit and
-   {frontmatter.metadata.localAlliance} local alliance tokens for America.
--  {frontmatter.metadata.speculation} speculation tokens.
-:::
-
+<div class="indent">
 ### Closed/Filled Orders
 
-There are 17 pieces used to mark closed orders in America and those filled by the
+There are 17 pieces[^TBD] used to mark closed orders in America and those filled by the
 Company or firms. These function the exact same as in India. _You can either print
 additional tokens from the John Company print and play, or use coins as a substitute_.
 
 ### Regiments and Local Alliances
 
-There are {frontmatter.metadata.militaryUnits} military unit and
-{frontmatter.metadata.localAlliance} local alliance pieces which strengthen
+There are {frontmatter.counts.militaryUnits} military unit[^TBD] and
+{frontmatter.counts.localAlliance} local alliance[^TBD] pieces which strengthen
 the British army in North America. The military units represent the Colonial
 Militia, British Army and Navy. The local alliances represent the different
 Native American nations that the British allied with during various conflicts.
 
 ### Speculation Tokens
 
-Used similarly to loot tokens in the base game, the {frontmatter.metadata.speculation}
-speculation tokens indicate how much wealth is available when certain regions in
+Used similarly to loot tokens in the base game, the {frontmatter.counts.speculation}
+speculation tokens[^TBD] indicate how much wealth is available when certain regions in
 America are colonized. _Because these tokens aren't ready, we recommend using
 8- or 10-sided dice as a substitute._
-
+</div>
 
 ## Needed Components and Dice
 
@@ -160,8 +149,8 @@ _{frontmatter._["game.title"]}_ uses several different types of pieces to track 
 various entities in America. Since this is a print-and-play scenario, you will need
 to provide your own additional components:
 -  2 pawns for track markers.
--  About {frontmatter.metadata.pokerChips} poker chips.
--  3 different colors of 6-sided dice (about {frontmatter.metadata.sixSidedDie} total dice).
+-  About {frontmatter.counts.pokerChips} poker chips.
+-  3 different colors of 6-sided dice (about {frontmatter.counts.sixSidedDie} total dice).
 
 ### Pawns and Cubes
 
@@ -174,7 +163,7 @@ from the base game are used to represent debt.
 Tea gets produced by trading in China and is auctioned to the firms
 for trade in America. To represent the _{frontmatter._["tea.token.plural"]}_,
 we recommend using poker chips. You will probably need a maximum of
-{frontmatter.metadata.pokerChips}, although less is needed if you have
+{frontmatter.counts.pokerChips}, although less is needed if you have
 different denominations of chips.
 
 ### Region Strength
@@ -182,7 +171,8 @@ different denominations of chips.
 Similar to the towers in India, there are flag spaces on the map that
 represent whether a region is colonized by Britain. When it is not,
 a 6-sided die represents the military strength of that region. To show
-regions that are aligned (or allied), use dice of the same color. Because
+regions that are settled and allied, use dice of the same color. Because
 different colors are needed, our suggestion is to have 3 different
-colors amongst the {frontmatter.metadata.sixSidedDie} dice.
+colors amongst the {frontmatter.counts.sixSidedDie} dice.
 
+[^TBD]: A few components are not quite implemented yet. This site will be updated when they are.

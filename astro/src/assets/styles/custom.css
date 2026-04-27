@@ -115,11 +115,10 @@ li > .starlight-aside {
   color: color-mix(in srgb, var(--sl-color-white), transparent 60%);
 }
 
-
 /* Specialized Sections */
 .sl-markdown-content {
 
-  .bonus {
+  .bonus:not(:where(.not-content *)) {
     background-color: var(--bg-bonus);
     align-items: center;
     padding: 0.5em;

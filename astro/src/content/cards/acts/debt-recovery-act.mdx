@@ -1,0 +1,33 @@
+---
+title: Debt Recovery Act
+deck:
+   reference: acts
+acts:
+   title: Debt Recovery
+   regions:
+      - CP
+      - SP
+   #    - DP: true
+   #    - NE: false
+previous:
+   -  Once per turn, when successfully filling an order, a firm may place
+      a family marker facing down underneath a filled order token or collector.
+      Lower the amount received by the order's previously-filled value.
+
+      **Do not** remove this facedown marker during upkeep.
+
+      In a later turn, when that firm successfully trades on that order, take the
+      marker back to receive the full value of that order (in addition to the trade
+      value).
+---
+import Layout from "@components/ActCardLayout.astro";
+
+<Layout {...frontmatter.acts} shortTitle textSize={100}>
+When passed, raise the __{frontmatter._["credit.track"]}__ by 1.
+
+The __{frontmatter._["role.govt.governor.full"]}__ may
+open orders in colonized regions.\
+When rolling, subtract the number
+of __unrest cubes__ in that region.
+
+</Layout>
