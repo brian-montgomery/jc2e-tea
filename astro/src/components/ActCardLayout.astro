@@ -38,7 +38,6 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
     )
   }
   <h2 class:list={[{shortTitle,}]} id={title}>{ title }</h2>
-  <!-- { tags.includes('duty') && <div class="duty">Colonial Duty</div>} -->
   <div class:list={["main-text"]} style={`--text-size: ${textSize}%`}>
     <slot></slot>
   </div>

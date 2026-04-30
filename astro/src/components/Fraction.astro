@@ -1,0 +1,22 @@
+---
+
+interface Props {
+  num: number | string;
+  den: number | string;
+}
+
+const { num, den } = Astro.props;
+---
+
+<style>
+  .fraction {
+    sub, sup {
+      font-size: 80%;
+      text-size-adjust: 70%;
+    }
+    sup {
+      margin-left: 1px;
+    }
+  }
+</style>
+<span class="fraction"><sup>{ num }</sup>&frasl;<sub>{ den }</sub></span>

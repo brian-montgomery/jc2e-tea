@@ -67,7 +67,7 @@ import CardLayout from '@components/deckyard/CardFrontAndBack.astro';
   <DeckContent />
   <div class="card-list not-content" data-theme="light">
     { deckListGroupedByCards.map(({card, cardIndex, deckIndex: number}) =>
-      deck?.data.pages?.card
+      deck?.data.pages?.card || card.data.page
       ? // TODO: Change to config.base when this becomes an integration.
         <a class="card-link" href={`${import.meta.env.BASE_URL}/components/cards/${card.id}/`}>
           <CardLayout

@@ -35,7 +35,8 @@ const cards = defineCollection({
       setup: z.object({
         areas: z.array(z.string()),
         extra: z.boolean().default(false),
-      }).optional()
+      }).optional(),
+      page: z.boolean().optional(),
     }),
   })
 });

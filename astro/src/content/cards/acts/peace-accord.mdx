@@ -1,26 +1,29 @@
 ---
+title: Peace Accord
 description: >-
-   We need a way to increase spending and to not
-   allow the Commander to just attack any regions
-   they want to.
+   Shows the current posture of Britain in regards
+   to the Colonies. This reflects that there was a North American
+   theater  to almost every major conflict that Britain participated
+   in the 18th century.
 card-back:
    reference: acts/peace-accord-back
 deck:
    reference: acts
 acts:
    title: Peace Accord
+page: true
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter.acts} shortTitle heading="decree" textSize={85}>
+<Layout {...frontmatter.acts} heading="decree" textSize={85}>
 <div class="peace">
 
 The **{frontmatter._["role.govt.governor.full"]}**\
-may take one debt during their turn.
+may take one emergency funding without being fired.
 
 The **{frontmatter._["role.govt.military.full"]}**
 may not deploy into\
-a sovereign region.
+a foreign-settled region.
 
 ---
 

@@ -1,14 +1,15 @@
 ---
 interface Props {
+  class: string;
   textSize?: number;
 }
 
-const { textSize = 80 } = Astro.props;
+const { textSize = 80, class: cssClass = "" } = Astro.props;
 
 import CardNumber from '@components/deckyard/CardNumber.astro';
 ---
 
-<div class="office-card">
+<div class:list={["office-card", cssClass]}>
   <div class="main-text" style={`--text-size: ${textSize}%`}>
     <slot></slot>
     { /* Convert to Dice Roll Component */

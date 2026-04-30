@@ -1,7 +1,14 @@
 ---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<'div'> {
+  class: string;
+}
+
+const { class: cssClass, ...attrs } = Astro.props;
 ---
 
-<div class="dice-check">
+<div {...attrs} class:list={["dice-check", cssClass]}>
   <div class="dice-pool">
     <div class="title">Dice Pool</div>
     <slot name="dice-pool"></slot>

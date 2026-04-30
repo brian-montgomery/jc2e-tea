@@ -2,11 +2,13 @@
 import { getCollection, render, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-  const cards = await getCollection("cards", ({data}) => !!data.deck?.reference);
+  const decks = await getCollection("decks");
+  const cards = await getCollection("cards", ({data}) => {
+    const deck = decks.find((d) => d.id === data.deck?.reference)
+    return data.page ?? deck?.data.pages.card ?? false;
+  });
 
   return Promise.all(cards.map(async (card) => {
-    const { Content } = await render(card);
-
     return ({
       params: { card: card.id, },
       props: {

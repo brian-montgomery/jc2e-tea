@@ -4,6 +4,11 @@ sidebar:
    order: 14
 ---
 
+import Fr from "@components/Fraction.astro";
+import { Image } from "astro:assets";
+
+import exportIcon from "@assets/images/export-icon.png";
+
 ## Superintendent of Trade in China
 
 In this scenario, the Superintendent of China is open at the start.
@@ -20,24 +25,35 @@ The {frontmatter._["role.company.tea"]} is responsible for managing Tea and thei
 
 Unlike other treasuries, the {frontmatter._["role.company.tea"]}'s treasury only contains
 {frontmatter._["tea.token.plural"]}. Like a Commander's box, the {frontmatter._["role.company.tea"]}'s
-treasury has a top and bottom half. The top half contains active {frontmatter._["tea.token.plural"]},
-that were acquired this turn (and are added to the Company's Expenses). The bottom half holds inactive
-{frontmatter._["tea.token.plural"]}, stored in the Company's warehouses.
+treasury has a top and bottom half. The top half contains active {frontmatter._["tea.token.plural"]};
+{frontmatter._["tea.token.plural"]} that were acquired this turn (and are added to the Company's Expenses).
+The bottom half holds inactive {frontmatter._["tea.token.plural"]}, stored in the Company's warehouses.
 
-During your turn, take the following actions:
+During the Tea phase, take the following actions:
 
 <div class="indent">
 ### Acquire Tea
 
 If Trade in China was successful, the {frontmatter._["role.company.tea"]} acquires Tea to trade.
-Determine the number of export icons in company-controlled regions (1 if [silver](#trade-in-china-silver) was used to trade) and multiply that by the current value on the {frontmatter._["tea.track"]}, rounding to the closest number. Place that resulting amount of {frontmatter._["tea.token.plural"]} in the top half of your treasury.
+Determine the number of export icons in company-controlled regions (1 if [silver](#trade-in-china-silver) was used to trade) and multiply that by the current value on the {frontmatter._["tea.track"]}, [rounding to the closest number](#tea-conversion). Place that resulting amount of {frontmatter._["tea.token.plural"]} in the top half of your treasury.
+
+:::figure[_{frontmatter._["tea.track"]}_ Conversion Table]{id="tea-conversion"}
+| <Image src={exportIcon} height={24} alt="Export Icons" /> | 1<Fr num="1" den="3" /> | 1<Fr num="2" den="3" /> |  2 | 2<Fr num="1" den="3" /> | 2<Fr num="2" den="3" /> |  3 | 3<Fr num="1" den="3" /> |
+|:------------:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|      1       |  1 |  2 |  2 |  2 |  3 |  3 |  3 |
+|      2       |  3 |  3 |  4 |  5 |  5 |  6 |  7 |
+|      3       |  4 |  5 |  6 |  7 |  8 |  9 | 10 |
+|      4       |  5 |  7 |  8 |  9 | 11 | 12 | 13 |
+|      5       |  7 |  8 | 10 | 12 | 13 | 15 | 17 |
+:::
+
 
 ### Auction
 
-You may exchange {frontmatter._["tea.token.plural"]} from your treasury (from the top, the bottom or both) to the firms, up to their number of ships. A firm must pay **a minimum** of £1 for each {frontmatter._["tea.token.singular"]} bought. All funds from the firm must be paid to the Company Balance, from the Trade Bid space. _Any additional terms may be negotiated._
+You may exchange {frontmatter._["tea.token.plural"]} from your treasury (from the top, the bottom or both) to the firms, up to their number of ships. A firm must pay **a minimum** of £1 for each {frontmatter._["tea.token.singular"]} bought. All funds exchanged from the firm must be paid from the Trade Bid space to the Company Balance. _Any other additional terms may be negotiated._
 
-Each firm can have a number of {frontmatter._["tea.token.plural"]} up to their amount of ships.
-_They cannot procure more {frontmatter._["tea.token.plural"]} than they can hold_.
+Each firm may have a number of {frontmatter._["tea.token.plural"]} up to their amount of ships.
+_A firm cannot procure more {frontmatter._["tea.token.plural"]} than it can hold_.
 </div>
 
 ## {frontmatter._["role.company.tea2"]}
@@ -56,13 +72,13 @@ is subject to attrition like any other office. The {frontmatter._["role.company.
 ### Acquire Tea
 
 If Trade in China was successful, the {frontmatter._["role.company.tea"]} acquires Tea to trade.
-Determine the number of export icons in company-controlled regions (1 if [silver](#trade-in-china-silver) was used to trade) and multiply that by the current value on the {frontmatter._["tea.track"]}, rounding to the closest number. Place that resulting amount of {frontmatter._["tea.token.plural"]} in the top half of your treasury.
+Determine the number of export icons in company-controlled regions (1 if [silver](#trade-in-china-silver) was used to trade) and multiply that by the current value on the {frontmatter._["tea.track"]}, [rounding to the closest number](#tea-conversion). Place that resulting amount of {frontmatter._["tea.token.plural"]} in the top half of your treasury.
 
 ### Trade Tea
 
-When the {frontmatter._["role.govt.governor.full"]} allows Trade in America, the {frontmatter._["role.company.tea2"]} determines their dice pool differently:
+When the {frontmatter._["role.govt.governor.full"]} allows Trade in America, the {frontmatter._["role.company.tea2"]} determines their dice pool with the following steps:
 
-1. Declare the **colonized regions in America** in which you wish to trade. You cannot include regions that are sovereign, regions that you could not trade in because you do not have enough ships or because you could not fill an order because a connecting order is closed. **Consider the three ports in America to be connected.**
+1. Declare the **colonized regions in America** in which you wish to trade. You cannot include regions that are foreign settled, regions that you could not trade in because you do not have enough ships or because you could not fill an order because a connecting order is closed. **Consider the three ports in America to be connected.**
 
 2. Make a check. Add one die per {frontmatter._["tea.token.singular"]} in your treasury that you wish to trade. You may use {frontmatter._["tea.token.plural"]} in either half of your treasury. Subtract one die for each unrest cube in each region that you declared in step 1 from your total dice.
 

@@ -85,6 +85,10 @@ export default defineConfig({
                   h('div', { class: 'text' }, children),
                 ]),
             },
+            figure: {
+              render: ({ h, label, attributes, children }) =>
+                h('figure', attributes, [...children, h('figcaption', {}, label)]),
+            },
           },
         }),
       ],

@@ -91,6 +91,19 @@
   }
 }
 
+@media (50rem <= width) {
+  .hero {
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    .stack > * {
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+}
+
 /* Asides */
 .starlight-aside {
   border: 0.25rem double var(--sl-color-asides-border) !important;
@@ -117,6 +130,35 @@ li > .starlight-aside {
 
 /* Specialized Sections */
 .sl-markdown-content {
+  :is(figure):not(:where(.not-content *)) {
+    display: block;
+    text-align: center;
+
+    figcaption {
+      font-family: 'Baskervville Variable';
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+
+  :is(table):not(:where(.not-content *)) {
+    display: inline-table;
+    font-family: 'Baskervville Variable';
+    font-variant-numeric: tabular-nums;
+    margin-left: auto;
+    margin-right: auto;
+
+    th {
+      font-weight: 600;
+      font-size: 1.1rem;
+
+      img {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
 
   .bonus:not(:where(.not-content *)) {
     background-color: var(--bg-bonus);
