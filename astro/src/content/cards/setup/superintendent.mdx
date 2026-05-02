@@ -5,8 +5,8 @@ deck:
 setup:
    areas:
       - S. of Trade in China
-      - Commander-in-Chief, N. America
-      - Collector (Customs)
+      - Commander of the Army of N. America
+      # - Collector (Customs)
       - Shipyard (East)
 # card-back:
 #   background:
@@ -15,4 +15,11 @@ setup:
 
 import Layout from "@components/SetupCardLayout.astro";
 
-<Layout {...frontmatter.setup} textSize={80} />
+<Layout {...frontmatter.setup} textSize={80}>
+
+  <Fragment slot="cell-2">
+      Commander of the\
+      Army of N. America
+  </Fragment>
+
+</Layout>

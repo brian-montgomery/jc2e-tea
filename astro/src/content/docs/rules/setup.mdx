@@ -4,6 +4,11 @@ sidebar:
   order: 3
 ---
 
+import { Image } from 'astro:assets';
+
+import americaSetup from '@assets/images/cards/scenario-america.png';
+import indiaSetup from '@assets/images/cards/scenario-india.png';
+
 When setting up this scenario, follow the usual rules for setup, but use the following
 instead of step 10:
 
@@ -31,38 +36,54 @@ instead of step 10:
 
 ## The Boards
 
-:::note[Main board setup]
-
 Use the following map and instructions to setup India:
 
-![The initial map for the 1733 scenario](../../../assets/images/india-setup.png)
+### India
 
-*  Closed Orders
-   *  All orders in ___Punjab___ and ___Hyderabad___ are closed.
-   *  The two southernmost orders in ___Delhi___ are closed (£3 and £5).
-   *  The southernmost orders in ___Maratha___ (£2), ___Madras___ (£4), and ___Mysore___ (£6) are closed.
-*  Region Strength
-   *  ___Maratha___ has a strength of 2.
-   *  ___Punjab___ has a strength of 0.
-   *  All other regions have a strength of 1.
-*  Empires
-   *  One empire is located in the north, with ___Delhi___ dominating ___Punjab___.
-   *  There is one empire in the south, with ___Madras___ serving ___Hyderabad___.
-*  The elephant is pointing from ___Madras___ into ___Hyderabad___.
-:::
+<div class="sl-flex" style="column-gap: 2em; row-gap: 1em;">
+   *  Closed Orders
+      *  All orders in ___Punjab___ and ___Hyderabad___ are closed.
+      *  The two southernmost orders in ___Delhi___ are closed (£3 and £5).
+      *  The southernmost orders in ___Maratha___ (£2), ___Madras___ (£4), and ___Mysore___ (£6) are closed.
+   *  Region Strength
+      *  ___Maratha___ has a strength of 2.
+      *  ___Punjab___ has a strength of 0.
+      *  All other regions have a strength of 1.
+   *  Empires
+      *  One empire is located in the north, with ___Delhi___ dominating ___Punjab___.
+      *  There is one empire in the south, with ___Madras___ serving ___Hyderabad___.
+   *  The elephant is pointing from ___Madras___ into ___Hyderabad___.
 
-:::note[Scenario board setup]
+   <Image
+      src={indiaSetup}
+      alt="The initial map for the India in 1733."
+      width="300"
+      style="border-radius: 10px; border: 1px solid lightgrey; margin: 0 auto; align-self: start;"
+   />
+
+</div>
+
+### America
 
 Use the following map and instructions to setup America:
 
-*  Closed Orders
-   *  The two western £2 orders in the ___Delawarean___ and the ___Southern Provinces___ are closed.
-   *  The westernmost £3 order in the ___Chesapeake___ is closed.
-   *  The £3 orders in ___Canada___, ___Florida___, the ___Mississippi Reserve___, and the ___Ohio Country___ are closed.
-*  Region Strength
-   *  ___Canada___ and ___Florida___ have a strength of 2.
-   *  ___Mississippi Reserve___ and the ___Ohio Country___ has a strength of 1.
-*  Allied Territory
-   *  ___Canada___, the  ___Mississippi Reserve___ and the ___Ohio Country___ should be allied
-     together (use the same color dice).
-:::
+<div class="sl-flex" style="column-gap: 2em; row-gap: 1em;">
+
+   *  Closed Orders
+      *  The two western £2 orders in the ___Delawarean___ and the ___Southern Provinces___ are closed.
+      *  The westernmost £3 order in the ___Chesapeake___ is closed.
+      *  The £3 orders in ___Canada___, ___Florida___, the ___Mississippi Reserve___, and the ___Ohio Country___ are closed.
+   *  Region Strength
+      *  ___Canada___ and ___Florida___ have a strength of 2.
+      *  ___Mississippi Reserve___ and the ___Ohio Country___ has a strength of 1.
+   *  Allied Territory
+      *  ___Canada___, the  ___Mississippi Reserve___ and the ___Ohio Country___ should be allied
+      together (use the same color dice).
+
+   <Image
+      src={americaSetup}
+      alt="The initial map for America in 1733."
+      width="300"
+      style="border-radius: 10px; border: 1px solid lightgrey; margin: 0 auto; align-self: start;"
+   />
+</div>
