@@ -1,5 +1,5 @@
 ---
-title: Conflict
+title: Conflict (+1)
 deck:
    reference: events
    quantity: 1
@@ -7,18 +7,9 @@ card-back:
    reference: events/backs/delawarean
 ---
 import Layout from "@components/EventCardLayout.astro";
+import Content from "./_conflict.md";
 
-<Layout title={frontmatter.title} textSize={75}>
-Perform a **Bear Crawl (●)**.
-
-If attacking region is **colonized**, the attacking
-strength is the amount of unrest.
-If **victorious**, open the connected order on other
-side of border or the easternmost closed order.\
-If **defeated**, close connected order in region
-or the westernmost order.
-**Afterwards**, the attacked region gains 1 strength.
-
-**Otherwise**, perform an invasion.
-
+<Layout title={frontmatter.title} textSize={77}>
+   Perform a **Bear Crawl (●)**.
+   <Content />
 </Layout>

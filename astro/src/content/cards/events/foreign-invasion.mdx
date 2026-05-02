@@ -4,17 +4,16 @@ deck:
    reference: events
    quantity: 1
 card-back:
-   reference: events/backs/delawarean
+   reference: events/backs/canada
 ---
 import Layout from "@components/EventCardLayout.astro";
 
-<Layout title={frontmatter.title} textSize={75}>
-Roll the storm die. The indicated regions are attacked.
+<Layout title={frontmatter.title} textSize={80}>
+Roll the storm die and resolve an Invasion in
+each region linked to a storm. (If none, use top event card.)\
+For each, roll a die and use its non-allied adjacent regions
+to determine the strength.
 
-For each invasion, roll a die to determine strength.
-The invading strength is the greater of the die and
-an adjancent sovereign region's strength.
-
-If a colonized region falls, close every order there
-and set its strength to half of the die roll (round down).
+If this region falls, close every order there and\
+set its strength to half of the attacking strength (round down).
 </Layout>

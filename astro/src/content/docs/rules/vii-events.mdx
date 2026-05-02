@@ -2,8 +2,9 @@
 title: VIIb. Events in America
 sidebar:
    order: 17
-draft: true
 ---
+
+import { Steps } from "@astrojs/starlight/components"
 
 After resolving Events in India, roll the storm die, resolve any storms and then
 resolve a number of events in America during which the political and economic
@@ -22,15 +23,21 @@ in the area indicated by the firm's strategy.
 - **Events in America.**  For each event in America, flip one card from the event deck.
 These events will often open or close orders, add unrest to a region, and may lead to
 Cascades. **The location of an event often depends on the back of the top card in the
-Events in America draw stack or on the most recently passed
+Events in America draw stack and/or on the most recently passed
 {frontmatter._["deck.laws.singular"]}.**
 
 <div class="indent">
    ### Collector Loss
 
    When resolving events, orders sometimes become closed. If a collector is
-   on such an order, the collector is returned to its owner’s supply. If the
+   on such an order, the collector is returned to its owner's supply. If the
    order has a filled order token, flip it instead.
+
+   ### Cascade
+
+   Follow the same rules as listed in the manual for a Cascade in India (_If
+   all orders are closed, first try connecting orders, than northernmost open
+   orders, than trigger an additional Cascade_).
 </div>
 
 ## Region Loss
@@ -38,28 +45,32 @@ Events in America draw stack or on the most recently passed
 Attacks against the Colonies can trigger the loss of a colonized region. When
 this occurs, follow these steps:
 
-1. __Tarnish the Commander’s Name.__
+1. __Tarnish the Commander's Name.__
    The Commander of North America returns half (rounding up) of the trophies
    their family owns to the supply _e.g. a player with 3 trophies would lose 2._
-   Return the Commander to its supply.
+   Return the Commander to its supply and place its office card in the Vacant Offices
+   box.
 2. __Officer Rout.__ Roll a die for every officer in the Army and remove it if
    the roll is a 6.
 3. __Establish Authority.__
    Remove any unrest in the region and place a strength die (of the appropriate
-   color) on the flag in the region with a value of 1. If triggered by an Invasion
-   Conflict, close every open order in the region, resolving a Cascade if all are
-   already closed. _Note: this closing only occurs in an Invasion Crisis because a
-   Foreign Invasion close orders by default._
-4. {frontmatter._["role.govt.governor"]} resignation.
+   color) on the flag in the region with a value of 1 (unless otherwise noted).
+   Close every open order in the region, resolving a Cascade if all are already closed.
+4. __{frontmatter._["role.govt.governor"]} resignation.__
    If two or more regions are lost in the same turn, the
-   {frontmatter._["role.govt.governor.full"]} is be removed from office. Place the
+   {frontmatter._["role.govt.governor.full"]} is removed from office. Place its
    card in the Vacant Offices box and the associated player loses a victory point.
    _Place the family marker in Debtor's Prison to represent the point lost._
+5.
 
-## {frontmatter._["event.movement"]}
+## Event Concepts
 
-When resolving an event, you will need to perform a {frontmatter._["event.movement"]},.
-_This is a simplified version of the Elephant’s March._
+When resolving the Events in America, there are a couple of terms to understand.
+
+### {frontmatter._["event.movement"]}
+
+When resolving an event, you may need to perform a {frontmatter._["event.movement"]}.
+_This is a simplified version of the Elephant's March._
 
 1. Move the Bear to the region shown on the top of the draw stack.
 2. Place the Bear on the border matching the shape (circle, triangle, or square)
@@ -69,10 +80,203 @@ _This is a simplified version of the Elephant’s March._
    *  **Fully-Allied.** In the rare instance that all neighbors are allied, move the Bear
       across the border to the region matching the shape and repeat step 2.
    :::note
-   In this simplified version, the bear should always be on a border pointing from one region
-   to another.
+   The bear will always be on a border pointing from one region to another.
    :::
+
+### Impacted Regions
+
+When resolving an event, you may need to know what the Impacted Regions are.
+On almost all of the [{frontmatter._["deck.laws.plural"]}](/jc2e-tea/components/decks/acts),
+the section at the bottom is a list of regions that are affected by its passing.
+The impacted regions are the _colonized regions on the most recently passed_
+{frontmatter._["deck.laws.singular"]}.
+
+   *  **No Impacted Regions.** There are a couple of {frontmatter._["deck.laws.singular"]} cards
+      that do have any impacted regions. In this case, there are no impacted regions for this turn.
+   *  **Tea Regulation.** The Tea Regulation card does not have any impacted regions and
+      should be ignored when determining the most recently passed {frontmatter._["deck.laws.singular"]}.
 
 ## Events Described
 
 All of the events in America are described in the following sections.
+
+<div class="indent">
+   ### Protest
+
+   First, add an unrest cube to each impacted region.
+
+   Next, locate the region on the top of the draw stack.
+   If that region is _impacted_, perform [Correspondence](#correspondence).
+   Otherwise, if that region is colonized, add an unrest cube to it.
+
+   <div class="indent">
+      #### Correspondence
+      Locate the colonized region(s) with the most amount of
+      unrest. Add an unrest cube to each adjacent colonized region
+      with less unrest. _Do not add more than one unrest to each
+      region._
+   </div>
+
+   ### Dispute
+
+   Locate the region pictured on the top of the draw stack. If it's colonized,
+   close the westernmost open order. Otherwise, close the easternmost open order.
+   Any collector on the order is returned to that player's supply.
+   If all orders in this region are already closed, perform a Cascade.
+
+   ### Boycott
+
+   Locate the region pictured on the top of the draw stack. If it's impacted,
+   close all orders in the region. If it's colonized, add an unrest cube to
+   the region. Otherwise, add one strength to the region.
+
+   ### Peace
+   First, perform a Bear Crawl with the shape on the card.
+
+   Next, open any orders that are connected through the border
+   the Bear stands on. Add one strength to each foreign-settled region
+   touching the Bear. Remove half of the unrest (rounded down) from each
+   colonized region touching the Bear.
+
+   ### Conflict
+
+   A Conflict is similar to a Crisis in India. It is the most common event
+   and resolves one region attacking another. The size and scope of a Conflict
+   will depend on whether [War is Declared](/jc2e-tea/rules/concepts/#declaration-of-war).
+
+   First, perform a Bear Crawl with the shape on the card. The tail
+   of Bear indicates the attacker and the head of the bear indicates
+   the defender.
+
+   <div class="indent">
+
+      #### Aggression
+
+      If the attacker is a colonzied region, resolve Aggression. The
+      strength of the attack is the amount of unrest plus the modifier
+      listed on the event card. During Aggression, the defender's strength
+      is just the strength of the region (ignore any allied regions). If
+      the attacker's strength is greater, the Aggression is successful;
+      otherwise, the Aggression fails.
+
+      If the Aggression is successful, open any connected order in the
+      defender's region. If there are no connected orders of if the order
+      is already open, open the easternmost closed order in the defender's
+      region instead. Lower the strength of the defender's region by 1,
+      to a minimum of 1.
+
+      {/* TODO: Determine whether to roll a die here to see a reaction. */}
+      *  **Forced Migration.**
+         For each region adjacent to the defender that is foreign-settled,
+         increase its strength by 1.
+
+      If the Aggression failed, close any connected order in the attacker's
+      region. If there are no connected orders of if the order is already closed,
+      close the westernmost closed order in the attacker's region instead.
+      Perform a Cascade, if necessary.
+
+      #### Raid
+
+      If the attacker is a foreign-settled region, resolve a Raid. In a Raid,
+      the attack is only between the attacking and the defending region
+      (ignore any allied regions). Determine whether the attacker's strength
+      plus the modifier listed on the event card is greater than the defender's
+      strength. If so, the Raid is successful; otherwise it fails.
+
+      When a Raid is successful, the defender is now allied with the attacker.
+      Change its strength die to match the attacker. Then, close every open order
+      in the defending region. If all are already closed, resolve a Cascade.
+
+      If the Raid failed, lower the attacking region's strength by 1 (to a
+      minimum of 1).
+
+      #### Attacks against the Colonies
+
+      A Raid against a colonized region is handled similarly to attacks against the
+      Company in India.
+
+      -  **Attack Strength.**
+         The attack strength is the strength of attacking region plus the modifier
+         on the card. If [War is Declared](/jc2e-tea/rules/concepts/#declaration-of-war),
+         also add the strength of any allied regions of the attacker.
+
+      -  **Mounting Defense.**
+         The {frontmatter._["role.govt.military"]} must exhaust pieces in the Army
+         equal to the strength of the Conflict or as many as possible. If the
+         newly-exhausted pieces do not equal the strength of the Conflict, the
+         Conflict succeeds. Perform the steps of [Region Loss](#region-loss).
+
+         If the attack failed, remove unrest in the defending region _up to the strength
+         of the attack_. The {frontmatter._["role.govt.military"]} should take a trophy
+         token. Lower the strength of the attacking region by one (to a minimum of one).
+
+      -  __Vacant Commander.__
+         If the {frontmatter._["role.govt.military"]} is vacant, the
+         {frontmatter._["role.govt.governor"]} will act in its stead (choosing which
+         pieces to exhaust). If that office is also vacant, the Prime Minister will
+         choose. The player acting as Commander will not lose or gain trophies.
+
+      -  __Declaring War.__
+         After the Conflict has been resolved, regardless of the outcome, flip the
+         Colonial Decree to the _War Declared_ side.
+
+      -  __Scenario End.__
+         If after the attack, there are no more colonized regions, trigger the end of
+         the scenario.
+   </div>
+
+   ### Foreign Invasion
+
+   Roll the storm die and resolve a Raid and/or Attack against the Colonies in each
+   region linked to a storm (_New England_ for the East, _Delawarean_ for the West, and
+   _Southern Provinces_ for the South). If all storms are rolled, resolve this event once
+   in each. If no storms are rolled, resolve this event in the region on the top card
+   of the draw stack instead.
+
+   For each region that a Foreign Invasion is happening, follow the rules for a Raid or
+   Attack against the Colonies (depending on the defender), with the following changes:
+   -  __Declare War.__
+      If the defender is a colonized region, immediately flip the Colonial Decree to
+      the _War Declared_ side.
+   -  __Foreign Neighbor.__
+      If the defending region has an adjacent region that is not allied, treat the
+      attack as originating from the strongest non-allied adjacent region.
+   -  __Attack Strength.__
+      Roll a six-sided die. The attacking strength will be the greater of the die roll
+      and the strength of the strongest _foreign neighbor_ (including their allies).
+
+   In addition to those rules, if the Foreign Invasion is successful:
+   -  Close every open order in the region. If all orders are already closed, perform a Cascade.
+   -  If there was a foreign neighbor, match the color of the die when covering the flag.
+      Set the region's strength to half the strength of the Invasion (round down).
+
+   ### Revolt
+
+   A rebellion occurs in each colonized region with unrest. Each colonized region's strength
+   is their amount of unrest. Follow the rules for an Attack against the Colonies. __If there
+   are no regions with unrest, you may ignore this event and reshuffle this card.__
+
+   Before any of the rebellions begin, you must do the following:
+   -  __Declare War.__
+      If the number of rebelling colonies is greater than one, immediately flip the
+      Colonial Decree to the _War Declared_ side.
+   -  __Check for Militia.__
+      For each military unit in the Army of North America, roll a die. On a roll
+      of 5 or 6, discard that unit and add an unrest to the rebelling region with
+      the greatest amount of unrest.
+   -  __Local Alliances.__
+      With any money currently in the Colonial treasury, the {frontmatter._["role.govt.governor.full"]}
+      may allow the {frontmatter._["role.govt.military"]} to purchase local alliance(s).
+
+   If any of the rebellions succeed, consider the revolution successful. Follow the steps for
+   [Region Loss](#region-loss) for each region involved. Cover the flags of the rebelling regions
+   with the same colored die and set each region's strength to half of their attacking strength
+   (rounded down).
+
+   If all of the rebellions fail, the {frontmatter._["role.govt.military"]} gains a Trophy for
+   each region. Open the easternmost closed order and remove all unrest from each region.
+
+   __Afterwards,__ if there are no more colonized regions remaining, trigger the end of the scenario.
+   Otherwise, shuffle this card back into the event deck.
+
+</div>

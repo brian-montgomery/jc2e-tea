@@ -1,5 +1,5 @@
 ---
-title: Protest
+title: Conflict (+2)
 deck:
    reference: events
    quantity: 1
@@ -7,8 +7,9 @@ card-back:
    reference: events/backs/southern
 ---
 import Layout from "@components/EventCardLayout.astro";
-import Content from "./_liberty.mdx";
+import Content from "./_conflict.md";
 
-<Layout title={frontmatter.title} textSize={90}>
+<Layout title={frontmatter.title} textSize={77}>
+   Perform a **Bear Crawl (●)**.
    <Content />
 </Layout>

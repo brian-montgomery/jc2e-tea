@@ -15,7 +15,7 @@ page: true
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter.acts} heading="decree" textSize={85}>
+<Layout {...frontmatter.acts} heading="decree" textSize={80}>
 <div class="peace">
 
 The **{frontmatter._["role.govt.governor.full"]}**\
@@ -27,12 +27,13 @@ a foreign-settled region.
 
 ---
 
-_Flip this card over when\
+_Flip this card over when:\
 (a) **War Against France** is passed,\
-(b) a **Foreign Invasion** event occurs,\
-(c) a **Conflict** event occurs against a colonized region, **or**\
-(d) a **Revolt** event occurs in more\
-than one region._
+(b) a **Foreign Invasion** occurs against\
+a controlled or colonized region,\
+(c) a **Conflict** occurs against a\
+ colonized region, **or**\
+(d) a **Revolt** occurs in more than one colonized region._
 
 </div>
 </Layout>
@@ -48,9 +49,9 @@ than one region._
    }
    em {
       display: inline-block;
-      font-size: 8pt;
+      font-size: 7pt;
       font-style: italic;
-      line-height: 1.25em;
+      line-height: 1.333em;
    }
 }
 `}</style>

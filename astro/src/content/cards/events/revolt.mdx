@@ -1,0 +1,19 @@
+---
+title: Revolt
+deck:
+   reference: events
+   quantity: 1
+card-back:
+   reference: events/backs/delawarean
+---
+import Layout from "@components/EventCardLayout.astro";
+
+<Layout title={frontmatter.title} textSize={85}>
+A rebellion occurs in each colonized region with unrest.
+The **{frontmatter._["role.govt.governor.full"]}** must
+check for militia and may purchase local alliances before\
+the conflicts begin.
+
+Afterwards, if there are no colonized regions remaining, end
+the scenario. Otherwise, shuffle this card back into the event deck.
+</Layout>

@@ -4,15 +4,12 @@ deck:
    reference: events
    quantity: 1
 card-back:
-   reference: events/backs/chesapeake
+   reference: events/backs/southern
 ---
 import Layout from "@components/EventCardLayout.astro";
+import Content from "./_peace.md";
 
-<Layout title={frontmatter.title} textSize={100}>
-Open any orders that are connected through the border
-of the region and its circle (●) symbol.
-
-For regions that are **colonized**,\
-remove one **unrest cube**. \
-For other regions, add one strength.
+<Layout title={frontmatter.title} textSize={90}>
+   Perform a **Bear Crawl (●)**.
+   <Content />
 </Layout>
