@@ -44,13 +44,14 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
   <div class="footer">
     { !!regions && (
       <ul class="regions">
+        <li class="impacted">Impacted <br /> Regions</li>
         { regions.map((name) =>
           <li><span class="square" set:text={name} /></li>
         )}
       </ul>
     )}
+    <!-- { !!regions && <p class="impacted">Impacted</p> } -->
     <div class="number">
-      <!-- { tags.includes('duty') && "CD" } -->
       <CardNumber />
     </div>
   </div>

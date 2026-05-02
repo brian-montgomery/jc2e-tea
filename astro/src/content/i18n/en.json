@@ -22,5 +22,11 @@
    "tea.token.singular": "Tea Crate",
    "tea.token.plural": "Tea Crates",
    "tea.track": "Value of Tea",
-   "event.movement": "Bear Crawl"
+   "event.movement": "Bear Crawl",
+   "num.alliance": 4,
+   "num.military": 10,
+   "num.orders": 17,
+   "num.speculation": 3,
+   "num.tea": 30,
+   "num.region.str": "10-12"
 }

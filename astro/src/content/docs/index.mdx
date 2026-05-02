@@ -8,36 +8,44 @@ hero:
     file: "../../assets/images/jc2e-box.png"
     alt:  Box of John Company, 2nd edition
   actions:
-    - text: Read the current rules
-      # link: "javascript:void(0);"
+    - text: Rules & Components
       link: /jc2e-tea/rules/
-      icon: right-arrow
+      icon: document
       variant: primary
       attrs:
         role: button
-        # disabled: true
-        # onclick: "return false"
-        # aria-disabled: true
-        # tabindex: -1
-    - text: Read the design
+    - text: Design Notes
       link: /jc2e-tea/design/
       icon: open-book
       variant: secondary
       attrs:
         role: button
+   #  - text: Feedback
+   #    link: https://github.com/brian-montgomery/jc2e-tea/discussions/
+   #    icon: pen
+   #    variant: secondary
+   #    attrs:
+   #      role: button
+   #      disabled: true
+   #      onclick: "return false"
+   #      aria-disabled: true
+   #      tabindex: -1
 ---
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-<LinkCard
-  title="Wehrlegig Games"
-  href="https://wehrlegig.com/products/john-company-second-edition"
-  description="Designer and publisher of John Company, 2nd edition"
-/>
 
-<LinkCard
-  title="BoardGameGeek"
-  href="https://boardgamegeek.com/boardgame/332686/john-company-second-edition"
-  description="The BGG entry for John Company, 2nd edition"
-/>
+<CardGrid>
+   <LinkCard
+   title="Wehrlegig Games"
+   href="https://wehrlegig.com/products/john-company-second-edition"
+   description="Designer and publisher of John Company, 2nd edition"
+   />
 
+   <LinkCard
+   title="BoardGameGeek"
+   href="https://boardgamegeek.com/boardgame/332686/john-company-second-edition"
+   description="The BGG entry for John Company, 2nd edition"
+   />
+
+</CardGrid>

@@ -1,11 +1,19 @@
 ---
 title: Navigation Acts
-tags:
-   - reference
+deck:
+   reference: reference
+background:
+   gradient: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.7))
+   image: "@assets/images/textures/91513.jpg"
+acts:
+   title: Navigation Acts
+   tags:
+      - reference
+page: true
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={67} heading="reference">
+<Layout {...frontmatter.acts} textSize={67} heading="reference">
 Pensioners are not removed until\
 **the end of the Hiring phase**.
 

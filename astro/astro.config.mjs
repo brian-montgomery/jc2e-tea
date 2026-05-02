@@ -48,6 +48,14 @@ export default defineConfig({
               link: '/components/board',
             },
             {
+              label: "Tokens and Markers",
+              link: '/components/tokens',
+            },
+            {
+              label: "Scenario Cards",
+              link: '/components/decks/reference',
+            },
+            {
               label: "Setup Cards",
               link: '/components/decks/setup',
             },
@@ -70,7 +78,7 @@ export default defineConfig({
           ]
 				},
         {
-          label: 'Design',
+          label: 'Design Notes',
           autogenerate: { directory: 'design' },
         },
 			],

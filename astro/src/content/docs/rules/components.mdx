@@ -6,8 +6,8 @@ counts:
    pokerChips: 20
    sixSidedDie: 10-12
    militaryUnits: 10
-   localAlliance: 3
-   speculation: 4
+   localAlliance: 4
+   speculation: 3
 ---
 
 import { Image } from 'astro:assets';
@@ -41,13 +41,13 @@ import smugglerCard from '@assets/images/cards/smuggler-6a.jpeg';
 
 ## Print-and-Play Cards
 
-This scenario contains about 60 bridge-sized and 18 mini cards[^TBD].
+This scenario contains about 60[^Cards] bridge-sized and 18 mini cards.
 
 <div class="sl-flex" style="column-gap: 1.5em">
    <div>
       ### Setup Cards and Scenario Cards
 
-      Two scenario cards[^TBD] are provided to help describe the setup for both India
+      Two[^TBD] scenario cards are provided to help describe the setup for both India
       and America. Like the other scenarios, _{frontmatter._["game.title"]}_ has
       [18 setup cards](/jc2e-tea/components/decks/setup/) to create the players'
       starting positions. You may disperse these randomly or draft them, if you would prefer.
@@ -123,22 +123,24 @@ This scenario contains about 60 bridge-sized and 18 mini cards[^TBD].
 <div class="indent">
 ### Closed/Filled Orders
 
-There are 17 pieces[^TBD] used to mark closed orders in America and those filled by the
-Company or firms. These function the exact same as in India. _You can either print
-additional tokens from the John Company print and play, or use coins as a substitute_.
+There are {frontmatter._["num.orders"]} pieces used to mark closed orders in America
+and those filled by the Company or firms. These function the exact same as in India. _You can
+either print additional tokens from the John Company print and play, or use coins as a
+substitute_.
 
 ### Regiments and Local Alliances
 
-There are {frontmatter.counts.militaryUnits} military unit[^TBD] and
-{frontmatter.counts.localAlliance} local alliance[^TBD] pieces which strengthen
+There are {frontmatter._["num.military"]} military unit and
+{frontmatter._["num.alliance"]} local alliance pieces which strengthen
 the British army in North America. The military units represent the Colonial
-Militia, British Army and Navy. The local alliances represent the different
-Native American nations that the British allied with during various conflicts.
+Militia, British Army and Navy. The local alliances represent different
+Native American nations that the British and/or Colonists allied with during
+various conflicts.
 
 ### Speculation Tokens
 
-Used similarly to loot tokens in the base game, the {frontmatter.counts.speculation}
-speculation tokens[^TBD] indicate how much wealth is available when certain regions in
+Used similarly to loot tokens in the base game, the {frontmatter._["num.speculation"]}
+speculation tokens indicate how much wealth is available when certain regions in
 America are colonized. _Because these tokens aren't ready, we recommend using
 8- or 10-sided dice as a substitute._
 </div>
@@ -149,8 +151,8 @@ _{frontmatter._["game.title"]}_ uses several different types of pieces to track 
 various entities in America. Since this is a print-and-play scenario, you will need
 to provide your own additional components:
 -  2 pawns for track markers.
--  About {frontmatter.counts.pokerChips} poker chips.
--  3 different colors of 6-sided dice (about {frontmatter.counts.sixSidedDie} total dice).
+-  About {frontmatter._["num.tea"]} poker chips.
+-  3 different colors of 6-sided dice (about {frontmatter._["num.region.str"]} total dice).
 
 ### Pawns and Cubes
 
@@ -163,7 +165,7 @@ from the base game are used to represent debt.
 Tea gets produced by trading in China and is auctioned to the firms
 for trade in America. To represent the _{frontmatter._["tea.token.plural"]}_,
 we recommend using poker chips. You will probably need a maximum of
-{frontmatter.counts.pokerChips}, although less is needed if you have
+{frontmatter._["num.tea"]}, although less is needed if you have
 different denominations of chips.
 
 ### Region Strength
@@ -173,6 +175,7 @@ represent whether a region is colonized by Britain. When it is not,
 a 6-sided die represents the military strength of that region. To show
 regions that are settled and allied, use dice of the same color. Because
 different colors are needed, our suggestion is to have 3 different
-colors amongst the {frontmatter.counts.sixSidedDie} dice.
+colors amongst {frontmatter._["num.region.str"]} dice.
 
+[^Cards]: The goal is no more that 60 cards. There is currently space for a couple of reference cards that haven't been created yet.
 [^TBD]: A few components are not quite implemented yet. This site will be updated when they are.
