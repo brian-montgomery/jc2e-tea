@@ -87,6 +87,7 @@ export const collections = {
         'role.govt.office': z.string(),
         'role.govt.tariffs': z.string(),
         'role.govt.tariffs.full': z.string(),
+        'role.govt.tariffs2': z.string(),
         'role.govt.governor': z.string(),
         'role.govt.governor.full': z.string(),
         'role.govt.army': z.string(),
