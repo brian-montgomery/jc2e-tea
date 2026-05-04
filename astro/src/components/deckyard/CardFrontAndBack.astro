@@ -8,6 +8,7 @@ interface Props {
   gap?: boolean;
   number?: number;
   vertical?: boolean;
+  back?: "both" | "display" | "print";
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   gap = false,
   number = undefined,
   vertical = false,
+  back = "both",
 } = Astro.props;
 
 
@@ -24,24 +26,32 @@ import CardFront from "@components/deckyard/CardLayout.astro";
 import CardBack from "@components/deckyard/CardBack.astro";
 ---
 
-<div {id} class:list={["card-wrapper", otherClasses, {vertical, gap}]}>
+<div {id} class:list={["card-wrapper", otherClasses, {vertical, gap, "print-back": back === "print"}]}>
   <CardFront id={id && `${id}-front`} {card} {number} />
   <CardBack id={id && `${id}-back`} {card} />
 </div>
 
-<style >
+<style>
 .card-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 
   &.vertical {
     flex-direction: column;
+    align-items: center;
   }
   &.gap {
     column-gap: 0.5em;
     row-gap: 0.5em;
+  }
+}
+.print-back :global(.card-back) {
+  display: none;
+
+  @media print {
+    display: block;
   }
 }
 </style>

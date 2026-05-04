@@ -1,19 +1,26 @@
 ---
-title: Embargo of Boston
+title: Boston Port Act
 deck:
    reference: acts
-regions:
-   - NE: true
-   - DP: true
-   - CP: true
-   - SP: false
-tags:
-   - military
+acts:
+   title: Port Embargo
+   regions:
+      - NE
+      - DP
+      - CP
+   # regions:
+   #    - NE: true
+   #    - DP: true
+   #    - CP: true
+   #    - SP: false
+   tags:
+      - military
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter}>
-   Add two military units to the **{frontmatter._["role.govt.military.full"]}**'s army.
+<Layout {...frontmatter.acts}>
+   Add two military units to the
+   **{frontmatter._["role.govt.army"]}**.
 
    Add one unrest cube and close all trade orders
    in the **New England** region, performing a cascade

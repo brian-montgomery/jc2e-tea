@@ -1,0 +1,77 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const decks = await getCollection("decks");
+
+  return decks.map((deck) => ({
+    params: { deck: deck.id },
+    props: {
+      deck,
+      page: {
+        hasSidebar: true,
+        frontmatter: {
+          title: deck.data.name,
+          tableOfContents: false,
+          pagefind: true,
+          prev: false,
+          next: false,
+        },
+      },
+    },
+  }));
+}
+
+const { deck, page } = Astro.props;
+
+import DeckLayout from "@components/DeckLayout.astro";
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+  // const cards = await getCollection("cards", ({ data }) => data.deck?.id === 'acts');
+  // const state = {
+  //   'NE': {
+  //     angry: 0,
+  //     position: [0, 0, 0, 0],
+  //   },
+  //   'M': {
+  //     angry: 0,
+  //     position: [0, 0, 0, 0],
+  //   },
+  //   'CP': {
+  //     angry: 0,
+  //     position: [0, 0, 0, 0],
+  //   },
+  //   'S': {
+  //     angry: 0,
+  //     position: [0, 0, 0, 0],
+  //   },
+  //   'cards': {
+  //     angry: [0, 0, 0, 0, 0],
+  //   }
+  // }
+
+  // cards.reduce((accum, card) => {
+  //   var hasAngry = 0;
+  //   card.data.regions?.forEach((value, index) => {
+  //     Object.entries(value).forEach(([name, angry]) => {
+  //       // @ts-ignore
+  //       const region = accum[name];
+  //       region!.position[index] += 1;
+  //       if (angry) {
+  //         region!.angry += 1;
+  //         hasAngry += 1;
+  //       }
+  //     });
+  //   });
+  //   accum.cards.angry[hasAngry] += 1;
+  //   return accum;
+  // }, state)
+
+  // state.cards.angry.shift();
+  // console.log("state", state);
+
+---
+
+<StarlightPage {...page}>
+  <DeckLayout deck={deck.id} />
+</StarlightPage>

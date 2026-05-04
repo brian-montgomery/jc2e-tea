@@ -6,22 +6,32 @@ description: >-
    be enforced.
 deck:
    reference: acts
-regions:
-   - NE: true
-   - DP: true
-   - CP: true
-   - SP: false
-tags:
-   - duty
-   - military
+acts:
+   title: Sugar Act
+   regions:
+      - NE
+      - DP
+      - CP
+   # regions:
+   #    - NE: true
+   #    - DP: true
+   #    - CP: true
+   #    - SP: false
+   tags:
+      - duty
+      - military
+previous:
+   -  When passed, add a\
+      military unit to the\
+      **{frontmatter._["role.govt.army"]}**.
+
+
 ---
 import Layout from "@components/ActCardLayout.astro";
-import T from "@components/T.astro"
 
-<Layout {...frontmatter} shortTitle textSize={105}>
-When passed, add a military unit.
-
-When rolling Customs checks,
+<Layout {...frontmatter.acts} shortTitle textSize={105}>
+When making\
+Customs checks,\
 use **3** dice.\
 Add **1** to a die with\
 the lowest value.

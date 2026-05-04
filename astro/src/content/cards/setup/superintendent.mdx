@@ -2,11 +2,12 @@
 title: Superintendent of Trade in China
 deck:
    reference: setup
-areas:
-  - S. of Trade in China
-  - Commander-in-Chief, N. America
-  - Collector (Customs)
-  - Shipyard (East)
+setup:
+   areas:
+      - S. of Trade in China
+      - Commander of the Army of N. America
+      # - Collector (Customs)
+      - Shipyard (East)
 # card-back:
 #   background:
 #     image: "@assets/images/cards/smuggler-6d.jpeg"
@@ -14,4 +15,11 @@ areas:
 
 import Layout from "@components/SetupCardLayout.astro";
 
-<Layout {...frontmatter} textSize={80} />
+<Layout {...frontmatter.setup} textSize={80}>
+
+  <Fragment slot="cell-2">
+      Commander of the\
+      Army of N. America
+  </Fragment>
+
+</Layout>

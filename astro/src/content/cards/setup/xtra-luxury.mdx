@@ -1,0 +1,15 @@
+---
+title: "Xtra: Luxury"
+deck:
+   reference: setup
+   quantity: 2
+setup:
+   extra: true
+   areas:
+      - Luxury
+      - £1
+---
+
+import Layout from "@components/SetupCardLayout.astro";
+
+<Layout {...frontmatter.setup} textSize={120} />

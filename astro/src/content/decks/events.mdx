@@ -6,15 +6,18 @@ dimensions:
 background:
    gradient: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.6))
    image: "@assets/images/textures/gray-linen-paper.jpg"
+pages:
+   deck:
+      back: horizontal-print
 ---
 
-This is the deck of the Events in America.
+import { Aside } from '@astrojs/starlight/components';
+import Notice from "./_print-notice.md";
 
-## Philosophy
+This is the deck of the Events in America. These are structured to be similar to
+the Events in India, while being more straightforward. Each card has a slightly
+different back with a named region on it.
 
-Considering both the power and flexibility of the original event system, we
-tried to make something a littler simpler while still kee
-
-This event system is a bit more "railroaded" towards the scenario goal.
-
-## Cards
+<Aside title="Print and Play">
+   <Notice />
+</Aside>

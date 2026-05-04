@@ -1,0 +1,18 @@
+---
+interface Props {
+  textSize?: number;
+}
+
+const { textSize = 100 } = Astro.props;
+
+import CardNumber from '@components/deckyard/CardNumber.astro';
+---
+
+<div class="scenario-card">
+  <div class="main-text" style={`--text-size: ${textSize}%`}>
+    <slot></slot>
+  </div>
+  <div class="number">
+    <CardNumber />
+  </div>
+</div>

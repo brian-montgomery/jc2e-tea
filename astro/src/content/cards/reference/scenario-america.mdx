@@ -1,0 +1,47 @@
+---
+title: "Scenario Card 2: America"
+description: The 1733 Scenario Card for the scenario board.
+dimensions:
+   size: bridge
+   landscape: false
+background:
+   image: "@assets/images/cards/scenario-bg.png"
+deck:
+   reference: reference
+card-back:
+   dimensions:
+      size: bridge
+      landscape: false
+   background:
+      image: "@assets/images/cards/scenario-america.png"
+tags:
+   - reference
+page: true
+---
+import Layout from "@components/ScenarioCardLayout.astro";
+
+<Layout textSize={100}>
+
+Place the 1733 scenario board next to the main board.
+
+<br />
+
+__{frontmatter._["tea.track"]}__: Place the Tea marker on the space above 2.
+
+__{frontmatter._["credit.track"]}__: Place
+the Credit marker on the 12 space.
+
+__Company Treasuries__: Place two
+{frontmatter._["tea.token.plural"]} in the bottom of the
+{frontmatter._["role.company.tea"]}'s treasury.
+
+__Department Treasuries:__ Place £3 in the
+{frontmatter._["role.govt.governor.full"]}'s treasury.
+
+__Starting Military:__ Place 1
+military unit in the Army of North America.
+
+__Trade Acts:__ Place the Molasses Act, Peace Accord,
+and Tea Regulation cards near the area of play.
+
+</Layout>

@@ -2,11 +2,12 @@
 title: Director of Warehouses
 deck:
    reference: setup
-areas:
-  - Director of Warehouses
-  - Commander of the Army of Bombay
-  - Writer in Bombay
-  - Company Share
+setup:
+   areas:
+      - Director of Warehouses
+      - Commander of the Army of Bombay
+      - Writer in Bombay
+      - Company Share
 # card-back:
 #   background:
 #     image: "@assets/images/cards/smuggler-4d.jpeg"
@@ -14,4 +15,4 @@ areas:
 
 import Layout from "@components/SetupCardLayout.astro";
 
-<Layout {...frontmatter} textSize={85} />
+<Layout {...frontmatter.setup} textSize={85} />

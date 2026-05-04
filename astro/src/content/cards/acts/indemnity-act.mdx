@@ -1,22 +1,28 @@
 ---
-title: Company Indemnity
+title: Indemnity Act
 deck:
    reference: acts
 description: >-
    Inspired by the Idemnity Act and the Credit Crisis of 1772,
    this increases the Company's success and failure outcomes.
-regions:
-   - SP: true
-   - NE: true
-   - CP: true
-   - DP: false
-tags:
-   - tea
+acts:
+   title: Company Indemnity
+   regions:
+      - NE
+      - CP
+      - SP
+   # regions:
+   #    - SP: true
+   #    - NE: true
+   #    - CP: true
+   #    - DP: false
+   tags:
+      - tea
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={90}>
-Increase the\
+<Layout {...frontmatter.acts} textSize={85}>
+When passed, raise the\
 **{frontmatter._["tea.track"]}** by 1.\
 Advance the value of **Company Shares**,
 if possible
@@ -24,5 +30,8 @@ if possible
 
 Lower **Company Debt** by 1,\
 **Company Standing** by 1\
-& **{frontmatter._["credit.track"]}** by 2.
+and **{frontmatter._["credit.track"]}** by 2.
+
+{frontmatter._["tea.token.plural"]} no longer add\
+to Company expenses.
 </Layout>

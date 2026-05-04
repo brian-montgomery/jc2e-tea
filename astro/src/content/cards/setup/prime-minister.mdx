@@ -2,10 +2,11 @@
 title: Prime Minister
 deck:
    reference: setup
-areas:
-  - Prime Minister
-  - Random Blackmail
-  - Workshop
+setup:
+   areas:
+      - Prime Minister
+      - Random Blackmail
+      - Workshop
 # card-back:
 #   background:
 #     image: "@assets/images/cards/smuggler-6a.jpeg"
@@ -13,4 +14,4 @@ areas:
 
 import Layout from "@components/SetupCardLayout.astro";
 
-<Layout {...frontmatter} textSize={90} />
+<Layout {...frontmatter.setup} textSize={90} />

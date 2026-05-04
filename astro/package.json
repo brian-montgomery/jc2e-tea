@@ -1,7 +1,7 @@
 {
   "name": "jc2e-tea",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,13 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.38.3",
+    "@astrojs/starlight": "^0.38.4",
     "@fontsource-variable/baskervville": "^5.2.3",
     "@fontsource-variable/baskervville-sc": "^5.2.3",
     "@fontsource-variable/cormorant": "^5.1.0",
     "@fontsource-variable/libre-bodoni": "^5.2.7",
     "@fontsource/great-vibes": "^5.2.6",
-    "astro": "^6.1.4",
-    "sharp": "^0.32.5"
+    "astro": "^6.1.9",
+    "sharp": "^0.32.6",
+    "starlight-markdown-blocks": "^0.1.0"
   }
 }

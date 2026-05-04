@@ -2,10 +2,11 @@
 title: Presidency of Bombay
 deck:
    reference: setup
-areas:
-  - President of Bombay
-  - Company Share
-  - £2
+setup:
+   areas:
+      - President of Bombay
+      - Company Share
+      - £2
 # card-back:
 #   background:
 #     image: "@assets/images/cards/smuggler-5c.jpeg"
@@ -13,4 +14,4 @@ areas:
 
 import Layout from "@components/SetupCardLayout.astro";
 
-<Layout {...frontmatter} />
+<Layout {...frontmatter.setup} />

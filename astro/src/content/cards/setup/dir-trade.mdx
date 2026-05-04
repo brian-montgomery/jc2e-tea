@@ -2,10 +2,11 @@
 title: Director of Trade
 deck:
    reference: setup
-areas:
-  - Director of Trade
-  - Shipyard (China)
-  - £3
+setup:
+   areas:
+      - Director of Trade
+      - Shipyard (China)
+      - £3
 # card-back:
 #   background:
 #     image: "@assets/images/cards/smuggler-4c.jpeg"
@@ -13,4 +14,4 @@ areas:
 
 import Layout from "@components/SetupCardLayout.astro";
 
-<Layout {...frontmatter} textSize={90} />
+<Layout {...frontmatter.setup} textSize={90} />

@@ -1,0 +1,24 @@
+---
+name: Smuggler Deck
+dimensions:
+   size: bridge
+card-back:
+   background:
+      image: "@assets/images/cards/smuggler-back.png"
+pages:
+   deck:
+      back: vertical-print
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import Notice from "./_print-notice.md";
+
+This is a deck of twelve cards representing the smuggler activity in America.
+The **{frontmatter._["role.govt.customs.full"]}** will draw one during
+Trade in America and may use this card to perform a Customs check.
+
+<Aside title="Print and Play">
+   <Notice />
+</Aside>
+
+---

@@ -10,14 +10,8 @@ card-back:
    reference: events/backs/delawarean
 ---
 import Layout from "@components/EventCardLayout.astro";
+import Dispute from "./_dispute.md";
 
 <Layout title={frontmatter.title} textSize={90}>
-Locate the region on the\
-back of the event deck.
-
-**Colonized**: Close the **westernmost** open order.
-**Otherwise**: Close the **easternmost** open order.
-
-Return any **collectors** and\
-if necessary, cascade.
+   <Dispute />
 </Layout>

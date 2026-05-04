@@ -1,0 +1,14 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const card = await getEntry({ collection: "cards", id: slug });
+
+import CardLayout from '@components/deckyard/CardLayout.astro';
+---
+
+<CardLayout {card} />

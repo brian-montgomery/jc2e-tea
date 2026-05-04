@@ -8,7 +8,7 @@ async function getDeckAndContent(deckId?: string) {
     if (deck === undefined) {
       throw new Error(`Could not find deck '${deckId}'`);
     } else {
-      const { Content: DeckContent } = await render(deck) || 'div';
+      const { Content: DeckContent } = await render(deck) || { Content: 'div' };
       return { deck, DeckContent }
     }
   }
@@ -19,9 +19,11 @@ interface Props {
   deck?: CollectionEntry<"decks">["id"];
   landscape ?: boolean;
 }
+type BackTypes = "horizontal" | "horizontal-print" | "vertical" | "vertical-print"
 
 const { deck: deckId = undefined, landscape = undefined } = Astro.props;
 const { deck, DeckContent } = await getDeckAndContent(deckId);
+const back: BackTypes = deck?.data.pages.deck?.back ?? "vertical-print"
 
 const cards: CollectionEntry<"cards">[] = await getCollection(
   "cards", ({ data }) => deckId ? data.deck?.reference?.id === deckId : !!data.deck?.reference
@@ -58,21 +60,32 @@ function getCardIdSuffix(index: number) {
 }
 
 // TODO: Decide how we can make this more generic so this can be in Deckyard.
-// import CardLayout from '@components/deckyard/CardFrontAndBack.astro';
-import CardLayout from '@components/deckyard/CardLayout.astro';
+import CardLayout from '@components/deckyard/CardFrontAndBack.astro';
+// import CardLayout from '@components/deckyard/CardLayout.astro';
 ---
 <div id={`deck-${deck?.id}`} class="deck">
   <DeckContent />
-  <div class="card-list" data-theme="light">
-    {
-      deckListGroupedByCards.map(({card, cardIndex, deckIndex: number}) => (
-
-        // TODO: Change to config.base when this becomes an integration.
-        <a class="card-link" href={`${import.meta.env.BASE_URL}/cards/${card.id}/`}>
-          <CardLayout id={`card-${card.id}${getCardIdSuffix(cardIndex)}`} {card} {number} />
+  <div class="card-list not-content" data-theme="light">
+    { deckListGroupedByCards.map(({card, cardIndex, deckIndex: number}) =>
+      deck?.data.pages?.card || card.data.page
+      ? // TODO: Change to config.base when this becomes an integration.
+        <a class="card-link" href={`${import.meta.env.BASE_URL}/components/cards/${card.id}/`}>
+          <CardLayout
+            id={`card-${card.id}${getCardIdSuffix(cardIndex)}`}
+            {card}
+            {number}
+            back={back === "horizontal-print" || back === "vertical-print" ? "print" : "both"}
+            vertical={back === "vertical" || back === "vertical-print"}
+          />
         </a>
-      ))
-    }
+      : <CardLayout
+          id={`card-${card.id}${getCardIdSuffix(cardIndex)}`}
+          {card}
+          {number}
+          back={back === "horizontal-print" || back === "vertical-print" ? "print" : "both"}
+          vertical={back === "vertical" || back === "vertical-print"}
+        />
+    )}
   </div>
 </div>
 

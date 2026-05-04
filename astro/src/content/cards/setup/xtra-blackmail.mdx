@@ -1,0 +1,20 @@
+---
+title: "Xtra: Blackmail"
+deck:
+   reference: setup
+setup:
+   extra: true
+   areas:
+      - Random Blackmail Card
+      - £3
+---
+
+import Layout from "@components/SetupCardLayout.astro";
+
+<Layout {...frontmatter.setup} textSize={110}>
+  <Fragment slot="cell-1">
+      Random\
+      Blackmail\
+      Card
+  </Fragment>
+</Layout>

@@ -1,34 +1,39 @@
 ---
 title: Peace Accord
 description: >-
-   We need a way to increase spending and to not
-   allow the Commander to just attack any regions
-   they want to.
+   Shows the current posture of Britain in regards
+   to the Colonies. This&nbsp;reflects that there was a North American
+   theater  to almost every major conflict that Britain participated
+   in the 18th century.
 card-back:
    reference: acts/peace-accord-back
 deck:
    reference: acts
+acts:
+   title: Peace Accord
+page: true
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} shortTitle heading="decree" textSize={70}>
+<Layout {...frontmatter.acts} heading="decree" textSize={80}>
 <div class="peace">
 
-The **{frontmatter._["role.govt.governor"]}** may
-take one debt during their turn and during Expenses
-(without taking an Emergency Loan).
+The **{frontmatter._["role.govt.governor.full"]}**\
+may take one emergency funding without being fired.
 
-The **{frontmatter._["role.govt.military"]}** may not
-deploy into a sovereign region.
+The **{frontmatter._["role.govt.military.full"]}**
+may not deploy into\
+a foreign-settled region.
 
 ---
 
-_Flip this card over when\
+_Flip this card over when:\
 (a) **War Against France** is passed,\
-(b) a **Foreign Invasion** event occurs,\
-(c) a **Conflict** event occurs against a colonized region, **or**\
-(d) a **Revolt** event occurs in more\
-than one region._
+(b) a **Foreign Invasion** occurs against\
+a controlled or colonized region,\
+(c) a **Conflict** occurs against a\
+ colonized region, **or**\
+(d) a **Revolt** occurs in more than one colonized region._
 
 </div>
 </Layout>
@@ -44,9 +49,9 @@ than one region._
    }
    em {
       display: inline-block;
-      font-size: 8pt;
+      font-size: 7pt;
       font-style: italic;
-      line-height: 1.33em;
+      line-height: 1.333em;
    }
 }
 `}</style>

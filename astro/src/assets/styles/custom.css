@@ -1,6 +1,24 @@
+@layer starlight, cards;
+
 :root {
-/*    --sl-font: 'Baskervville';*/
-/*    --sl-font: 'Cormorant Variable';*/
+  /* --sl-font: 'Hoefler Text', 'Baskervville Variable', serif; */
+  --sl-text-h2: 2rem;
+  --sl-text-h3: 1.5rem;
+  --bg-bonus: #C2D7B1;
+}
+
+@layer starlight.utils {
+	@media (min-width: 34rem) {
+		.sm\:sl-hidden {
+			display: none;
+		}
+		.sm\:sl-flex {
+			display: flex;
+		}
+		.sm\:sl-block {
+			display: block;
+		}
+	}
 }
 
 /* Page Title  */
@@ -49,16 +67,16 @@
   font-weight: 400;
 }
 
-.sl-container > :is(h1, h4, h5),
-.sl-markdown-content :is(h1, h4, h5):not(:where(.not-content *)) {
+.sl-container > :is(h1, h3, h5),
+.sl-markdown-content :is(h1, h3, h5):not(:where(.not-content *)) {
   font-family: 'Baskervville Variable';
-  font-weight: 600;
+  font-weight: 700;
 }
 
-.sl-container > :is(h2, h3, h6),
-.sl-markdown-content :is(h2, h3, h6):not(:where(.not-content *)) {
+.sl-container > :is(h2, h4, h6),
+.sl-markdown-content :is(h2, h4, h6):not(:where(.not-content *)) {
   font-family: 'Baskervville SC Variable';
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .sl-markdown-content th:not(:where(.not-content *)) {
@@ -70,6 +88,19 @@
   html:not([data-has-toc]) .sl-container {
     /* 720 + 268 + 24 + 16 + 40 / 16 */
     max-width: 66.75rem;
+  }
+}
+
+@media (50rem <= width) {
+  .hero {
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    .stack > * {
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+    }
   }
 }
 
@@ -97,11 +128,90 @@ li > .starlight-aside {
   color: color-mix(in srgb, var(--sl-color-white), transparent 60%);
 }
 
-
 /* Specialized Sections */
-.sl-markdown-content .indent {
-  margin-top: 1.5rem;
-  margin-left: 2.5rem;
+.sl-markdown-content {
+  :is(figure):not(:where(.not-content *)) {
+    display: block;
+    text-align: center;
+
+    figcaption {
+      margin-top: 0.25rem;
+      font-family: 'Baskervville Variable';
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+
+  :is(table):not(:where(.not-content *)) {
+    display: inline-table;
+    font-family: 'Baskervville Variable';
+    font-variant-numeric: tabular-nums;
+    margin-left: auto;
+    margin-right: auto;
+
+    th {
+      font-weight: 600;
+      font-size: 1.1rem;
+
+      img {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .bonus:not(:where(.not-content *)) {
+    background-color: var(--bg-bonus);
+    align-items: center;
+    padding: 0.5em;
+
+    .pound {
+      color: white;
+      font-family: 'Baskervville Variable';
+      font-weight: bold;
+      font-size: 2rem;
+      line-height: 1rem;
+      margin-right: 0.75rem;
+    }
+
+    .text {
+      margin-top: 0;
+      /* align-self: start; */
+
+      p {
+        line-height: 1.2em;
+      }
+    }
+  }
+
+  .indent {
+    margin-top: 1.25rem;
+    margin-left: 2.5rem;
+
+    .bonus {
+      margin-left: -2.5rem;
+    }
+
+    ol li::marker {
+      font-family: 'Baskervville Variable';
+      font-weight: 700;
+    }
+  }
+  .endent {
+    margin-right: 2.5rem;
+  }
+
+  .roman {
+    ol {
+      list-style-type: upper-roman;
+
+      li::marker {
+        font-family: 'Baskervville Variable';
+        font-weight: 700;
+      }
+    }
+  }
 }
 
 #trade-dice table {

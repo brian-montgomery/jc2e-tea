@@ -1,14 +1,15 @@
 ---
 interface Props {
+  class: string;
   textSize?: number;
 }
 
-const { textSize = 80 } = Astro.props;
+const { textSize = 80, class: cssClass = "" } = Astro.props;
 
 import CardNumber from '@components/deckyard/CardNumber.astro';
 ---
 
-<div class="column">
+<div class:list={["office-card", cssClass]}>
   <div class="main-text" style={`--text-size: ${textSize}%`}>
     <slot></slot>
     { /* Convert to Dice Roll Component */
@@ -40,51 +41,3 @@ import CardNumber from '@components/deckyard/CardNumber.astro';
     <CardNumber />
   </div>
 </div>
-
-<style>
-  .column {
-    position: relative;
-    color: black;
-  }
-  .main-text {
-    position: absolute;
-    top: 1.825in;
-    left: 0.125in;
-    width: 2in;
-    max-width: 2in;
-    height: 1.55in;
-    max-height: 1.55in;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-
-    & :global(p) {
-      font-family: 'Baskervville Variable';
-      font-variant-numeric: tabular-nums;
-      font-size: var(--text-size);
-      line-height: 1em;
-      text-align: center;
-      margin-bottom: 0.5em;
-    }
-    & :global(strong) {
-      font-weight: 600;
-      font-family: 'Baskervville SC Variable';
-      font-variant-numeric: tabular-nums;
-    }
-    & :global(hr) {
-      border: 1px solid #8a8879;
-      border-bottom: 0;
-      margin: 1em;
-    }
-  }
-  .number {
-    position: absolute;
-    font-size: 6pt;
-    font-family: 'Baskervville SC Variable';
-    font-variant-numeric: tabular-nums;
-    right: 10px;
-    top: 3.25in;
-  }
-</style>

@@ -1,5 +1,5 @@
 ---
-title: Liberty
+title: Protest
 deck:
    reference: events
    quantity: 1
@@ -7,13 +7,8 @@ card-back:
    reference: events/backs/florida
 ---
 import Layout from "@components/EventCardLayout.astro";
+import Protest from "./_liberty.mdx";
 
-<Layout title={frontmatter.title} textSize={95}>
-Add an unrest cube to each colonized region {/* in a cube */}
-on the most recently passed
-**{frontmatter._["deck.laws.singular"]}**.
-
-Perform **correspondence** or add an **unrest cube**
-to the region on the back of the event deck,
-if it is colonized.
+<Layout title={frontmatter.title} textSize={90}>
+   <Protest />
 </Layout>

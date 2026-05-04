@@ -1,0 +1,80 @@
+---
+title: Tokens and Markers
+tableOfContents: false
+counts:
+   pokerChips: 20
+   sixSidedDie: 10-12
+   militaryUnits: 10
+   localAlliance: 4
+   speculation: 3
+---
+
+import { Image } from "astro:assets";
+import { LinkButton } from '@astrojs/starlight/components';
+
+## Tokens
+
+<div class="indent">
+:::danger[Missing Tokens]
+
+The following tokens and markers have not been made yet. Please use any substitute you think is appropriate.
+-  Office overlay for {frontmatter._["role.company.tea2"]}.
+-  Additional filled/closed order tokens.
+-  {frontmatter.counts.militaryUnits} military unit and
+   {frontmatter.counts.localAlliance} local alliance tokens for America.
+-  {frontmatter.counts.speculation} speculation tokens.
+:::
+
+
+### Local Alliance Tokens
+
+In America, the local allies are the various native nations that had historically good relationships with Britain.
+
+:::caution[Substitute]
+Because these tokens aren't ready, please use a substitute.
+:::
+
+:::figure[Native _Local Alliances_]
+|      Name     | Cost | Strength |
+|:--------------|:----:|:--------:|
+| Haudenosaunee |  £4  |     2    |
+| Cherokee      |  £3  |     1    |
+| Chickasaw     |  £2  |     1    |
+| Choctaw       |  £2  |     1    |
+:::
+
+
+### Speculation Tokens
+
+Speculation tokens are used when the _Land Speculation_ Act gets passed. These function similarly to loot tokens, although the money is split between the shares for the Land Company.
+
+:::caution[Substitute]
+Because these tokens aren't ready, we recommend using 8- or 10-sided die as a substitute for each of these.
+:::
+
+:::figure[Regions and Speculation Amount]
+|      Region          | Amount |
+|:---------------------|:------:|
+| Ohio Country         |   £5   |
+| Mississippi Reserve  |   £3   |
+| Florida              |   £3   |
+:::
+
+### {frontmatter._["tea.token.plural"]}
+
+Use poker chips to represent {frontmatter._["tea.token.plural"]}. We recommend having multiple denominations, as it is
+possible for there to be 20-30 {frontmatter._["tea.token.plural"]} in the Company warehouses.
+
+</div>
+
+## Markers
+
+### Pawns for Tracks
+
+You will need a couple of markers (or pawns) for the various tracks on the [scenario board](/jc2e-tea/components/board/).
+These can be anything would like.
+
+### Region Strength
+
+Region strength for foreign-settled colonies are represented using 6-sided dice of various colors. The colors will show
+which regions are allied (friendly). __A region's strength will never go below one.__

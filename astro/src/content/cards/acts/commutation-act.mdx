@@ -1,21 +1,23 @@
 ---
-title: Tea Duties Lowered
-deck:
-   reference: acts
+title: Commutation Act
 description: >-
    The Commutation Act greatly reduced the tariffs that Britain placed on tea.
+deck:
+   reference: acts
 # regions:
 #    - SP: true
 #    - NE: false
 #    - CP: false
 #    - DP: false
-tags:
-   - tea
+acts:
+   title: Tea Duties Lowered
+   tags:
+      - tea
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={100}>
-   When passed, increase\
+<Layout {...frontmatter.acts} shortTitle textSize={105}>
+   When passed, raise\
    the **Value of Tea** by 2.
 
    {/* During the tea auction,
@@ -23,7 +25,7 @@ import Layout from "@components/ActCardLayout.astro";
 
    Each turn, during upkeep,
    players must pay
-   a **window tax**.
+   a **window tax**.\
    If window taxes are **repealed**,
    lower the **{frontmatter._['credit.track']}**
    by 1 instead.

@@ -1,37 +1,38 @@
 ---
-title: Land Speculation
+title: Land Companies
 deck:
    reference: acts
 description: >-
    Land Companies (like the Ohio Company or the Mississippi Land Company)
    were fairly common, often endorsed by the Crown.
-# regions:
-#    - SP: false
-#    - NE: false
-#    - DP: false
-#    - CP: false
-tags:
-   - military
+acts:
+   title: Land Speculation
+   # regions:
+   #    - SP: false
+   #    - NE: false
+   #    - DP: false
+   #    - CP: false
+   tags:
+      - military
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} textSize={80}>
+<Layout {...frontmatter.acts} textSize={80}>
 
-When passed, flip the loot tokens
-over in the\
+When passed, flip the
+speculation tokens over in\
 **uncolonized** regions.
 
-When a player **seeks a share** during the
+When a player **seeks a share** during
 Family Actions,\
-they may pay **£1** to place a
-family marker on this card,\
-acting as a share.
+they may also pay **£1** to\
+place a family marker on\
+this card (acting as a share).
 
-
-When a region is colonized,\
-skip the bonuses for the
-Commander and Officers.
-Instead, divide the bonuses
-between the markers on this card,
-using the loot rules.
+When a region that has a
+speculaton token is __colonized__,\
+divide the amount listed on\
+the token evenly between\
+the markers on this card\
+(rounding down).
 </Layout>

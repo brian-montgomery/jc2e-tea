@@ -7,6 +7,18 @@ background:
    image: "@assets/images/cards/setup-bg.jpeg"
 card-back:
    landscape: true
+pages:
+   deck:
+      back: vertical
 ---
 
+import { Aside } from '@astrojs/starlight/components';
+import Notice from "./_print-notice.md";
+
 These are the additional offices that have been created for this scenario.
+These act like reference cards for the players and are flipped
+over and placed in the Vacant Offices box for use during Hiring.
+
+<Aside title="Print and Play">
+   <Notice />
+</Aside>

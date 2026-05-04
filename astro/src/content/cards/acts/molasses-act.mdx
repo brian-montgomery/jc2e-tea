@@ -5,27 +5,31 @@ deck:
 description: >-
    Considered the last of the Navigation Acts, the Molasses Act
    was more about stopping trade than collecting tariffs.
-regions:
-   - NE: true
-   - DP: true
-   - SP: false
-   - CP: false
-tags:
-   - duty
+acts:
+   title: Molasses Act
+   regions:
+      - NE
+      - DP
+   # regions:
+   #    - NE: true
+   #    - DP: true
+   #    - SP: false
+   #    - CP: false
+   tags:
+      - duty
 ---
 import Layout from "@components/ActCardLayout.astro";
 
-<Layout {...frontmatter} shortTitle textSize={100}>
-When rolling Customs checks,
+<Layout {...frontmatter.acts} shortTitle textSize={105}>
+When making\
+Customs checks,\
 use **2** dice.\
-Add **1** to a die with\
+Add **2** to a die with\
 the lowest value.
 
 Add **£2** to the\
 Colonial Treasury\
-for each success,
-placing a collector
-on a smuggled order.
+for each success.
 </Layout>
 
 {/*

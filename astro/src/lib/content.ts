@@ -39,7 +39,7 @@ function background(context: SchemaContext) {
   return z.object({
     bleed: z.string().describe(
       "The CSS width representing the bleed for this background"
-    ).default("0"),
+    ).default("0px"),
     image: context.image().describe(
       `The ${adjective}image that the ${context.type} uses as a background.`
     ),
