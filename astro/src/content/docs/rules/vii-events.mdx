@@ -4,7 +4,10 @@ sidebar:
    order: 17
 ---
 
-import { Steps } from "@astrojs/starlight/components"
+import { Image } from "astro:assets";
+import { Steps } from "@astrojs/starlight/components";
+
+import blackBear from "@assets/images/black-bear.png";
 
 After resolving Events in India, roll the storm die, resolve any storms and then
 resolve a number of events in America during which the political and economic
@@ -82,6 +85,8 @@ _This is a simplified version of the Elephant's March._
    :::note
    The bear will always be on a border pointing from one region to another.
    :::
+
+<Image src={blackBear} alt="Line drawing of a black bear" style="margin: 3rem auto;" />
 
 ### Impacted Regions
 

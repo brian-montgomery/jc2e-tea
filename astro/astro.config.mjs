@@ -38,10 +38,12 @@ export default defineConfig({
 			sidebar: [
         {
           label: `Rules v${version}`,
-        	autogenerate: { directory: 'rules' },
+        	autogenerate: { directory: 'rules', collapsed: true, },
+          collapsed: true,
         },
         {
           label: 'Print and Play Components',
+          collapsed: true,
           items: [
             {
               label: "Scenario Board",
@@ -79,7 +81,8 @@ export default defineConfig({
 				},
         {
           label: 'Design Notes',
-          autogenerate: { directory: 'design' },
+          collapsed: true,
+          autogenerate: { directory: 'design-notes', collapsed: true, },
         },
 			],
       plugins: [
