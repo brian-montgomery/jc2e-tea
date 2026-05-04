@@ -9,13 +9,14 @@ import { Image } from 'astro:assets';
 import americaSetup from '@assets/images/cards/scenario-america.png';
 import indiaSetup from '@assets/images/cards/scenario-india.png';
 
-When setting up this scenario, follow the usual rules for setup, but use the following
-instead of step 10:
+When setting up this scenario, follow the usual rules for setup (on page 4 of the manual),
+but use the following instead of step 10:
 
+<div class="bold-list">
 10. Place the scenario board next to the main board.
     You may place this on the left of the main board to better represent geography,
     or to the right of the main board to better incorporate game flow.
-11. Shuffle the Events in America deck and place them near the Indian Event tiles.
+11. Shuffle the Events in America cards and place them near the Indian Event tiles.
 12. Place the Native American local alliance tiles on the *Army of North America*
     space.
 13. Place a marker on the "S" space on the {frontmatter._["tea.track"]} track
@@ -25,6 +26,7 @@ instead of step 10:
 16. Place the {frontmatter._["tea.token.plural"]} where they are accessible.
 17. Place each speculation token in the matching region in America (£ side face **down**).
 18. Use the Setup and Scenario Cards.
+</div>
 
 ## Scenario Card
 
@@ -36,24 +38,26 @@ instead of step 10:
 
 ## The Boards
 
-Use the following map and instructions to setup India:
+Use the following map and instructions to setup both India and America.
 
 ### India
 
 <div class="sl-flex" style="column-gap: 2em; row-gap: 1em;">
-   *  Closed Orders
+   <div>
+      #### Closed Orders
       *  All orders in ___Punjab___ and ___Hyderabad___ are closed.
       *  The two southernmost orders in ___Delhi___ are closed (£3 and £5).
       *  The southernmost orders in ___Maratha___ (£2), ___Madras___ (£4), and ___Mysore___ (£6) are closed.
-   *  Region Strength
+
+      #### Region Strength
       *  ___Maratha___ has a strength of 2.
       *  ___Punjab___ has a strength of 0.
       *  All other regions have a strength of 1.
-   *  Empires
-      *  One empire is located in the north, with ___Delhi___ dominating ___Punjab___.
-      *  There is one empire in the south, with ___Madras___ serving ___Hyderabad___.
-   *  The elephant is pointing from ___Madras___ into ___Hyderabad___.
 
+      #### Empires & Elephant
+      *  One empire is located in the north, with ___Delhi___ dominating ___Punjab___.
+      *  One empire in the south, with  ___Hyderabad___ dominating ___Madras___. The elephant is pointing from ___Madras___ into ___Hyderabad___.
+   </div>
    <Image
       src={indiaSetup}
       alt="The initial map for the India in 1733."
@@ -63,22 +67,26 @@ Use the following map and instructions to setup India:
 
 </div>
 
-### America
+---
 
-Use the following map and instructions to setup America:
+### America
 
 <div class="sl-flex" style="column-gap: 2em; row-gap: 1em;">
 
-   *  Closed Orders
+   <div>
+      #### Closed Orders
       *  The two western £2 orders in the ___Delawarean___ and the ___Southern Provinces___ are closed.
       *  The westernmost £3 order in the ___Chesapeake___ is closed.
       *  The £3 orders in ___Canada___, ___Florida___, the ___Mississippi Reserve___, and the ___Ohio Country___ are closed.
-   *  Region Strength
+
+      #### Region Strength
       *  ___Canada___ and ___Florida___ have a strength of 2.
       *  ___Mississippi Reserve___ and the ___Ohio Country___ has a strength of 1.
-   *  Allied Territory
+
+      #### Allied Territory
       *  ___Canada___, the  ___Mississippi Reserve___ and the ___Ohio Country___ should be allied
-      together (use the same color dice).
+         together (use the same color dice).
+   </div>
 
    <Image
       src={americaSetup}

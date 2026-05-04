@@ -4,6 +4,7 @@
   /* --sl-font: 'Hoefler Text', 'Baskervville Variable', serif; */
   --sl-text-h2: 2rem;
   --sl-text-h3: 1.5rem;
+  --sl-text-h4: 1.25rem;
   --bg-bonus: #C2D7B1;
 }
 
@@ -85,8 +86,8 @@
 
 /* Fix bug with StarlightPage */
 @media (min-width: 72rem) {
+  /* 720 + 268 + 24 + 16 + 40 / 16 */
   html:not([data-has-toc]) .sl-container {
-    /* 720 + 268 + 24 + 16 + 40 / 16 */
     max-width: 66.75rem;
   }
 }
@@ -129,6 +130,11 @@ li > .starlight-aside {
 }
 
 /* Specialized Sections */
+
+section.footnotes > div.sl-heading-wrapper {
+  border-bottom: 1px solid var(--sl-color-hairline);
+}
+
 .sl-markdown-content {
   :is(figure):not(:where(.not-content *)) {
     display: block;
@@ -182,6 +188,13 @@ li > .starlight-aside {
       p {
         line-height: 1.2em;
       }
+    }
+  }
+
+  .bold-list {
+    ol > li::marker {
+      font-family: 'Baskervville Variable';
+      font-weight: bold;
     }
   }
 
