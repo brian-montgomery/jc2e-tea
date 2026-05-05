@@ -46,12 +46,10 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
-              label: "Scenario Board",
-              link: '/components/board',
+              slug: 'components/board',
             },
             {
-              label: "Tokens and Markers",
-              link: '/components/tokens',
+              slug: 'components/tokens',
             },
             {
               label: "Scenario Cards",
@@ -76,6 +74,10 @@ export default defineConfig({
             {
               label: "Events in America Deck",
               link: '/components/decks/events',
+            },
+            {
+              slug: "components/rules",
+              label: "Printable Rules"
             },
           ]
 				},

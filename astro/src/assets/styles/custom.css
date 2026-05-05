@@ -80,6 +80,14 @@
   font-weight: 500;
 }
 
+.sl-markdown-content {
+  .print\:section {
+    > .sl-heading-wrapper:first-child {
+      margin-top: 1.5em;
+    }
+  }
+}
+
 .sl-markdown-content th:not(:where(.not-content *)) {
   font-weight: 700;
 }
@@ -136,6 +144,9 @@ section.footnotes > div.sl-heading-wrapper {
 }
 
 .sl-markdown-content {
+  :is(.sl-heading-wrapper, p) + :is(ul, ol) {
+    margin-top: 0.5em;
+  }
   :is(figure):not(:where(.not-content *)) {
     display: block;
     text-align: center;
@@ -198,6 +209,25 @@ section.footnotes > div.sl-heading-wrapper {
     }
   }
 
+  @media print {
+    /* Avoid a heading break at the end of a page */
+    .sl-heading-wrapper {
+      page-break-inside: avoid;
+
+      &::after {
+          content: "";
+          display: block;
+          height: 100px;
+          margin-bottom: -100px;
+      }
+    }
+    .print\:section {
+      break-inside: avoid;
+    }
+    .print\:none {
+      display: none;
+    }
+  }
   .indent {
     margin-top: 1.25rem;
     margin-left: 2.5rem;
