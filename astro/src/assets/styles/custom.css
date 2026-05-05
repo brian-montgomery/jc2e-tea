@@ -58,7 +58,6 @@
 .group-label .large {
   font-family: 'Baskervville Variable';
   font-weight: 600;
-  font-size: 1.1rem;
 }
 
 .sl-container :is(h1[data-page-title]),
@@ -78,6 +77,14 @@
 .sl-markdown-content :is(h2, h4, h6):not(:where(.not-content *)) {
   font-family: 'Baskervville SC Variable';
   font-weight: 500;
+}
+
+.sl-markdown-content {
+  .print\:section {
+    > .sl-heading-wrapper:first-child {
+      margin-top: 1.5em;
+    }
+  }
 }
 
 .sl-markdown-content th:not(:where(.not-content *)) {
@@ -136,6 +143,9 @@ section.footnotes > div.sl-heading-wrapper {
 }
 
 .sl-markdown-content {
+  :is(.sl-heading-wrapper, p) + :is(ul, ol) {
+    margin-top: 0.5em;
+  }
   :is(figure):not(:where(.not-content *)) {
     display: block;
     text-align: center;
@@ -198,6 +208,25 @@ section.footnotes > div.sl-heading-wrapper {
     }
   }
 
+  @media print {
+    /* Avoid a heading break at the end of a page */
+    .sl-heading-wrapper {
+      page-break-inside: avoid;
+
+      &::after {
+          content: "";
+          display: block;
+          height: 100px;
+          margin-bottom: -100px;
+      }
+    }
+    .print\:section {
+      break-inside: avoid;
+    }
+    .print\:none {
+      display: none;
+    }
+  }
   .indent {
     margin-top: 1.25rem;
     margin-left: 2.5rem;
