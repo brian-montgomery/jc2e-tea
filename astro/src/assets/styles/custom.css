@@ -58,7 +58,6 @@
 .group-label .large {
   font-family: 'Baskervville Variable';
   font-weight: 600;
-  font-size: 1.1rem;
 }
 
 .sl-container :is(h1[data-page-title]),

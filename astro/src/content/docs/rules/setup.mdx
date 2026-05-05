@@ -40,7 +40,7 @@ Use the following map and instructions to setup both India and America.
 
 <div class="print:section">
    <div class="sl-flex" style="column-gap: 2em; row-gap: 1em;">
-      <div style="font-size: 80%">
+      <div class="scenario-map">
          ### India
 
          #### Closed Orders
@@ -68,7 +68,7 @@ Use the following map and instructions to setup both India and America.
 
 <div class="print:section">
    <div class="sl-flex" style="column-gap: 2em; row-gap: 1em;">
-      <div style="font-size: 80%">
+      <div class="scenario-map">
          ### America
 
          #### Closed Orders
@@ -93,3 +93,13 @@ Use the following map and instructions to setup both India and America.
       />
    </div>
 </div>
+
+<style>{`
+.scenario-map {
+   .flex-grow: 1;
+
+   @media print {
+      font-size: 80%;
+   }
+}
+`}</style>

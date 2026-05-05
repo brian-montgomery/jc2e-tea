@@ -38,46 +38,52 @@ export default defineConfig({
 			sidebar: [
         {
           label: `Rules v${version}`,
+          badge: 'New',
         	autogenerate: { directory: 'rules', collapsed: true, },
           collapsed: true,
         },
         {
-          label: 'Print and Play Components',
+          label: 'Print and Play',
           collapsed: true,
           items: [
+            {
+              slug: 'components/rules',
+            },
             {
               slug: 'components/board',
             },
             {
+              label: "Cards",
+              items: [
+                {
+                  label: "Scenario Cards",
+                  link: '/components/decks/reference',
+                },
+                {
+                  label: "Setup Cards",
+                  link: '/components/decks/setup',
+                },
+                {
+                  label: "Office Cards",
+                  link: '/components/decks/office',
+                },
+                {
+                  label: "Board of Trade Deck",
+                  link: '/components/decks/acts',
+                },
+                {
+                  label: "Smuggler Deck",
+                  link: '/components/decks/smuggler',
+                },
+                {
+                  label: "Events in America Deck",
+                  link: '/components/decks/events',
+                },
+              ],
+              collapsed: false,
+            },
+            {
               slug: 'components/tokens',
-            },
-            {
-              label: "Scenario Cards",
-              link: '/components/decks/reference',
-            },
-            {
-              label: "Setup Cards",
-              link: '/components/decks/setup',
-            },
-            {
-              label: "Office Cards",
-              link: '/components/decks/office',
-            },
-            {
-              label: "Board of Trade Deck",
-              link: '/components/decks/acts',
-            },
-            {
-              label: "Smuggler Deck",
-              link: '/components/decks/smuggler',
-            },
-            {
-              label: "Events in America Deck",
-              link: '/components/decks/events',
-            },
-            {
-              slug: "components/rules",
-              label: "Printable Rules"
             },
           ]
 				},
