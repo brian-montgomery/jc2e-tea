@@ -38,7 +38,6 @@ export default defineConfig({
 			sidebar: [
         {
           label: `Rules v${version}`,
-          badge: 'New',
           items: [{
             autogenerate: { directory: 'rules', }},
           ],
