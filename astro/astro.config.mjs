@@ -38,8 +38,9 @@ export default defineConfig({
 			sidebar: [
         {
           label: `Rules v${version}`,
-          badge: 'New',
-        	autogenerate: { directory: 'rules', collapsed: true, },
+          items: [{
+            autogenerate: { directory: 'rules', }},
+          ],
           collapsed: true,
         },
         {
@@ -90,7 +91,9 @@ export default defineConfig({
         {
           label: 'Design Notes',
           collapsed: true,
-          autogenerate: { directory: 'design-notes', collapsed: true, },
+          items: [{
+            autogenerate: { directory: 'design-notes' },
+          }]
         },
 			],
       plugins: [
