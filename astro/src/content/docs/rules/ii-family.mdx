@@ -5,18 +5,35 @@ sidebar:
 tableOfContents: false
 ---
 
+import { Image } from "astro:assets";
+import collector from "@assets/images/collector-icon.png";
+
 ## Family Action
 
 There are a couple of changes with some of the family actions.
 
 <div class="indent">
-### Enlist Writer
+   <div class="sl-flex" style="margin-top: 0.25em; margin-right: 0.25em; column-gap: 1.5em;">
+      <div>
+      ### Enlist Writer
 
-When placing writers, players may place a piece in the {frontmatter._["role.govt.customs.full"]}'s
-treasury (on the scenario board) instead of a presidency. This piece is a **collector**.
+      When placing writers, players may place a piece in the {frontmatter._["role.govt.customs.full"]}'s
+      treasury (on the scenario board) instead of a presidency. This piece is a **collector**.
+      _When counting for vacant offices,
+      do not include the offices in the {frontmatter._["role.govt.office"]}._
+      </div>
 
-_When counting for vacant offices,
-do not include the offices in the {frontmatter._["role.govt.office"]}._
+      <Image
+         src={collector}
+         alt="An icon of hand-drawn balance scales, representing a collector"
+         width="100"
+         style="height: auto; align-self: center; margin-top: 0;"
+      />
+   </div>
+
+</div>
+
+<div class="indent">
 
 ### Enlist Officer
 
@@ -26,6 +43,7 @@ When placing officers, players may place a piece in the {frontmatter._["role.gov
 **If [War is Declared](/jc2e-tea/rules/concepts/#declaration-of-war), you may place
 an additional officer once this turn.** _This might allow you to place two or three
 officers in a turn depending on the location of your opportunity marker._
+
 </div>
 
 ## New Company Shares
