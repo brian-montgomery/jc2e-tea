@@ -2,7 +2,33 @@
 title: IVb. Department Operation
 sidebar:
    order: 14.5
+   badge:
+      text: Updated
 ---
+
+import { Image } from "astro:assets";
+import collector from "@assets/images/collector-icon.png";
+import secretary from "@assets/images/secretary-icon.png";
+
+<style>{`
+.sl-flex.heading {
+   column-gap: 0.5em;
+   margin-top: 3rem;
+   align-items: center;
+   flex-direction: row-reverse;
+   justify-content: start;
+
+   img {
+      margin-top: 0;
+   }
+}
+`}</style>
+
+:::note[The Colonial Department]
+The {frontmatter._["role.govt.office"]} acts somewhat similar to a Presidency in
+the Company. As described below, the {frontmatter._["role.govt.governor.full"]}
+will determine the order of operations in the America phase.
+:::
 
 ## Success Checks
 
@@ -32,8 +58,10 @@ determines whether the check is successful or not, __pay attention to the values
 on the other rolled dice and any consequences that may occur as a result__.
 :::
 
-
+<div class="sl-flex heading">
 ## Secretarial Operations
+<Image src={secretary} width="50" alt="" />
+</div>
 
 The {frontmatter._["role.govt.governor.full"]} manages the budget for the
 {frontmatter._["role.govt.office"]} and decides the order in which Trade in
@@ -57,32 +85,36 @@ an Oversight action.
    If the {frontmatter._["role.govt.governor"]} is vacant, the Prime Minister will
    determine the order of Trade in America  and the {frontmatter._["role.govt.military"]}.
    The Prime Minister acting in this way cannot approve local alliance purchases,
-   take debt or take the Oversight action.
+   or take either of the Oversight or Funding actions.
 
 
 <div class="indent">
-### Funding
+### Funding <Badge text="Clarified" />
 
-A debt can be taken at any time during your turn to add £5 and a red debt cube
-to your treasury. This can only be used once per turn (twice if War is Declared).
-_Remember to lower the {frontmatter._["credit.track"]} by 1._ __This action cannot
-be taken if the {frontmatter._["credit.track"]} is at 0.__
+Funding may be taken at any time during your turn to add £5 and a red debt cube
+to your treasury. _Remember to lower the {frontmatter._["credit.track"]} by 1._
+This action may only be used once per turn during peacetime; this action may be
+used twice if [War is Declared](/jc2e-tea/rules/concepts/#declaration-of-war).
+__This action cannot be taken if the {frontmatter._["credit.track"]} is at 0.__
 
-### Oversight
+import { Badge } from "@astrojs/starlight/components"
+
+### Oversight <Badge text="Clarified" />
 
 Make a check using the number of dice remaining in the pool. There is
 no penalty. You may add dice to this roll by spending £1 from your treasury.
 
 If successful, choose one of the two following options.
-*  __Add one military unit__.
+*  __Commission Military Unit__.
    Place a military unit from the supply to the Army of North America.
    Military units are treated like regiments.
 *  __Open an Order__.
-   Open one closed order in any __foreign-settled region__ in America.
+   Open one closed order in any _foreign-settled region_ in America.
 
-Lower the number of dice in the pool by 1 regardless of its result.
-You may continue taking actions until one the following happens: you
-roll a catastrophic failure, you run out of dice, or you decide to stop.
+__Lower the number of dice in the pool by 1 and remove any dice from the pool gained
+by spending £, regardless of its result.__ You may continue taking the Oversight action
+until one of the following happens: you roll a catastrophic failure, you run out of
+dice, or you decide to stop.
 
 ### Trade in America
 
@@ -95,18 +127,23 @@ Players fill orders starting with the participant with the lowest initiative
 and proceeding to the highest. When it is the smugglers turn, the
 [{frontmatter._["role.govt.customs"]}](#customs) fills (or closes) the orders on
 the smuggler cards (if they are not closed already) and the firm manager (and the
-{frontmatter._["role.company.tea2"]}, if Tea Regulation is passed) fills as many
-orders as possible. Any ties in initiative are decided by the
-{frontmatter._["role.govt.governor"]}.
+{frontmatter._["role.company.tea2"]}, if
+[Tea Regulation](/jc2e-tea/rules/viii-parliament-meets/#the-vote-to-regulate-tea)
+is passed) fills as many orders as possible. Any ties in initiative are decided by
+the {frontmatter._["role.govt.governor"]}.
 </div>
 
+<div class="sl-flex heading">
 ## {frontmatter._["role.govt.customs.full"]}
+<Image src={collector} width="50" alt="" />
+</div>
+
 
 The {frontmatter._["role.govt.customs.full"]} must draw a
-{frontmatter._["deck.trades.singular"]} card. This card indicates their initiative
-and which orders the Smugglers are going to trade at this turn.
+{frontmatter._["deck.trades.singular"]} card. This card indicates how much initiative
+and which orders the Smugglers are going to use to trade this turn.
 
-Then, the {frontmatter._["role.govt.customs"]} may take the Customs action during
+Then, the {frontmatter._["role.govt.customs"]} may take the Customs action before
 the smugglers turn during Trade in America to extract tariffs from the smuggled orders
 and raise funds for the Colonial Treasury. The current Colonial Duty will provide both
 the base amount of dice to roll and the amount in tariffs the
@@ -116,7 +153,8 @@ the base amount of dice to roll and the amount in tariffs the
    ### Customs
 
    Make a check. Using the current Colonial Duty, determine the base size
-   of your dice pool. You may request that the {frontmatter._["role.govt.military"]}
+   of your dice pool. You may request that the
+   [{frontmatter._["role.govt.military.full"]}](#commander-of-north-america)
    exhaust military units to add to 1 to your dice pool for each unit exhausted.
    Roll up to that number of dice. _Remember: as with any check, if it is unsuccessful,
    you may attempt it again so long as it did not end in catastrophic failure and you
@@ -141,17 +179,25 @@ the base amount of dice to roll and the amount in tariffs the
    placed on an order.
    :::
 
+   **For each catastrophic failure rolled,** place a closed order token on one of the
+   marked orders on the smuggler card that is not closed on the board.
+
+   For each of the remaining orders on the smuggler card that are not closed on the board,
+   place a filled order token on it.
+
 </div>
 
----
-
-<figure class="print:none">
-   ![Political Cartoon of about the Tea Act of 1773](https://www.americanrevolution.org/wp-content/uploads/2024/04/townshend-acts-political-cartoon-min.png)
+<figure>
+   <img
+      src="https://www.james-gillray.org/images/lwl_new-way900.jpg"
+      alt="A satire painting of several British Soldiers giving a toast around a table"
+      style="margin: 0 auto; max-width: 500px;"
+   />
    <figcaption>
-      Political Cartoon (hosted by www.americanrevolution.org)
+      __A New Way to Pay the National Debt__ by James Gillray\
+      (hosted by www.james-gillray.org)
    </figcaption>
 </figure>
-
 
 ## {frontmatter._["role.govt.military.full"]}
 
@@ -166,10 +212,10 @@ The differences with the Deploy action is as follows:
 <div class="indent">
    ### Deploy: Peace Accord
 
-   During peace, the {frontmatter._["role.govt.military.full"]} may only deploy in a
-   __colonized region__ to open all orders and attempt to clear unrest. Only
-   when _War is Declared_ may the {frontmatter._["role.govt.military.full"]} deploy
-   in an uncolonized region.
+   During peacetime, the {frontmatter._["role.govt.military.full"]} may only deploy
+   in a _colonized region_ to open all orders and attempt to clear unrest. Only
+   when [War is Declared](/jc2e-tea/rules/concepts/#declaration-of-war) may the
+   {frontmatter._["role.govt.military.full"]} deploy in a foreign-settled region.
 
    ### Deploy: Success
 
@@ -185,11 +231,11 @@ The differences with the Deploy action is as follows:
             and surviving officers.
          :::
    2. __Take Trophies.__
-      Take one trophy token for each strength in the uncolonized region
-      (since you are the Commander). Then, uncover the flag by the removing the
-      region strength die.
+      Take one trophy token for each strength on the targeted region's strength die
+      (_since you are the Commander_). Then, uncover the flag by the removing the
+      region's strength die.
    3. __Impose Order.__
-      Open all orders in the region. If this was a __colonized__ region,
+      Open all orders in the region. If this was a _colonized_ region,
       remove one unrest cube for each success rolled and add one unrest cube
       for each 5-6 rolled.
 </div>

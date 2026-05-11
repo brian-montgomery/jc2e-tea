@@ -5,7 +5,7 @@ sidebar:
    badge: Updated
 ---
 
-For the duration of the scenario, the firms operate in the American mainland, not India. The **India Treasury** space holds revenue gained from trade in America (instead of India). This treasury is used to pay dividends. Any remainder is then transferred to the London treasury.
+For the duration of the scenario, the firms operate in the American mainland, not India. The *India Treasury* space holds revenue gained from trade in America (instead of India). This treasury is used to pay dividends. Any remainder is then transferred to the London treasury.
 
 :::note
 The law to deregulate **is not present** in this scenario. However, the rules regarding deregulation are present from the beginning, with the following modifications.
@@ -59,22 +59,24 @@ strategy was “Hobnob,” that firm's ships will not be affected by storms.
 
 At the start of a {frontmatter._["role.govt.governor"]}'s Operations (before any actions are taken),
 all firms reveal their strategy and **declare any regions they wish to trade Tea in**. Make a check with dice equal to:
-*  The amount of cash allocated to the strategy.
-*  The amount of {frontmatter._["tea.token.plural"]}, minus the amount of unrest cubes in the declared regions.
+*  The amount of cash and  allocated to the strategy.
+*  The amount of {frontmatter._["tea.token.plural"]} acquired, _minus the amount of unrest cubes in the declared regions_.
 
-The cash is then paid to the bank and the {frontmatter._["tea.token.plural"]} should be kept.
-If at least one success is rolled, the firm may trade. Each firm that successfully trades has
-an initiative value equal to the total of their ships minus the number of successful dice
-(1s and 2s) they rolled. This number can be negative.
+The cash is then paid to the bank and the {frontmatter._["tea.token.plural"]} should be kept in the
+firm's Trade Bid space. If at least one success is rolled, the firm may trade. Each firm that
+successfully trades has an initiative value equal to the total of their ships minus the number of
+successful dice (1s and 2s) they rolled. This number can be negative.
 
 Orders are filled after the {frontmatter._["role.govt.customs"]} has made a roll while taking
-the Customs action (and the {frontmatter._["role.company.tea2"]} if Tea Regulation is passed).
+the [Customs](/jc2e-tea/rules/iv-department-operation/#customs) action (and the
+{frontmatter._["role.company.tea2"]}, if
+[Tea Regulation](/jc2e-tea/rules/viii-parliament-meets/#the-vote-to-regulate-tea) is passed).
 The current smuggler card determines their initiative.
 
 Players then fill orders starting with the smugglers, firm or Company with the lowest
-initiative and proceeding to the highest. When it is their turn, the Commissioner or
-firm manager trading fills as many orders as possible. Any ties in initiative are
-decided by the {frontmatter._["role.govt.governor"]}.
+initiative and proceeding to the highest. When it is their turn, the player trading
+fills as many orders as possible. Any ties in initiative are decided by the
+{frontmatter._["role.govt.governor"]}.
 
 Firms fill a number of open orders up to the number of ships they own **plus one**.
 Orders must be filled starting with the associated port listed on their strategy. When
@@ -82,17 +84,20 @@ filling an order, you must be able to trace a path back to this port through any
 number of orders that you have filled.
 
    *  **Previously-Filled Orders.**
-      Firms may fill orders previously filled this turn by other firms, smugglers or the Company.
-      The Company may fill orders previously filled by firms or smugglers this turn. The filling
+      Players may fill orders previously filled this turn by other players. The filling
       of a previously-filled order will generate half of its listed value, rounding down.
+      _This matches the other Deregulation scenarios_.
 
    *  **Trading with Tea.**
       As a firm with {frontmatter._["tea.token.plural"]} remaining is filling orders, it may
-      spend one at an order within its declared regions. Spending a {frontmatter._["tea.token.singular"]}
-      will generate an additional half of the order's listed value, rounding down.
+      spend one {frontmatter._["tea.token.singular"]} at an order within its declared regions.
+      Spending a {frontmatter._["tea.token.singular"]} will generate an additional half of
+      the order's listed value, rounding down. Tea may be traded at an order that is already
+      filled. _You may only spend one {frontmatter._["tea.token.singular"]} at each order._
 
-      _Tea may be traded at an order that is already filled_. After all orders have been filled, any
-      remaining {frontmatter._["tea.token.plural"]} should be discarded.
+Finally, advance your firm's Value marker one space for each £6 you added to the firm's
+India treasury this turn. Any remaining {frontmatter._["tea.token.plural"]} in the Trade Bid
+space should be returned to the supply.
 
 ## Firm Expenses and Dividends
 
