@@ -12,6 +12,9 @@ counts:
 import { Image } from "astro:assets";
 import { LinkButton } from '@astrojs/starlight/components';
 
+import localAlliances from "@assets/images/local-alliances.png";
+import teaToken from "@assets/images/tea-token.png";
+
 ## Tokens
 
 <div class="indent">
@@ -20,33 +23,41 @@ import { LinkButton } from '@astrojs/starlight/components';
 The following tokens and markers have not been made yet. Please use any substitute you think is appropriate.
 -  Office overlay for {frontmatter._["role.company.tea2"]}.
 -  Additional filled/closed order tokens.
--  {frontmatter.counts.militaryUnits} military unit and
-   {frontmatter.counts.localAlliance} local alliance tokens for America.
+-  {frontmatter.counts.militaryUnits} military unit tokens for America.
 -  {frontmatter.counts.speculation} speculation tokens.
 :::
 
 
 ### Local Alliance Tokens
 
-In America, the local allies are the various native nations that had historically good relationships with Britain.
+In America, the local allies are the various native nations that had historically good relationships with Britain. Click on the image below to download the high-resolution version, which should be printed at 288 DPI.
 
-:::caution[Substitute]
-Because these tokens aren't ready, please use a substitute.
-:::
+<div class="sm:sl-flex" style="justify-content: space-evenly; align-items: center; column-gap: 0.5em;">
 
-:::figure[Native _Local Alliances_]
-|      Name     | Cost | Strength |
-|:--------------|:----:|:--------:|
-| Haudenosaunee |  £4  |     2    |
-| Cherokee      |  £3  |     1    |
-| Chickasaw     |  £2  |     1    |
-| Choctaw       |  £2  |     1    |
-:::
+   :::figure[Native _Local Alliances_]
+   |      Name     | Cost | Strength |
+   |:--------------|:----:|:--------:|
+   | Haudenosaunee |  £4  |     2    |
+   | Cherokee      |  £3  |     1    |
+   | Chickasaw     |  £2  |     1    |
+   | Choctaw       |  £2  |     1    |
+   :::
+
+   <a href="/jc2e-tea/images/local-alliances.png" download="local-alliance-tokens.png">
+      <Image
+         src={localAlliances}
+         alt="Download the local alliance tokens"
+         width="216"
+         height="auto"
+      />
+   </a>
+</div>
 
 
 ### Speculation Tokens
 
-Speculation tokens are used when the _Land Speculation_ Act gets passed. These function similarly to loot tokens, although the money is split between the shares for the Land Company.
+Speculation tokens are used when the _Land Speculation_ Act gets passed. These function similarly
+to loot tokens, although the money is split between the shares for the Land Company.
 
 :::caution[Substitute]
 Because these tokens aren't ready, we recommend using 8- or 10-sided die as a substitute for each of these.
@@ -60,10 +71,25 @@ Because these tokens aren't ready, we recommend using 8- or 10-sided die as a su
 | Florida              |   £3   |
 :::
 
-### {frontmatter._["tea.token.plural"]}
 
-Use poker chips to represent {frontmatter._["tea.token.plural"]}. We recommend having multiple denominations, as it is
-possible for there to be 20-30 {frontmatter._["tea.token.plural"]} in the Company warehouses.
+<div class="sm:sl-flex" style="justify-content: space-evenly; align-items: center; column-gap: 1.5em;">
+
+   <div>
+   ### {frontmatter._["tea.token.plural"]}
+
+   Use poker chips to represent {frontmatter._["tea.token.plural"]}. We recommend having multiple
+   denominations, as it is possible for there to be 20-30 {frontmatter._["tea.token.plural"]}
+   in the Company warehouses.
+   </div>
+
+   <Image
+      src={teaToken}
+      alt="A possible tea crate token"
+      width="119"
+      height="auto"
+   />
+</div>
+
 
 </div>
 
@@ -71,10 +97,11 @@ possible for there to be 20-30 {frontmatter._["tea.token.plural"]} in the Compan
 
 ### Pawns for Tracks
 
-You will need a couple of markers (or pawns) for the various tracks on the [scenario board](/jc2e-tea/components/board/).
-These can be anything would like.
+You will need a couple of markers (or pawns) for the various tracks on the
+[scenario board](/jc2e-tea/components/board/). These can be anything that are available.
 
 ### Region Strength
 
-Region strength for foreign-settled colonies are represented using 6-sided dice of various colors. The colors will show
-which regions are allied (friendly). __A region's strength will never go below one.__
+Region strength for foreign-settled colonies are represented using 6-sided dice of various
+colors. The colors will show which regions are allied (friendly). __A region's strength will
+never go below one.__
