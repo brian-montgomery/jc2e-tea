@@ -47,10 +47,6 @@
 
 [data-theme="dark"] .site-title {
   color: white;
-
-  img {
-    filter: invert(75%);
-  }
 }
 
 /* Headings */

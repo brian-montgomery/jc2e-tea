@@ -7,6 +7,8 @@ import { Image } from "astro:assets";
 import { LinkButton } from '@astrojs/starlight/components';
 import boardImg from '@assets/images/game-board.jpeg';
 
+export const version = process.env.npm_package_version;
+
 :::caution
 As this is still a work in progress, the rules have some page break issues.
 :::
@@ -17,8 +19,8 @@ Choose your option of how to view all of the rules.
 
 <div class="sl-flex" style="justify-content: center">
    <LinkButton
-      href={`/jc2e-tea/colonial-tea-rules-${process.env.npm_package_version}.pdf`}
-      download
+      href={`/jc2e-tea/pnp/${version}/rules.pdf`}
+      download={`rules-${version}.pdf`}
       icon="download"
       iconPlacement="start"
    >

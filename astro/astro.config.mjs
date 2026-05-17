@@ -54,40 +54,43 @@ export default defineConfig({
               slug: 'components/board',
             },
             {
-              label: "Cards",
-              items: [
-                {
-                  label: "Scenario Cards",
-                  link: '/components/decks/reference',
-                },
-                {
-                  label: "Setup Cards",
-                  link: '/components/decks/setup',
-                },
-                {
-                  label: "Office Cards",
-                  link: '/components/decks/office',
-                },
-                {
-                  label: "Board of Trade Deck",
-                  link: '/components/decks/acts',
-                },
-                {
-                  label: "Smuggler Deck",
-                  link: '/components/decks/smuggler',
-                },
-                {
-                  label: "Events in America Deck",
-                  link: '/components/decks/events',
-                },
-              ],
-              collapsed: false,
+              slug: 'components/decks',
             },
             {
               slug: 'components/tokens',
             },
           ]
 				},
+        {
+          label: "Card Reference",
+          items: [
+            {
+              label: "Scenario Cards",
+              link: '/components/decks/scenario/',
+            },
+            {
+              label: "Setup Cards",
+              link: '/components/decks/setup/',
+            },
+            {
+              label: "Office Cards",
+              link: '/components/decks/office/',
+            },
+            {
+              label: "Board of Trade Deck",
+              link: '/components/decks/acts/',
+            },
+            {
+              label: "Smuggler Deck",
+              link: '/components/decks/smuggler/',
+            },
+            {
+              label: "Events in America Deck",
+              link: '/components/decks/events/',
+            },
+          ],
+          collapsed: true,
+        },
         {
           label: 'Design Notes',
           collapsed: true,
