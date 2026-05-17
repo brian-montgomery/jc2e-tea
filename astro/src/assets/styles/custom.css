@@ -47,10 +47,6 @@
 
 [data-theme="dark"] .site-title {
   color: white;
-
-  img {
-    filter: invert(75%);
-  }
 }
 
 /* Headings */
@@ -77,6 +73,7 @@
 .sl-markdown-content :is(h2, h4, h6):not(:where(.not-content *)) {
   font-family: 'Baskervville SC Variable';
   font-weight: 500;
+  font-variant-numeric: lining-nums;
 }
 
 .sl-markdown-content {
@@ -178,6 +175,7 @@ section.footnotes > div.sl-heading-wrapper {
   }
 
   .bonus:not(:where(.not-content *)) {
+    color: black;
     background-color: var(--bg-bonus);
     align-items: center;
     padding: 0.5em;

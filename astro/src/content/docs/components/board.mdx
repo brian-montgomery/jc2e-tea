@@ -7,6 +7,8 @@ import { Image } from "astro:assets";
 import { LinkButton } from '@astrojs/starlight/components';
 import boardImg from '@assets/images/game-board.jpeg';
 
+export const version = process.env.npm_package_version;
+
 <div class="sm:sl-flex" style="column-gap: 1.5em">
    <div>
       :::caution
@@ -24,7 +26,7 @@ import boardImg from '@assets/images/game-board.jpeg';
 
       <div class="sl-flex" style="justify-content: center">
          <LinkButton
-            href="/jc2e-tea/game-board-full.pdf"
+            href={`/jc2e-tea/pnp/${version}/game-board-full.pdf`}
             download
             icon="seti:pdf"
             iconPlacement="start"

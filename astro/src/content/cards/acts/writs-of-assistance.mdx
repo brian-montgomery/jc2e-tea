@@ -19,7 +19,7 @@ acts:
 import Layout from "@components/ActCardLayout.astro";
 import T from "@components/T.astro";
 
-<Layout {...frontmatter.acts}>
+<Layout shortTitle {...frontmatter.acts}>
    During Customs checks,\
    the **<T key="role.govt.customs" />**
    may reroll any number of\
@@ -27,5 +27,6 @@ import T from "@components/T.astro";
 
    When closing orders,\
    add an **unrest cube**
-   to that colonized region.
+   to that colonized region.\
+   &nbsp;
 </Layout>

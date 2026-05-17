@@ -1,0 +1,153 @@
+---
+title: Cards and Decks
+tableOfContents: false
+sidebar:
+   badge: New
+---
+
+import { Image } from "astro:assets";
+import { LinkButton } from '@astrojs/starlight/components';
+
+export const version = process.env.npm_package_version;
+
+The cards can be downloaded as a PDF or viewed as separate pages and printed.
+However, printing only works from a Chromium-based browser (Chrome, Edge, etc).
+
+This print-and-play is designed for the front and backs of the cards to be folded
+over. The bridge-sized cards will print with the top and bottom edges aligned,
+while the mini-euro sized cards should be folded on the side edges.
+
+## Scenario Cards
+
+<div class="sl-flex card-table">
+   <LinkButton
+      href={`/jc2e-tea/pnp/${version}/scenario-cards.pdf`}
+      download={`scenario-cards-${version}.pdf`}
+      icon="download"
+      iconPlacement="start"
+   >
+      Download as PDF
+   </LinkButton>
+   <LinkButton
+      href="/jc2e-tea/components/decks/scenario/"
+      icon="magnifier"
+      variant="secondary"
+   >
+      View Reference
+   </LinkButton>
+</div>
+
+## Setup Cards
+
+<div class="sl-flex card-table">
+   <LinkButton
+      href={`/jc2e-tea/pnp/${version}/setup-cards.pdf`}
+      download={`setup-cards-${version}.pdf`}
+      icon="download"
+      iconPlacement="start"
+   >
+      Download as PDF
+   </LinkButton>
+   <LinkButton
+      href="/jc2e-tea/components/decks/setup/"
+      icon="magnifier"
+      variant="secondary"
+   >
+      View Reference
+   </LinkButton>
+</div>
+
+## Office Cards
+
+<div class="sl-flex card-table">
+   <LinkButton
+      href={`/jc2e-tea/pnp/${version}/office-cards.pdf`}
+      download={`office-cards-${version}.pdf`}
+      icon="download"
+      iconPlacement="start"
+   >
+      Download as PDF
+   </LinkButton>
+   <LinkButton
+      href="/jc2e-tea/components/decks/office/"
+      icon="magnifier"
+      variant="secondary"
+   >
+      View Reference
+   </LinkButton>
+</div>
+
+## Board of Trade Deck
+
+<div class="sl-flex card-table">
+   <LinkButton
+      href={`/jc2e-tea/pnp/${version}/board-of-trade-deck.pdf`}
+      download={`trade-deck-${version}.pdf`}
+      icon="download"
+      iconPlacement="start"
+   >
+      Download as PDF
+   </LinkButton>
+   <LinkButton
+      href="/jc2e-tea/components/decks/acts/"
+      icon="magnifier"
+      variant="secondary"
+   >
+      View Reference
+   </LinkButton>
+</div>
+
+## Event Deck
+
+<div class="sl-flex card-table">
+   <LinkButton
+      href={`/jc2e-tea/pnp/${version}/event-deck.pdf`}
+      download={`event-deck-${version}.pdf`}
+      icon="download"
+      iconPlacement="start"
+   >
+      Download as PDF
+   </LinkButton>
+   <LinkButton
+      href="/jc2e-tea/components/decks/events/"
+      icon="magnifier"
+      variant="secondary"
+   >
+      View Reference
+   </LinkButton>
+</div>
+
+## Smuggler Deck
+
+<div class="sl-flex card-table">
+   <LinkButton
+      href={`/jc2e-tea/pnp/${version}/smuggler-deck.pdf`}
+      download={`smuggler-deck-${version}.pdf`}
+      icon="download"
+      iconPlacement="start"
+   >
+      Download as PDF
+   </LinkButton>
+   <LinkButton
+      href="/jc2e-tea/components/decks/smuggler/"
+      icon="magnifier"
+      variant="secondary"
+   >
+      View Reference
+   </LinkButton>
+</div>
+
+<style>{`
+.card-table {
+   align-items: center;
+   justify-content: center;
+
+   > p:first-child {
+      font-family: 'Baskervville SC Variable';
+      font-weight: 500;
+      line-height: 1em;
+      margin-inline-end: 1em;
+      font-size: 1.25em;
+   }
+}
+`}</style>

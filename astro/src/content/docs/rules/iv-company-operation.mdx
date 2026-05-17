@@ -39,7 +39,7 @@ During the Tea phase, take the following actions:
    Determine the number of export icons in company-controlled regions (1 if [silver](#trade-in-china-silver) was used to trade) and multiply that by the current value on the {frontmatter._["tea.track"]}, [rounding to the closest number](#tea-conversion). Place that resulting amount of {frontmatter._["tea.token.plural"]} in the top half of your treasury.
 
    :::figure[_{frontmatter._["tea.track"]}_ Conversion Table]{id="tea-conversion"}
-   | <Image src={exportIcon} height={24} alt="Export Icons" /> | 1<Fr num="1" den="3" /> | 1<Fr num="2" den="3" /> |  2 | 2<Fr num="1" den="3" /> | 2<Fr num="2" den="3" /> |  3 | 3<Fr num="1" den="3" /> |
+   | <Image id="exportIcon" src={exportIcon} height={24} width={36} alt="Export Icons" /> | 1<Fr num="1" den="3" /> | 1<Fr num="2" den="3" /> |  2 | 2<Fr num="1" den="3" /> | 2<Fr num="2" den="3" /> |  3 | 3<Fr num="1" den="3" /> |
    |:------------:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
    |      1       |  1 |  2 |  2 |  2 |  3 |  3 |  3 |
    |      2       |  3 |  3 |  4 |  5 |  5 |  6 |  7 |
@@ -64,6 +64,24 @@ During the Tea phase, take the following actions:
 </div>
 
 <style>{`
+
+#tea-conversion {
+   @media (width <= 500px) {
+      margin-left: -1.5rem;
+
+      table th,
+      table td {
+         font-size: 80%;
+         padding: 0.4em 0.75em;
+      }
+
+      #exportIcon {
+         min-width: 1.25em;
+         max-width: 1.25em;
+      }
+   }
+}
+
 figure.tea-auction {
    max-width: 600px;
    margin: 0.75rem auto;
@@ -103,7 +121,7 @@ Determine the number of export icons in company-controlled regions (1 if [silver
 
 When the {frontmatter._["role.govt.governor.full"]} allows Trade in America, the {frontmatter._["role.company.tea2"]} determines their dice pool with the following steps:
 
-1. Declare the **colonized regions in America** in which you wish to trade. You cannot include regions that are foreign settled, regions that you could not trade in because you do not have enough ships or because you could not fill an order because a connecting order is closed. **Consider the three ports in America to be connected.**
+1. Declare the **colonized regions in America** in which you wish to trade. You cannot include regions that are _foreign-settled_, regions that you could not trade in because you do not have enough ships or because you could not fill an order because a connecting order is closed. **Consider the three ports in America to be connected.**
 
 2. Make a check. Add one die per {frontmatter._["tea.token.singular"]} in your treasury that you wish to trade. You may use {frontmatter._["tea.token.plural"]} in either half of your treasury. Subtract one die for each unrest cube in each region that you declared in step 1 from your total dice.
 
