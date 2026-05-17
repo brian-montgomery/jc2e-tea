@@ -28,10 +28,11 @@ but use the following instead of step 10:
 18. Place a black pawn on "2" space on the Turn track, and the arm on the Prime Minister dial
     to point to the "Social Tax plus Window Tax" space halfway in between the 1710 and 1758
     starting spaces.
-19. Use the Scenario Cards. Follow any instructions on the front of the cards, taking components
+19. Use the [Scenario Cards](/jc2e-tea/components/decks/scenario/). Follow any instructions
+    on the front of the cards, taking components
     as needed and using pawns to mark the listed position on various tracks. Then, set up the regions
     of India and America as shown on the back of the cards (and also [listed below](#the-india-and-america-maps)).
-20. Use the Setup Cards.
+20. Use the [Setup Cards](/jc2e-tea/components/decks/setup/).
 </div>
 
 ## The India and America Maps
@@ -39,7 +40,7 @@ but use the following instead of step 10:
 Use the following map and instructions to setup both India and America.
 
 <div class="print:section">
-   <div class="sl-flex" style="column-gap: 2em; row-gap: 1em;">
+   <div class="sm:sl-flex" style="column-gap: 2em; row-gap: 1em;">
       <div class="scenario-map">
          ### India
 
@@ -61,13 +62,12 @@ Use the following map and instructions to setup both India and America.
          src={indiaSetup}
          alt="The initial map for the India in 1733."
          width="275"
-         style="border-radius: 10px; border: 1px solid lightgrey; margin: 0 auto; align-self: center;"
       />
    </div>
 </div>
 
 <div class="print:section">
-   <div class="sl-flex" style="column-gap: 2em; row-gap: 1em;">
+   <div class="sm:sl-flex" style="column-gap: 2em; row-gap: 1em;">
       <div class="scenario-map">
          ### America
 
@@ -89,7 +89,6 @@ Use the following map and instructions to setup both India and America.
          src={americaSetup}
          alt="The initial map for America in 1733."
          width="275"
-         style="border-radius: 10px; border: 1px solid lightgrey; margin: 0 auto; align-self: center;"
       />
    </div>
 </div>
@@ -97,6 +96,14 @@ Use the following map and instructions to setup both India and America.
 <style>{`
 .scenario-map {
    .flex-grow: 1;
+   margin: 1em 0;
+
+   & + img {
+      border: 1px solid lightgrey;
+      border-radius: 10px;
+      margin: 1.5em auto;
+      align-self: center;
+   }
 
    @media print {
       font-size: 80%;
