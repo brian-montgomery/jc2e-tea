@@ -42,7 +42,7 @@ async function getBackgroundUrl(image: ImageMetadata | undefined) {
   if (image === undefined)
     return undefined;
 
-  const optimizedImg = await getImage({ src: image, format: 'png'});
+  const optimizedImg = await getImage({ src: image, format: 'avif' });
   return optimizedImg.src;
 }
 
