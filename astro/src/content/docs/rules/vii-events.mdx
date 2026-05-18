@@ -108,19 +108,42 @@ _This is a simplified version of the Elephant's March._
 
 ### Impacted Regions
 
-When resolving an event, you may need to know what the Impacted Regions are.
-At the bottom of the [{frontmatter._["deck.laws.singular"]} cards](/jc2e-tea/components/decks/acts)
+When resolving an event, you may need to know which regions are impacted. At the bottom of
+each of the [{frontmatter._["deck.laws.name"]} cards](/jc2e-tea/components/decks/acts)
 is a list of regions that are affected by that {frontmatter._["deck.laws.singular"]} passing.
 The impacted regions are the colonized regions on the most recently passed
 {frontmatter._["deck.laws.singular"]}. _If a region is listed on the
 {frontmatter._["deck.laws.singular"]}, but is no longer colonized, it is not Impacted._
 
-   *  **No Impacted Regions.** There are a couple of {frontmatter._["deck.laws.singular"]} cards
-      that do have any impacted regions. In this case, there are no impacted regions for this turn.
-   *  **Tea Regulation.**
-      The [Tea Regulation](/jc2e-tea/rules/viii-parliament-meets/#the-vote-to-regulate-tea)
-      card does not have any impacted regions and should be ignored when determining the most
-      recently passed {frontmatter._["deck.laws.singular"]}.
+:::figure[_Impacted Region_ Reference]{id='impacted-region-ref'}
+| Abbreviation | Region          |
+|:------------:|:---------------:|
+|     NE       | New England     |
+|     DP       | Delawarean Provinces |
+|     CP       | Chesapeake      |
+|     SP       | Southern Provinces |
+:::
+
+<style>{`
+#impacted-region-ref {
+   @media (width <= 500px) {
+      margin-left: -1.5rem;
+
+      table th,
+      table td {
+         font-size: 80%;
+         padding: 0.4em 0.75em;
+      }
+   }
+}
+`}</style>
+
+*  **No Impacted Regions.** There are a couple of {frontmatter._["deck.laws.singular"]} cards
+   that do have any impacted regions. In this case, there are no impacted regions for this turn.
+*  **Tea Regulation.**
+   The [Tea Regulation](/jc2e-tea/rules/viii-parliament-meets/#the-vote-to-regulate-tea)
+   card does not have any impacted regions and should be ignored when determining the most
+   recently passed {frontmatter._["deck.laws.singular"]}.
 
 ### War Declared <Badge text="Clarified" />
 
@@ -175,8 +198,8 @@ All of the events in America are described in the following sections.
 
    ### Boycott
 
-   Locate the region pictured on the top of the draw stack. If it's impacted,
-   close all orders in the region. If it's colonized, add an unrest cube to
+   Locate the region pictured on the top of the draw stack. If it's _impacted_,
+   close all orders in the region. If it's _colonized_, add one unrest cube to
    the region. Otherwise, add one strength to the region.
 
    ### Peace
@@ -221,7 +244,7 @@ All of the events in America are described in the following sections.
 
       If the Aggression failed, close any connected order in the attacker's
       region. If there are no connected orders of if the order is already closed,
-      close the westernmost closed order in the attacker's region instead.
+      close the westernmost open order in the attacker's region instead.
       Perform a Cascade, if necessary.
 
       #### Raid
@@ -288,16 +311,17 @@ All of the events in America are described in the following sections.
       If the defender is a colonized region, immediately flip the Colonial Decree to
       the _War Declared_ side.
    -  __Foreign Neighbor.__
-      If the defending region has an adjacent region that is not allied, treat the
-      attack as originating from the strongest non-allied adjacent region.
+      If the defending region has at least one adjacent region that is not allied (does
+      not have the same colored strength die), treat the attack as originating from the
+      strongest of the non-allied adjacent regions.
    -  __Attack Strength.__
       Roll a six-sided die. The attacking strength will be the greater of the die roll
-      and the strength of the strongest _foreign neighbor_ (including their allies).
+      and the strength of the strongest _foreign neighbor_, including its allies.
 
    In addition to those rules, if the Foreign Invasion is successful:
    -  Close every open order in the region. If all orders are already closed, perform a Cascade.
-   -  If there was a foreign neighbor, match the color of the die when covering the flag.
-      Set the region's strength to half the strength of the Invasion (round down).
+   -  If there was a _foreign neighbor_, match the color of the strength die when covering the
+      flag. Set the region's strength to half the strength of the Invasion (round down).
 
    ### Revolt
 
@@ -309,17 +333,18 @@ All of the events in America are described in the following sections.
    -  __Declare War.__
       If the number of rebelling colonies is greater than one, immediately flip the
       Colonial Decree to the _War Declared_ side.
-   -  __Check for Militia.__
+   -  __Check for Militia Solidarity.__
       For each military unit in the Army of North America, roll a die. On a roll
       of 5 or 6, discard that unit and add an unrest to the rebelling region with
-      the greatest amount of unrest.
+      the least amount of unrest, preferring any impacted regions if there is a
+      tie.
    -  __Local Alliances.__
       With any money currently in the Colonial treasury, the {frontmatter._["role.govt.governor.full"]}
       may allow the {frontmatter._["role.govt.military"]} to purchase local alliance(s).
 
-   If any of the rebellions succeed, consider the revolution successful. Follow the steps for
+   If any of the rebellions succeed, consider the entire revolution successful. Follow the steps for
    [Region Loss](#region-loss) for each region involved. Cover the flags of the rebelling regions
-   with the same colored die and set each region's strength to half of their attacking strength
+   with the same colored die and set each region's strength to half of its attacking strength
    (rounded down).
 
    If all of the rebellions fail, the {frontmatter._["role.govt.military"]} gains a Trophy for
