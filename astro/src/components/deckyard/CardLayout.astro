@@ -11,12 +11,14 @@ interface Props {
   card: CollectionEntry<"cards">;
   id?: string;
   number?: number;
+  corners?: boolean;
 }
 
 const {
   card,
   id = undefined,
   number = undefined,
+  corners = true,
 } = Astro.props;
 
 const { Content } = await render(card);
@@ -28,13 +30,15 @@ const cssVariables = {
   "dy-deck-bleed": bleed ?? "0px",
   "dy-deck-height": height,
   "dy-deck-width": width,
+  "dy-card-corner-radius": corners ? "0.75em" : "0px",
 };
 
+const { background, dimensions, deck } = card.data;
 // TODO: Change this to be slot-based
 ---
 
 <div {id} class="card-front not-content">
-  <CardFrame {...card.data} card-number={number}>
+  <CardFrame {background} {dimensions} {deck} card-number={number}>
     <Content />
   </CardFrame>
 </div>
@@ -44,7 +48,6 @@ const cssVariables = {
 .card-front {
   --dy-deck-full-height: calc(var(--dy-deck-height) + (2 * var(--dy-deck-bleed, 0)));
   --dy-deck-full-width: calc(var(--dy-deck-width) + (2 * var(--dy-deck-bleed, 0)));
-  --dy-card-corner-radius: 0.75em;
   --sl-content-gap-y: 0;
 
   min-height: var(--dy-deck-full-height);
