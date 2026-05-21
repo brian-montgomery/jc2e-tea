@@ -16,7 +16,7 @@
     "@fontsource-variable/cormorant": "^5.1.0",
     "@fontsource-variable/libre-bodoni": "^5.2.7",
     "@fontsource/great-vibes": "^5.2.6",
-    "astro": "^6.3.1",
+    "astro": "^6.3.6",
     "sharp": "^0.32.6",
     "starlight-markdown-blocks": "^0.1.0"
   }

@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const decks = await getCollection("decks");
+
+  return decks.map((deck) => ({
+    params: { deck: deck.id },
+    props: {
+      deck,
+      page: {
+        hasSidebar: false,
+        headings: [],
+        sidebar: [],
+        frontmatter: {
+          title: deck.data.name,
+          tableOfContents: false,
+          pagefind: false,
+          prev: false,
+          next: false,
+        },
+      },
+    },
+  }));
+}
+
+const { deck, page } = Astro.props;
+
+import DeckTTSLayout from "@components/DeckTTSLayout.astro";
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+---
+
+<StarlightPage {...page}>
+  <DeckTTSLayout class="tts" deck={deck.id} />
+</StarlightPage>
+
+<style>
+:global(.sl-container:has(> .sl-markdown-content > .deck.tts)) {
+  max-width: none;
+}
+</style>

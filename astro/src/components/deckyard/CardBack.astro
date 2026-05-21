@@ -12,12 +12,14 @@ interface Props {
   card: CollectionEntry<"cards">;
   id?: string;
   number?: number;
+  corners?: boolean;
 }
 
 const {
   card,
   id = undefined,
   number = undefined,
+  corners = true,
 } = Astro.props;
 
 
@@ -45,6 +47,7 @@ const cssVariables = {
   "dy-deck-bleed": bleed ?? "0px",
   "dy-deck-height": height,
   "dy-deck-width": width,
+  "dy-card-corner-radius": corners ? "0.75em" : "0px",
 };
 ---
 
@@ -59,7 +62,6 @@ const cssVariables = {
 .card-back {
   --dy-deck-full-height: calc(var(--dy-deck-height) + (2 * var(--dy-deck-bleed)));
   --dy-deck-full-width: calc(var(--dy-deck-width) + (2 * var(--dy-deck-bleed)));
-  --dy-card-corner-radius: 0.75em;
   --sl-content-gap-y: 0;
 
   min-height: var(--dy-deck-full-height);
