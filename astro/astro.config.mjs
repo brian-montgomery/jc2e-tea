@@ -62,6 +62,9 @@ export default defineConfig({
           ]
 				},
         {
+          slug: 'tts',
+				},
+        {
           label: "Card Reference",
           items: [
             {
