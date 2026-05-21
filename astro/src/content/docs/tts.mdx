@@ -1,0 +1,32 @@
+---
+title: Tabletop Simulator
+tableOfContents: false
+sidebar:
+   badge:
+      text: Beta
+      variant: caution
+---
+
+import { Image } from "astro:assets";
+import { LinkButton } from '@astrojs/starlight/components';
+
+export const version = process.env.npm_package_version;
+
+A quick [Tabletop Simulator](https://www.tabletopsimulator.com/) Mod is available based on the original
+[John Company 2e TTS mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2474733631),
+by Cole Wehrle, the designer of the original board game. This includes all of the current cards of
+version __0.5.2__.
+
+To install the mod, download the JSON file and [follow the instructions from the Tabletop Simulator
+documentation](https://kb.tabletopsimulator.com/custom-content/importing-mods/#importing-saves).
+
+<div class="sl-flex" style="justify-content: center;">
+   <LinkButton
+      href={`/jc2e-tea/tts/TS_Save_1733.json`}
+      download
+      icon="download"
+      iconPlacement="start"
+   >
+      Download TTS Mod
+   </LinkButton>
+</div>
